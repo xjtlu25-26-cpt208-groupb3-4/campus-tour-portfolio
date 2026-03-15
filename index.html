@@ -1,12 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Campus Tour Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Campus Tour - CPT208</title>
+<style>
+  body {font-family: Arial, sans-serif; background-color: white; color: #333;}
+  .navbar {position: fixed; top: 0; width: 100%; background-color: #2C3E50; overflow: hidden;}
+  .navbar a {float: left; display: block; color: white; text-align: center; padding: 14px 20px; text-decoration: none;}
+  .header {background-color: #2C3E50; color: white; padding: 60px 20px; text-align: left;}
+  .header h1 {margin: 0; font-size: 2em;}
+  .header p {max-width: 400px; margin-top: 20px;}
+  .team-members, .user-personas, .development-log {padding: 40px 20px;}
+  .member-card, .persona-card {border: 1px solid #ddd; border-radius: 5px; padding: 15px; margin-bottom: 20px;}
+  .timeline {position: relative; max-width: 800px; margin: 0 auto;}
+  .timeline::after {content: ''; position: absolute; width: 6px; background-color: #2C3E50; top: 0; bottom: 0; left: 50%; margin-left: -3px;}
+  .container {padding: 10px 40px; background: inherit; width: 50%; position: relative; background-color: inherit;}
+  .container.left {left: 0;}
+  .container.right {left: 50%;}
+  .learning-reflection {padding: 40px 20px; background-color: #f4f4f4;}
+</style>
 </head>
 <body>
-  <h1>XJTLU Campus Tour Portfolio</h1>
-  <p>This is our CPT208 process portfolio website.</p>
+
+<div class="navbar">
+  <a href="#home">Home</a>
+  <a href="#team-members">Team Members</a>
+  <a href="#user-personas">User Personas</a>
+  <a href="#development-log">Development Log</a>
+</div>
+
+<section id="home" class="header">
+  <div style="display: flex;">
+    <div>
+      <h1>Campus Tour</h1>
+      <p><strong>CPT208 Human-Centered Computing Group Project</strong></p>
+      <p>To address the problem of freshmen and visitors getting lost on campus, our core objective is to provide an intuitive campus navigation tool. We achieve this by following the human-computer interaction design process.</p>
+    </div>
+  </div>
+</section>
+
+<section id="team-members" class="team-members">
+  <h2>Team Members</h2>
+  <div style="display: flex; flex-wrap: wrap;">
+    <!-- Repeat for each team member -->
+    <div class="member-card">
+      <img src="avatar-placeholder.png" alt="Avatar" style="border-radius: 50%;">
+      <h3>Name Surname</h3>
+      <p>ID: 123456789</p>
+      <p>UI/UX Design</p>
+    </div>
+  </div>
+</section>
+
+<section id="user-personas" class="user-personas">
+  <h2>User Personas</h2>
+  <div style="display: flex; flex-wrap: wrap;">
+    <!-- Repeat for each user persona -->
+    <div class="persona-card">
+      <img src="persona-placeholder.png" alt="Persona Image">
+      <h3>Freshman Li</h3>
+      <p><strong>Role:</strong> Freshman</p>
+      <p><strong>Goal:</strong> Quickly find classrooms.</p>
+      <p><strong>Pain Point:</strong> The campus map is too complex.</p>
+    </div>
+  </div>
+</section>
+
+<section id="development-log" class="development-log">
+  <h2>Development Log</h2>
+  <div class="timeline">
+    <!-- Timeline items here -->
+    <div class="container left">
+      <div>2026.03.01 - Project initiation and topic selection.</div>
+    </div>
+    <div class="container right">
+      <div>2026.03.05 - Completed user interviews.</div>
+    </div>
+    <div class="container left">
+      <div>2026.03.10 - Low fidelity prototype and testing.</div>
+    </div>
+    <div class="container right">
+      <div>2026.03.15 - High fidelity design completion.</div>
+    </div>
+  </div>
+</section>
+
+<section class="learning-reflection">
+  <h2>Learning & Reflection</h2>
+  <ul>
+    <li>Enhanced skills in interaction design processes.</li>
+    <li>Improved teamwork experience.</li>
+    <li>Future outlook includes adding AR navigation features.</li>
+  </ul>
+</section>
+
 </body>
 </html>
