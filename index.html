@@ -5,124 +5,476 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Campus Tour - CPT208</title>
 <style>
-  body {font-family: Arial, sans-serif; background-color: white; color: #333;}
-  .navbar {position: fixed; top: 0; width: 100%; background-color: #2C3E50; overflow: hidden;}
-  .navbar a {float: left; display: block; color: white; text-align: center; padding: 14px 20px; text-decoration: none;}
-  .header {background-color: #2C3E50; color: white; padding: 60px 20px; text-align: left;}
-  .header h1 {margin: 0; font-size: 2em;}
-  .header p {max-width: 400px; margin-top: 20px;}
-  .team-members, .user-personas, .development-log {padding: 40px 20px;}
-  .member-card, .persona-card {border: 1px solid #ddd; border-radius: 5px; padding: 15px; margin-bottom: 20px;}
-  .timeline {position: relative; max-width: 800px; margin: 0 auto;}
-  .timeline::after {content: ''; position: absolute; width: 6px; background-color: #2C3E50; top: 0; bottom: 0; left: 50%; margin-left: -3px;}
-  .container {padding: 10px 40px; background: inherit; width: 50%; position: relative; background-color: inherit;}
-  .container.left {left: 0;}
-  .container.right {left: 50%;}
-  .learning-reflection {padding: 40px 20px; background-color: #f4f4f4;}
+  /* Reset and base styles */
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    background-color: white;
+    color: #333;
+    line-height: 1.6;
+  }
+
+  /* Header Title */
+  .main-header {
+    background-color: #2C3E50;
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+  }
+
+  .main-header h1 {
+    margin-bottom: 10px;
+    font-size: 2.5em;
+  }
+
+  /* Navigation Bar */
+  .navbar {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background-color: #2C3E50;
+    overflow: hidden;
+    z-index: 100;
+  }
+
+  .nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center; /* Centers the links */
+  }
+
+  .navbar a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+  }
+
+  .navbar a:hover {
+    background-color: #34495e;
+  }
+
+  /* Introductory Description Section */
+  .intro-description {
+    background-color: #ecf0f1;
+    padding: 40px 20px;
+    text-align: center;
+  }
+
+  .intro-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .intro-content h2 {
+    color: #2C3E50;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+  }
+
+  .intro-content p {
+    margin-bottom: 10px;
+    font-size: 1.1em;
+  }
+
+  /* Section Styles */
+  section {
+    padding: 60px 20px;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 1.8em;
+    margin-bottom: 30px;
+    color: #2C3E50;
+  }
+
+  /* Team Members Grid */
+  .team-grid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .member-card {
+    flex: 1 1 220px; /* Grow, shrink, and set a base width */
+    min-width: 200px; /* Ensures cards don't get too narrow */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: center;
+  }
+
+  .member-card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+  }
+
+  .member-card h3 {
+    margin-bottom: 5px;
+  }
+
+  /* Motivation and Brainstorm Sections */
+  .motivation-content, .brainstorm-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+  }
+
+  .motivation-content p, .brainstorm-content p {
+    margin-bottom: 15px;
+  }
+
+  /* User Personas Grid */
+  .personas-grid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .persona-card {
+    flex: 1 1 300px;
+    min-width: 250px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: center;
+  }
+
+  .persona-card img {
+    width: 120px;
+    height: 120px;
+    border-radius: 8px;
+    object-fit: cover;
+    margin-bottom: 15px;
+  }
+
+  .persona-card h3 {
+    margin-bottom: 10px;
+  }
+
+  .persona-details {
+    text-align: left;
+    margin-top: 10px;
+  }
+
+  .persona-details p {
+    margin-bottom: 5px;
+  }
+
+  /* Requirements List */
+  .requirements-list {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+  }
+
+  .requirements-list ul {
+    list-style-type: none;
+  }
+
+  .requirements-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+  }
+
+  .requirements-list li:before {
+    content: "•";
+    color: #2C3E50;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+  }
+
+  /* Development Log Timeline */
+  .timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .timeline::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    background-color: #2C3E50;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3px;
+    z-index: 1;
+  }
+
+  .timeline-item {
+    padding: 10px 40px;
+    position: relative;
+    width: 50%;
+    background-color: inherit;
+  }
+
+  .timeline-item:nth-child(odd) {
+    left: 0;
+  }
+  .timeline-item:nth-child(even) {
+    left: 50%;
+  }
+
+  .timeline-content {
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+
+  .timeline::after,
+  .timeline-content {
+    z-index: 2;
+  }
+
+  /* Learning & Reflection */
+  .learning-reflection {
+    background-color: #f8f9fa;
+  }
+
+  .learning-reflection ul {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+    list-style-type: none;
+  }
+
+  .learning-reflection li {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+  }
+
+  .learning-reflection li:before {
+    content: "•";
+    color: #2C3E50;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+  }
+
+  /* Responsive adjustments */
+  @media screen and (max-width: 768px) {
+    .navbar a {font-size: 14px; padding: 12px 15px;}
+    
+    .main-header {padding: 40px 20px;}
+
+    .nav-container {flex-direction: column;} /* Stack nav items on mobile if needed */
+    .navbar a {text-align: center;}
+
+    .team-grid, .personas-grid {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .member-card, .persona-card {
+      width: 100%;
+      max-width: 350px;
+    }
+
+    .timeline::after {left: 31px;}
+    .timeline-item {width: 100%; padding-left: 70px; padding-right: 25px;}
+    .timeline-item:nth-child(odd), .timeline-item:nth-child(even) {left: 0;}
+  }
 </style>
 </head>
 <body>
 
-<div class="navbar">
-  <a href="#home">Home</a>
-  <a href="#team-members">Team Members</a>
-  <a href="#user-personas">User Personas</a>
-  <a href="#development-log">Development Log</a>
-</div>
+<!-- 1. Main Title Header -->
+<header class="main-header">
+  <h1>Campus Tour</h1>
+  <p>CPT208 Human-Centered Computing Group Project</p>
+</header>
 
-<section id="home" class="header">
-  <div style="display: flex;">
-    <div>
-      <h1>Campus Tour</h1>
-      <p><strong>CPT208 Human-Centered Computing Group Project</strong></p>
-      <p>To address the problem of freshmen and visitors getting lost on campus, our core objective is to provide an intuitive campus navigation tool. We achieve this by following the human-computer interaction design process.</p>
-    </div>
+<!-- 2. Navigation Bar -->
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="#home">Home</a>
+    <a href="#intro">Intro</a>
+    <a href="#team-members">Team</a>
+    <a href="#motivation">Motivation</a>
+    <a href="#brainstorm">Brainstorm</a>
+    <a href="#user-personas">Personas</a>
+    <a href="#requirements">Requirements</a>
+    <a href="#development-log">Log</a>
+  </div>
+</nav>
+
+<!-- 3. Introductory Description Section -->
+<section id="intro" class="intro-description">
+  <div class="intro-content">
+    <h2>About Our Project</h2> <!-- Added title here -->
+    <p>To address the problem of freshmen and visitors getting lost on campus, our core objective is to provide an intuitive campus navigation tool.</p>
+    <p>We achieve this by following the human-computer interaction design process.</p>
   </div>
 </section>
 
-<section id="team-members" class="team-members">
+<!-- 4. Team Members Section -->
+<section id="team-members">
   <h2>Team Members</h2>
-  <div style="display: flex; flex-wrap: wrap;">
+  <div class="team-grid">
     <!-- Team member 1 -->
     <div class="member-card">
-      <img src="avatar-placeholder.png" alt="Avatar" style="border-radius: 50%;">
+      <img src="avatar-placeholder.png" alt="Avatar">
       <h3>Name One</h3>
-      <p>ID: 123456789</p>
+      <p><strong>ID:</strong> 123456789</p>
       <p>UI/UX Design</p>
     </div>
     <!-- Team member 2 -->
     <div class="member-card">
-      <img src="avatar-placeholder.png" alt="Avatar" style="border-radius: 50%;">
+      <img src="avatar-placeholder.png" alt="Avatar">
       <h3>Name Two</h3>
-      <p>ID: 123456789</p>
+      <p><strong>ID:</strong> 123456789</p>
       <p>Front-end Development</p>
     </div>
     <!-- Team member 3 -->
     <div class="member-card">
-      <img src="avatar-placeholder.png" alt="Avatar" style="border-radius: 50%;">
+      <img src="avatar-placeholder.png" alt="Avatar">
       <h3>Name Three</h3>
-      <p>ID: 123456789</p>
+      <p><strong>ID:</strong> 123456789</p>
       <p>Back-end Development</p>
     </div>
     <!-- Team member 4 -->
     <div class="member-card">
-      <img src="avatar-placeholder.png" alt="Avatar" style="border-radius: 50%;">
+      <img src="avatar-placeholder.png" alt="Avatar">
       <h3>Name Four</h3>
-      <p>ID: 123456789</p>
+      <p><strong>ID:</strong> 123456789</p>
       <p>Testing & QA</p>
     </div>
   </div>
 </section>
 
-<section id="user-personas" class="user-personas">
+<!-- 5. Motivation Section -->
+<section id="motivation">
+  <h2>Motivation</h2>
+  <div class="motivation-content">
+    <p>Our motivation stems from a genuine desire to improve the campus experience for new students and visitors. A confusing or inaccessible navigation system can lead to stress, tardiness, and a negative first impression of the university.</p>
+    <p>By creating a clear, user-friendly digital guide, we aim to empower users to confidently explore and navigate the campus environment, fostering a sense of belonging and ease from day one.</p>
+  </div>
+</section>
+
+<!-- 6. Brainstorm Section -->
+<section id="brainstorm">
+  <h2>Brainstorm</h2>
+  <div class="brainstorm-content">
+    <p>During our brainstorming sessions, we explored various ideas to enhance the campus tour experience. Initial concepts included a simple map application, a location-based augmented reality (AR) feature, and an audio-guided tour.</p>
+    <p>After evaluating feasibility and user feedback, we decided to focus on a comprehensive, map-based navigation app that incorporates key points of interest, real-time pathfinding, and accessibility information. This approach balances innovation with practicality for our target audience.</p>
+  </div>
+</section>
+
+<!-- 7. User Personas Section -->
+<section id="user-personas">
   <h2>User Personas</h2>
-  <div style="display: flex; flex-wrap: wrap;">
+  <div class="personas-grid">
     <!-- Persona 1 -->
     <div class="persona-card">
       <img src="persona-placeholder.png" alt="Persona Image">
       <h3>Freshman Li</h3>
-      <p><strong>Role:</strong> Freshman</p>
-      <p><strong>Goal:</strong> Quickly find classrooms.</p>
-      <p><strong>Pain Point:</strong> The campus map is too complex.</p>
+      <div class="persona-details">
+        <p><strong>Role:</strong> Freshman</p>
+        <p><strong>Goal:</strong> Quickly find classrooms.</p>
+        <p><strong>Pain Point:</strong> The campus map is too complex.</p>
+      </div>
     </div>
     <!-- Persona 2 -->
     <div class="persona-card">
       <img src="persona-placeholder.png" alt="Persona Image">
       <h3>Visitor Wang</h3>
-      <p><strong>Role:</strong> Visitor</p>
-      <p><strong>Goal:</strong> Find administrative offices.</p>
-      <p><strong>Pain Point:</strong> Unfamiliar with campus layout.</p>
+      <div class="persona-details">
+        <p><strong>Role:</strong> Visitor</p>
+        <p><strong>Goal:</strong> Find administrative offices.</p>
+        <p><strong>Pain Point:</strong> Unfamiliar with campus layout.</p>
+      </div>
     </div>
     <!-- Persona 3 -->
     <div class="persona-card">
       <img src="persona-placeholder.png" alt="Persona Image">
       <h3>Professor Chen</h3>
-      <p><strong>Role:</strong> Professor</p>
-      <p><strong>Goal:</strong> Navigate between different lecture halls efficiently.</p>
-      <p><strong>Pain Point:</strong> Time management due to long distances between buildings.</p>
+      <div class="persona-details">
+        <p><strong>Role:</strong> Professor</p>
+        <p><strong>Goal:</strong> Navigate between different lecture halls efficiently.</p>
+        <p><strong>Pain Point:</strong> Time management due to long distances between buildings.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<section id="development-log" class="development-log">
+<!-- 8. Requirements Section -->
+<section id="requirements">
+  <h2>Requirements</h2>
+  <div class="requirements-list">
+    <ul>
+      <li>The application must provide accurate indoor and outdoor mapping of the campus.</li>
+      <li>It should offer turn-by-turn voice and visual navigation.</li>
+      <li>The interface must be intuitive and accessible for users of all technical backgrounds.</li>
+      <li>It needs to be compatible with both iOS and Android platforms.</li>
+      <li>The app should include a search function for buildings, departments, and facilities.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 9. Development Log Section -->
+<section id="development-log">
   <h2>Development Log</h2>
   <div class="timeline">
-    <!-- Timeline items here -->
-    <div class="container left">
-      <div>2026.03.01 - Project initiation and topic selection.</div>
+    <!-- Timeline item 1 -->
+    <div class="timeline-item">
+      <div class="timeline-content">
+        <h3>2026.03.01</h3>
+        <p>Project initiation and topic selection.</p>
+      </div>
     </div>
-    <div class="container right">
-      <div>2026.03.05 - Completed user interviews.</div>
+    <!-- Timeline item 2 -->
+    <div class="timeline-item">
+      <div class="timeline-content">
+        <h3>2026.03.05</h3>
+        <p>Completed user interviews.</p>
+      </div>
     </div>
-    <div class="container left">
-      <div>2026.03.10 - Low fidelity prototype and testing.</div>
+    <!-- Timeline item 3 -->
+    <div class="timeline-item">
+      <div class="timeline-content">
+        <h3>2026.03.10</h3>
+        <p>Low fidelity prototype and testing.</p>
+      </div>
     </div>
-    <div class="container right">
-      <div>2026.03.15 - High fidelity design completion.</div>
+    <!-- Timeline item 4 -->
+    <div class="timeline-item">
+      <div class="timeline-content">
+        <h3>2026.03.15</h3>
+        <p>High fidelity design completion.</p>
+      </div>
     </div>
   </div>
 </section>
 
+<!-- 10. Learning & Reflection Section -->
 <section class="learning-reflection">
   <h2>Learning & Reflection</h2>
   <ul>
