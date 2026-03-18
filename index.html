@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Campus Tour - CPT208</title>
 <style>
+  /* Reset and base styles */
   :root {
     --monet-blue: #8fb7c9;
     --monet-deep-blue: #5f7f95;
@@ -12,24 +9,28 @@
     --monet-lilac: #b8add6;
     --monet-pink: #e6c7d4;
     --monet-cream: #f8f5ef;
+    --monet-gold: #d8c69a;
     --text-dark: #2f3d46;
     --card-bg: rgba(255, 255, 255, 0.72);
     --border-soft: rgba(255, 255, 255, 0.45);
     --shadow-soft: 0 10px 30px rgba(70, 90, 110, 0.15);
-    --route-x: 50%;
   }
 
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
+* {
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+}
 
   html {
     scroll-behavior: smooth;
   }
 
-  body {
+body {
+    font-family: Arial, sans-serif;
+    background-color: white;
+    color: #333;
+    line-height: 1.6;
     font-family: "Trebuchet MS", "Segoe UI", Arial, sans-serif;
     color: var(--text-dark);
     line-height: 1.7;
@@ -53,9 +54,17 @@
       radial-gradient(circle at 70% 25%, rgba(255,255,255,0.18), transparent 20%),
       radial-gradient(circle at 50% 75%, rgba(255,255,255,0.2), transparent 18%);
     animation: mistFlow 16s ease-in-out infinite alternate;
-    z-index: -2;
-  }
+    z-index: -1;
+}
 
+  /* Header Title */
+.main-header {
+  background: url('images/Title_Background.jpg') no-repeat center center; 
+  background-size: cover; 
+  color: white;
+  padding: 60px 20px;
+  text-align: center;
+}
   @keyframes mistFlow {
     0% { transform: translateY(0) scale(1); opacity: 0.8; }
     100% { transform: translateY(-20px) scale(1.05); opacity: 1; }
@@ -104,7 +113,9 @@
     100% { transform: translateY(20px) translateX(10px); }
   }
 
-  .main-header h1 {
+.main-header h1 {
+    margin-bottom: 10px;
+    font-size: 2.5em;
     margin-bottom: 12px;
     font-size: clamp(2.4rem, 5vw, 4rem);
     letter-spacing: 1px;
@@ -115,34 +126,40 @@
     font-size: 1.1rem;
     opacity: 0.96;
     text-shadow: 0 2px 10px rgba(0,0,0,0.12);
-  }
+}
 
-  .navbar {
-    position: sticky;
-    top: 0;
-    width: 100%;
+  /* Navigation Bar */
+.navbar {
+position: sticky;
+top: 0;
+width: 100%;
+    background-color: #2C3E50;
+    overflow: hidden;
+    z-index: 100;
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
     background: rgba(87, 117, 135, 0.82);
     border-bottom: 1px solid rgba(255,255,255,0.25);
     z-index: 999;
-  }
+}
 
-  .nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
+.nav-container {
+max-width: 1200px;
+margin: 0 auto;
+display: flex;
+    justify-content: center; /* Centers the links */
     justify-content: center;
     flex-wrap: wrap;
-  }
+}
 
-  .navbar a {
+.navbar a {
     position: relative;
-    display: block;
-    color: white;
-    text-align: center;
+display: block;
+color: white;
+text-align: center;
+    padding: 14px 20px;
     padding: 14px 18px;
-    text-decoration: none;
+text-decoration: none;
     transition: all 0.3s ease;
   }
 
@@ -156,88 +173,80 @@
     background: rgba(255,255,255,0.9);
     transition: all 0.3s ease;
     transform: translateX(-50%);
-  }
+}
 
-  .navbar a:hover {
+.navbar a:hover {
+    background-color: #34495e;
     background: rgba(255,255,255,0.08);
     transform: translateY(-1px);
-  }
+}
 
+  /* Introductory Description Section */
+  .intro-description {
+    background-color: #ecf0f1;
+    padding: 40px 20px;
+    text-align: center;
   .navbar a:hover::after {
     width: 60%;
-  }
+}
 
-  /* 页面主路线 */
-  .tour-route {
-    position: fixed;
-    top: 120px;
-    bottom: 30px;
-    left: 50%;
-    width: 4px;
-    transform: translateX(-50%);
-    background: linear-gradient(to bottom, var(--monet-pink), var(--monet-blue), var(--monet-green));
-    border-radius: 999px;
-    opacity: 0.75;
-    z-index: 5;
-    pointer-events: none;
-  }
-
-  /* 滚动小指示器 */
-  .route-marker {
-    position: fixed;
-    left: 50%;
-    top: 150px;
-    transform: translate(-50%, 0);
-    width: 26px;
-    height: 26px;
-    border-radius: 50%;
-    background: radial-gradient(circle at 35% 35%, #fff, #ffd79f 42%, #e49e61 80%);
-    border: 3px solid rgba(255,255,255,0.9);
-    box-shadow: 0 6px 18px rgba(95,127,149,0.28);
-    z-index: 20;
-    transition: top 0.8s ease, transform 0.3s ease;
-    pointer-events: none;
-  }
-
-  .route-marker::after {
-    content: "🚶";
-    position: absolute;
-    inset: 0;
-    display: grid;
-    place-items: center;
-    font-size: 14px;
-  }
-
+  .intro-content {
+    max-width: 800px;
+    margin: 0 auto;
   section {
     position: relative;
-    padding: 90px 20px;
-  }
+    padding: 80px 20px;
+    text-align: center;
+}
+  
+  .intro-content h2 {
+    color: #2C3E50;
+    margin-bottom: 20px;
+    font-size: 1.8em;
 
   section::before {
     content: "";
     display: block;
     width: min(1100px, 90%);
     height: 1px;
-    margin: 0 auto 55px;
+    margin: 0 auto 50px;
     background: linear-gradient(to right, transparent, rgba(95,127,149,0.42), transparent);
-  }
+}
 
+  .intro-content p {
+    margin-bottom: 10px;
+    font-size: 1.1em;
   section:nth-of-type(odd) {
     background: rgba(255,255,255,0.20);
-  }
+}
 
+  /* Section Styles */
+  section {
+    padding: 60px 20px;
+    text-align: center;
   section:nth-of-type(even) {
     background: rgba(255,255,255,0.10);
-  }
+}
 
-  h2 {
+h2 {
+    font-size: 1.8em;
+    margin-bottom: 30px;
+    color: #2C3E50;
     font-size: clamp(1.8rem, 3vw, 2.4rem);
-    margin-bottom: 24px;
+    margin-bottom: 28px;
     color: var(--monet-deep-blue);
     position: relative;
     display: inline-block;
-  }
+}
 
+  /* Team Members Grid */
+  .team-grid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
   h2::after {
     content: "";
     display: block;
@@ -246,151 +255,114 @@
     margin: 10px auto 0;
     border-radius: 999px;
     background: linear-gradient(to right, var(--monet-pink), var(--monet-blue), var(--monet-green));
-  }
+}
 
-  .section-shell {
-    position: relative;
-    max-width: 1280px;
+  .member-card {
+    flex: 1 1 220px; /* Grow, shrink, and set a base width */
+    min-width: 200px; /* Ensures cards don't get too narrow */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: center;
+  .intro-description,
+  .learning-reflection {
+    background: linear-gradient(135deg, rgba(255,255,255,0.45), rgba(235,243,245,0.50));
+}
+
+  .member-card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+  .intro-content,
+  .motivation-content,
+  .brainstorm-content,
+  .requirements-list,
+  .timeline,
+  .learning-reflection ul {
+    max-width: 900px;
     margin: 0 auto;
-    min-height: 320px;
-  }
+}
 
-  /* 每一站的路线节点 */
-  .route-stop {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--monet-pink), var(--monet-blue));
-    border: 4px solid rgba(255,255,255,0.86);
-    box-shadow: 0 4px 14px rgba(95,127,149,0.18);
-    z-index: 7;
-  }
-
-  .route-stop::before {
-    content: "";
-    position: absolute;
-    width: 52px;
-    height: 52px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-    background: rgba(143,183,201,0.10);
-    animation: pulseStop 2.4s infinite;
-  }
-
-  @keyframes pulseStop {
-    0% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.7; }
-    100% { transform: translate(-50%, -50%) scale(1.35); opacity: 0; }
-  }
-
-  .section-row {
-    display: grid;
-    grid-template-columns: 1fr 120px 1fr;
-    align-items: center;
-    gap: 28px;
-  }
-
-  .content-card,
-  .image-card,
-  .member-card,
-  .persona-card,
+  .member-card h3 {
+    margin-bottom: 5px;
+  .intro-content,
+  .motivation-content,
+  .brainstorm-content,
+  .requirements-list,
   .timeline-content,
-  .learning-box {
-    background: rgba(255, 255, 255, 0.72);
+  .learning-reflection ul,
+  .member-card,
+  .persona-card {
+    background: var(--card-bg);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid var(--border-soft);
     box-shadow: var(--shadow-soft);
-    border-radius: 24px;
-  }
+}
 
-  .content-card {
+  /* Motivation and Brainstorm Sections */
+  .motivation-content, .brainstorm-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+  .intro-content,
+  .motivation-content,
+  .brainstorm-content,
+  .requirements-list {
+    border-radius: 22px;
     padding: 30px;
+}
+
+  .motivation-content p, .brainstorm-content p {
+    margin-bottom: 15px;
+  .intro-content p,
+  .motivation-content p,
+  .brainstorm-content p {
+    margin-bottom: 14px;
+    font-size: 1.06rem;
+    text-align: left;
+}
+
+  /* User Personas Grid */
+  .team-grid,
+.personas-grid {
+display: flex;
+    justify-content: space-around;
+    justify-content: center;
+flex-wrap: wrap;
+    gap: 20px;
+    gap: 26px;
+max-width: 1200px;
+margin: 0 auto;
+}
+
+  .member-card,
+.persona-card {
+    flex: 1 1 300px;
+    min-width: 250px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    flex: 1 1 260px;
+    min-width: 240px;
+    max-width: 340px;
+    border-radius: 24px;
+    padding: 24px;
+text-align: center;
     transition: transform 0.35s ease, box-shadow 0.35s ease;
   }
 
-  .content-card:hover,
-  .image-card:hover,
   .member-card:hover,
   .persona-card:hover,
   .timeline-content:hover {
     transform: translateY(-8px);
     box-shadow: 0 18px 40px rgba(70, 90, 110, 0.20);
-  }
-
-  .content-card p {
-    margin-bottom: 14px;
-    font-size: 1.04rem;
-  }
-
-  .content-card p:last-child {
-    margin-bottom: 0;
-  }
-
-  .image-card {
-    min-height: 280px;
-    overflow: hidden;
-    position: relative;
-    transition: transform 0.35s ease, box-shadow 0.35s ease;
-  }
-
-  .image-card img {
-    width: 100%;
-    height: 100%;
-    min-height: 280px;
-    object-fit: cover;
-    display: block;
-  }
-
-  .image-card .image-label {
-    position: absolute;
-    left: 16px;
-    bottom: 14px;
-    padding: 8px 14px;
-    border-radius: 999px;
-    background: rgba(255,255,255,0.78);
-    color: var(--monet-deep-blue);
-    font-weight: 600;
-    font-size: 0.95rem;
-    backdrop-filter: blur(6px);
-  }
-
-  /* 左右交错 */
-  .layout-left .content-card { grid-column: 1; }
-  .layout-left .image-card { grid-column: 3; }
-
-  .layout-right .image-card { grid-column: 1; }
-  .layout-right .content-card { grid-column: 3; }
-
-  .section-center {
-    grid-column: 2;
-    position: relative;
-    height: 100%;
-    min-height: 260px;
-  }
-
-  /* team / personas */
-  .team-grid,
-  .personas-grid {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 26px;
-  }
-
-  .member-card,
-  .persona-card {
-    flex: 1 1 260px;
-    min-width: 240px;
-    max-width: 320px;
-    padding: 24px;
-    text-align: center;
-    transition: transform 0.35s ease, box-shadow 0.35s ease;
   }
 
   .member-card img {
@@ -400,52 +372,75 @@
     object-fit: cover;
     margin-bottom: 16px;
     border: 4px solid rgba(255,255,255,0.6);
-  }
+}
 
-  .persona-card img {
-    width: 120px;
-    height: 120px;
+.persona-card img {
+width: 120px;
+height: 120px;
+    border-radius: 8px;
     border-radius: 16px;
-    object-fit: cover;
+object-fit: cover;
+    margin-bottom: 15px;
     margin-bottom: 16px;
     border: 4px solid rgba(255,255,255,0.55);
-  }
+}
 
   .member-card h3,
-  .persona-card h3 {
+.persona-card h3 {
+    margin-bottom: 10px;
     margin-bottom: 8px;
     color: var(--monet-deep-blue);
-  }
+}
 
-  .persona-details {
-    text-align: left;
+.persona-details {
+text-align: left;
+    margin-top: 10px;
     margin-top: 12px;
-  }
+}
 
-  .persona-details p {
+.persona-details p {
+    margin-bottom: 5px;
     margin-bottom: 8px;
-  }
+}
 
-  /* requirements */
+  /* Requirements List */
+.requirements-list {
+    max-width: 800px;
+    margin: 0 auto;
+text-align: left;
+}
+
+  .requirements-list ul {
+    list-style-type: none;
   .requirements-list ul,
-  .learning-box ul {
+  .learning-reflection ul {
     list-style: none;
   }
 
   .requirements-list li,
-  .learning-box li {
+  .learning-reflection li {
     position: relative;
     padding: 14px 0 14px 20px;
     border-bottom: 1px solid rgba(95,127,149,0.12);
-  }
+}
 
+  .requirements-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
   .requirements-list li:last-child,
-  .learning-box li:last-child {
+  .learning-reflection li:last-child {
     border-bottom: none;
-  }
+}
 
+  .requirements-list li:before {
+    content: "•";
+    color: #2C3E50;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
   .requirements-list li::before,
-  .learning-box li::before {
+  .learning-reflection li::before {
     content: "";
     position: absolute;
     left: 0;
@@ -455,33 +450,38 @@
     border-radius: 50%;
     background: linear-gradient(135deg, var(--monet-pink), var(--monet-blue));
     box-shadow: 0 0 0 4px rgba(143,183,201,0.12);
-  }
+}
 
-  /* timeline */
-  .timeline {
-    position: relative;
-    max-width: 900px;
+  /* Development Log Timeline */
+.timeline {
+position: relative;
+    max-width: 800px;
     margin: 0 auto;
     padding: 20px 0;
-  }
+}
 
-  .timeline::after {
-    content: '';
-    position: absolute;
+.timeline::after {
+content: '';
+position: absolute;
+    width: 6px;
+    background-color: #2C3E50;
     width: 4px;
     background: linear-gradient(to bottom, var(--monet-pink), var(--monet-blue), var(--monet-green));
-    top: 0;
-    bottom: 0;
-    left: 50%;
+top: 0;
+bottom: 0;
+left: 50%;
+    margin-left: -3px;
     margin-left: -2px;
-    z-index: 1;
+z-index: 1;
     border-radius: 999px;
-  }
+}
 
-  .timeline-item {
+.timeline-item {
+    padding: 10px 40px;
     padding: 14px 36px;
-    position: relative;
-    width: 50%;
+position: relative;
+width: 50%;
+    background-color: inherit;
     z-index: 2;
   }
 
@@ -496,77 +496,76 @@
     border: 3px solid rgba(255,255,255,0.9);
     box-shadow: 0 4px 14px rgba(95,127,149,0.25);
     z-index: 3;
-  }
+}
 
-  .timeline-item:nth-child(odd) {
-    left: 0;
+.timeline-item:nth-child(odd) {
+left: 0;
     text-align: right;
   }
 
   .timeline-item:nth-child(odd)::after {
     right: -8px;
-  }
+}
 
-  .timeline-item:nth-child(even) {
-    left: 50%;
+.timeline-item:nth-child(even) {
+left: 50%;
     text-align: left;
-  }
-
-  .timeline-item:nth-child(even)::after {
-    left: -8px;
-  }
+}
 
   .timeline-content {
-    padding: 22px;
-  }
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  .timeline-item:nth-child(even)::after {
+    left: -8px;
+}
 
+  .timeline::after,
+.timeline-content {
+    z-index: 2;
+    padding: 22px;
+    border-radius: 20px;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+  /* Learning & Reflection */
+  .learning-reflection {
+    background-color: #f8f9fa;
   .timeline-content h3 {
     color: var(--monet-deep-blue);
     margin-bottom: 8px;
-  }
+}
 
-  .learning-box {
-    max-width: 900px;
+.learning-reflection ul {
+    max-width: 800px;
     margin: 0 auto;
+    border-radius: 22px;
     padding: 28px 30px;
-  }
+text-align: left;
+    list-style-type: none;
+}
 
+  .learning-reflection li {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
   .reveal {
     opacity: 0;
     transform: translateY(28px);
     transition: opacity 0.9s ease, transform 0.9s ease;
-  }
+}
 
+  .learning-reflection li:before {
+    content: "•";
+    color: #2C3E50;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
   .reveal.active {
     opacity: 1;
     transform: translateY(0);
-  }
-
-  @media screen and (max-width: 980px) {
-    .tour-route,
-    .route-marker {
-      display: none;
-    }
-
-    .section-row {
-      grid-template-columns: 1fr;
-      gap: 20px;
-    }
-
-    .section-center {
-      display: none;
-    }
-
-    .layout-left .content-card,
-    .layout-left .image-card,
-    .layout-right .content-card,
-    .layout-right .image-card {
-      grid-column: auto;
-    }
-
-    .image-card {
-      order: -1;
-    }
   }
 
   @media screen and (max-width: 900px) {
@@ -586,321 +585,238 @@
       left: 22px !important;
       right: auto !important;
     }
-  }
+}
 
-  @media screen and (max-width: 768px) {
+  /* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .navbar a {font-size: 14px; padding: 12px 15px;}
+    
+    .main-header {padding: 40px 20px;}
     .navbar a {
       font-size: 14px;
       padding: 12px 14px;
     }
 
+    .nav-container {flex-direction: column;} /* Stack nav items on mobile if needed */
+    .navbar a {text-align: center;}
     .main-header {
       padding: 70px 20px 60px;
     }
 
+    .team-grid, .personas-grid {
+      flex-direction: column;
+      align-items: center;
     section {
       padding: 70px 16px;
-    }
+}
 
-    .content-card,
-    .learning-box {
+    .member-card, .persona-card {
+    .member-card,
+    .persona-card {
+width: 100%;
+      max-width: 350px;
+      max-width: 360px;
+}
+
+    .timeline::after {left: 31px;}
+    .timeline-item {width: 100%; padding-left: 70px; padding-right: 25px;}
+    .timeline-item:nth-child(odd), .timeline-item:nth-child(even) {left: 0;}
+    .intro-content,
+    .motivation-content,
+    .brainstorm-content,
+    .requirements-list,
+    .learning-reflection ul {
       padding: 22px;
     }
-  }
+}
 </style>
 </head>
 <body>
 
-<div class="tour-route"></div>
-<div class="route-marker" id="routeMarker"></div>
-
+<!-- 1. Main Title Header -->
+<header class="main-header">
 <header class="main-header reveal" id="home">
-  <h1>Campus Tour</h1>
-  <p>CPT208 Human-Centered Computing Group Project</p>
+<h1>Campus Tour</h1>
+<p>CPT208 Human-Centered Computing Group Project</p>
 </header>
 
+<!-- 2. Navigation Bar -->
 <nav class="navbar">
-  <div class="nav-container">
-    <a href="#home">Home</a>
-    <a href="#intro">Intro</a>
-    <a href="#team-members">Team</a>
-    <a href="#motivation">Motivation</a>
-    <a href="#brainstorm">Brainstorm</a>
-    <a href="#user-personas">Personas</a>
-    <a href="#requirements">Requirements</a>
-    <a href="#development-log">Log</a>
-  </div>
+<div class="nav-container">
+<a href="#home">Home</a>
+@@ -327,43 +502,40 @@ <h1>Campus Tour</h1>
+</div>
 </nav>
 
-<section id="intro" class="reveal scroll-stop">
-  <div class="section-shell">
-    <div class="section-row layout-left">
-      <div class="content-card">
-        <h2>About This Project</h2>
-        <p>Welcome to <strong>Campus Tour</strong>, our ongoing project for the CPT208 Human-Centered Computing module.</p>
-        <p>This project addresses a common challenge: the overwhelming experience of navigating an unfamiliar campus. Whether you're a new student, a visitor, or even a staff member, finding your way around can be stressful and time-consuming.</p>
-        <p>Our mission is to eliminate this uncertainty by creating an intuitive, user-friendly digital navigation platform. We are currently in the process of designing this solution, guided by the principles of human-centered design.</p>
-        <p>Through user research, ideation, and iterative design, we are developing a concept for a mobile application that will provide clear directions and essential information.</p>
-      </div>
-
-      <div class="section-center">
-        <div class="route-stop"></div>
-      </div>
-
-      <div class="image-card">
-        <img src="images/building-intro.jpg" alt="Campus building">
-        <div class="image-label">Add your campus building image</div>
-      </div>
-    </div>
-  </div>
+<!-- 3. Introductory Description Section -->
+<section id="intro" class="intro-description">
+<section id="intro" class="intro-description reveal">
+<div class="intro-content">
+    <h2>About This Project</h2> <!-- Updated Title -->
+    <h2>About This Project</h2>
+<p>Welcome to <strong>Campus Tour</strong>, our ongoing project for the CPT208 Human-Centered Computing module.</p>
+<p>This project addresses a common challenge: the overwhelming experience of navigating an unfamiliar campus. Whether you're a new student, a visitor, or even a staff member, finding your way around can be stressful and time-consuming.</p>
+<p>Our mission is to eliminate this uncertainty by creating an intuitive, user-friendly digital navigation platform. We are currently in the process of designing this solution, guided by the principles of human-centered design.</p>
+<p>Through user research, ideation, and iterative design, we are developing a concept for a mobile application that will provide clear directions and essential information. Explore our site to follow our progress as we work towards transforming this idea into a functional tool.</p>
+</div>
 </section>
 
-<section id="team-members" class="reveal scroll-stop">
-  <div class="section-shell">
-    <div class="section-row layout-right">
-      <div class="image-card">
-        <img src="images/building-team.jpg" alt="Campus building">
-        <div class="image-label">Add your campus building image</div>
-      </div>
+<!-- 4. Team Members Section -->
+<section id="team-members">
+<section id="team-members" class="reveal">
+<h2>Team Members</h2>
+<div class="team-grid">
+    <!-- Team member 1 -->
+<div class="member-card">
+<img src="images/Linhua_Dong.jpg" alt="Linhua Dong's Photo">
+<h3>Linhua Dong</h3>
+<p><strong>ID:</strong> 2363296</p>
+<p>SI: </p>
+</div>
+    <!-- Team member 2 -->
 
-      <div class="section-center">
-        <div class="route-stop"></div>
-      </div>
+<div class="member-card">
+<img src="images/Xi_Han.jpg" alt="Xi Han's Photo">
+<h3>Xi Han</h3>
+<p><strong>ID:</strong> 23</p>
+<p>SI: </p>
+</div>
+    <!-- Team member 3 -->
 
-      <div class="content-card">
-        <h2>Team Members</h2>
-        <div class="team-grid">
-          <div class="member-card">
-            <img src="images/Linhua_Dong.jpg" alt="Linhua Dong's Photo">
-            <h3>Linhua Dong</h3>
-            <p><strong>ID:</strong> 2363296</p>
-            <p>SI: </p>
-          </div>
+<div class="member-card">
+<img src="images/Sihan_Zhang.jpg" alt="Sihan Zhang's Photo">
+<h3>Sihan Zhang</h3>
+<p><strong>ID:</strong> 23</p>
+<p>SI: </p>
+</div>
+    <!-- Team member 4 -->
 
-          <div class="member-card">
-            <img src="images/Xi_Han.jpg" alt="Xi Han's Photo">
-            <h3>Xi Han</h3>
-            <p><strong>ID:</strong> 23</p>
-            <p>SI: </p>
-          </div>
-
-          <div class="member-card">
-            <img src="images/Sihan_Zhang.jpg" alt="Sihan Zhang's Photo">
-            <h3>Sihan Zhang</h3>
-            <p><strong>ID:</strong> 23</p>
-            <p>SI: </p>
-          </div>
-
-          <div class="member-card">
-            <img src="images/Zhanhao_Zhang.jpg" alt="Zhanhao Zhang's Photo">
-            <h3>Zhanhao Zhang</h3>
-            <p><strong>ID:</strong> 2362498</p>
-            <p>SI: </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="member-card">
+<img src="images/Zhanhao_Zhang.jpg" alt="Zhanhao Zhang's Photo">
+<h3>Zhanhao Zhang</h3>
+@@ -373,51 +545,47 @@ <h3>Zhanhao Zhang</h3>
+</div>
 </section>
 
-<section id="motivation" class="reveal scroll-stop">
-  <div class="section-shell">
-    <div class="section-row layout-left">
-      <div class="content-card">
-        <h2>Motivation</h2>
-        <p>Our motivation stems from a genuine desire to improve the campus experience for new students and visitors.</p>
-        <p>A confusing or inaccessible navigation system can lead to stress, tardiness, and a negative first impression of the university.</p>
-        <p>By creating a clear, user-friendly digital guide, we aim to empower users to confidently explore and navigate the campus environment.</p>
-      </div>
-
-      <div class="section-center">
-        <div class="route-stop"></div>
-      </div>
-
-      <div class="image-card">
-        <img src="images/building-motivation.jpg" alt="Campus building">
-        <div class="image-label">Add your campus building image</div>
-      </div>
-    </div>
-  </div>
+<!-- 5. Motivation Section -->
+<section id="motivation">
+<section id="motivation" class="reveal">
+<h2>Motivation</h2>
+<div class="motivation-content">
+<p>Our motivation stems from a genuine desire to improve the campus experience for new students and visitors. A confusing or inaccessible navigation system can lead to stress, tardiness, and a negative first impression of the university.</p>
+<p>By creating a clear, user-friendly digital guide, we aim to empower users to confidently explore and navigate the campus environment, fostering a sense of belonging and ease from day one.</p>
+</div>
 </section>
 
-<section id="brainstorm" class="reveal scroll-stop">
-  <div class="section-shell">
-    <div class="section-row layout-right">
-      <div class="image-card">
-        <img src="images/building-brainstorm.jpg" alt="Campus building">
-        <div class="image-label">Add your campus building image</div>
-      </div>
-
-      <div class="section-center">
-        <div class="route-stop"></div>
-      </div>
-
-      <div class="content-card">
-        <h2>Brainstorm</h2>
-        <p>During our brainstorming sessions, we explored various ideas to enhance the campus tour experience.</p>
-        <p>Initial concepts included a simple map application, a location-based augmented reality feature, and an audio-guided tour.</p>
-        <p>After evaluating feasibility and user feedback, we decided to focus on a comprehensive, map-based navigation app.</p>
-      </div>
-    </div>
-  </div>
+<!-- 6. Brainstorm Section -->
+<section id="brainstorm">
+<section id="brainstorm" class="reveal">
+<h2>Brainstorm</h2>
+<div class="brainstorm-content">
+<p>During our brainstorming sessions, we explored various ideas to enhance the campus tour experience. Initial concepts included a simple map application, a location-based augmented reality (AR) feature, and an audio-guided tour.</p>
+<p>After evaluating feasibility and user feedback, we decided to focus on a comprehensive, map-based navigation app that incorporates key points of interest, real-time pathfinding, and accessibility information. This approach balances innovation with practicality for our target audience.</p>
+</div>
 </section>
 
-<section id="user-personas" class="reveal scroll-stop">
-  <div class="section-shell">
-    <div class="section-row layout-left">
-      <div class="content-card">
-        <h2>User Personas</h2>
-        <div class="personas-grid">
-          <div class="persona-card">
-            <img src="images/persona-placeholder.png" alt="Persona Image">
-            <h3>Freshman Li</h3>
-            <div class="persona-details">
-              <p><strong>Role:</strong> Freshman</p>
-              <p><strong>Goal:</strong> Quickly find classrooms.</p>
-              <p><strong>Pain Point:</strong> The campus map is too complex.</p>
-            </div>
-          </div>
+<!-- 7. User Personas Section -->
+<section id="user-personas">
+<section id="user-personas" class="reveal">
+<h2>User Personas</h2>
+<div class="personas-grid">
+    <!-- Persona 1 -->
+<div class="persona-card">
+      <img src="persona-placeholder.png" alt="Persona Image">
+      <img src="images/persona-placeholder.png" alt="Persona Image">
+<h3>Freshman Li</h3>
+<div class="persona-details">
+<p><strong>Role:</strong> Freshman</p>
+<p><strong>Goal:</strong> Quickly find classrooms.</p>
+<p><strong>Pain Point:</strong> The campus map is too complex.</p>
+</div>
+</div>
+    <!-- Persona 2 -->
 
-          <div class="persona-card">
-            <img src="images/persona-placeholder.png" alt="Persona Image">
-            <h3>Visitor Wang</h3>
-            <div class="persona-details">
-              <p><strong>Role:</strong> Visitor</p>
-              <p><strong>Goal:</strong> Find administrative offices.</p>
-              <p><strong>Pain Point:</strong> Unfamiliar with campus layout.</p>
-            </div>
-          </div>
+<div class="persona-card">
+      <img src="persona-placeholder.png" alt="Persona Image">
+      <img src="images/persona-placeholder.png" alt="Persona Image">
+<h3>Visitor Wang</h3>
+<div class="persona-details">
+<p><strong>Role:</strong> Visitor</p>
+<p><strong>Goal:</strong> Find administrative offices.</p>
+<p><strong>Pain Point:</strong> Unfamiliar with campus layout.</p>
+</div>
+</div>
+    <!-- Persona 3 -->
 
-          <div class="persona-card">
-            <img src="images/persona-placeholder.png" alt="Persona Image">
-            <h3>Professor Chen</h3>
-            <div class="persona-details">
-              <p><strong>Role:</strong> Professor</p>
-              <p><strong>Goal:</strong> Navigate between different lecture halls efficiently.</p>
-              <p><strong>Pain Point:</strong> Time management due to long distances between buildings.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="section-center">
-        <div class="route-stop"></div>
-      </div>
-
-      <div class="image-card">
-        <img src="images/building-personas.jpg" alt="Campus building">
-        <div class="image-label">Add your campus building image</div>
-      </div>
-    </div>
-  </div>
+<div class="persona-card">
+      <img src="persona-placeholder.png" alt="Persona Image">
+      <img src="images/persona-placeholder.png" alt="Persona Image">
+<h3>Professor Chen</h3>
+<div class="persona-details">
+<p><strong>Role:</strong> Professor</p>
+@@ -428,8 +596,7 @@ <h3>Professor Chen</h3>
+</div>
 </section>
 
-<section id="requirements" class="reveal scroll-stop">
-  <div class="section-shell">
-    <div class="section-row layout-right">
-      <div class="image-card">
-        <img src="images/building-requirements.jpg" alt="Campus building">
-        <div class="image-label">Add your campus building image</div>
-      </div>
-
-      <div class="section-center">
-        <div class="route-stop"></div>
-      </div>
-
-      <div class="content-card">
-        <h2>Requirements</h2>
-        <div class="requirements-list">
-          <ul>
-            <li>The application must provide accurate indoor and outdoor mapping of the campus.</li>
-            <li>It should offer turn-by-turn voice and visual navigation.</li>
-            <li>The interface must be intuitive and accessible for users of all technical backgrounds.</li>
-            <li>It needs to be compatible with both iOS and Android platforms.</li>
-            <li>The app should include a search function for buildings, departments, and facilities.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
+<!-- 8. Requirements Section -->
+<section id="requirements">
+<section id="requirements" class="reveal">
+<h2>Requirements</h2>
+<div class="requirements-list">
+<ul>
+@@ -442,32 +609,30 @@ <h2>Requirements</h2>
+</div>
 </section>
 
-<section id="development-log" class="reveal scroll-stop">
-  <div class="section-shell">
-    <div class="section-row layout-left">
-      <div class="content-card">
-        <h2>Development Log</h2>
-        <div class="timeline">
-          <div class="timeline-item">
-            <div class="timeline-content">
-              <h3>2026.03.01</h3>
-              <p>Project initiation and topic selection.</p>
-            </div>
-          </div>
+<!-- 9. Development Log Section -->
+<section id="development-log">
+<section id="development-log" class="reveal">
+<h2>Development Log</h2>
+<div class="timeline">
+    <!-- Timeline item 1 -->
+<div class="timeline-item">
+<div class="timeline-content">
+<h3>2026.03.01</h3>
+<p>Project initiation and topic selection.</p>
+</div>
+</div>
+    <!-- Timeline item 2 -->
 
-          <div class="timeline-item">
-            <div class="timeline-content">
-              <h3>2026.03.05</h3>
-              <p>Completed user interviews.</p>
-            </div>
-          </div>
+<div class="timeline-item">
+<div class="timeline-content">
+<h3>2026.03.05</h3>
+<p>Completed user interviews.</p>
+</div>
+</div>
+    <!-- Timeline item 3 -->
 
-          <div class="timeline-item">
-            <div class="timeline-content">
-              <h3>2026.03.10</h3>
-              <p>Low fidelity prototype and testing.</p>
-            </div>
-          </div>
+<div class="timeline-item">
+<div class="timeline-content">
+<h3>2026.03.10</h3>
+<p>Low fidelity prototype and testing.</p>
+</div>
+</div>
+    <!-- Timeline item 4 -->
 
-          <div class="timeline-item">
-            <div class="timeline-content">
-              <h3>2026.03.15</h3>
-              <p>High fidelity design completion.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="section-center">
-        <div class="route-stop"></div>
-      </div>
-
-      <div class="image-card">
-        <img src="images/building-log.jpg" alt="Campus building">
-        <div class="image-label">Add your campus building image</div>
-      </div>
-    </div>
-  </div>
+<div class="timeline-item">
+<div class="timeline-content">
+<h3>2026.03.15</h3>
+@@ -477,8 +642,7 @@ <h3>2026.03.15</h3>
+</div>
 </section>
 
-<section id="reflection" class="reveal scroll-stop">
-  <div class="section-shell">
-    <div class="section-row layout-right">
-      <div class="image-card">
-        <img src="images/building-reflection.jpg" alt="Campus building">
-        <div class="image-label">Add your campus building image</div>
-      </div>
-
-      <div class="section-center">
-        <div class="route-stop"></div>
-      </div>
-
-      <div class="content-card">
-        <h2>Learning & Reflection</h2>
-        <div class="learning-box">
-          <ul>
-            <li>Enhanced skills in interaction design processes.</li>
-            <li>Improved teamwork experience.</li>
-            <li>Future outlook includes adding AR navigation features.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
+<!-- 10. Learning & Reflection Section -->
+<section class="learning-reflection">
+<section class="learning-reflection reveal">
+<h2>Learning & Reflection</h2>
+<ul>
+<li>Enhanced skills in interaction design processes.</li>
+@@ -487,5 +651,17 @@ <h2>Learning & Reflection</h2>
+</ul>
 </section>
 
 <script>
-  const revealObserver = new IntersectionObserver((entries) => {
+  const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('active');
@@ -908,41 +824,7 @@
     });
   }, { threshold: 0.12 });
 
-  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-
-  const marker = document.getElementById('routeMarker');
-  const stops = document.querySelectorAll('.scroll-stop');
-
-  const moveMarkerToSection = (section) => {
-    const rect = section.getBoundingClientRect();
-    const top = rect.top + window.scrollY + rect.height / 2;
-    marker.style.top = `${top - window.scrollY}px`;
-  };
-
-  const sectionObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        moveMarkerToSection(entry.target);
-      }
-    });
-  }, {
-    threshold: 0.45
-  });
-
-  stops.forEach(section => sectionObserver.observe(section));
-
-  window.addEventListener('load', () => {
-    const first = document.querySelector('.scroll-stop');
-    if (first) moveMarkerToSection(first);
-  });
-
-  window.addEventListener('resize', () => {
-    const visibleSection = [...stops].find(section => {
-      const rect = section.getBoundingClientRect();
-      return rect.top <= window.innerHeight * 0.5 && rect.bottom >= window.innerHeight * 0.5;
-    });
-    if (visibleSection) moveMarkerToSection(visibleSection);
-  });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
 
 </body>
