@@ -218,7 +218,8 @@
   .brainstorm-content,
   .requirements-list,
   .timeline,
-  .learning-reflection ul {
+  .learning-reflection ul,
+  .references-content {
     max-width: 900px;
     margin: 0 auto;
   }
@@ -230,7 +231,8 @@
   .timeline-content,
   .learning-reflection ul,
   .member-card,
-  .persona-card {
+  .persona-card,
+  .references-content {
     background: var(--card-bg);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -241,7 +243,8 @@
   .intro-content,
   .motivation-content,
   .brainstorm-content,
-  .requirements-list {
+  .requirements-list,
+  .references-content {
     border-radius: 22px;
     padding: 30px;
   }
@@ -252,6 +255,15 @@
     margin-bottom: 14px;
     font-size: 1.06rem;
     text-align: left;
+  }
+
+  .references-content ol {
+    text-align: left;
+    padding-left: 20px;
+  }
+
+  .references-content li {
+    margin-bottom: 12px;
   }
 
   .team-grid,
@@ -476,7 +488,8 @@
     .motivation-content,
     .brainstorm-content,
     .requirements-list,
-    .learning-reflection ul {
+    .learning-reflection ul,
+    .references-content {
       padding: 22px;
     }
   }
@@ -499,6 +512,8 @@
     <a href="#user-personas">Personas</a>
     <a href="#requirements">Requirements</a>
     <a href="#development-log">Log</a>
+    <a href="#references">References</a>
+    <a href="#learning-reflection">Reflection</a> 
   </div>
 </nav>
 
@@ -642,7 +657,19 @@
   </div>
 </section>
 
-<section class="learning-reflection reveal">
+<section id="references" class="reveal">
+  <h2>References</h2>
+  <div class="references-content">
+    <ol>
+      <li>Norman, D. A. (2013). <em>The Design of Everyday Things: Revised and Expanded Edition</em>. Basic Books.</li>
+      <li>Rogers, Y., Sharp, H., & Preece, J. (2019). <em>Interaction Design: Beyond Human-Computer Interaction</em> (5th ed.). Wiley.</li>
+      <li>Nielsen, J. (1993). <em>Usability Engineering</em>. Academic Press.</li>
+    </ol>
+  </div>
+</section>
+
+
+<section id="learning-reflection" class="learning-reflection reveal">
   <h2>Learning & Reflection</h2>
   <ul>
     <li>Enhanced skills in interaction design processes.</li>
@@ -650,7 +677,6 @@
     <li>Future outlook includes adding AR navigation features.</li>
   </ul>
 </section>
-
 <script>
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
