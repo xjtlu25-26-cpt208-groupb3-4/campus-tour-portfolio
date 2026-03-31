@@ -6,336 +6,229 @@
 <title>Campus Tour - CPT208</title>
 <style>
   :root {
-    --monet-blue: #8fb7c9;
-    --monet-deep-blue: #5f7f95;
-    --monet-green: #a8c7b0;
-    --monet-lilac: #b8add6;
-    --monet-pink: #e6c7d4;
-    --monet-cream: #f8f5ef;
-    --monet-gold: #d8c69a;
-    --text-dark: #2f3d46;
-    --card-bg: rgba(255, 255, 255, 0.72);
-    --border-soft: rgba(255, 255, 255, 0.45);
-    --shadow-soft: 0 10px 30px rgba(70, 90, 110, 0.15);
-  }
-
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-
-  html {
-    scroll-behavior: smooth;
-  }
-
-  body {
-    font-family: "Trebuchet MS", "Segoe UI", Arial, sans-serif;
-    color: var(--text-dark);
-    line-height: 1.7;
-    background:
-      radial-gradient(circle at 15% 20%, rgba(230, 199, 212, 0.45), transparent 22%),
-      radial-gradient(circle at 80% 15%, rgba(168, 199, 176, 0.35), transparent 20%),
-      radial-gradient(circle at 25% 80%, rgba(184, 173, 214, 0.35), transparent 24%),
-      radial-gradient(circle at 85% 75%, rgba(143, 183, 201, 0.30), transparent 25%),
-      linear-gradient(180deg, #f9f7f2 0%, #edf4f7 45%, #f4efe8 100%);
-    overflow-x: hidden;
-    position: relative;
-  }
-
-  body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    background:
-      radial-gradient(circle at 20% 30%, rgba(255,255,255,0.35), transparent 18%),
-      radial-gradient(circle at 70% 25%, rgba(255,255,255,0.18), transparent 20%),
-      radial-gradient(circle at 50% 75%, rgba(255,255,255,0.2), transparent 18%);
-    animation: mistFlow 16s ease-in-out infinite alternate;
-    z-index: -1;
-  }
-
-  @keyframes mistFlow {
-    0% { transform: translateY(0) scale(1); opacity: 0.8; }
-    100% { transform: translateY(-20px) scale(1.05); opacity: 1; }
-  }
-
-  .main-header {
-    position: relative;
-    background:
-      linear-gradient(rgba(72, 105, 128, 0.42), rgba(112, 147, 166, 0.22)),
-      url('images/Title_Background.jpg') no-repeat center center;
-    background-size: cover;
-    color: white;
-    padding: 90px 20px 80px;
-    text-align: center;
-    overflow: hidden;
-  }
-
-  .main-header::before,
-  .main-header::after {
-    content: "";
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(30px);
-    opacity: 0.35;
-    animation: floatLight 10s ease-in-out infinite alternate;
-  }
-
-  .main-header::before {
-    width: 240px;
-    height: 240px;
-    background: rgba(255, 210, 220, 0.45);
-    top: -40px;
-    left: -40px;
-  }
-
-  .main-header::after {
-    width: 280px;
-    height: 280px;
-    background: rgba(180, 220, 255, 0.35);
-    right: -60px;
-    bottom: -60px;
-  }
-
-  @keyframes floatLight {
-    0% { transform: translateY(0) translateX(0); }
-    100% { transform: translateY(20px) translateX(10px); }
-  }
-
-  .main-header h1 {
-    margin-bottom: 12px;
-    font-size: clamp(2.4rem, 5vw, 4rem);
-    letter-spacing: 1px;
-    text-shadow: 0 4px 18px rgba(0,0,0,0.16);
-  }
-
-  .main-header p {
-    font-size: 1.1rem;
-    opacity: 0.96;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.12);
-  }
-
-  .navbar {
-    position: sticky;
-    top: 0;
-    width: 100%;
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    background: rgba(87, 117, 135, 0.82);
-    border-bottom: 1px solid rgba(255,255,255,0.25);
-    z-index: 999;
-  }
-
-  .nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  .navbar a {
-    position: relative;
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 18px;
-    text-decoration: none;
-    transition: all 0.3s ease;
-  }
-
-  .navbar a::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    bottom: 8px;
-    width: 0;
-    height: 2px;
-    background: rgba(255,255,255,0.9);
-    transition: all 0.3s ease;
-    transform: translateX(-50%);
-  }
-
-  .navbar a:hover {
-    background: rgba(255,255,255,0.08);
-    transform: translateY(-1px);
-  }
-
-  .navbar a:hover::after {
-    width: 60%;
-  }
-
-  section {
-    position: relative;
-    padding: 80px 20px;
-    text-align: center;
-  }
-
-  section::before {
-    content: "";
-    display: block;
-    width: min(1100px, 90%);
-    height: 1px;
-    margin: 0 auto 50px;
-    background: linear-gradient(to right, transparent, rgba(95,127,149,0.42), transparent);
-  }
-
-  section:nth-of-type(odd) {
-    background: rgba(255,255,255,0.20);
-  }
-
-  section:nth-of-type(even) {
-    background: rgba(255,255,255,0.10);
-  }
-
-  h2 {
-    font-size: clamp(1.8rem, 3vw, 2.4rem);
-    margin-bottom: 28px;
-    color: var(--monet-deep-blue);
-    position: relative;
-    display: inline-block;
-  }
-
-  h2::after {
-    content: "";
-    display: block;
-    width: 68%;
-    height: 3px;
-    margin: 10px auto 0;
-    border-radius: 999px;
-    background: linear-gradient(to right, var(--monet-pink), var(--monet-blue), var(--monet-green));
-  }
-
-  .intro-description,
-  .learning-reflection {
-    background: linear-gradient(135deg, rgba(255,255,255,0.45), rgba(235,243,245,0.50));
-  }
-
-  .intro-content,
-  .motivation-content,
-  .brainstorm-content,
-  .requirements-list,
-  .timeline,
-  .learning-reflection ul,
-  .references-content {
-    max-width: 900px;
-    margin: 0 auto;
-  }
-
-  .intro-content,
-  .motivation-content,
-  .brainstorm-content,
-  .requirements-list,
-  .timeline-content,
-  .learning-reflection ul,
-  .member-card,
-  .persona-card,
-  .references-content {
-    background: var(--card-bg);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid var(--border-soft);
-    box-shadow: var(--shadow-soft);
-  }
-
-  .intro-content,
-  .motivation-content,
-  .brainstorm-content,
-  .requirements-list,
-  .references-content {
-    border-radius: 22px;
-    padding: 30px;
-  }
-
-  .intro-content p,
-  .motivation-content p,
-  .brainstorm-content p {
-    margin-bottom: 14px;
-    font-size: 1.06rem;
-    text-align: left;
-  }
-
-  .references-content ol {
-    text-align: left;
-    padding-left: 20px;
-  }
-
-  .references-content li {
-    margin-bottom: 12px;
-  }
-
-  .team-grid,
-  .personas-grid {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 26px;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  .member-card,
-  .persona-card {
-    flex: 1 1 260px;
-    min-width: 240px;
-    max-width: 340px;
-    border-radius: 24px;
-    padding: 24px;
-    text-align: center;
-    transition: transform 0.35s ease, box-shadow 0.35s ease;
-  }
-
-  .member-card:hover,
-  .persona-card:hover,
-  .timeline-content:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 18px 40px rgba(70, 90, 110, 0.20);
-  }
-
-  .member-card img {
-    width: 108px;
-    height: 108px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 16px;
-    border: 4px solid rgba(255,255,255,0.6);
-  }
-
-  .persona-card img {
-    width: 120px;
-    height: 120px;
-    border-radius: 16px;
-    object-fit: cover;
-    margin-bottom: 16px;
-    border: 4px solid rgba(255,255,255,0.55);
-  }
-
-  .member-card h3,
-  .persona-card h3 {
-    margin-bottom: 8px;
-    color: var(--monet-deep-blue);
-  }
-
-  .persona-details {
-    text-align: left;
-    margin-top: 12px;
-  }
-
-  .persona-details p {
-    margin-bottom: 8px;
-  }
-
-.persona-card {
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-  overflow: hidden;
-  margin-bottom: 30px;
+  --monet-blue: #8fb7c9;
+  --monet-deep-blue: #5f7f95;
+  --monet-green: #a8c7b0;
+  --monet-lilac: #b8add6;
+  --monet-pink: #e6c7d4;
+  --monet-cream: #f8f5ef;
+  --monet-gold: #d8c69a;
+  --text-dark: #2f3d46;
+  --card-bg: rgba(255, 255, 255, 0.72);
+  --border-soft: rgba(255, 255, 255, 0.45);
+  --shadow-soft: 0 10px 30px rgba(70, 90, 110, 0.15);
 }
 
-/* 顶部布局：照片 + 简介 */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Trebuchet MS", "Segoe UI", Arial, sans-serif;
+  color: var(--text-dark);
+  line-height: 1.7;
+  background: radial-gradient(circle at 15% 20%, rgba(230, 199, 212, 0.45), transparent 22%), 
+              radial-gradient(circle at 80% 15%, rgba(168, 199, 176, 0.35), transparent 20%), 
+              radial-gradient(circle at 25% 80%, rgba(184, 173, 214, 0.35), transparent 24%), 
+              radial-gradient(circle at 85% 75%, rgba(143, 183, 201, 0.30), transparent 25%), 
+              linear-gradient(180deg, #f9f7f2 0%, #edf4f7 45%, #f4efe8 100%);
+  overflow-x: hidden;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 20% 30%, rgba(255,255,255,0.35), transparent 18%), 
+              radial-gradient(circle at 70% 25%, rgba(255,255,255,0.18), transparent 20%), 
+              radial-gradient(circle at 50% 75%, rgba(255,255,255,0.2), transparent 18%);
+  animation: mistFlow 16s ease-in-out infinite alternate;
+  z-index: -1;
+}
+
+@keyframes mistFlow {
+  0% { transform: translateY(0) scale(1); opacity: 0.8; }
+  100% { transform: translateY(-20px) scale(1.05); opacity: 1; }
+}
+
+.main-header {
+  position: relative;
+  background: linear-gradient(rgba(72, 105, 128, 0.42), rgba(112, 147, 166, 0.22)), url('images/Title_Background.jpg') no-repeat center center;
+  background-size: cover;
+  color: white;
+  padding: 90px 20px 80px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.main-header::before,
+.main-header::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(30px);
+  opacity: 0.35;
+  animation: floatLight 10s ease-in-out infinite alternate;
+}
+
+.main-header::before {
+  width: 240px;
+  height: 240px;
+  background: rgba(255, 210, 220, 0.45);
+  top: -40px;
+  left: -40px;
+}
+
+.main-header::after {
+  width: 280px;
+  height: 280px;
+  background: rgba(180, 220, 255, 0.35);
+  right: -60px;
+  bottom: -60px;
+}
+
+@keyframes floatLight {
+  0% { transform: translateY(0) translateX(0); }
+  100% { transform: translateY(20px) translateX(10px); }
+}
+
+.main-header h1 {
+  margin-bottom: 12px;
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  letter-spacing: 1px;
+  text-shadow: 0 4px 18px rgba(0,0,0,0.16);
+}
+
+.main-header p {
+  font-size: 1.1rem;
+  opacity: 0.96;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.12);
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  background: rgba(87, 117, 135, 0.82);
+  border-bottom: 1px solid rgba(255,255,255,0.25);
+  z-index: 999;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.navbar a {
+  position: relative;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 18px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.navbar a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 8px;
+  width: 0;
+  height: 2px;
+  background: rgba(255,255,255,0.9);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.navbar a:hover {
+  background: rgba(255,255,255,0.08);
+  transform: translateY(-1px);
+}
+
+.navbar a:hover::after {
+  width: 60%;
+}
+
+section {
+  position: relative;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+section::before {
+  content: "";
+  display: block;
+  width: min(1100px, 90%);
+  height: 1px;
+  margin: 0 auto 50px;
+  background: linear-gradient(to right, transparent, rgba(95,127,149,0.42), transparent);
+}
+
+section:nth-of-type(odd) {
+  background: rgba(255,255,255,0.20);
+}
+
+section:nth-of-type(even) {
+  background: rgba(255,255,255,0.10);
+}
+
+h2 {
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  margin-bottom: 28px;
+  color: var(--monet-deep-blue);
+  position: relative;
+  display: inline-block;
+}
+
+h2::after {
+  content: "";
+  display: block;
+  width: 68%;
+  height: 3px;
+  margin: 10px auto 0;
+  border-radius: 999px;
+  background: linear-gradient(to right, var(--monet-pink), var(--monet-blue), var(--monet-green));
+}
+
+/* --- User Personas Styles (Fixed) --- */
+/* 移除了冲突的 .personas-grid 定义，直接使用 section 的居中效果 */
+.persona-card {
+  /* 移除了 flex 属性，改为标准的块级居中卡片，避免与旧样式冲突 */
+  display: block;
+  max-width: 800px; /* 宽一点以适应两列详情 */
+  margin: 0 auto 40px;
+  border-radius: 24px;
+  padding: 0;
+  text-align: center;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  background: var(--card-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--border-soft);
+  box-shadow: var(--shadow-soft);
+  overflow: hidden; /* 确保圆角裁剪内部内容 */
+}
+
+.persona-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 40px rgba(70, 90, 110, 0.20);
+}
+
+/* --- Persona Layout Styles --- */
 .persona-header {
   display: flex;
   align-items: center;
@@ -367,6 +260,7 @@
 
 .persona-bio {
   flex: 1;
+  text-align: left;
 }
 
 .persona-bio h3 {
@@ -381,10 +275,11 @@
   margin-bottom: 0;
 }
 
-/* 底部详细信息布局 */
 .persona-details {
   display: flex;
   padding: 15px 20px;
+  background: #fff;
+  border-top: 1px solid #eee;
 }
 
 .detail-column {
@@ -424,7 +319,7 @@
   left: 0;
 }
 
-/* 简易动机条形图 */
+/* --- Motivation Chart Styles --- */
 .motivation-chart {
   margin-top: 5px;
 }
@@ -453,172 +348,238 @@
 .bar.high { width: 70%; }
 .bar.medium { width: 50%; }
 
-  .requirements-list {
-    text-align: left;
-  }
+/* --- 其他通用样式 (保持原有功能) --- */
+/* 为了防止其他部分报错，保留了原有的通用类定义，但移除了冲突的 .persona-card 旧定义 */
+.intro-description,
+.learning-reflection {
+  background: linear-gradient(135deg, rgba(255,255,255,0.45), rgba(235,243,245,0.50));
+}
 
-  .requirements-list ul,
-  .learning-reflection ul {
-    list-style: none;
-  }
+.intro-content,
+.motivation-content,
+.brainstorm-content,
+.requirements-list,
+.timeline,
+.learning-reflection ul,
+.references-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
 
-  .requirements-list li,
-  .learning-reflection li {
-    position: relative;
-    padding: 14px 0 14px 20px;
-    border-bottom: 1px solid rgba(95,127,149,0.12);
-  }
+.intro-content,
+.motivation-content,
+.brainstorm-content,
+.requirements-list,
+.references-content {
+  border-radius: 22px;
+  padding: 30px;
+  background: var(--card-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--border-soft);
+  box-shadow: var(--shadow-soft);
+}
 
-  .requirements-list li:last-child,
-  .learning-reflection li:last-child {
-    border-bottom: none;
-  }
+.intro-content p,
+.motivation-content p,
+.brainstorm-content p {
+  margin-bottom: 14px;
+  font-size: 1.06rem;
+  text-align: left;
+}
 
-  .requirements-list li::before,
-  .learning-reflection li::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 22px;
-    width: 9px;
-    height: 9px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--monet-pink), var(--monet-blue));
-    box-shadow: 0 0 0 4px rgba(143,183,201,0.12);
-  }
+.references-content ol {
+  text-align: left;
+  padding-left: 20px;
+}
 
-  .timeline {
-    position: relative;
-    padding: 20px 0;
-  }
+.references-content li {
+  margin-bottom: 12px;
+}
 
+.team-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 26px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.member-card {
+  flex: 1 1 260px;
+  min-width: 240px;
+  max-width: 340px;
+  border-radius: 24px;
+  padding: 24px;
+  text-align: center;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  background: var(--card-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--border-soft);
+  box-shadow: var(--shadow-soft);
+}
+
+.member-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 40px rgba(70, 90, 110, 0.20);
+}
+
+.member-card img {
+  width: 108px;
+  height: 108px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 16px;
+  border: 4px solid rgba(255,255,255,0.6);
+}
+
+.member-card h3 {
+  margin-bottom: 8px;
+  color: var(--monet-deep-blue);
+}
+
+.timeline {
+  position: relative;
+  padding: 20px 0;
+}
+
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 4px;
+  background: linear-gradient(to bottom, var(--monet-pink), var(--monet-blue), var(--monet-green));
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -2px;
+  z-index: 1;
+  border-radius: 999px;
+}
+
+.timeline-item {
+  padding: 14px 36px;
+  position: relative;
+  width: 50%;
+  z-index: 2;
+}
+
+.timeline-item::after {
+  content: "";
+  position: absolute;
+  top: 28px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--monet-pink), var(--monet-blue));
+  border: 3px solid rgba(255,255,255,0.9);
+  box-shadow: 0 4px 14px rgba(95,127,149,0.25);
+  z-index: 3;
+}
+
+.timeline-item:nth-child(odd) {
+  left: 0;
+  text-align: right;
+}
+
+.timeline-item:nth-child(odd)::after {
+  right: -8px;
+}
+
+.timeline-item:nth-child(even) {
+  left: 50%;
+  text-align: left;
+}
+
+.timeline-item:nth-child(even)::after {
+  left: -8px;
+}
+
+.timeline-content {
+  padding: 22px;
+  border-radius: 20px;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.timeline-content h3 {
+  color: var(--monet-deep-blue);
+  margin-bottom: 8px;
+}
+
+.learning-reflection ul {
+  border-radius: 22px;
+  padding: 28px 30px;
+  text-align: left;
+  background: var(--card-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--border-soft);
+  box-shadow: var(--shadow-soft);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media screen and (max-width: 900px) {
   .timeline::after {
-    content: '';
-    position: absolute;
-    width: 4px;
-    background: linear-gradient(to bottom, var(--monet-pink), var(--monet-blue), var(--monet-green));
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    margin-left: -2px;
-    z-index: 1;
-    border-radius: 999px;
+    left: 30px;
   }
-
   .timeline-item {
-    padding: 14px 36px;
-    position: relative;
-    width: 50%;
-    z-index: 2;
+    width: 100%;
+    padding-left: 70px;
+    padding-right: 20px;
+    left: 0 !important;
+    text-align: left !important;
   }
-
   .timeline-item::after {
-    content: "";
-    position: absolute;
-    top: 28px;
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--monet-pink), var(--monet-blue));
-    border: 3px solid rgba(255,255,255,0.9);
-    box-shadow: 0 4px 14px rgba(95,127,149,0.25);
-    z-index: 3;
+    left: 22px !important;
+    right: auto !important;
   }
-
-  .timeline-item:nth-child(odd) {
-    left: 0;
-    text-align: right;
+  /* 修复小屏幕下 persona 的布局 */
+  .persona-details {
+    flex-direction: column;
   }
-
-  .timeline-item:nth-child(odd)::after {
-    right: -8px;
+  .detail-column {
+    padding: 0;
   }
+}
 
-  .timeline-item:nth-child(even) {
-    left: 50%;
-    text-align: left;
+@media screen and (max-width: 768px) {
+  .navbar a {
+    font-size: 14px;
+    padding: 12px 14px;
   }
-
-  .timeline-item:nth-child(even)::after {
-    left: -8px;
+  .main-header {
+    padding: 70px 20px 60px;
   }
-
-  .timeline-content {
+  section {
+    padding: 70px 16px;
+  }
+  /* 修复小屏幕下卡片宽度 */
+  .member-card,
+  .persona-card {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+  .intro-content,
+  .motivation-content,
+  .brainstorm-content,
+  .requirements-list,
+  .learning-reflection ul,
+  .references-content {
     padding: 22px;
-    border-radius: 20px;
-    transition: transform 0.35s ease, box-shadow 0.35s ease;
   }
-
-  .timeline-content h3 {
-    color: var(--monet-deep-blue);
-    margin-bottom: 8px;
-  }
-
-  .learning-reflection ul {
-    border-radius: 22px;
-    padding: 28px 30px;
-    text-align: left;
-  }
-
-  .reveal {
-    opacity: 0;
-    transform: translateY(28px);
-    transition: opacity 0.9s ease, transform 0.9s ease;
-  }
-
-  .reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  @media screen and (max-width: 900px) {
-    .timeline::after {
-      left: 30px;
-    }
-
-    .timeline-item {
-      width: 100%;
-      padding-left: 70px;
-      padding-right: 20px;
-      left: 0 !important;
-      text-align: left !important;
-    }
-
-    .timeline-item::after {
-      left: 22px !important;
-      right: auto !important;
-    }
-  }
-
-  @media screen and (max-width: 768px) {
-    .navbar a {
-      font-size: 14px;
-      padding: 12px 14px;
-    }
-
-    .main-header {
-      padding: 70px 20px 60px;
-    }
-
-    section {
-      padding: 70px 16px;
-    }
-
-    .member-card,
-    .persona-card {
-      width: 100%;
-      max-width: 360px;
-    }
-
-    .intro-content,
-    .motivation-content,
-    .brainstorm-content,
-    .requirements-list,
-    .learning-reflection ul,
-    .references-content {
-      padding: 22px;
-    }
-  }
+}
 </style>
 </head>
 <body>
@@ -704,25 +665,20 @@
 
 <section id="user-personas" class="reveal">
   <h2>User Personas</h2>
-
+  
   <!-- Persona 1: The Freshman (Li Wei) -->
   <div class="persona-card">
-    <!-- 顶部：照片 + 基本信息 -->
     <div class="persona-header">
       <div class="persona-photo">
-        <img src="images/freshman.jpg" alt="Freshman Student">
+        <img src="images/freshman.jpg" alt="Li Wei">
         <p class="caption">Li Wei, 19 (Freshman)</p>
       </div>
-
       <div class="persona-bio">
         <h3>Persona 1: Li Wei</h3>
         <p><strong>Bio:</strong> A 19-year-old freshman in Computer Science. New to the city, relies on smartphone for navigation and social life.</p>
       </div>
     </div>
-
-    <!-- 底部：详细指标 -->
     <div class="persona-details">
-      <!-- 左侧栏 -->
       <div class="detail-column">
         <div class="detail-item">
           <h4>Goals</h4>
@@ -732,7 +688,6 @@
             <li>Join student clubs</li>
           </ul>
         </div>
-
         <div class="detail-item">
           <h4>Frustrations</h4>
           <ul>
@@ -742,8 +697,6 @@
           </ul>
         </div>
       </div>
-
-      <!-- 右侧栏 -->
       <div class="detail-column">
         <div class="detail-item">
           <h4>Motivation</h4>
@@ -753,7 +706,6 @@
             <div class="chart-row"><span>Exploration</span><div class="bar medium"></div></div>
           </div>
         </div>
-
         <div class="detail-item">
           <h4>Preferred Channels</h4>
           <ul>
@@ -768,59 +720,50 @@
 
   <!-- Persona 2: The Visitor (Parent) -->
   <div class="persona-card">
-    <!-- 顶部：照片 + 基本信息 -->
     <div class="persona-header">
       <div class="persona-photo">
-        <img src="images/freshman.jpg" alt="Freshman Student">
-        <p class="caption">Li Wei, 19 (Freshman)</p>
+        <img src="images/visitor.jpg" alt="Parent Visitor">
+        <p class="caption">Mrs. Zhang, 45 (Visitor)</p>
       </div>
-
       <div class="persona-bio">
-        <h3>Persona 1: Li Wei</h3>
-        <p><strong>Bio:</strong> A 19-year-old freshman in Computer Science. New to the city, relies on smartphone for navigation and social life.</p>
+        <h3>Persona 2: Mrs. Zhang</h3>
+        <p><strong>Bio:</strong> A parent visiting the campus for the first time. Less tech-savvy, prefers clear and simple instructions.</p>
       </div>
     </div>
-
-    <!-- 底部：详细指标 -->
     <div class="persona-details">
-      <!-- 左侧栏 -->
       <div class="detail-column">
         <div class="detail-item">
           <h4>Goals</h4>
           <ul>
-            <li>Find classrooms quickly</li>
-            <li>Locate the best coffee shops</li>
-            <li>Join student clubs</li>
+            <li>Meet child's professors</li>
+            <li>Visit the student dorms</li>
+            <li>Find the campus cafe</li>
           </ul>
         </div>
-
         <div class="detail-item">
           <h4>Frustrations</h4>
           <ul>
-            <li>Large campus is confusing</li>
-            <li>Maps are hard to read</li>
-            <li>Hard to find friends on campus</li>
+            <li>Unfamiliar with university terms</li>
+            <li>Difficulty reading small text</li>
+            <li>Worried about getting lost</li>
           </ul>
         </div>
       </div>
-
-      <!-- 右侧栏 -->
       <div class="detail-column">
         <div class="detail-item">
           <h4>Motivation</h4>
           <div class="motivation-chart">
-            <div class="chart-row"><span>Efficiency</span><div class="bar full"></div></div>
-            <div class="chart-row"><span>Social</span><div class="bar high"></div></div>
-            <div class="chart-row"><span>Exploration</span><div class="bar medium"></div></div>
+            <div class="chart-row"><span>Safety</span><div class="bar full"></div></div>
+            <div class="chart-row"><span>Clarity</span><div class="bar high"></div></div>
+            <div class="chart-row"><span>Support</span><div class="bar medium"></div></div>
           </div>
         </div>
-
         <div class="detail-item">
           <h4>Preferred Channels</h4>
           <ul>
-            <li>Mobile App</li>
-            <li>University Website</li>
-            <li>Social Media (WeChat)</li>
+            <li>Printed Map</li>
+            <li>Information Desk</li>
+            <li>Phone Call</li>
           </ul>
         </div>
       </div>
@@ -829,59 +772,50 @@
 
   <!-- Persona 3: The Professor (Faculty) -->
   <div class="persona-card">
-    <!-- 顶部：照片 + 基本信息 -->
     <div class="persona-header">
       <div class="persona-photo">
-        <img src="images/freshman.jpg" alt="Freshman Student">
-        <p class="caption">Li Wei, 19 (Freshman)</p>
+        <img src="images/professor.jpg" alt="Dr. Smith">
+        <p class="caption">Dr. Smith, 58 (Professor)</p>
       </div>
-
       <div class="persona-bio">
-        <h3>Persona 1: Li Wei</h3>
-        <p><strong>Bio:</strong> A 19-year-old freshman in Computer Science. New to the city, relies on smartphone for navigation and social life.</p>
+        <h3>Persona 3: Dr. Smith</h3>
+        <p><strong>Bio:</strong> A senior professor with a busy schedule. Needs efficient routing between meetings and lectures.</p>
       </div>
     </div>
-
-    <!-- 底部：详细指标 -->
     <div class="persona-details">
-      <!-- 左侧栏 -->
       <div class="detail-column">
         <div class="detail-item">
           <h4>Goals</h4>
           <ul>
-            <li>Find classrooms quickly</li>
-            <li>Locate the best coffee shops</li>
-            <li>Join student clubs</li>
+            <li>Get to lectures on time</li>
+            <li>Find meeting rooms</li>
+            <li>Locate quiet workspaces</li>
           </ul>
         </div>
-
         <div class="detail-item">
           <h4>Frustrations</h4>
           <ul>
-            <li>Large campus is confusing</li>
-            <li>Maps are hard to read</li>
-            <li>Hard to find friends on campus</li>
+            <li>Construction blocking paths</li>
+            <li>Slow students</li>
+            <li>Unreliable building directories</li>
           </ul>
         </div>
       </div>
-
-      <!-- 右侧栏 -->
       <div class="detail-column">
         <div class="detail-item">
           <h4>Motivation</h4>
           <div class="motivation-chart">
             <div class="chart-row"><span>Efficiency</span><div class="bar full"></div></div>
-            <div class="chart-row"><span>Social</span><div class="bar high"></div></div>
-            <div class="chart-row"><span>Exploration</span><div class="bar medium"></div></div>
+            <div class="chart-row"><span>Time Saving</span><div class="bar full"></div></div>
+            <div class="chart-row"><span>Professionalism</span><div class="bar high"></div></div>
           </div>
         </div>
-
         <div class="detail-item">
           <h4>Preferred Channels</h4>
           <ul>
-            <li>Mobile App</li>
-            <li>University Website</li>
-            <li>Social Media (WeChat)</li>
+            <li>Desktop Calendar</li>
+            <li>Email</li>
+            <li>University Portal</li>
           </ul>
         </div>
       </div>
@@ -890,64 +824,56 @@
 
   <!-- Persona 4: The Staff (Campus Worker) -->
   <div class="persona-card">
-    <!-- 顶部：照片 + 基本信息 -->
     <div class="persona-header">
       <div class="persona-photo">
-        <img src="images/freshman.jpg" alt="Freshman Student">
-        <p class="caption">Li Wei, 19 (Freshman)</p>
+        <img src="images/staff.jpg" alt="Campus Worker">
+        <p class="caption">John, 34 (Campus Worker)</p>
       </div>
-
       <div class="persona-bio">
-        <h3>Persona 1: Li Wei</h3>
-        <p><strong>Bio:</strong> A 19-year-old freshman in Computer Science. New to the city, relies on smartphone for navigation and social life.</p>
+        <h3>Persona 4: John</h3>
+        <p><strong>Bio:</strong> A facilities staff member who needs to navigate between different buildings for maintenance checks.</p>
       </div>
     </div>
-
-    <!-- 底部：详细指标 -->
     <div class="persona-details">
-      <!-- 左侧栏 -->
       <div class="detail-column">
         <div class="detail-item">
           <h4>Goals</h4>
           <ul>
-            <li>Find classrooms quickly</li>
-            <li>Locate the best coffee shops</li>
-            <li>Join student clubs</li>
+            <li>Complete maintenance rounds</li>
+            <li>Find specific room numbers</li>
+            <li>Report issues on-site</li>
           </ul>
         </div>
-
         <div class="detail-item">
           <h4>Frustrations</h4>
           <ul>
-            <li>Large campus is confusing</li>
-            <li>Maps are hard to read</li>
-            <li>Hard to find friends on campus</li>
+            <li>Inconsistent room numbering</li>
+            <li>Limited mobile signal indoors</li>
+            <li>Outdated paper maps</li>
           </ul>
         </div>
       </div>
-
-      <!-- 右侧栏 -->
       <div class="detail-column">
         <div class="detail-item">
           <h4>Motivation</h4>
           <div class="motivation-chart">
-            <div class="chart-row"><span>Efficiency</span><div class="bar full"></div></div>
-            <div class="chart-row"><span>Social</span><div class="bar high"></div></div>
-            <div class="chart-row"><span>Exploration</span><div class="bar medium"></div></div>
+            <div class="chart-row"><span>Task Completion</span><div class="bar full"></div></div>
+            <div class="chart-row"><span>Reliability</span><div class="bar high"></div></div>
+            <div class="chart-row"><span>Independence</span><div class="bar medium"></div></div>
           </div>
         </div>
-
         <div class="detail-item">
           <h4>Preferred Channels</h4>
           <ul>
-            <li>Mobile App</li>
-            <li>University Website</li>
-            <li>Social Media (WeChat)</li>
+            <li>Walkie-Talkie</li>
+            <li>Internal Staff App</li>
+            <li>Physical Signage</li>
           </ul>
         </div>
       </div>
     </div>
   </div>
+
 </section>
 
 <section id="requirements" class="reveal">
