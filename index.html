@@ -327,119 +327,131 @@
     margin-bottom: 8px;
   }
 
-  /* ===== 用户画像样式 ===== */
-#user-personas {
-  background-color: #f9f9f9;
-  padding: 40px 20px;
-}
-
-#user-personas h2 {
-  text-align: center;
-  color: #333;
-  margin-bottom: 40px;
-}
-
-.persona-row {
-  display: flex;
+.persona-card {
   background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  margin-bottom: 40px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
   overflow: hidden;
+  margin-bottom: 30px;
 }
 
-.persona-image {
-  flex: 1;
-  background: #e0e0e0; /* 灰色占位背景 */
+/* 顶部布局：照片 + 简介 */
+.persona-header {
   display: flex;
   align-items: center;
-  justify-content: center;
   padding: 20px;
+  border-bottom: 1px solid #f0f0f0;
+  background: #f9f9f9;
 }
 
-.persona-image img {
-  max-width: 100%;
-  border-radius: 8px;
+.persona-photo {
+  flex: 0 0 120px;
+  margin-right: 20px;
+  text-align: center;
+}
+
+.persona-photo img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .caption {
-  margin-top: 10px;
+  font-size: 0.8em;
   color: #666;
-  font-size: 0.9em;
-  text-align: center;
+  margin-top: 5px;
 }
 
-.persona-details {
-  flex: 2;
-  padding: 30px;
-}
-
-.bio-section h3 {
-  color: #2c3e50;
-  margin-top: 0;
-}
-
-.profile-grid {
-  display: flex;
-  margin: 20px 0;
-  gap: 20px;
-}
-
-.profile-item {
+.persona-bio {
   flex: 1;
-  background: #f1f1f1;
-  padding: 15px;
-  border-radius: 8px;
 }
 
-.profile-item h5 {
+.persona-bio h3 {
   margin-top: 0;
-  color: #34495e;
+  font-size: 1.1em;
+  color: #333;
 }
 
-.charts-section {
+.persona-bio p {
+  font-size: 0.9em;
+  color: #555;
+  margin-bottom: 0;
+}
+
+/* 底部详细信息布局 */
+.persona-details {
   display: flex;
-  justify-content: space-between;
+  padding: 15px 20px;
 }
 
-.chart-item {
-  width: 45%;
+.detail-column {
+  flex: 1;
+  padding: 0 10px;
 }
 
-.bar-chart {
+.detail-item {
+  margin-bottom: 15px;
+}
+
+.detail-item h4 {
+  font-size: 0.9em;
+  color: #333;
+  margin-bottom: 8px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 3px;
+}
+
+.detail-item ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.85em;
+}
+
+.detail-item li {
+  margin-bottom: 5px;
+  padding-left: 15px;
+  position: relative;
+}
+
+.detail-item li::before {
+  content: "•";
+  color: #007BFF;
+  position: absolute;
+  left: 0;
+}
+
+/* 简易动机条形图 */
+.motivation-chart {
+  margin-top: 5px;
+}
+
+.chart-row {
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
+  font-size: 0.8em;
 }
 
-.bar-label {
-  width: 80px;
-  font-size: 0.9em;
+.chart-row span {
+  flex: 0 0 70px;
   color: #555;
 }
 
-.bar-fill {
+.bar {
   flex: 1;
-  height: 20px;
-  background-color: #3498db;
-  border-radius: 10px;
+  height: 10px;
+  background: #007BFF;
+  border-radius: 4px;
   margin-left: 10px;
 }
 
-/* 响应式设计：在小屏幕上堆叠 */
-@media (max-width: 768px) {
-  .persona-row {
-    flex-direction: column;
-  }
-
-  .persona-image {
-    flex: 0 0 200px;
-  }
-
-  .profile-grid {
-    flex-direction: column;
-  }
-}
+.bar.full { width: 90%; }
+.bar.high { width: 70%; }
+.bar.medium { width: 50%; }
 
   .requirements-list {
     text-align: left;
@@ -694,30 +706,26 @@
   <h2>User Personas</h2>
 
   <!-- Persona 1: The Freshman (Li Wei) -->
-  <div class="persona-row">
-    <div class="persona-image">
-      <img src="images/freshman.jpg" alt="Freshman Student">
-      <p class="caption">Li Wei, a freshman student</p>
-    </div>
-    <div class="persona-details">
-      <div class="bio-section">
-        <h3>Persona 1: Li Wei</h3>
-        <h4>Bio</h4>
-        <p>Li Wei is a 19-year-old freshman majoring in Computer Science. He just moved to a new city for college and is eager to explore the campus. He relies heavily on his smartphone for navigation and social life.</p>
+  <div class="persona-card">
+    <!-- 顶部：照片 + 基本信息 -->
+    <div class="persona-header">
+      <div class="persona-photo">
+        <img src="images/freshman.jpg" alt="Freshman Student">
+        <p class="caption">Li Wei, 19 (Freshman)</p>
       </div>
 
-      <div class="profile-grid">
-        <div class="profile-item">
-          <h5>Demographics</h5>
-          <ul>
-            <li><strong>Age:</strong> 19</li>
-            <li><strong>Role:</strong> Freshman</li>
-            <li><strong>Location:</strong> Dormitory</li>
-          </ul>
-        </div>
+      <div class="persona-bio">
+        <h3>Persona 1: Li Wei</h3>
+        <p><strong>Bio:</strong> A 19-year-old freshman in Computer Science. New to the city, relies on smartphone for navigation and social life.</p>
+      </div>
+    </div>
 
-        <div class="profile-item">
-          <h5>Goals</h5>
+    <!-- 底部：详细指标 -->
+    <div class="persona-details">
+      <!-- 左侧栏 -->
+      <div class="detail-column">
+        <div class="detail-item">
+          <h4>Goals</h4>
           <ul>
             <li>Find classrooms quickly</li>
             <li>Locate the best coffee shops</li>
@@ -725,8 +733,8 @@
           </ul>
         </div>
 
-        <div class="profile-item">
-          <h5>Frustrations</h5>
+        <div class="detail-item">
+          <h4>Frustrations</h4>
           <ul>
             <li>Large campus is confusing</li>
             <li>Maps are hard to read</li>
@@ -735,25 +743,19 @@
         </div>
       </div>
 
-      <div class="charts-section">
-        <div class="chart-item">
-          <h5>Motivation</h5>
-          <div class="bar-chart">
-            <div class="bar-label">Efficiency</div>
-            <div class="bar-fill" style="width: 90%;"></div>
-          </div>
-          <div class="bar-chart">
-            <div class="bar-label">Social</div>
-            <div class="bar-fill" style="width: 85%;"></div>
-          </div>
-          <div class="bar-chart">
-            <div class="bar-label">Exploration</div>
-            <div class="bar-fill" style="width: 75%;"></div>
+      <!-- 右侧栏 -->
+      <div class="detail-column">
+        <div class="detail-item">
+          <h4>Motivation</h4>
+          <div class="motivation-chart">
+            <div class="chart-row"><span>Efficiency</span><div class="bar full"></div></div>
+            <div class="chart-row"><span>Social</span><div class="bar high"></div></div>
+            <div class="chart-row"><span>Exploration</span><div class="bar medium"></div></div>
           </div>
         </div>
 
-        <div class="chart-item">
-          <h5>Preferred Channels</h5>
+        <div class="detail-item">
+          <h4>Preferred Channels</h4>
           <ul>
             <li>Mobile App</li>
             <li>University Website</li>
@@ -765,70 +767,60 @@
   </div>
 
   <!-- Persona 2: The Visitor (Parent) -->
-  <div class="persona-row">
-    <div class="persona-image">
-      <img src="images/parent.jpg" alt="Parent Visitor">
-      <p class="caption">Mrs. Zhang, a visiting parent</p>
+  <div class="persona-card">
+    <!-- 顶部：照片 + 基本信息 -->
+    <div class="persona-header">
+      <div class="persona-photo">
+        <img src="images/freshman.jpg" alt="Freshman Student">
+        <p class="caption">Li Wei, 19 (Freshman)</p>
+      </div>
+
+      <div class="persona-bio">
+        <h3>Persona 1: Li Wei</h3>
+        <p><strong>Bio:</strong> A 19-year-old freshman in Computer Science. New to the city, relies on smartphone for navigation and social life.</p>
+      </div>
     </div>
+
+    <!-- 底部：详细指标 -->
     <div class="persona-details">
-      <div class="bio-section">
-        <h3>Persona 2: Mrs. Zhang</h3>
-        <h4>Bio</h4>
-        <p>Mrs. Zhang is visiting her son at the university. She is not very tech-savvy and prefers clear, simple instructions. She wants to find the student center to meet her son without getting lost.</p>
-      </div>
-
-      <div class="profile-grid">
-        <div class="profile-item">
-          <h5>Demographics</h5>
+      <!-- 左侧栏 -->
+      <div class="detail-column">
+        <div class="detail-item">
+          <h4>Goals</h4>
           <ul>
-            <li><strong>Age:</strong> 52</li>
-            <li><strong>Role:</strong> Parent / Visitor</li>
-            <li><strong>Location:</strong> Main Gate</li>
+            <li>Find classrooms quickly</li>
+            <li>Locate the best coffee shops</li>
+            <li>Join student clubs</li>
           </ul>
         </div>
 
-        <div class="profile-item">
-          <h5>Goals</h5>
+        <div class="detail-item">
+          <h4>Frustrations</h4>
           <ul>
-            <li>Meet her son at the student center</li>
-            <li>Find parking</li>
-            <li>Visit the campus bookstore</li>
-          </ul>
-        </div>
-
-        <div class="profile-item">
-          <h5>Frustrations</h5>
-          <ul>
-            <li>Small text on digital maps</li>
-            <li>Confusing navigation UI</li>
-            <li>Not knowing where to park</li>
+            <li>Large campus is confusing</li>
+            <li>Maps are hard to read</li>
+            <li>Hard to find friends on campus</li>
           </ul>
         </div>
       </div>
 
-      <div class="charts-section">
-        <div class="chart-item">
-          <h5>Motivation</h5>
-          <div class="bar-chart">
-            <div class="bar-label">Clarity</div>
-            <div class="bar-fill" style="width: 95%;"></div>
-          </div>
-          <div class="bar-chart">
-            <div class="bar-label">Safety</div>
-            <div class="bar-fill" style="width: 90%;"></div>
-          </div>
-          <div class="bar-chart">
-            <div class="bar-label">Convenience</div>
-            <div class="bar-fill" style="width: 80%;"></div>
+      <!-- 右侧栏 -->
+      <div class="detail-column">
+        <div class="detail-item">
+          <h4>Motivation</h4>
+          <div class="motivation-chart">
+            <div class="chart-row"><span>Efficiency</span><div class="bar full"></div></div>
+            <div class="chart-row"><span>Social</span><div class="bar high"></div></div>
+            <div class="chart-row"><span>Exploration</span><div class="bar medium"></div></div>
           </div>
         </div>
 
-        <div class="chart-item">
-          <h5>Preferred Channels</h5>
+        <div class="detail-item">
+          <h4>Preferred Channels</h4>
           <ul>
-            <li>On-campus Signage</li>
-            <li>Information Desk</li>
-            <li>Phone Call</li>
+            <li>Mobile App</li>
+            <li>University Website</li>
+            <li>Social Media (WeChat)</li>
           </ul>
         </div>
       </div>
@@ -836,70 +828,60 @@
   </div>
 
   <!-- Persona 3: The Professor (Faculty) -->
-  <div class="persona-row">
-    <div class="persona-image">
-      <img src="images/professor.jpg" alt="Professor">
-      <p class="caption">Dr. Chen, a Professor</p>
+  <div class="persona-card">
+    <!-- 顶部：照片 + 基本信息 -->
+    <div class="persona-header">
+      <div class="persona-photo">
+        <img src="images/freshman.jpg" alt="Freshman Student">
+        <p class="caption">Li Wei, 19 (Freshman)</p>
+      </div>
+
+      <div class="persona-bio">
+        <h3>Persona 1: Li Wei</h3>
+        <p><strong>Bio:</strong> A 19-year-old freshman in Computer Science. New to the city, relies on smartphone for navigation and social life.</p>
+      </div>
     </div>
+
+    <!-- 底部：详细指标 -->
     <div class="persona-details">
-      <div class="bio-section">
-        <h3>Persona 3: Dr. Chen</h3>
-        <h4>Bio</h4>
-        <p>Dr. Chen is a busy professor who has been at the university for 15 years. He needs to manage his schedule between teaching, research, and meetings. He needs a quick way to check room availability and building access.</p>
-      </div>
-
-      <div class="profile-grid">
-        <div class="profile-item">
-          <h5>Demographics</h5>
+      <!-- 左侧栏 -->
+      <div class="detail-column">
+        <div class="detail-item">
+          <h4>Goals</h4>
           <ul>
-            <li><strong>Age:</strong> 45</li>
-            <li><strong>Role:</strong> Professor</li>
-            <li><strong>Location:</strong> Faculty Office</li>
+            <li>Find classrooms quickly</li>
+            <li>Locate the best coffee shops</li>
+            <li>Join student clubs</li>
           </ul>
         </div>
 
-        <div class="profile-item">
-          <h5>Goals</h5>
+        <div class="detail-item">
+          <h4>Frustrations</h4>
           <ul>
-            <li>Find available meeting rooms</li>
-            <li>Check class schedules</li>
-            <li>Access building security info</li>
-          </ul>
-        </div>
-
-        <div class="profile-item">
-          <h5>Frustrations</h5>
-          <ul>
-            <li>Outdated booking systems</li>
-            <li>Difficulty finding quiet spaces</li>
-            <li>Inconsistent room numbering</li>
+            <li>Large campus is confusing</li>
+            <li>Maps are hard to read</li>
+            <li>Hard to find friends on campus</li>
           </ul>
         </div>
       </div>
 
-      <div class="charts-section">
-        <div class="chart-item">
-          <h5>Motivation</h5>
-          <div class="bar-chart">
-            <div class="bar-label">Productivity</div>
-            <div class="bar-fill" style="width: 95%;"></div>
-          </div>
-          <div class="bar-chart">
-            <div class="bar-label">Organization</div>
-            <div class="bar-fill" style="width: 90%;"></div>
-          </div>
-          <div class="bar-chart">
-            <div class="bar-label">Time-saving</div>
-            <div class="bar-fill" style="width: 85%;"></div>
+      <!-- 右侧栏 -->
+      <div class="detail-column">
+        <div class="detail-item">
+          <h4>Motivation</h4>
+          <div class="motivation-chart">
+            <div class="chart-row"><span>Efficiency</span><div class="bar full"></div></div>
+            <div class="chart-row"><span>Social</span><div class="bar high"></div></div>
+            <div class="chart-row"><span>Exploration</span><div class="bar medium"></div></div>
           </div>
         </div>
 
-        <div class="chart-item">
-          <h5>Preferred Channels</h5>
+        <div class="detail-item">
+          <h4>Preferred Channels</h4>
           <ul>
-            <li>Desktop Web App</li>
-            <li>Email Notifications</li>
-            <li>Internal Faculty Portal</li>
+            <li>Mobile App</li>
+            <li>University Website</li>
+            <li>Social Media (WeChat)</li>
           </ul>
         </div>
       </div>
@@ -907,70 +889,60 @@
   </div>
 
   <!-- Persona 4: The Staff (Campus Worker) -->
-  <div class="persona-row">
-    <div class="persona-image">
-      <img src="images/staff.jpg" alt="Campus Staff">
-      <p class="caption">Mr. Wang, a Campus Staff</p>
+  <div class="persona-card">
+    <!-- 顶部：照片 + 基本信息 -->
+    <div class="persona-header">
+      <div class="persona-photo">
+        <img src="images/freshman.jpg" alt="Freshman Student">
+        <p class="caption">Li Wei, 19 (Freshman)</p>
+      </div>
+
+      <div class="persona-bio">
+        <h3>Persona 1: Li Wei</h3>
+        <p><strong>Bio:</strong> A 19-year-old freshman in Computer Science. New to the city, relies on smartphone for navigation and social life.</p>
+      </div>
     </div>
+
+    <!-- 底部：详细指标 -->
     <div class="persona-details">
-      <div class="bio-section">
-        <h3>Persona 4: Mr. Wang</h3>
-        <h4>Bio</h4>
-        <p>Mr. Wang is a facilities staff member responsible for maintenance across the campus. He needs real-time information about equipment status and building layouts to perform his repairs efficiently.</p>
-      </div>
-
-      <div class="profile-grid">
-        <div class="profile-item">
-          <h5>Demographics</h5>
+      <!-- 左侧栏 -->
+      <div class="detail-column">
+        <div class="detail-item">
+          <h4>Goals</h4>
           <ul>
-            <li><strong>Age:</strong> 38</li>
-            <li><strong>Role:</strong> Facilities Staff</li>
-            <li><strong>Location:</strong> Maintenance Office</li>
+            <li>Find classrooms quickly</li>
+            <li>Locate the best coffee shops</li>
+            <li>Join student clubs</li>
           </ul>
         </div>
 
-        <div class="profile-item">
-          <h5>Goals</h5>
+        <div class="detail-item">
+          <h4>Frustrations</h4>
           <ul>
-            <li>Locate specific equipment</li>
-            <li>Report maintenance issues</li>
-            <li>Access restricted areas</li>
-          </ul>
-        </div>
-
-        <div class="profile-item">
-          <h5>Frustrations</h5>
-          <ul>
-            <li>Paper-based work orders</li>
-            <li>Outdated floor plans</li>
-            <li>Difficulty communicating with admin</li>
+            <li>Large campus is confusing</li>
+            <li>Maps are hard to read</li>
+            <li>Hard to find friends on campus</li>
           </ul>
         </div>
       </div>
 
-      <div class="charts-section">
-        <div class="chart-item">
-          <h5>Motivation</h5>
-          <div class="bar-chart">
-            <div class="bar-label">Reliability</div>
-            <div class="bar-fill" style="width: 95%;"></div>
-          </div>
-          <div class="bar-chart">
-            <div class="bar-label">Efficiency</div>
-            <div class="bar-fill" style="width: 90%;"></div>
-          </div>
-          <div class="bar-chart">
-            <div class="bar-label">Responsibility</div>
-            <div class="bar-fill" style="width: 85%;"></div>
+      <!-- 右侧栏 -->
+      <div class="detail-column">
+        <div class="detail-item">
+          <h4>Motivation</h4>
+          <div class="motivation-chart">
+            <div class="chart-row"><span>Efficiency</span><div class="bar full"></div></div>
+            <div class="chart-row"><span>Social</span><div class="bar high"></div></div>
+            <div class="chart-row"><span>Exploration</span><div class="bar medium"></div></div>
           </div>
         </div>
 
-        <div class="chart-item">
-          <h5>Preferred Channels</h5>
+        <div class="detail-item">
+          <h4>Preferred Channels</h4>
           <ul>
-            <li>Internal Mobile App</li>
-            <li>Walkie-talkie</li>
-            <li>Internal Ticketing System</li>
+            <li>Mobile App</li>
+            <li>University Website</li>
+            <li>Social Media (WeChat)</li>
           </ul>
         </div>
       </div>
