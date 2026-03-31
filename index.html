@@ -204,124 +204,221 @@ h2::after {
   background: linear-gradient(to right, var(--monet-pink), var(--monet-blue), var(--monet-green));
 }
 
-/* --- User Personas Styles (Fixed) --- */
-/* 移除了冲突的 .personas-grid 定义，直接使用 section 的居中效果 */
-.persona-card {
-  /* 移除了 flex 属性，改为标准的块级居中卡片，避免与旧样式冲突 */
-  display: block;
-  max-width: 800px; /* 宽一点以适应两列详情 */
-  margin: 0 auto 40px;
-  border-radius: 24px;
-  padding: 0;
+/* ... 保持原有的 :root, * , html, body, header, nav 等样式不变 ... */
+
+/* --- User Personas Styles --- */
+
+/* 顶部标题 */
+.persona-top-title {
   text-align: center;
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  font-size: 1.8rem;
+  color: var(--monet-deep-blue);
+  margin-bottom: 30px;
+  font-weight: bold;
+  border-bottom: 2px solid var(--monet-blue);
+  padding-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* 外层卡片容器 */
+.persona-card {
+  max-width: 1200px;
+  margin: 0 auto 50px; /* 增加底部间距 */
+  border-radius: 24px;
+  overflow: hidden;
   background: var(--card-bg);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid var(--border-soft);
   box-shadow: var(--shadow-soft);
-  overflow: hidden; /* 确保圆角裁剪内部内容 */
+  transition: transform 0.3s ease;
 }
 
 .persona-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 18px 40px rgba(70, 90, 110, 0.20);
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(70, 90, 110, 0.25);
 }
 
-/* --- Persona Layout Styles --- */
-.persona-header {
+/* 三栏布局核心 */
+.persona-details {
   display: flex;
+  padding: 25px;
+  gap: 25px;
+  color: #333;
+  background: #fff; /* 确保内容区背景清晰 */
+}
+
+/* 左栏：基础信息 */
+.detail-column-left {
+  flex: 0 0 240px;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  padding: 20px;
-  border-bottom: 1px solid #f0f0f0;
-  background: #f9f9f9;
-}
-
-.persona-photo {
-  flex: 0 0 120px;
-  margin-right: 20px;
   text-align: center;
+  background: #fafafa;
+  padding: 20px;
+  border-radius: 16px;
+  border: 1px solid #f0f0f0;
 }
 
-.persona-photo img {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid #fff;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.caption {
-  font-size: 0.8em;
-  color: #666;
-  margin-top: 5px;
-}
-
-.persona-bio {
+/* 中栏：核心需求 */
+.detail-column-center {
   flex: 1;
+  min-width: 300px;
   text-align: left;
 }
 
-.persona-bio h3 {
-  margin-top: 0;
-  font-size: 1.1em;
-  color: #333;
+/* 右栏：行为图表 */
+.detail-column-right {
+  flex: 0 0 220px;
+  text-align: left;
 }
 
-.persona-bio p {
-  font-size: 0.9em;
-  color: #555;
-  margin-bottom: 0;
-}
-
-.persona-details {
-  display: flex;
-  padding: 15px 20px;
-  background: #fff;
-  border-top: 1px solid #eee;
-}
-
-.detail-column {
-  flex: 1;
-  padding: 0 10px;
-}
-
-.detail-item {
+/* 左侧组件样式 */
+.persona-photo img {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #fff;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
   margin-bottom: 15px;
 }
 
-.detail-item h4 {
+.user-tagline {
+  font-style: italic;
+  color: #666;
+  font-size: 0.95em;
+  margin-bottom: 20px;
+  padding: 12px;
+  background: rgba(255,255,255,0.8);
+  border-radius: 8px;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #eee;
+}
+
+.basic-info-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+  width: 100%;
+  margin-bottom: 20px;
+  border: 1px solid #eee;
+  box-sizing: border-box;
+}
+
+.basic-info-card h4 {
+  margin: 0 0 12px;
+  color: var(--monet-deep-blue);
   font-size: 0.9em;
-  color: #333;
+  text-transform: uppercase;
+  border-bottom: 1px dashed #ddd;
+  padding-bottom: 6px;
+}
+
+.basic-info-item {
   margin-bottom: 8px;
-  border-bottom: 1px solid #eee;
-  padding-bottom: 3px;
+  font-size: 0.9em;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #f9f9f9;
+  padding-bottom: 4px;
+}
+
+/* MBTI 样式 */
+.mtbi-visual {
+  background: #fff;
+  border-radius: 12px;
+  padding: 15px;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #eee;
+}
+
+.mtbi-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8em;
+  color: #777;
+  margin-bottom: 4px;
+}
+
+.mtbi-bar-container {
+  width: 100%;
+  height: 6px;
+  background: #eee;
+  border-radius: 3px;
+  margin: 0 0 12px 0;
+  overflow: hidden;
+}
+
+.mtbi-bar { height: 100%; border-radius: 3px; }
+
+/* 中间文本样式 */
+.detail-item { margin-bottom: 25px; }
+
+.detail-item h3 {
+  margin: 0 0 12px;
+  color: var(--monet-deep-blue);
+  font-size: 1.1em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .detail-item ul {
   list-style: none;
-  padding: 0;
-  margin: 0;
-  font-size: 0.85em;
+  padding-left: 0;
 }
 
 .detail-item li {
-  margin-bottom: 5px;
-  padding-left: 15px;
   position: relative;
+  padding: 6px 0 6px 20px;
+  font-size: 0.95em;
+  line-height: 1.6;
+  border-bottom: 1px solid #f5f5f5;
 }
 
 .detail-item li::before {
   content: "•";
-  color: #007BFF;
+  color: var(--monet-pink);
+  font-weight: bold;
   position: absolute;
   left: 0;
+  font-size: 1.2em;
+  line-height: 1;
 }
 
-/* --- Motivation Chart Styles --- */
-.motivation-chart {
-  margin-top: 5px;
+.persona-bio-text {
+  font-size: 0.95em;
+  line-height: 1.8;
+  color: #444;
+  text-align: justify;
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 10px;
+  border-left: 4px solid var(--monet-lilac);
+}
+
+/* 右侧图表样式 */
+.chart-container {
+  background: #fff;
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid #eee;
+}
+
+.chart-container h3 {
+  margin: 0 0 15px;
+  color: var(--monet-deep-blue);
+  font-size: 1em;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 8px;
 }
 
 .chart-row {
@@ -332,21 +429,38 @@ h2::after {
 }
 
 .chart-row span {
-  flex: 0 0 70px;
+  flex: 0 0 55px;
   color: #555;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.bar {
+.chart-bar-outer {
   flex: 1;
-  height: 10px;
-  background: #007BFF;
-  border-radius: 4px;
-  margin-left: 10px;
+  height: 6px;
+  background: #eee;
+  border-radius: 3px;
+  overflow: hidden;
 }
 
-.bar.full { width: 90%; }
-.bar.high { width: 70%; }
-.bar.medium { width: 50%; }
+.chart-bar-inner {
+  height: 100%;
+  border-radius: 3px;
+  background: linear-gradient(90deg, var(--monet-blue), var(--monet-deep-blue));
+}
+
+/* 响应式调整 */
+@media screen and (max-width: 900px) {
+  .persona-details {
+    flex-direction: column;
+  }
+  .detail-column-left, .detail-column-right {
+    flex: 0 0 100%;
+    width: 100%;
+  }
+  .persona-top-title { font-size: 1.5rem; }
+}
 
 /* --- 其他通用样式 (保持原有功能) --- */
 /* 为了防止其他部分报错，保留了原有的通用类定义，但移除了冲突的 .persona-card 旧定义 */
@@ -664,215 +778,478 @@ h2::after {
 </section>
 
 <section id="user-personas" class="reveal">
-  <h2>User Personas</h2>
-  
-  <!-- Persona 1: The Freshman (Li Wei) -->
+  <div class="persona-top-title">User Persona — Li Wei</div>
   <div class="persona-card">
-    <div class="persona-header">
-      <div class="persona-photo">
-        <img src="images/freshman.jpg" alt="Li Wei">
-        <p class="caption">Li Wei, 19 (Freshman)</p>
-      </div>
-      <div class="persona-bio">
-        <h3>Persona 1: Li Wei</h3>
-        <p><strong>Bio:</strong> A 19-year-old freshman in Computer Science. New to the city, relies on smartphone for navigation and social life.</p>
-      </div>
-    </div>
+    <!-- 三栏布局 -->
     <div class="persona-details">
-      <div class="detail-column">
-        <div class="detail-item">
-          <h4>Goals</h4>
-          <ul>
-            <li>Find classrooms quickly</li>
-            <li>Locate the best coffee shops</li>
-            <li>Join student clubs</li>
-          </ul>
+
+      <!-- 左侧基础信息区 -->
+      <div class="detail-column-left">
+        <!-- 用户形象配图 -->
+        <div class="persona-photo">
+          <img src="images/freshman.jpg" alt="Li Wei">
         </div>
-        <div class="detail-item">
-          <h4>Frustrations</h4>
-          <ul>
-            <li>Large campus is confusing</li>
-            <li>Maps are hard to read</li>
-            <li>Hard to find friends on campus</li>
-          </ul>
+        
+        <!-- 用户一句话定位描述 -->
+        <div class="user-tagline">
+          "Tech-savvy freshman navigating the complexities of campus life."
         </div>
-      </div>
-      <div class="detail-column">
-        <div class="detail-item">
-          <h4>Motivation</h4>
-          <div class="motivation-chart">
-            <div class="chart-row"><span>Efficiency</span><div class="bar full"></div></div>
-            <div class="chart-row"><span>Social</span><div class="bar high"></div></div>
-            <div class="chart-row"><span>Exploration</span><div class="bar medium"></div></div>
+
+        <!-- 用户基础属性卡片 -->
+        <div class="basic-info-card">
+          <h4>User Attributes</h4>
+          <div class="basic-info-item"><strong>Age</strong> <span>19</span></div>
+          <div class="basic-info-item"><strong>Occupation</strong> <span>Student</span></div>
+          <div class="basic-info-item"><strong>Location</strong> <span>Computer Science Dept</span></div>
+          <div class="basic-info-item"><strong>Level</strong> <span>Advanced User</span></div>
+        </div>
+
+        <!-- 人格特质维度可视化模块 (MBTI) -->
+        <div class="mtbi-visual">
+          <h4>MBTI Dimensions</h4>
+          <div class="mtbi-row"><span>E</span> <span>I</span></div>
+          <div class="mtbi-bar-container">
+            <div class="mtbi-bar" style="width: 70%; background: #b8add6;"></div>
+          </div>
+          <div class="mtbi-row"><span>S</span> <span>N</span></div>
+          <div class="mtbi-bar-container">
+            <div class="mtbi-bar" style="width: 40%; background: #8fb7c9;"></div>
+          </div>
+          <div class="mtbi-row"><span>T</span> <span>F</span></div>
+          <div class="mtbi-bar-container">
+            <div class="mtbi-bar" style="width: 60%; background: #a8c7b0;"></div>
+          </div>
+          <div class="mtbi-row"><span>J</span> <span>P</span></div>
+          <div class="mtbi-bar-container">
+            <div class="mtbi-bar" style="width: 80%; background: #d8c69a;"></div>
           </div>
         </div>
+      </div>
+
+      <!-- 中间核心需求与背景区 -->
+      <div class="detail-column-center">
+        <!-- Goals -->
         <div class="detail-item">
-          <h4>Preferred Channels</h4>
+          <h3>🎯 Goals</h3>
           <ul>
-            <li>Mobile App</li>
-            <li>University Website</li>
-            <li>Social Media (WeChat)</li>
+            <li>Find classrooms quickly without getting lost.</li>
+            <li>Locate the best coffee shops and hangout spots.</li>
+            <li>Efficiently join student clubs and social events.</li>
+            <li>Minimize travel time between different faculties.</li>
           </ul>
         </div>
+
+        <!-- Frustrations -->
+        <div class="detail-item">
+          <h3>⚠️ Frustrations</h3>
+          <ul>
+            <li>The campus map is confusing and hard to read.</li>
+            <li>Getting lost leads to being late for the first lecture.</li>
+            <li>Hard to find friends in large, crowded campus areas.</li>
+            <li>Lack of clear signage for new buildings.</li>
+          </ul>
+        </div>
+
+        <!-- Bio (长文本) -->
+        <div class="detail-item">
+          <h3>📖 Bio</h3>
+          <p class="persona-bio-text">
+            Li Wei is a 19-year-old freshman majoring in Computer Science. He is new to the city and relies heavily on his smartphone for navigation and social life. 
+            Although tech-savvy, he finds the physical campus layout overwhelming. He often uses maps but gets confused by the lack of clear landmarks. 
+            His first-week experience was stressful due to arriving late at lectures. He needs a digital solution that not only shows the map but also provides social context, 
+            such as where to meet friends or where the popular student spots are, to help him feel connected and confident on campus.
+          </p>
+        </div>
       </div>
+
+      <!-- 右侧行为偏好可视化区 -->
+      <div class="detail-column-right">
+        <!-- Motivation -->
+        <div class="chart-container">
+          <h3>Motivation</h3>
+          <div class="chart-row"><span>Efficiency</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 90%;"></div></div></div>
+          <div class="chart-row"><span>Social</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 75%;"></div></div></div>
+          <div class="chart-row"><span>Exploration</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 60%;"></div></div></div>
+          <div class="chart-row"><span>Safety</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 40%;"></div></div></div>
+        </div>
+
+        <!-- Technology Usage -->
+        <div class="chart-container">
+          <h3>📱 Tech Usage</h3>
+          <div class="chart-row"><span>Mobile App</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 95%;"></div></div></div>
+          <div class="chart-row"><span>Web Map</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 70%;"></div></div></div>
+          <div class="chart-row"><span>AR Tools</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 50%;"></div></div></div>
+          <div class="chart-row"><span>Physical Map</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 10%;"></div></div></div>
+        </div>
+
+        <!-- Preferred Channels -->
+        <div class="chart-container">
+          <h3>📡 Channels</h3>
+          <div class="chart-row"><span>Mobile App</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 90%;"></div></div></div>
+          <div class="chart-row"><span>Social Media</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 85%;"></div></div></div>
+          <div class="chart-row"><span>University Site</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 60%;"></div></div></div>
+          <div class="chart-row"><span>Email</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 30%;"></div></div></div>
+        </div>
+      </div>
+
     </div>
   </div>
 
-  <!-- Persona 2: The Visitor (Parent) -->
+ <!-- 访客家长（Mrs. Zhang） -->
+  <div class="persona-top-title">User Persona — Mrs. Zhang (The Visitor)</div>
   <div class="persona-card">
-    <div class="persona-header">
-      <div class="persona-photo">
-        <img src="images/visitor.jpg" alt="Parent Visitor">
-        <p class="caption">Mrs. Zhang, 45 (Visitor)</p>
-      </div>
-      <div class="persona-bio">
-        <h3>Persona 2: Mrs. Zhang</h3>
-        <p><strong>Bio:</strong> A parent visiting the campus for the first time. Less tech-savvy, prefers clear and simple instructions.</p>
-      </div>
-    </div>
-    <div class="persona-details">
-      <div class="detail-column">
-        <div class="detail-item">
-          <h4>Goals</h4>
-          <ul>
-            <li>Meet child's professors</li>
-            <li>Visit the student dorms</li>
-            <li>Find the campus cafe</li>
-          </ul>
+     <div class="persona-details">
+
+      <!-- 左侧基础信息区 -->
+      <div class="detail-column-left">
+        <!-- 用户形象配图 -->
+        <div class="persona-photo">
+          <img src="images/freshman.jpg" alt="Li Wei">
         </div>
-        <div class="detail-item">
-          <h4>Frustrations</h4>
-          <ul>
-            <li>Unfamiliar with university terms</li>
-            <li>Difficulty reading small text</li>
-            <li>Worried about getting lost</li>
-          </ul>
+        
+        <!-- 用户一句话定位描述 -->
+        <div class="user-tagline">
+          "Tech-savvy freshman navigating the complexities of campus life."
         </div>
-      </div>
-      <div class="detail-column">
-        <div class="detail-item">
-          <h4>Motivation</h4>
-          <div class="motivation-chart">
-            <div class="chart-row"><span>Safety</span><div class="bar full"></div></div>
-            <div class="chart-row"><span>Clarity</span><div class="bar high"></div></div>
-            <div class="chart-row"><span>Support</span><div class="bar medium"></div></div>
+
+        <!-- 用户基础属性卡片 -->
+        <div class="basic-info-card">
+          <h4>User Attributes</h4>
+          <div class="basic-info-item"><strong>Age</strong> <span>19</span></div>
+          <div class="basic-info-item"><strong>Occupation</strong> <span>Student</span></div>
+          <div class="basic-info-item"><strong>Location</strong> <span>Computer Science Dept</span></div>
+          <div class="basic-info-item"><strong>Level</strong> <span>Advanced User</span></div>
+        </div>
+
+        <!-- 人格特质维度可视化模块 (MBTI) -->
+        <div class="mtbi-visual">
+          <h4>MBTI Dimensions</h4>
+          <div class="mtbi-row"><span>E</span> <span>I</span></div>
+          <div class="mtbi-bar-container">
+            <div class="mtbi-bar" style="width: 70%; background: #b8add6;"></div>
+          </div>
+          <div class="mtbi-row"><span>S</span> <span>N</span></div>
+          <div class="mtbi-bar-container">
+            <div class="mtbi-bar" style="width: 40%; background: #8fb7c9;"></div>
+          </div>
+          <div class="mtbi-row"><span>T</span> <span>F</span></div>
+          <div class="mtbi-bar-container">
+            <div class="mtbi-bar" style="width: 60%; background: #a8c7b0;"></div>
+          </div>
+          <div class="mtbi-row"><span>J</span> <span>P</span></div>
+          <div class="mtbi-bar-container">
+            <div class="mtbi-bar" style="width: 80%; background: #d8c69a;"></div>
           </div>
         </div>
+      </div>
+
+      <!-- 中间核心需求与背景区 -->
+      <div class="detail-column-center">
+        <!-- Goals -->
         <div class="detail-item">
-          <h4>Preferred Channels</h4>
+          <h3>🎯 Goals</h3>
           <ul>
-            <li>Printed Map</li>
-            <li>Information Desk</li>
-            <li>Phone Call</li>
+            <li>Find classrooms quickly without getting lost.</li>
+            <li>Locate the best coffee shops and hangout spots.</li>
+            <li>Efficiently join student clubs and social events.</li>
+            <li>Minimize travel time between different faculties.</li>
           </ul>
         </div>
+
+        <!-- Frustrations -->
+        <div class="detail-item">
+          <h3>⚠️ Frustrations</h3>
+          <ul>
+            <li>The campus map is confusing and hard to read.</li>
+            <li>Getting lost leads to being late for the first lecture.</li>
+            <li>Hard to find friends in large, crowded campus areas.</li>
+            <li>Lack of clear signage for new buildings.</li>
+          </ul>
+        </div>
+
+        <!-- Bio (长文本) -->
+        <div class="detail-item">
+          <h3>📖 Bio</h3>
+          <p class="persona-bio-text">
+            Li Wei is a 19-year-old freshman majoring in Computer Science. He is new to the city and relies heavily on his smartphone for navigation and social life. 
+            Although tech-savvy, he finds the physical campus layout overwhelming. He often uses maps but gets confused by the lack of clear landmarks. 
+            His first-week experience was stressful due to arriving late at lectures. He needs a digital solution that not only shows the map but also provides social context, 
+            such as where to meet friends or where the popular student spots are, to help him feel connected and confident on campus.
+          </p>
+        </div>
       </div>
+
+      <!-- 右侧行为偏好可视化区 -->
+      <div class="detail-column-right">
+        <!-- Motivation -->
+        <div class="chart-container">
+          <h3>Motivation</h3>
+          <div class="chart-row"><span>Efficiency</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 90%;"></div></div></div>
+          <div class="chart-row"><span>Social</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 75%;"></div></div></div>
+          <div class="chart-row"><span>Exploration</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 60%;"></div></div></div>
+          <div class="chart-row"><span>Safety</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 40%;"></div></div></div>
+        </div>
+
+        <!-- Technology Usage -->
+        <div class="chart-container">
+          <h3>📱 Tech Usage</h3>
+          <div class="chart-row"><span>Mobile App</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 95%;"></div></div></div>
+          <div class="chart-row"><span>Web Map</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 70%;"></div></div></div>
+          <div class="chart-row"><span>AR Tools</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 50%;"></div></div></div>
+          <div class="chart-row"><span>Physical Map</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 10%;"></div></div></div>
+        </div>
+
+        <!-- Preferred Channels -->
+        <div class="chart-container">
+          <h3>📡 Channels</h3>
+          <div class="chart-row"><span>Mobile App</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 90%;"></div></div></div>
+          <div class="chart-row"><span>Social Media</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 85%;"></div></div></div>
+          <div class="chart-row"><span>University Site</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 60%;"></div></div></div>
+          <div class="chart-row"><span>Email</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 30%;"></div></div></div>
+        </div>
+      </div>
+
     </div>
   </div>
 
-  <!-- Persona 3: The Professor (Faculty) -->
+  <!-- 教授 -->
+  <div class="persona-top-title">User Persona — Professor Wang</div>
   <div class="persona-card">
-    <div class="persona-header">
-      <div class="persona-photo">
-        <img src="images/professor.jpg" alt="Dr. Smith">
-        <p class="caption">Dr. Smith, 58 (Professor)</p>
-      </div>
-      <div class="persona-bio">
-        <h3>Persona 3: Dr. Smith</h3>
-        <p><strong>Bio:</strong> A senior professor with a busy schedule. Needs efficient routing between meetings and lectures.</p>
-      </div>
-    </div>
-    <div class="persona-details">
-      <div class="detail-column">
-        <div class="detail-item">
-          <h4>Goals</h4>
-          <ul>
-            <li>Get to lectures on time</li>
-            <li>Find meeting rooms</li>
-            <li>Locate quiet workspaces</li>
-          </ul>
+    <!-- 教授的具体内容 -->
+     <div class="persona-details">
+
+      <!-- 左侧基础信息区 -->
+      <div class="detail-column-left">
+        <!-- 用户形象配图 -->
+        <div class="persona-photo">
+          <img src="images/freshman.jpg" alt="Li Wei">
         </div>
-        <div class="detail-item">
-          <h4>Frustrations</h4>
-          <ul>
-            <li>Construction blocking paths</li>
-            <li>Slow students</li>
-            <li>Unreliable building directories</li>
-          </ul>
+        
+        <!-- 用户一句话定位描述 -->
+        <div class="user-tagline">
+          "Tech-savvy freshman navigating the complexities of campus life."
         </div>
-      </div>
-      <div class="detail-column">
-        <div class="detail-item">
-          <h4>Motivation</h4>
-          <div class="motivation-chart">
-            <div class="chart-row"><span>Efficiency</span><div class="bar full"></div></div>
-            <div class="chart-row"><span>Time Saving</span><div class="bar full"></div></div>
-            <div class="chart-row"><span>Professionalism</span><div class="bar high"></div></div>
+
+        <!-- 用户基础属性卡片 -->
+        <div class="basic-info-card">
+          <h4>User Attributes</h4>
+          <div class="basic-info-item"><strong>Age</strong> <span>19</span></div>
+          <div class="basic-info-item"><strong>Occupation</strong> <span>Student</span></div>
+          <div class="basic-info-item"><strong>Location</strong> <span>Computer Science Dept</span></div>
+          <div class="basic-info-item"><strong>Level</strong> <span>Advanced User</span></div>
+        </div>
+
+        <!-- 人格特质维度可视化模块 (MBTI) -->
+        <div class="mtbi-visual">
+          <h4>MBTI Dimensions</h4>
+          <div class="mtbi-row"><span>E</span> <span>I</span></div>
+          <div class="mtbi-bar-container">
+            <div class="mtbi-bar" style="width: 70%; background: #b8add6;"></div>
+          </div>
+          <div class="mtbi-row"><span>S</span> <span>N</span></div>
+          <div class="mtbi-bar-container">
+            <div class="mtbi-bar" style="width: 40%; background: #8fb7c9;"></div>
+          </div>
+          <div class="mtbi-row"><span>T</span> <span>F</span></div>
+          <div class="mtbi-bar-container">
+            <div class="mtbi-bar" style="width: 60%; background: #a8c7b0;"></div>
+          </div>
+          <div class="mtbi-row"><span>J</span> <span>P</span></div>
+          <div class="mtbi-bar-container">
+            <div class="mtbi-bar" style="width: 80%; background: #d8c69a;"></div>
           </div>
         </div>
+      </div>
+
+      <!-- 中间核心需求与背景区 -->
+      <div class="detail-column-center">
+        <!-- Goals -->
         <div class="detail-item">
-          <h4>Preferred Channels</h4>
+          <h3>🎯 Goals</h3>
           <ul>
-            <li>Desktop Calendar</li>
-            <li>Email</li>
-            <li>University Portal</li>
+            <li>Find classrooms quickly without getting lost.</li>
+            <li>Locate the best coffee shops and hangout spots.</li>
+            <li>Efficiently join student clubs and social events.</li>
+            <li>Minimize travel time between different faculties.</li>
           </ul>
         </div>
+
+        <!-- Frustrations -->
+        <div class="detail-item">
+          <h3>⚠️ Frustrations</h3>
+          <ul>
+            <li>The campus map is confusing and hard to read.</li>
+            <li>Getting lost leads to being late for the first lecture.</li>
+            <li>Hard to find friends in large, crowded campus areas.</li>
+            <li>Lack of clear signage for new buildings.</li>
+          </ul>
+        </div>
+
+        <!-- Bio (长文本) -->
+        <div class="detail-item">
+          <h3>📖 Bio</h3>
+          <p class="persona-bio-text">
+            Li Wei is a 19-year-old freshman majoring in Computer Science. He is new to the city and relies heavily on his smartphone for navigation and social life. 
+            Although tech-savvy, he finds the physical campus layout overwhelming. He often uses maps but gets confused by the lack of clear landmarks. 
+            His first-week experience was stressful due to arriving late at lectures. He needs a digital solution that not only shows the map but also provides social context, 
+            such as where to meet friends or where the popular student spots are, to help him feel connected and confident on campus.
+          </p>
+        </div>
       </div>
+
+      <!-- 右侧行为偏好可视化区 -->
+      <div class="detail-column-right">
+        <!-- Motivation -->
+        <div class="chart-container">
+          <h3>Motivation</h3>
+          <div class="chart-row"><span>Efficiency</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 90%;"></div></div></div>
+          <div class="chart-row"><span>Social</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 75%;"></div></div></div>
+          <div class="chart-row"><span>Exploration</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 60%;"></div></div></div>
+          <div class="chart-row"><span>Safety</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 40%;"></div></div></div>
+        </div>
+
+        <!-- Technology Usage -->
+        <div class="chart-container">
+          <h3>📱 Tech Usage</h3>
+          <div class="chart-row"><span>Mobile App</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 95%;"></div></div></div>
+          <div class="chart-row"><span>Web Map</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 70%;"></div></div></div>
+          <div class="chart-row"><span>AR Tools</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 50%;"></div></div></div>
+          <div class="chart-row"><span>Physical Map</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 10%;"></div></div></div>
+        </div>
+
+        <!-- Preferred Channels -->
+        <div class="chart-container">
+          <h3>📡 Channels</h3>
+          <div class="chart-row"><span>Mobile App</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 90%;"></div></div></div>
+          <div class="chart-row"><span>Social Media</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 85%;"></div></div></div>
+          <div class="chart-row"><span>University Site</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 60%;"></div></div></div>
+          <div class="chart-row"><span>Email</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 30%;"></div></div></div>
+        </div>
+      </div>
+
+    </div>
     </div>
   </div>
 
-  <!-- Persona 4: The Staff (Campus Worker) -->
+  <!-- 工作人员 -->
+  <div class="persona-top-title">User Persona — Mr. Zhao (Staff)</div>
   <div class="persona-card">
-    <div class="persona-header">
-      <div class="persona-photo">
-        <img src="images/staff.jpg" alt="Campus Worker">
-        <p class="caption">John, 34 (Campus Worker)</p>
-      </div>
-      <div class="persona-bio">
-        <h3>Persona 4: John</h3>
-        <p><strong>Bio:</strong> A facilities staff member who needs to navigate between different buildings for maintenance checks.</p>
-      </div>
-    </div>
-    <div class="persona-details">
-      <div class="detail-column">
-        <div class="detail-item">
-          <h4>Goals</h4>
-          <ul>
-            <li>Complete maintenance rounds</li>
-            <li>Find specific room numbers</li>
-            <li>Report issues on-site</li>
-          </ul>
+    <!-- 工作人员的具体内容 -->
+     <div class="persona-details">
+
+      <!-- 左侧基础信息区 -->
+      <div class="detail-column-left">
+        <!-- 用户形象配图 -->
+        <div class="persona-photo">
+          <img src="images/freshman.jpg" alt="Li Wei">
         </div>
-        <div class="detail-item">
-          <h4>Frustrations</h4>
-          <ul>
-            <li>Inconsistent room numbering</li>
-            <li>Limited mobile signal indoors</li>
-            <li>Outdated paper maps</li>
-          </ul>
+        
+        <!-- 用户一句话定位描述 -->
+        <div class="user-tagline">
+          "Tech-savvy freshman navigating the complexities of campus life."
         </div>
-      </div>
-      <div class="detail-column">
-        <div class="detail-item">
-          <h4>Motivation</h4>
-          <div class="motivation-chart">
-            <div class="chart-row"><span>Task Completion</span><div class="bar full"></div></div>
-            <div class="chart-row"><span>Reliability</span><div class="bar high"></div></div>
-            <div class="chart-row"><span>Independence</span><div class="bar medium"></div></div>
+
+        <!-- 用户基础属性卡片 -->
+        <div class="basic-info-card">
+          <h4>User Attributes</h4>
+          <div class="basic-info-item"><strong>Age</strong> <span>19</span></div>
+          <div class="basic-info-item"><strong>Occupation</strong> <span>Student</span></div>
+          <div class="basic-info-item"><strong>Location</strong> <span>Computer Science Dept</span></div>
+          <div class="basic-info-item"><strong>Level</strong> <span>Advanced User</span></div>
+        </div>
+
+        <!-- 人格特质维度可视化模块 (MBTI) -->
+        <div class="mtbi-visual">
+          <h4>MBTI Dimensions</h4>
+          <div class="mtbi-row"><span>E</span> <span>I</span></div>
+          <div class="mtbi-bar-container">
+            <div class="mtbi-bar" style="width: 70%; background: #b8add6;"></div>
+          </div>
+          <div class="mtbi-row"><span>S</span> <span>N</span></div>
+          <div class="mtbi-bar-container">
+            <div class="mtbi-bar" style="width: 40%; background: #8fb7c9;"></div>
+          </div>
+          <div class="mtbi-row"><span>T</span> <span>F</span></div>
+          <div class="mtbi-bar-container">
+            <div class="mtbi-bar" style="width: 60%; background: #a8c7b0;"></div>
+          </div>
+          <div class="mtbi-row"><span>J</span> <span>P</span></div>
+          <div class="mtbi-bar-container">
+            <div class="mtbi-bar" style="width: 80%; background: #d8c69a;"></div>
           </div>
         </div>
+      </div>
+
+      <!-- 中间核心需求与背景区 -->
+      <div class="detail-column-center">
+        <!-- Goals -->
         <div class="detail-item">
-          <h4>Preferred Channels</h4>
+          <h3>🎯 Goals</h3>
           <ul>
-            <li>Walkie-Talkie</li>
-            <li>Internal Staff App</li>
-            <li>Physical Signage</li>
+            <li>Find classrooms quickly without getting lost.</li>
+            <li>Locate the best coffee shops and hangout spots.</li>
+            <li>Efficiently join student clubs and social events.</li>
+            <li>Minimize travel time between different faculties.</li>
           </ul>
         </div>
+
+        <!-- Frustrations -->
+        <div class="detail-item">
+          <h3>⚠️ Frustrations</h3>
+          <ul>
+            <li>The campus map is confusing and hard to read.</li>
+            <li>Getting lost leads to being late for the first lecture.</li>
+            <li>Hard to find friends in large, crowded campus areas.</li>
+            <li>Lack of clear signage for new buildings.</li>
+          </ul>
+        </div>
+
+        <!-- Bio (长文本) -->
+        <div class="detail-item">
+          <h3>📖 Bio</h3>
+          <p class="persona-bio-text">
+            Li Wei is a 19-year-old freshman majoring in Computer Science. He is new to the city and relies heavily on his smartphone for navigation and social life. 
+            Although tech-savvy, he finds the physical campus layout overwhelming. He often uses maps but gets confused by the lack of clear landmarks. 
+            His first-week experience was stressful due to arriving late at lectures. He needs a digital solution that not only shows the map but also provides social context, 
+            such as where to meet friends or where the popular student spots are, to help him feel connected and confident on campus.
+          </p>
+        </div>
       </div>
+
+      <!-- 右侧行为偏好可视化区 -->
+      <div class="detail-column-right">
+        <!-- Motivation -->
+        <div class="chart-container">
+          <h3>Motivation</h3>
+          <div class="chart-row"><span>Efficiency</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 90%;"></div></div></div>
+          <div class="chart-row"><span>Social</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 75%;"></div></div></div>
+          <div class="chart-row"><span>Exploration</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 60%;"></div></div></div>
+          <div class="chart-row"><span>Safety</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 40%;"></div></div></div>
+        </div>
+
+        <!-- Technology Usage -->
+        <div class="chart-container">
+          <h3>📱 Tech Usage</h3>
+          <div class="chart-row"><span>Mobile App</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 95%;"></div></div></div>
+          <div class="chart-row"><span>Web Map</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 70%;"></div></div></div>
+          <div class="chart-row"><span>AR Tools</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 50%;"></div></div></div>
+          <div class="chart-row"><span>Physical Map</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 10%;"></div></div></div>
+        </div>
+
+        <!-- Preferred Channels -->
+        <div class="chart-container">
+          <h3>📡 Channels</h3>
+          <div class="chart-row"><span>Mobile App</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 90%;"></div></div></div>
+          <div class="chart-row"><span>Social Media</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 85%;"></div></div></div>
+          <div class="chart-row"><span>University Site</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 60%;"></div></div></div>
+          <div class="chart-row"><span>Email</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 30%;"></div></div></div>
+        </div>
+      </div>
+
+    </div>
     </div>
   </div>
+
 
 </section>
 
