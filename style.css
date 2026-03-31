@@ -1,1 +1,199 @@
+/* =========================================
+   基础全局样式 (Base Styles)
+   ========================================= */
+:root {
+  --monet-deep-blue: #1a3c5e;
+  --monet-gold: #d4af37;
+  --monet-light-bg: #f8f5ef;
+  --text-color: #333;
+  --card-bg: #ffffff;
+}
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background-color: var(--monet-light-bg);
+  color: var(--text-color);
+  line-height: 1.6;
+  padding: 20px;
+}
+
+/* 通用容器与标题 */
+section {
+  max-width: 1200px;
+  margin: 0 auto 60px auto;
+  padding: 40px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+h2 {
+  text-align: center;
+  color: var(--monet-deep-blue);
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background-color: var(--monet-gold);
+  border-radius: 2px;
+}
+
+/* =========================================
+   用户画像特定样式 (User Personas Styles)
+   ========================================= */
+
+/* 分类容器 */
+.persona-category {
+  width: 100%;
+  margin-bottom: 60px;
+}
+
+/* 分类标题 (Primary/Secondary) */
+.category-title {
+  font-size: 1.5rem;
+  color: var(--monet-deep-blue);
+  margin-bottom: 24px;
+  text-align: left;
+  border-left: 6px solid var(--monet-gold);
+  padding-left: 16px;
+  background: rgba(248, 245, 239, 0.6);
+  padding: 12px 22px;
+  border-radius: 10px;
+  display: inline-block;
+  font-weight: bold;
+}
+
+/* 网格布局 */
+.personas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+/* 卡片基础样式 */
+.persona-card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 25px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* 图片样式 */
+.persona-card img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+  border: 3px solid var(--monet-light-bg);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* 名字样式 */
+.persona-card h3 {
+  color: var(--monet-deep-blue);
+  margin-bottom: 15px;
+  font-size: 1.25rem;
+}
+
+/* 详细信息列表 */
+.persona-details {
+  text-align: left;
+  width: 100%;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.persona-details p {
+  margin-bottom: 8px;
+  border-bottom: 1px dashed #eee;
+  padding-bottom: 4px;
+}
+
+.persona-details p:last-child {
+  border-bottom: none;
+}
+
+/* 角标标签基础 */
+.card-tag {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  padding: 6px 14px;
+  border-radius: 14px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: white;
+  z-index: 2;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+/* --- 主要用户样式 (Primary) --- */
+.persona-card.primary {
+  transform: scale(1.03); /* 稍微放大，显得更突出 */
+  border: 1px solid rgba(143, 183, 201, 0.5);
+  box-shadow: 0 14px 35px rgba(95, 127, 149, 0.22);
+  z-index: 1;
+}
+
+.primary-tag {
+  background: linear-gradient(135deg, #5f7f95, #8fb7c9);
+}
+
+/* --- 次要用户样式 (Secondary) --- */
+.persona-card.secondary {
+  opacity: 0.96;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(184, 173, 214, 0.4);
+  backdrop-filter: blur(8px);
+}
+
+.secondary-tag {
+  background: linear-gradient(135deg, #b8add6, #a8c7b0);
+  font-size: 0.8rem;
+}
+
+/* 悬停效果 */
+.persona-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.1);
+}
+
+/* 修正主要用户悬停时的层级问题 */
+.persona-card.primary:hover {
+  transform: scale(1.03) translateY(-5px);
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .personas-grid {
+    grid-template-columns: 1fr; /* 手机端单列显示 */
+  }
+  
+  .persona-card.primary {
+    transform: scale(1); /* 手机端取消放大，避免溢出 */
+  }
+}
