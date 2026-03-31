@@ -327,6 +327,120 @@
     margin-bottom: 8px;
   }
 
+  /* ===== 用户画像样式 ===== */
+#user-personas {
+  background-color: #f9f9f9;
+  padding: 40px 20px;
+}
+
+#user-personas h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 40px;
+}
+
+.persona-row {
+  display: flex;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  margin-bottom: 40px;
+  overflow: hidden;
+}
+
+.persona-image {
+  flex: 1;
+  background: #e0e0e0; /* 灰色占位背景 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.persona-image img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+.caption {
+  margin-top: 10px;
+  color: #666;
+  font-size: 0.9em;
+  text-align: center;
+}
+
+.persona-details {
+  flex: 2;
+  padding: 30px;
+}
+
+.bio-section h3 {
+  color: #2c3e50;
+  margin-top: 0;
+}
+
+.profile-grid {
+  display: flex;
+  margin: 20px 0;
+  gap: 20px;
+}
+
+.profile-item {
+  flex: 1;
+  background: #f1f1f1;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.profile-item h5 {
+  margin-top: 0;
+  color: #34495e;
+}
+
+.charts-section {
+  display: flex;
+  justify-content: space-between;
+}
+
+.chart-item {
+  width: 45%;
+}
+
+.bar-chart {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.bar-label {
+  width: 80px;
+  font-size: 0.9em;
+  color: #555;
+}
+
+.bar-fill {
+  flex: 1;
+  height: 20px;
+  background-color: #3498db;
+  border-radius: 10px;
+  margin-left: 10px;
+}
+
+/* 响应式设计：在小屏幕上堆叠 */
+@media (max-width: 768px) {
+  .persona-row {
+    flex-direction: column;
+  }
+
+  .persona-image {
+    flex: 0 0 200px;
+  }
+
+  .profile-grid {
+    flex-direction: column;
+  }
+}
+
   .requirements-list {
     text-align: left;
   }
@@ -578,51 +692,289 @@
 
 <section id="user-personas" class="reveal">
   <h2>User Personas</h2>
-  <div class="personas-grid">
-    <!-- Persona 1: 新生 -->
-    <div class="persona-card">
-      <img src="images/persona-placeholder.png" alt="Persona Image">
-      <h3>Freshman Li</h3>
-      <div class="persona-details">
-        <p><strong>Role:</strong> Freshman</p>
-        <p><strong>Goal:</strong> Quickly find classrooms and the cafeteria.</p>
-        <p><strong>Pain Point:</strong> The campus map is too complex and overwhelming.</p>
-      </div>
-    </div>
 
-    <!-- Persona 2: 访客 -->
-    <div class="persona-card">
-      <img src="images/persona-placeholder.png" alt="Persona Image">
-      <h3>Visitor Wang</h3>
-      <div class="persona-details">
-        <p><strong>Role:</strong> Parent / Visitor</p>
-        <p><strong>Goal:</strong> Find administrative offices and restrooms.</p>
-        <p><strong>Pain Point:</strong> Unfamiliar with campus layout and signage.</p>
-      </div>
+  <!-- Persona 1: The Freshman (Li Wei) -->
+  <div class="persona-row">
+    <div class="persona-image">
+      <img src="images/freshman.jpg" alt="Freshman Student">
+      <p class="caption">Li Wei, a freshman student</p>
     </div>
+    <div class="persona-details">
+      <div class="bio-section">
+        <h3>Persona 1: Li Wei</h3>
+        <h4>Bio</h4>
+        <p>Li Wei is a 19-year-old freshman majoring in Computer Science. He just moved to a new city for college and is eager to explore the campus. He relies heavily on his smartphone for navigation and social life.</p>
+      </div>
 
-    <!-- Persona 3: 教授 -->
-    <div class="persona-card">
-      <img src="images/persona-placeholder.png" alt="Persona Image">
-      <h3>Professor Chen</h3>
-      <div class="persona-details">
-        <p><strong>Role:</strong> Professor</p>
-        <p><strong>Goal:</strong> Navigate between different lecture halls efficiently.</p>
-        <p><strong>Pain Point:</strong> Time management due to long distances between buildings.</p>
-      </div>
-    </div>
+      <div class="profile-grid">
+        <div class="profile-item">
+          <h5>Demographics</h5>
+          <ul>
+            <li><strong>Age:</strong> 19</li>
+            <li><strong>Role:</strong> Freshman</li>
+            <li><strong>Location:</strong> Dormitory</li>
+          </ul>
+        </div>
 
-    <!-- Persona 4: 在校老生 -->
-    <div class="persona-card">
-      <img src="images/persona-placeholder.png" alt="Persona Image">
-      <h3>Exchange Student Tanaka</h3>
-      <div class="persona-details">
-        <p><strong>Role:</strong> International Student</p>
-        <p><strong>Goal:</strong> Understand campus signs and find the international office.</p>
-        <p><strong>Pain Point:</strong> Language barriers and difficulty understanding local maps.</p>
+        <div class="profile-item">
+          <h5>Goals</h5>
+          <ul>
+            <li>Find classrooms quickly</li>
+            <li>Locate the best coffee shops</li>
+            <li>Join student clubs</li>
+          </ul>
+        </div>
+
+        <div class="profile-item">
+          <h5>Frustrations</h5>
+          <ul>
+            <li>Large campus is confusing</li>
+            <li>Maps are hard to read</li>
+            <li>Hard to find friends on campus</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="charts-section">
+        <div class="chart-item">
+          <h5>Motivation</h5>
+          <div class="bar-chart">
+            <div class="bar-label">Efficiency</div>
+            <div class="bar-fill" style="width: 90%;"></div>
+          </div>
+          <div class="bar-chart">
+            <div class="bar-label">Social</div>
+            <div class="bar-fill" style="width: 85%;"></div>
+          </div>
+          <div class="bar-chart">
+            <div class="bar-label">Exploration</div>
+            <div class="bar-fill" style="width: 75%;"></div>
+          </div>
+        </div>
+
+        <div class="chart-item">
+          <h5>Preferred Channels</h5>
+          <ul>
+            <li>Mobile App</li>
+            <li>University Website</li>
+            <li>Social Media (WeChat)</li>
+          </ul>
+        </div>
       </div>
     </div>
-    -->
+  </div>
+
+  <!-- Persona 2: The Visitor (Parent) -->
+  <div class="persona-row">
+    <div class="persona-image">
+      <img src="images/parent.jpg" alt="Parent Visitor">
+      <p class="caption">Mrs. Zhang, a visiting parent</p>
+    </div>
+    <div class="persona-details">
+      <div class="bio-section">
+        <h3>Persona 2: Mrs. Zhang</h3>
+        <h4>Bio</h4>
+        <p>Mrs. Zhang is visiting her son at the university. She is not very tech-savvy and prefers clear, simple instructions. She wants to find the student center to meet her son without getting lost.</p>
+      </div>
+
+      <div class="profile-grid">
+        <div class="profile-item">
+          <h5>Demographics</h5>
+          <ul>
+            <li><strong>Age:</strong> 52</li>
+            <li><strong>Role:</strong> Parent / Visitor</li>
+            <li><strong>Location:</strong> Main Gate</li>
+          </ul>
+        </div>
+
+        <div class="profile-item">
+          <h5>Goals</h5>
+          <ul>
+            <li>Meet her son at the student center</li>
+            <li>Find parking</li>
+            <li>Visit the campus bookstore</li>
+          </ul>
+        </div>
+
+        <div class="profile-item">
+          <h5>Frustrations</h5>
+          <ul>
+            <li>Small text on digital maps</li>
+            <li>Confusing navigation UI</li>
+            <li>Not knowing where to park</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="charts-section">
+        <div class="chart-item">
+          <h5>Motivation</h5>
+          <div class="bar-chart">
+            <div class="bar-label">Clarity</div>
+            <div class="bar-fill" style="width: 95%;"></div>
+          </div>
+          <div class="bar-chart">
+            <div class="bar-label">Safety</div>
+            <div class="bar-fill" style="width: 90%;"></div>
+          </div>
+          <div class="bar-chart">
+            <div class="bar-label">Convenience</div>
+            <div class="bar-fill" style="width: 80%;"></div>
+          </div>
+        </div>
+
+        <div class="chart-item">
+          <h5>Preferred Channels</h5>
+          <ul>
+            <li>On-campus Signage</li>
+            <li>Information Desk</li>
+            <li>Phone Call</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Persona 3: The Professor (Faculty) -->
+  <div class="persona-row">
+    <div class="persona-image">
+      <img src="images/professor.jpg" alt="Professor">
+      <p class="caption">Dr. Chen, a Professor</p>
+    </div>
+    <div class="persona-details">
+      <div class="bio-section">
+        <h3>Persona 3: Dr. Chen</h3>
+        <h4>Bio</h4>
+        <p>Dr. Chen is a busy professor who has been at the university for 15 years. He needs to manage his schedule between teaching, research, and meetings. He needs a quick way to check room availability and building access.</p>
+      </div>
+
+      <div class="profile-grid">
+        <div class="profile-item">
+          <h5>Demographics</h5>
+          <ul>
+            <li><strong>Age:</strong> 45</li>
+            <li><strong>Role:</strong> Professor</li>
+            <li><strong>Location:</strong> Faculty Office</li>
+          </ul>
+        </div>
+
+        <div class="profile-item">
+          <h5>Goals</h5>
+          <ul>
+            <li>Find available meeting rooms</li>
+            <li>Check class schedules</li>
+            <li>Access building security info</li>
+          </ul>
+        </div>
+
+        <div class="profile-item">
+          <h5>Frustrations</h5>
+          <ul>
+            <li>Outdated booking systems</li>
+            <li>Difficulty finding quiet spaces</li>
+            <li>Inconsistent room numbering</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="charts-section">
+        <div class="chart-item">
+          <h5>Motivation</h5>
+          <div class="bar-chart">
+            <div class="bar-label">Productivity</div>
+            <div class="bar-fill" style="width: 95%;"></div>
+          </div>
+          <div class="bar-chart">
+            <div class="bar-label">Organization</div>
+            <div class="bar-fill" style="width: 90%;"></div>
+          </div>
+          <div class="bar-chart">
+            <div class="bar-label">Time-saving</div>
+            <div class="bar-fill" style="width: 85%;"></div>
+          </div>
+        </div>
+
+        <div class="chart-item">
+          <h5>Preferred Channels</h5>
+          <ul>
+            <li>Desktop Web App</li>
+            <li>Email Notifications</li>
+            <li>Internal Faculty Portal</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Persona 4: The Staff (Campus Worker) -->
+  <div class="persona-row">
+    <div class="persona-image">
+      <img src="images/staff.jpg" alt="Campus Staff">
+      <p class="caption">Mr. Wang, a Campus Staff</p>
+    </div>
+    <div class="persona-details">
+      <div class="bio-section">
+        <h3>Persona 4: Mr. Wang</h3>
+        <h4>Bio</h4>
+        <p>Mr. Wang is a facilities staff member responsible for maintenance across the campus. He needs real-time information about equipment status and building layouts to perform his repairs efficiently.</p>
+      </div>
+
+      <div class="profile-grid">
+        <div class="profile-item">
+          <h5>Demographics</h5>
+          <ul>
+            <li><strong>Age:</strong> 38</li>
+            <li><strong>Role:</strong> Facilities Staff</li>
+            <li><strong>Location:</strong> Maintenance Office</li>
+          </ul>
+        </div>
+
+        <div class="profile-item">
+          <h5>Goals</h5>
+          <ul>
+            <li>Locate specific equipment</li>
+            <li>Report maintenance issues</li>
+            <li>Access restricted areas</li>
+          </ul>
+        </div>
+
+        <div class="profile-item">
+          <h5>Frustrations</h5>
+          <ul>
+            <li>Paper-based work orders</li>
+            <li>Outdated floor plans</li>
+            <li>Difficulty communicating with admin</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="charts-section">
+        <div class="chart-item">
+          <h5>Motivation</h5>
+          <div class="bar-chart">
+            <div class="bar-label">Reliability</div>
+            <div class="bar-fill" style="width: 95%;"></div>
+          </div>
+          <div class="bar-chart">
+            <div class="bar-label">Efficiency</div>
+            <div class="bar-fill" style="width: 90%;"></div>
+          </div>
+          <div class="bar-chart">
+            <div class="bar-label">Responsibility</div>
+            <div class="bar-fill" style="width: 85%;"></div>
+          </div>
+        </div>
+
+        <div class="chart-item">
+          <h5>Preferred Channels</h5>
+          <ul>
+            <li>Internal Mobile App</li>
+            <li>Walkie-talkie</li>
+            <li>Internal Ticketing System</li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
