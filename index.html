@@ -578,39 +578,67 @@
 
 <section id="user-personas" class="reveal">
   <h2>User Personas</h2>
-  <div class="personas-grid">
-    <div class="persona-card">
-      <img src="images/persona-placeholder.png" alt="Persona Image">
-      <h3>Freshman Li</h3>
-      <div class="persona-details">
-        <p><strong>Role:</strong> Freshman</p>
-        <p><strong>Goal:</strong> Quickly find classrooms.</p>
-        <p><strong>Pain Point:</strong> The campus map is too complex.</p>
+  
+  <!-- 主要用户画像 (Primary Users) -->
+  <div class="persona-category">
+    <h3 class="category-title">Primary Users (核心用户)</h3>
+    <div class="personas-grid">
+      <!-- Persona 1: 新生 -->
+      <div class="persona-card primary">
+        <div class="card-tag primary-tag">核心</div>
+        <img src="images/persona-placeholder.png" alt="Freshman Persona">
+        <h3>忙碌新生 - Xiao Ming</h3>
+        <div class="persona-details">
+          <p><strong>角色:</strong> 大一新生</p>
+          <p><strong>目标:</strong> 快速找到第一节课的教室，不迟到。</p>
+          <p><strong>痛点:</strong> 校园太大，路痴，对环境感到焦虑，急需清晰的指引。</p>
+        </div>
+      </div>
+      
+      <!-- Persona 2: 访客 -->
+      <div class="persona-card primary">
+        <div class="card-tag primary-tag">核心</div>
+        <img src="images/persona-placeholder.png" alt="Visitor Persona">
+        <h3>访客家长 - Mrs. Wang</h3>
+        <div class="persona-details">
+          <p><strong>角色:</strong> 学生家长</p>
+          <p><strong>目标:</strong> 找到行政楼或食堂，看望孩子并了解校园。</p>
+          <p><strong>痛点:</strong> 不熟悉校园布局，步行速度较慢，可能需要无障碍路线或休息区信息。</p>
+        </div>
       </div>
     </div>
+  </div>
 
-    <div class="persona-card">
-      <img src="images/persona-placeholder.png" alt="Persona Image">
-      <h3>Visitor Wang</h3>
-      <div class="persona-details">
-        <p><strong>Role:</strong> Visitor</p>
-        <p><strong>Goal:</strong> Find administrative offices.</p>
-        <p><strong>Pain Point:</strong> Unfamiliar with campus layout.</p>
+  <!-- 次要用户画像 (Secondary Users) -->
+  <div class="persona-category">
+    <h3 class="category-title">Secondary Users (次要用户)</h3>
+    <div class="personas-grid">
+      <!-- Persona 3: 交换生 -->
+      <div class="persona-card secondary">
+        <div class="card-tag secondary-tag">次要</div>
+        <img src="images/persona-placeholder.png" alt="Exchange Student Persona">
+        <h3>国际交换生 - Tom</h3>
+        <div class="persona-details">
+          <p><strong>角色:</strong> 国际交换生</p>
+          <p><strong>目标:</strong> 探索校园周边的图书馆、健身房和社团活动。</p>
+          <p><strong>痛点:</strong> 需要英文界面，对校园文化设施感兴趣，而不仅仅是教学楼，且可能对本地环境陌生。</p>
+        </div>
       </div>
-    </div>
-
-    <div class="persona-card">
-      <img src="images/persona-placeholder.png" alt="Persona Image">
-      <h3>Professor Chen</h3>
-      <div class="persona-details">
-        <p><strong>Role:</strong> Professor</p>
-        <p><strong>Goal:</strong> Navigate between different lecture halls efficiently.</p>
-        <p><strong>Pain Point:</strong> Time management due to long distances between buildings.</p>
+      
+      <!-- Persona 4: 后勤人员 -->
+      <div class="persona-card secondary">
+        <div class="card-tag secondary-tag">次要</div>
+        <img src="images/persona-placeholder.png" alt="Staff Persona">
+        <h3>后勤人员 - Mr. Li</h3>
+        <div class="persona-details">
+          <p><strong>角色:</strong> 维修/保洁人员</p>
+          <p><strong>目标:</strong> 快速定位报修地点或清洁区域。</p>
+          <p><strong>痛点:</strong> 需要后门、货梯或员工通道路线，普通导航路线（如游客路线）可能不适用。</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
-
 <section id="requirements" class="reveal">
   <h2>Requirements</h2>
   <div class="requirements-list">
