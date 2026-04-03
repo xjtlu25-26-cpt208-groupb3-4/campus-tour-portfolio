@@ -22,3 +22,6 @@ If you want to work on the actual web app, please go to:
 ## Team Reminder
 Please upload or update all process-related materials here.
 Do not mix final system code into this repository.
+
+## Web
+https://xjtlu25-26-cpt208-groupb3-4.github.io/campus-tour-portfolio/
