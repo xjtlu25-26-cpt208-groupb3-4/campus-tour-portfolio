@@ -1,4 +1,4 @@
-# Campus Tour Portfolio
+# PuPath Portfolio
 
 This repository is for our **CPT208 process portfolio**.
 
