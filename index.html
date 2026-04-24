@@ -3,20 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PuPath - CPT208(Campus Tour)</title>
+<title>PuPath - CPT208 Process Portfolio</title>
 <style>
-  :root {
-  --monet-blue: #8fb7c9;
-  --monet-deep-blue: #5f7f95;
-  --monet-green: #a8c7b0;
-  --monet-lilac: #b8add6;
-  --monet-pink: #e6c7d4;
-  --monet-cream: #f8f5ef;
-  --monet-gold: #d8c69a;
-  --text-dark: #2f3d46;
-  --card-bg: rgba(255, 255, 255, 0.72);
-  --border-soft: rgba(255, 255, 255, 0.45);
-  --shadow-soft: 0 10px 30px rgba(70, 90, 110, 0.15);
+:root {
+  --deep-blue: #355c7d;
+  --mid-blue: #5f7f95;
+  --soft-blue: #dce9f1;
+  --soft-green: #dceade;
+  --soft-pink: #f2e3ea;
+  --cream: #f8f5ef;
+  --text: #2f3d46;
+  --card-bg: rgba(255, 255, 255, 0.82);
+  --border: rgba(95, 127, 149, 0.16);
+  --shadow: 0 14px 34px rgba(70, 90, 110, 0.12);
 }
 
 * {
@@ -31,42 +30,30 @@ html {
 
 body {
   font-family: "Trebuchet MS", "Segoe UI", Arial, sans-serif;
-  color: var(--text-dark);
+  color: var(--text);
   line-height: 1.7;
-  background: radial-gradient(circle at 15% 20%, rgba(230, 199, 212, 0.45), transparent 22%), 
-              radial-gradient(circle at 80% 15%, rgba(168, 199, 176, 0.35), transparent 20%), 
-              radial-gradient(circle at 25% 80%, rgba(184, 173, 214, 0.35), transparent 24%), 
-              radial-gradient(circle at 85% 75%, rgba(143, 183, 201, 0.30), transparent 25%), 
-              linear-gradient(180deg, #f9f7f2 0%, #edf4f7 45%, #f4efe8 100%);
   overflow-x: hidden;
-  position: relative;
+  background:
+    radial-gradient(circle at top left, rgba(242, 227, 234, 0.8), transparent 25%),
+    radial-gradient(circle at top right, rgba(220, 234, 222, 0.8), transparent 28%),
+    linear-gradient(180deg, #f8f6f2 0%, #edf4f7 42%, #f4efe8 100%);
 }
 
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background: radial-gradient(circle at 20% 30%, rgba(255,255,255,0.35), transparent 18%), 
-              radial-gradient(circle at 70% 25%, rgba(255,255,255,0.18), transparent 20%), 
-              radial-gradient(circle at 50% 75%, rgba(255,255,255,0.2), transparent 18%);
-  animation: mistFlow 16s ease-in-out infinite alternate;
-  z-index: -1;
-}
-
-@keyframes mistFlow {
-  0% { transform: translateY(0) scale(1); opacity: 0.8; }
-  100% { transform: translateY(-20px) scale(1.05); opacity: 1; }
+a {
+  color: var(--deep-blue);
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .main-header {
   position: relative;
-  background: linear-gradient(rgba(72, 105, 128, 0.42), rgba(112, 147, 166, 0.22)), url('images/Title_Background.jpg') no-repeat center center;
-  background-size: cover;
-  color: white;
-  padding: 90px 20px 80px;
+  min-height: 62vh;
+  padding: 110px 20px 90px;
   text-align: center;
-  overflow: hidden;
+  color: white;
+  background:
+    linear-gradient(rgba(47, 74, 96, 0.66), rgba(72, 102, 121, 0.48)),
+    url("images/Title_Background.jpg") center center / cover no-repeat;
 }
 
 .main-header::before,
@@ -76,56 +63,88 @@ body::before {
   border-radius: 50%;
   filter: blur(30px);
   opacity: 0.35;
-  animation: floatLight 10s ease-in-out infinite alternate;
 }
 
 .main-header::before {
-  width: 240px;
-  height: 240px;
-  background: rgba(255, 210, 220, 0.45);
+  width: 220px;
+  height: 220px;
   top: -40px;
-  left: -40px;
+  left: -20px;
+  background: rgba(255, 214, 224, 0.48);
 }
 
 .main-header::after {
-  width: 280px;
-  height: 280px;
-  background: rgba(180, 220, 255, 0.35);
-  right: -60px;
+  width: 260px;
+  height: 260px;
+  right: -40px;
   bottom: -60px;
+  background: rgba(188, 220, 255, 0.4);
 }
 
-@keyframes floatLight {
-  0% { transform: translateY(0) translateX(0); }
-  100% { transform: translateY(20px) translateX(10px); }
+.hero-shell {
+  position: relative;
+  z-index: 1;
+  max-width: 980px;
+  margin: 0 auto;
 }
 
 .main-header h1 {
+  font-size: clamp(2.8rem, 6vw, 4.8rem);
   margin-bottom: 12px;
-  font-size: clamp(2.4rem, 5vw, 4rem);
   letter-spacing: 1px;
-  text-shadow: 0 4px 18px rgba(0,0,0,0.16);
 }
 
-.main-header p {
-  font-size: 1.1rem;
-  opacity: 0.96;
-  text-shadow: 0 2px 10px rgba(0,0,0,0.12);
+.hero-subtitle {
+  font-size: clamp(1.05rem, 2vw, 1.35rem);
+  max-width: 820px;
+  margin: 0 auto 28px;
+}
+
+.hero-meta {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.hero-meta span,
+.hero-links a {
+  display: inline-block;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  color: white;
+  text-decoration: none;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.hero-links {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.hero-links a:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.22);
 }
 
 .navbar {
   position: sticky;
   top: 0;
-  width: 100%;
+  z-index: 1000;
+  background: rgba(63, 93, 113, 0.88);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  background: rgba(87, 117, 135, 0.82);
-  border-bottom: 1px solid rgba(255,255,255,0.25);
-  z-index: 999;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.22);
 }
 
 .nav-container {
-  max-width: 1200px;
+  max-width: 1180px;
   margin: 0 auto;
   display: flex;
   justify-content: center;
@@ -133,240 +152,235 @@ body::before {
 }
 
 .navbar a {
-  position: relative;
-  display: block;
   color: white;
-  text-align: center;
-  padding: 14px 18px;
   text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-.navbar a::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: 8px;
-  width: 0;
-  height: 2px;
-  background: rgba(255,255,255,0.9);
-  transition: all 0.3s ease;
-  transform: translateX(-50%);
+  padding: 14px 16px;
+  font-size: 0.95rem;
 }
 
 .navbar a:hover {
-  background: rgba(255,255,255,0.08);
-  transform: translateY(-1px);
-}
-
-.navbar a:hover::after {
-  width: 60%;
+  background: rgba(255, 255, 255, 0.08);
 }
 
 section {
-  position: relative;
   padding: 80px 20px;
-  text-align: center;
-}
-
-section::before {
-  content: "";
-  display: block;
-  width: min(1100px, 90%);
-  height: 1px;
-  margin: 0 auto 50px;
-  background: linear-gradient(to right, transparent, rgba(95,127,149,0.42), transparent);
 }
 
 section:nth-of-type(odd) {
-  background: rgba(255,255,255,0.20);
+  background: rgba(255, 255, 255, 0.18);
 }
 
-section:nth-of-type(even) {
-  background: rgba(255,255,255,0.10);
+.section-shell {
+  max-width: 1120px;
+  margin: 0 auto;
 }
 
 h2 {
-  font-size: clamp(1.8rem, 3vw, 2.4rem);
-  margin-bottom: 28px;
-  color: var(--monet-deep-blue);
-  position: relative;
-  display: inline-block;
+  font-size: clamp(1.9rem, 3vw, 2.6rem);
+  color: var(--deep-blue);
+  text-align: center;
+  margin-bottom: 24px;
 }
 
 h2::after {
   content: "";
   display: block;
-  width: 68%;
+  width: 88px;
   height: 3px;
-  margin: 10px auto 0;
+  margin: 12px auto 0;
   border-radius: 999px;
-  background: linear-gradient(to right, var(--monet-pink), var(--monet-blue), var(--monet-green));
+  background: linear-gradient(to right, #e5c9d6, #9abed0, #b7d5bb);
 }
 
-/* ... 保持原有的 :root, * , html, body, header, nav 等样式不变 ... */
+.section-lead {
+  max-width: 900px;
+  margin: 0 auto 28px;
+  text-align: left;
+}
 
-/* --- User Personas Styles --- */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 22px;
+}
 
-/* 顶部标题 */
+.card,
+.team-card,
+.persona-card,
+.journey-step,
+.timeline-content {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  box-shadow: var(--shadow);
+}
+
+.card,
+.persona-card,
+.journey-step {
+  padding: 24px;
+}
+
+.card h3,
+.persona-card h3,
+.journey-step h3,
+.timeline-content h3,
+.team-card h3 {
+  color: var(--deep-blue);
+  margin-bottom: 12px;
+}
+
+.tag {
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(53, 92, 125, 0.1);
+  color: var(--deep-blue);
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+.card ul,
+.persona-card ul,
+.reference-list {
+  padding-left: 20px;
+}
+
+.card li,
+.persona-card li,
+.reference-list li {
+  margin-bottom: 10px;
+}
+
 .persona-top-title {
   text-align: center;
-  font-size: 1.8rem;
-  color: var(--monet-deep-blue);
-  margin-bottom: 30px;
+  font-size: 1.6rem;
+  color: var(--deep-blue);
+  margin: 0 auto 24px;
   font-weight: bold;
-  border-bottom: 2px solid var(--monet-blue);
-  padding-bottom: 15px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  border-bottom: 2px solid rgba(95, 127, 149, 0.26);
+  padding-bottom: 12px;
+  max-width: 900px;
 }
 
-/* 外层卡片容器 */
-.persona-card {
-  max-width: 1200px;
-  margin: 0 auto 50px; /* 增加底部间距 */
+.persona-detail-card {
+  max-width: 1100px;
+  margin: 0 auto 44px;
   border-radius: 24px;
   overflow: hidden;
   background: var(--card-bg);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid var(--border-soft);
-  box-shadow: var(--shadow-soft);
-  transition: transform 0.3s ease;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
 }
 
-.persona-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 40px rgba(70, 90, 110, 0.25);
-}
-
-/* 三栏布局核心 */
-.persona-details {
+.persona-detail-layout {
   display: flex;
-  padding: 25px;
-  gap: 25px;
-  color: #333;
-  background: #fff; /* 确保内容区背景清晰 */
+  gap: 24px;
+  padding: 24px;
+  text-align: left;
 }
 
-/* 左栏：基础信息 */
 .detail-column-left {
   flex: 0 0 240px;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  background: #fafafa;
   padding: 20px;
-  border-radius: 16px;
-  border: 1px solid #f0f0f0;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.7);
 }
 
-/* 中栏：核心需求 */
 .detail-column-center {
   flex: 1;
-  min-width: 300px;
-  text-align: left;
+  min-width: 320px;
 }
 
-/* 右栏：行为图表 */
 .detail-column-right {
   flex: 0 0 220px;
-  text-align: left;
 }
 
-/* 左侧组件样式 */
 .persona-photo img {
-  width: 130px;
-  height: 130px;
+  width: 128px;
+  height: 128px;
   border-radius: 50%;
   object-fit: cover;
-  border: 4px solid #fff;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  margin-bottom: 15px;
+  border: 4px solid rgba(255, 255, 255, 0.92);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+  margin-bottom: 14px;
 }
 
 .user-tagline {
-  font-style: italic;
-  color: #666;
-  font-size: 0.95em;
-  margin-bottom: 20px;
-  padding: 12px;
-  background: rgba(255,255,255,0.8);
-  border-radius: 8px;
   width: 100%;
-  box-sizing: border-box;
-  border: 1px solid #eee;
+  margin-bottom: 18px;
+  padding: 12px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(95, 127, 149, 0.12);
+  font-style: italic;
+}
+
+.basic-info-card,
+.chart-container,
+.mtbi-visual {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.84);
+  border: 1px solid rgba(95, 127, 149, 0.12);
+  border-radius: 14px;
+  padding: 16px;
 }
 
 .basic-info-card {
-  background: #fff;
-  border-radius: 12px;
-  padding: 15px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
-  width: 100%;
-  margin-bottom: 20px;
-  border: 1px solid #eee;
-  box-sizing: border-box;
+  margin-bottom: 16px;
 }
 
-.basic-info-card h4 {
-  margin: 0 0 12px;
-  color: var(--monet-deep-blue);
-  font-size: 0.9em;
-  text-transform: uppercase;
-  border-bottom: 1px dashed #ddd;
-  padding-bottom: 6px;
+.basic-info-card h4,
+.chart-container h3 {
+  color: var(--deep-blue);
+  margin-bottom: 10px;
 }
 
 .basic-info-item {
-  margin-bottom: 8px;
-  font-size: 0.9em;
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid #f9f9f9;
-  padding-bottom: 4px;
-}
-
-/* MBTI 样式 */
-.mtbi-visual {
-  background: #fff;
-  border-radius: 12px;
-  padding: 15px;
-  width: 100%;
-  box-sizing: border-box;
-  border: 1px solid #eee;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 8px;
+  font-size: 0.92rem;
 }
 
 .mtbi-row {
   display: flex;
   justify-content: space-between;
-  font-size: 0.8em;
-  color: #777;
+  font-size: 0.82rem;
   margin-bottom: 4px;
 }
 
-.mtbi-bar-container {
+.mtbi-bar-container,
+.chart-bar-outer {
   width: 100%;
   height: 6px;
-  background: #eee;
-  border-radius: 3px;
-  margin: 0 0 12px 0;
+  background: #e8edf1;
+  border-radius: 999px;
   overflow: hidden;
+  margin-bottom: 12px;
 }
 
-.mtbi-bar { height: 100%; border-radius: 3px; }
+.mtbi-bar,
+.chart-bar-inner {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #8fb7c9, #5f7f95);
+}
 
-/* 中间文本样式 */
-.detail-item { margin-bottom: 25px; }
+.detail-item {
+  margin-bottom: 22px;
+}
 
 .detail-item h3 {
-  margin: 0 0 12px;
-  color: var(--monet-deep-blue);
-  font-size: 1.1em;
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  color: var(--deep-blue);
+  margin-bottom: 10px;
 }
 
 .detail-item ul {
@@ -376,220 +390,131 @@ h2::after {
 
 .detail-item li {
   position: relative;
-  padding: 6px 0 6px 20px;
-  font-size: 0.95em;
-  line-height: 1.6;
-  border-bottom: 1px solid #f5f5f5;
+  padding: 6px 0 6px 18px;
+  border-bottom: 1px solid rgba(95, 127, 149, 0.08);
 }
 
 .detail-item li::before {
-  content: "•";
-  color: var(--monet-pink);
-  font-weight: bold;
+  content: "";
   position: absolute;
   left: 0;
-  font-size: 1.2em;
-  line-height: 1;
+  top: 14px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--mid-blue);
 }
 
 .persona-bio-text {
-  font-size: 0.95em;
-  line-height: 1.8;
-  color: #444;
-  text-align: justify;
-  background: #f9f9f9;
-  padding: 15px;
-  border-radius: 10px;
-  border-left: 4px solid var(--monet-lilac);
+  padding: 16px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.7);
+  border-left: 4px solid rgba(184, 173, 214, 0.85);
 }
 
-/* 右侧图表样式 */
 .chart-container {
-  background: #fff;
-  border-radius: 12px;
-  padding: 15px;
-  margin-bottom: 20px;
-  border: 1px solid #eee;
-}
-
-.chart-container h3 {
-  margin: 0 0 15px;
-  color: var(--monet-deep-blue);
-  font-size: 1em;
-  text-align: center;
-  border-bottom: 1px solid #eee;
-  padding-bottom: 8px;
+  margin-bottom: 16px;
 }
 
 .chart-row {
   display: flex;
   align-items: center;
-  margin-bottom: 8px;
-  font-size: 0.8em;
+  gap: 10px;
+  margin-bottom: 10px;
+  font-size: 0.85rem;
 }
 
 .chart-row span {
-  flex: 0 0 55px;
-  color: #555;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  flex: 0 0 68px;
 }
 
-.chart-bar-outer {
-  flex: 1;
-  height: 6px;
-  background: #eee;
-  border-radius: 3px;
-  overflow: hidden;
-}
-
-.chart-bar-inner {
-  height: 100%;
-  border-radius: 3px;
-  background: linear-gradient(90deg, var(--monet-blue), var(--monet-deep-blue));
-}
-
-/* 响应式调整 */
-@media screen and (max-width: 900px) {
-  .persona-details {
-    flex-direction: column;
-  }
-  .detail-column-left, .detail-column-right {
-    flex: 0 0 100%;
-    width: 100%;
-  }
-  .persona-top-title { font-size: 1.5rem; }
-}
-
-/* --- 其他通用样式 (保持原有功能) --- */
-/* 为了防止其他部分报错，保留了原有的通用类定义，但移除了冲突的 .persona-card 旧定义 */
-.intro-description,
-.learning-reflection {
-  background: linear-gradient(135deg, rgba(255,255,255,0.45), rgba(235,243,245,0.50));
-}
-
-.intro-content,
-.motivation-content,
-.brainstorm-content,
-.requirements-list,
-.timeline,
-.learning-reflection ul,
-.references-content {
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.intro-content,
-.motivation-content,
-.brainstorm-content,
-.requirements-list,
-.references-content {
-  border-radius: 22px;
-  padding: 30px;
-  background: var(--card-bg);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid var(--border-soft);
-  box-shadow: var(--shadow-soft);
-}
-
-.intro-content p,
-.motivation-content p,
-.brainstorm-content p {
-  margin-bottom: 14px;
-  font-size: 1.06rem;
-  text-align: left;
-}
-
-.references-content ol {
-  text-align: left;
-  padding-left: 20px;
-}
-
-.references-content li {
-  margin-bottom: 12px;
+.team-grid,
+.persona-grid,
+.journey-grid {
+  display: grid;
+  gap: 22px;
 }
 
 .team-grid {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 26px;
-  max-width: 1200px;
-  margin: 0 auto;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 }
 
-.member-card {
-  flex: 1 1 260px;
-  min-width: 240px;
-  max-width: 340px;
-  border-radius: 24px;
-  padding: 24px;
+.persona-grid {
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+.journey-grid {
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+}
+
+.team-card {
+  padding: 26px 22px;
   text-align: center;
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
-  background: var(--card-bg);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid var(--border-soft);
-  box-shadow: var(--shadow-soft);
 }
 
-.member-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 18px 40px rgba(70, 90, 110, 0.20);
-}
-
-.member-card img {
-  width: 108px;
-  height: 108px;
-  border-radius: 50%;
+.team-card img,
+.persona-card img {
+  width: 112px;
+  height: 112px;
   object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.94);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
   margin-bottom: 16px;
-  border: 4px solid rgba(255,255,255,0.6);
 }
 
-.member-card h3 {
-  margin-bottom: 8px;
-  color: var(--monet-deep-blue);
+.team-note {
+  max-width: 900px;
+  margin: 24px auto 0;
+  text-align: left;
+}
+
+.persona-card p {
+  margin-bottom: 12px;
+}
+
+.journey-step {
+  text-align: center;
+}
+
+.journey-step p {
+  margin: 0;
 }
 
 .timeline {
   position: relative;
-  padding: 20px 0;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 8px 0;
 }
 
 .timeline::after {
-  content: '';
+  content: "";
   position: absolute;
-  width: 4px;
-  background: linear-gradient(to bottom, var(--monet-pink), var(--monet-blue), var(--monet-green));
+  width: 3px;
+  background: rgba(95, 127, 149, 0.22);
   top: 0;
   bottom: 0;
   left: 50%;
-  margin-left: -2px;
-  z-index: 1;
-  border-radius: 999px;
+  transform: translateX(-50%);
 }
 
 .timeline-item {
-  padding: 14px 36px;
   position: relative;
   width: 50%;
-  z-index: 2;
+  padding: 10px 40px;
 }
 
 .timeline-item::after {
   content: "";
   position: absolute;
-  top: 28px;
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--monet-pink), var(--monet-blue));
-  border: 3px solid rgba(255,255,255,0.9);
-  box-shadow: 0 4px 14px rgba(95,127,149,0.25);
-  z-index: 3;
+  background: white;
+  border: 3px solid var(--mid-blue);
+  top: 28px;
+  z-index: 2;
 }
 
 .timeline-item:nth-child(odd) {
@@ -598,7 +523,7 @@ h2::after {
 }
 
 .timeline-item:nth-child(odd)::after {
-  right: -8px;
+  right: -11px;
 }
 
 .timeline-item:nth-child(even) {
@@ -607,35 +532,24 @@ h2::after {
 }
 
 .timeline-item:nth-child(even)::after {
-  left: -8px;
+  left: -11px;
 }
 
 .timeline-content {
   padding: 22px;
-  border-radius: 20px;
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  overflow-wrap: anywhere;
 }
 
-.timeline-content h3 {
-  color: var(--monet-deep-blue);
-  margin-bottom: 8px;
-}
-
-.learning-reflection ul {
-  border-radius: 22px;
-  padding: 28px 30px;
+.reference-list {
+  max-width: 900px;
+  margin: 0 auto;
   text-align: left;
-  background: var(--card-bg);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid var(--border-soft);
-  box-shadow: var(--shadow-soft);
 }
 
 .reveal {
   opacity: 0;
   transform: translateY(28px);
-  transition: opacity 0.9s ease, transform 0.9s ease;
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
 .reveal.active {
@@ -643,55 +557,173 @@ h2::after {
   transform: translateY(0);
 }
 
-@media screen and (max-width: 900px) {
+@media (max-width: 900px) {
   .timeline::after {
-    left: 30px;
+    left: 28px;
+    transform: none;
   }
-  .timeline-item {
+
+  .timeline-item,
+  .timeline-item:nth-child(even) {
+    left: 0;
     width: 100%;
-    padding-left: 70px;
-    padding-right: 20px;
-    left: 0 !important;
-    text-align: left !important;
+    text-align: left;
+    padding: 10px 20px 10px 68px;
   }
-  .timeline-item::after {
-    left: 22px !important;
-    right: auto !important;
+
+  .timeline-item::after,
+  .timeline-item:nth-child(odd)::after,
+  .timeline-item:nth-child(even)::after {
+    left: 20px;
+    right: auto;
   }
-  /* 修复小屏幕下 persona 的布局 */
-  .persona-details {
+
+  .persona-detail-layout {
     flex-direction: column;
   }
-  .detail-column {
-    padding: 0;
+
+  .detail-column-left,
+  .detail-column-center,
+  .detail-column-right {
+    flex: 1 1 auto;
+    min-width: 0;
   }
 }
 
-@media screen and (max-width: 768px) {
-  .navbar a {
-    font-size: 14px;
-    padding: 12px 14px;
-  }
+@media (max-width: 768px) {
   .main-header {
-    padding: 70px 20px 60px;
+    min-height: auto;
+    padding: 78px 16px 58px;
   }
+
+  .hero-meta,
+  .hero-links {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 22px;
+  }
+
+  .hero-meta span,
+  .hero-links a {
+    width: min(100%, 320px);
+    text-align: center;
+  }
+
+  .navbar {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .nav-container {
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    width: max-content;
+    min-width: 100%;
+    padding: 0 8px;
+  }
+
+  .navbar a {
+    flex: 0 0 auto;
+    white-space: nowrap;
+    padding: 12px 12px;
+    font-size: 0.9rem;
+  }
+
   section {
-    padding: 70px 16px;
+    padding: 60px 14px;
   }
-  /* 修复小屏幕下卡片宽度 */
-  .member-card,
-  .persona-card {
-    width: 100%;
-    max-width: 100%;
-    margin-bottom: 20px;
+
+  .section-lead,
+  .team-note,
+  .reference-list {
+    font-size: 0.96rem;
   }
-  .intro-content,
-  .motivation-content,
-  .brainstorm-content,
-  .requirements-list,
-  .learning-reflection ul,
-  .references-content {
-    padding: 22px;
+
+  .card,
+  .journey-step,
+  .timeline-content {
+    padding: 18px;
+  }
+
+  .persona-detail-layout {
+    padding: 18px;
+  }
+
+  .persona-top-title {
+    font-size: 1.3rem;
+    margin-bottom: 18px;
+  }
+
+  .detail-column-left {
+    padding: 16px;
+  }
+
+  .persona-photo img {
+    width: 108px;
+    height: 108px;
+  }
+
+  .user-tagline,
+  .persona-bio-text {
+    font-size: 0.95rem;
+  }
+
+  .chart-row {
+    gap: 8px;
+    font-size: 0.82rem;
+  }
+
+  .chart-row span {
+    flex: 0 0 56px;
+  }
+
+  .journey-grid,
+  .team-grid,
+  .card-grid,
+  .persona-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline-item,
+  .timeline-item:nth-child(even) {
+    padding: 10px 14px 10px 56px;
+  }
+
+  .timeline::after {
+    left: 22px;
+  }
+
+  .timeline-item::after,
+  .timeline-item:nth-child(odd)::after,
+  .timeline-item:nth-child(even)::after {
+    left: 14px;
+    right: auto;
+  }
+}
+
+@media (max-width: 420px) {
+  .main-header h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+  }
+
+  .card,
+  .journey-step,
+  .timeline-content {
+    border-radius: 18px;
+  }
+
+  .basic-info-item,
+  .chart-row {
+    font-size: 0.8rem;
   }
 }
 </style>
@@ -699,397 +731,570 @@ h2::after {
 <body>
 
 <header class="main-header reveal" id="home">
-  <h1>PuPath</h1>
-  <p>CPT208 Human-Centered Computing Group Project</p>
+  <div class="hero-shell">
+    <h1>PuPath</h1>
+    <p class="hero-subtitle">A process portfolio for a mobile-first campus tour PWA at XJTLU SIP Campus, designed around identity-aware exploration, guided routes, bilingual support, and lightweight playful interaction.</p>
+    <div class="hero-meta">
+      <span>CPT208 Human-Centered Computing</span>
+      <span>XJTLU SIP Campus</span>
+      <span>Team B3-4</span>
+    </div>
+    <div class="hero-links">
+      <a href="https://xjtlu25-26-cpt208-groupb3-4.github.io/PuPath/" target="_blank" rel="noreferrer">Live Demo</a>
+    </div>
+  </div>
 </header>
 
 <nav class="navbar">
   <div class="nav-container">
-    <a href="#home">Home</a>
-    <a href="#intro">Intro</a>
+    <a href="#intro">Overview</a>
     <a href="#team-members">Team</a>
     <a href="#motivation">Motivation</a>
     <a href="#brainstorm">Brainstorm</a>
-    <a href="#user-personas">Personas</a>
+    <a href="#research">Research</a>
+    <a href="#personas">Personas</a>
+    <a href="#journey-map">Journey</a>
     <a href="#requirements">Requirements</a>
+    <a href="#prototype">Prototype</a>
     <a href="#development-log">Log</a>
     <a href="#references">References</a>
-    <a href="#learning-reflection">Reflection</a> 
+    <a href="#reflection">Reflection</a>
   </div>
 </nav>
 
-<section id="intro" class="intro-description reveal">
-  <div class="intro-content">
-    <h2>About This Project</h2>
-    <p>Welcome to <strong>PuPath</strong>, our ongoing project for the CPT208 Human-Centered Computing module.</p>
-    <p>This project addresses a common challenge: the overwhelming experience of navigating an unfamiliar campus. Whether you're a new student, a visitor, or even a staff member, finding your way around can be stressful and time-consuming.</p>
-    <p>Our mission is to eliminate this uncertainty by creating an intuitive, user-friendly digital navigation platform. We are currently in the process of designing this solution, guided by the principles of human-centered design.</p>
-    <p>Through user research, ideation, and iterative design, we are developing a concept for a mobile application that will provide clear directions and essential information. Explore our site to follow our progress as we work towards transforming this idea into a functional tool.</p>
+<section id="intro" class="reveal">
+  <div class="section-shell">
+    <h2>Project Overview</h2>
+    <div class="section-lead">
+      <p><strong>PuPath</strong> is a mobile-first campus tour PWA for XJTLU SIP Campus. It supports freshmen, current students, visitors, and staff through identity-aware recommendations, interactive map browsing, themed routes, check-ins, badges, weather-aware suggestions, and Chinese/English switching.</p>
+      <p>This portfolio focuses on process rather than promotion. It records the design problem, research input, personas, user journey, key requirements, and the path from early concept to a working public demo.</p>
+    </div>
+    <div class="card-grid">
+      <article class="card">
+        <span class="tag">Project Name</span>
+        <h3>PuPath</h3>
+        <p>A contextual and playful campus tour tool rather than a generic map-only app.</p>
+      </article>
+      <article class="card">
+        <span class="tag">Primary Link</span>
+        <h3>Live Demo</h3>
+        <p><a href="https://xjtlu25-26-cpt208-groupb3-4.github.io/PuPath/" target="_blank" rel="noreferrer">https://xjtlu25-26-cpt208-groupb3-4.github.io/PuPath/</a></p>
+      </article>
+      <article class="card">
+        <span class="tag">Platform</span>
+        <h3>Progressive Web App</h3>
+        <p>Chosen for portable mobile use, fast access from a QR code, and low friction during campus visits.</p>
+      </article>
+      <article class="card">
+        <span class="tag">Users</span>
+        <h3>Four Identity Modes</h3>
+        <p>Freshmen, current students, visitors, and staff with different campus priorities and route needs.</p>
+      </article>
+    </div>
   </div>
 </section>
 
 <section id="team-members" class="reveal">
-  <h2>Team Members</h2>
-  <div class="team-grid">
-    <div class="member-card">
-      <img src="images/Linhua_Dong.jpg" alt="Linhua Dong's Photo">
-      <h3>Linhua Dong</h3>
-      <p><strong>ID:</strong> 2363296</p>
-      <p>SI: </p>
+  <div class="section-shell">
+    <h2>Team Members</h2>
+    <div class="team-grid">
+      <article class="team-card">
+        <img src="images/Linhua_Dong.jpg" alt="Linhua Dong">
+        <h3>Linhua Dong</h3>
+        <p><strong>ID:</strong> 2363296</p>
+      </article>
+      <article class="team-card">
+        <img src="images/Xi_Han.jpg" alt="Xi Han">
+        <h3>Xi Han</h3>
+        <p><strong>ID:</strong> 2362913</p>
+      </article>
+      <article class="team-card">
+        <img src="images/Sihan_Zhang.jpg" alt="Sihan Zhang">
+        <h3>Sihan Zhang</h3>
+        <p><strong>ID:</strong> 2363969</p>
+      </article>
+      <article class="team-card">
+        <img src="images/Zhanhao_Zhang.jpg" alt="Zhanhao Zhang">
+        <h3>Zhanhao Zhang</h3>
+        <p><strong>ID:</strong> 2362498</p>
+      </article>
     </div>
-
-    <div class="member-card">
-      <img src="images/Xi_Han.jpg" alt="Xi Han's Photo">
-      <h3>Xi Han</h3>
-      <p><strong>ID:</strong> 2362913</p>
-      <p>SI: </p>
-    </div>
-
-    <div class="member-card">
-      <img src="images/Sihan_Zhang.jpg" alt="Sihan Zhang's Photo">
-      <h3>Sihan Zhang</h3>
-      <p><strong>ID:</strong> 2363969</p>
-      <p>SI: </p>
-    </div>
-
-    <div class="member-card">
-      <img src="images/Zhanhao_Zhang.jpg" alt="Zhanhao Zhang's Photo">
-      <h3>Zhanhao Zhang</h3>
-      <p><strong>ID:</strong> 2362498</p>
-      <p>SI: </p>
+    <div class="team-note">
+      <p>We worked as a four-person CPT208 team across research, interaction design, content planning, implementation, testing, and presentation. The portfolio and the app were developed in parallel so that each design decision could be traced back to a concrete product choice.</p>
     </div>
   </div>
 </section>
 
 <section id="motivation" class="reveal">
-  <h2>Motivation</h2>
-  <div class="motivation-content">
-    <p>Our motivation stems from a genuine desire to improve the campus experience for new students and visitors. A confusing or inaccessible navigation system can lead to stress, tardiness, and a negative first impression of the university.</p>
-    <p>By creating a clear, user-friendly digital guide, we aim to empower users to confidently explore and navigate the campus environment, fostering a sense of belonging and ease from day one.</p>
+  <div class="section-shell">
+    <h2>Motivation</h2>
+    <div class="section-lead">
+      <p>Our motivation came from a simple but recurring campus problem: new students and visitors often know the name of a place, but they still do not know where to start, which route is worth following, or which locations matter most in their situation. A campus can feel academically rich yet spatially unfriendly when information is scattered across maps, signs, websites, and informal advice.</p>
+      <p>PuPath was motivated by the idea that campus orientation should feel guided rather than stressful. Instead of building another map-only tool, we wanted to design an experience that helps users understand the campus through identity-aware entry, route suggestions, bilingual support, and lightweight playful feedback.</p>
+    </div>
   </div>
 </section>
 
 <section id="brainstorm" class="reveal">
-  <h2>Brainstorm</h2>
-  <div class="brainstorm-content">
-    <p>During our brainstorming sessions, we explored various ideas to enhance the campus tour experience. Initial concepts included a simple map application, a location-based augmented reality (AR) feature, and an audio-guided tour.</p>
-    <p>After evaluating feasibility and user feedback, we decided to focus on a comprehensive, map-based navigation app that incorporates key points of interest, real-time pathfinding, and accessibility information. This approach balances innovation with practicality for our target audience.</p>
+  <div class="section-shell">
+    <h2>Brainstorm</h2>
+    <div class="card-grid">
+      <article class="card">
+        <span class="tag">Early Ideas</span>
+        <h3>What We Considered First</h3>
+        <ul>
+          <li>A simple campus map with searchable buildings and facilities.</li>
+          <li>A socially driven campus app with sharing, interaction, and stronger community features.</li>
+          <li>A more immersive preview concept for users before arriving on campus.</li>
+          <li>A guided route experience with narration, check-ins, and themed exploration.</li>
+        </ul>
+      </article>
+      <article class="card">
+        <span class="tag">Trade-offs</span>
+        <h3>Why We Narrowed Scope</h3>
+        <ul>
+          <li>Strong social features were interesting, but they shifted the project away from the core campus tour problem.</li>
+          <li>Heavy immersive features were attractive but too expensive for an MVP.</li>
+          <li>A pure map solved location lookup, but not route motivation or first-day uncertainty.</li>
+          <li>A campus tour flow offered the best balance between practicality and distinctiveness.</li>
+        </ul>
+      </article>
+      <article class="card">
+        <span class="tag">Final Direction</span>
+        <h3>What Became PuPath</h3>
+        <p>The final concept combined a mobile-first PWA, personalized home entry, interactive map browsing, themed routes, check-ins, badges, bilingual switching, and an online campus preview. We deliberately removed heavy social and community functions because they were less aligned with the main goal of campus orientation. This direction stayed feasible while still feeling clearly different from a generic navigation app.</p>
+      </article>
+    </div>
   </div>
 </section>
 
-<section id="user-personas" class="reveal">
-  <div class="persona-top-title">User Persona — Li Hua</div>
-  <div class="persona-card">
-    <!-- 三栏布局 -->
-    <div class="persona-details">
-
-      <!-- 左侧基础信息区 -->
-      <div class="detail-column-left">
-        <!-- 用户形象配图 -->
-        <div class="persona-photo">
-          <img src="images/freshman.jpg" alt="Li Hua">
-        </div>
-        
-        <!-- 用户一句话定位描述 -->
-        <div class="user-tagline">
-          "I’m a new freshman. I still get lost often, and I want a simple, fun campus navigation tool."
-        </div>
-
-        <!-- 用户基础属性卡片 -->
-        <div class="basic-info-card">
-          <h4>User Attributes</h4>
-          <div class="basic-info-item"><strong>Age</strong> <span>18</span></div>
-          <div class="basic-info-item"><strong>Occupation</strong> <span>XJTLU Freshman</span></div>
-          <div class="basic-info-item"><strong>Location</strong> <span>Electronic Information</span></div>
-          <div class="basic-info-item"><strong>Level</strong> <span>Advanced User</span></div>
-        </div>
-
-        <!-- 人格特质维度可视化模块 (MBTI) -->
-        <div class="mtbi-visual">
-          <h4>MBTI Dimensions</h4>
-          <div class="mtbi-row"><span>E</span> <span>I</span></div>
-          <div class="mtbi-bar-container">
-            <div class="mtbi-bar" style="width: 40%; background: #b8add6;"></div>
-          </div>
-          <div class="mtbi-row"><span>S</span> <span>N</span></div>
-          <div class="mtbi-bar-container">
-            <div class="mtbi-bar" style="width: 60%; background: #8fb7c9;"></div>
-          </div>
-          <div class="mtbi-row"><span>T</span> <span>F</span></div>
-          <div class="mtbi-bar-container">
-            <div class="mtbi-bar" style="width: 60%; background: #a8c7b0;"></div>
-          </div>
-          <div class="mtbi-row"><span>J</span> <span>P</span></div>
-          <div class="mtbi-bar-container">
-            <div class="mtbi-bar" style="width: 80%; background: #d8c69a;"></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 中间核心需求与背景区 -->
-      <div class="detail-column-center">
-        <!-- Goals -->
-        <div class="detail-item">
-          <h3>🎯 Goals</h3>
-          <ul>
-            <li>Find classrooms quickly and never get lost.</li>
-            <li>Get the fastest route between buildings.</li>
-            <li>Find convenient facilities: print shops, cafes, empty study rooms.</li>
-            <li>Explore campus and get fun rewards like badges.</li>
-          </ul>
-        </div>
-
-        <!-- Frustrations -->
-        <div class="detail-item">
-          <h3>⚠️ Frustrations</h3>
-          <ul>
-            <li>Standard map apps have no indoor navigation.</li>
-            <li>Campus signs are unclear.</li>
-            <li>Too shy to ask others for help.</li>
-            <li>Walking alone is boring without interaction.</li>
-          </ul>
-        </div>
-
-        <!-- Bio (长文本) -->
-        <div class="detail-item">
-          <h3>📖 Bio</h3>
-          <p class="persona-bio-text">
-            Li Hua is an 18-year-old freshman at XJTLU. 
-            He has been on campus for two weeks but still gets lost frequently, especially in complex buildings like the Central Building and Foundation Building. 
-            He uses his phone more than 6 hours a day, and often uses Amap, WeChat, and RedNote. 
-            He likes checking in and collecting badges. He hopes campus navigation can be simple, clear, and fun like a game.
-          </p>
-        </div>
-      </div>
-
-      <!-- 右侧行为偏好可视化区 -->
-      <div class="detail-column-right">
-        <!-- Motivation -->
-        <div class="chart-container">
-          <h3>Motivation</h3>
-          <div class="chart-row"><span>Efficiency</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 90%;"></div></div></div>
-          <div class="chart-row"><span>Social</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 75%;"></div></div></div>
-          <div class="chart-row"><span>Exploration</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 60%;"></div></div></div>
-          <div class="chart-row"><span>Safety</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 40%;"></div></div></div>
-        </div>
-
-        <!-- Technology Usage -->
-        <div class="chart-container">
-          <h3>📱 Tech Usage</h3>
-          <div class="chart-row"><span>Mobile App</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 95%;"></div></div></div>
-          <div class="chart-row"><span>Web Map</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 70%;"></div></div></div>
-          <div class="chart-row"><span>AR Tools</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 50%;"></div></div></div>
-          <div class="chart-row"><span>Physical Map</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 10%;"></div></div></div>
-        </div>
-
-        <!-- Preferred Channels -->
-        <div class="chart-container">
-          <h3>📡 Channels</h3>
-          <div class="chart-row"><span>Mobile App</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 90%;"></div></div></div>
-          <div class="chart-row"><span>Social Media</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 85%;"></div></div></div>
-          <div class="chart-row"><span>University Site</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 60%;"></div></div></div>
-          <div class="chart-row"><span>Email</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 30%;"></div></div></div>
-        </div>
-      </div>
-
+<section id="research" class="reveal">
+  <div class="section-shell">
+    <h2>Survey, Interview and Key Issues</h2>
+    <div class="section-lead">
+      <p>Our requirement collection combined questionnaire input, face-to-face communication, and online discussion to understand what users actually need from a campus tour tool. The aim was to identify the real orientation problem before deciding on features.</p>
+    </div>
+    <div class="card-grid">
+      <article class="card">
+        <span class="tag">Source</span>
+        <h3>Requirement Sources</h3>
+        <ul>
+          <li>Questionnaires were used to collect the main problems and needs users faced while exploring campus.</li>
+          <li>The questionnaire mainly focused on freshmen, current students, and visitors.</li>
+          <li>Face-to-face and online communication were used to clarify responses and refine the requirement understanding.</li>
+        </ul>
+      </article>
+      <article class="card">
+        <span class="tag">Ethics</span>
+        <h3>How We Handled Participants</h3>
+        <ul>
+          <li>We distributed informed consent and participant information materials in advance.</li>
+          <li>Participants were informed about the purpose of the study before contributing.</li>
+          <li>We kept the process lightweight but still followed basic ethical standards.</li>
+        </ul>
+      </article>
+      <article class="card">
+        <span class="tag">Key Issues</span>
+        <h3>What We Heard Repeatedly</h3>
+        <ul>
+          <li>Users do not know where to start when first entering campus.</li>
+          <li>Generic maps show places, but not which places matter for each user type.</li>
+          <li>Campus information is fragmented across signs, websites, and word of mouth.</li>
+          <li>International users need clear English labels and direct mobile access.</li>
+        </ul>
+      </article>
+      <article class="card">
+        <span class="tag">Reflection</span>
+        <h3>How Research Changed Scope</h3>
+        <ul>
+          <li>We removed the stronger social and community-oriented functions from the main scope.</li>
+          <li>We focused on a mobile-device-friendly PWA rather than a platform tied to a specific mobile ecosystem.</li>
+          <li>We shifted from map-only thinking to guided exploration with routes and badges.</li>
+        </ul>
+      </article>
     </div>
   </div>
+</section>
 
- <!-- 访客家长（Wang Lihua） -->
-  <div class="persona-top-title">User Persona — Wang Lihua (The Visitor)</div>
-  <div class="persona-card">
-     <div class="persona-details">
-
-      <!-- 左侧基础信息区 -->
-      <div class="detail-column-left">
-        <!-- 用户形象配图 -->
-        <div class="persona-photo">
-          <img src="images/vistor.jpg" alt="Wang Lihua">
-        </div>
-        
-        <!-- 用户一句话定位描述 -->
-        <div class="user-tagline">
-          "I just want a relaxed campus tour, no complicated operations needed."
-        </div>
-
-        <!-- 用户基础属性卡片 -->
-        <div class="basic-info-card">
-          <h4>User Attributes</h4>
-          <div class="basic-info-item"><strong>Age</strong> <span>19</span></div>
-          <div class="basic-info-item"><strong>Occupation</strong> <span>Student</span></div>
-          <div class="basic-info-item"><strong>Location</strong> <span>Computer Science Dept</span></div>
-          <div class="basic-info-item"><strong>Level</strong> <span>Advanced User</span></div>
-        </div>
-
-        <!-- 人格特质维度可视化模块 (MBTI) -->
-        <div class="mtbi-visual">
-          <h4>MBTI Dimensions</h4>
-          <div class="mtbi-row"><span>E</span> <span>I</span></div>
-          <div class="mtbi-bar-container">
-            <div class="mtbi-bar" style="width: 20%; background: #b8add6;"></div>
+<section id="personas" class="reveal">
+  <div class="section-shell">
+    <h2>Persona x2</h2>
+    <div class="persona-top-title">User Persona - Li Hua</div>
+    <div class="persona-detail-card">
+      <div class="persona-detail-layout">
+        <div class="detail-column-left">
+          <div class="persona-photo">
+            <img src="images/freshman.jpg" alt="Li Hua">
           </div>
-          <div class="mtbi-row"><span>S</span> <span>N</span></div>
-          <div class="mtbi-bar-container">
-            <div class="mtbi-bar" style="width: 50%; background: #8fb7c9;"></div>
+          <div class="user-tagline">"I just want to get to class on time without panicking."</div>
+          <div class="basic-info-card">
+            <h4>Basic Info</h4>
+            <div class="basic-info-item"><span>Age</span><span>18</span></div>
+            <div class="basic-info-item"><span>Role</span><span>Freshman</span></div>
+            <div class="basic-info-item"><span>Location</span><span>Suzhou</span></div>
+            <div class="basic-info-item"><span>Status</span><span>Lives in dorm</span></div>
           </div>
-          <div class="mtbi-row"><span>T</span> <span>F</span></div>
-          <div class="mtbi-bar-container">
-            <div class="mtbi-bar" style="width: 70%; background: #a8c7b0;"></div>
+          <div class="mtbi-visual">
+            <div class="mtbi-row"><span>Extroverted</span><span>Introverted</span></div>
+            <div class="mtbi-bar-container"><div class="mtbi-bar" style="width: 72%;"></div></div>
+            <div class="mtbi-row"><span>Intuitive</span><span>Observant</span></div>
+            <div class="mtbi-bar-container"><div class="mtbi-bar" style="width: 58%;"></div></div>
+            <div class="mtbi-row"><span>Thinking</span><span>Feeling</span></div>
+            <div class="mtbi-bar-container"><div class="mtbi-bar" style="width: 65%;"></div></div>
+            <div class="mtbi-row"><span>Judging</span><span>Prospecting</span></div>
+            <div class="mtbi-bar-container"><div class="mtbi-bar" style="width: 60%;"></div></div>
           </div>
-          <div class="mtbi-row"><span>J</span> <span>P</span></div>
-          <div class="mtbi-bar-container">
-            <div class="mtbi-bar" style="width: 90%; background: #d8c69a;"></div>
+        </div>
+        <div class="detail-column-center">
+          <div class="detail-item">
+            <h3>Goals</h3>
+            <ul>
+              <li>Find classrooms quickly and avoid getting lost during the first weeks of term.</li>
+              <li>Locate key services such as canteens, libraries, and student support points.</li>
+              <li>Build confidence in navigating campus independently.</li>
+            </ul>
+          </div>
+          <div class="detail-item">
+            <h3>Frustrations</h3>
+            <ul>
+              <li>Too many unfamiliar buildings with little context about what matters first.</li>
+              <li>Generic map apps do not explain campus-specific places clearly.</li>
+              <li>Switching between websites, signs, and chats is time-consuming and stressful.</li>
+            </ul>
+          </div>
+          <div class="detail-item">
+            <h3>Bio</h3>
+            <p class="persona-bio-text">
+              Li Hua is an 18-year-old freshman at XJTLU. She is excited to start university life, but the campus feels large and unfamiliar. She relies heavily on her phone, so a mobile-first tool that explains where to go first and why each place matters is more useful to her than a static map.
+            </p>
+          </div>
+        </div>
+        <div class="detail-column-right">
+          <div class="chart-container">
+            <h3>Motivation</h3>
+            <div class="chart-row"><span>Efficiency</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 90%;"></div></div></div>
+            <div class="chart-row"><span>Social</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 72%;"></div></div></div>
+            <div class="chart-row"><span>Safety</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 80%;"></div></div></div>
+            <div class="chart-row"><span>Control</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 88%;"></div></div></div>
+          </div>
+          <div class="chart-container">
+            <h3>Tech Usage</h3>
+            <div class="chart-row"><span>Mobile</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 95%;"></div></div></div>
+            <div class="chart-row"><span>Web Map</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 70%;"></div></div></div>
+            <div class="chart-row"><span>QR Code</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 84%;"></div></div></div>
+          </div>
+          <div class="chart-container">
+            <h3>Channels</h3>
+            <div class="chart-row"><span>App</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 90%;"></div></div></div>
+            <div class="chart-row"><span>Social</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 82%;"></div></div></div>
+            <div class="chart-row"><span>Notice</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 64%;"></div></div></div>
           </div>
         </div>
       </div>
+    </div>
 
-      <!-- 中间核心需求与背景区 -->
-      <div class="detail-column-center">
-        <!-- Goals -->
-        <div class="detail-item">
-          <h3>🎯 Goals</h3>
-          <ul>
-            <li>Quickly tour the core campus areas within limited time (about half a day).</li>
-            <li>Get a simple, easy-to-follow recommended route (1-hour version).</li>
-            <li>Understand the environment where her child will live and study (dormitories, cafeteria, teaching buildings).</li>
-          </ul>
+    <div class="persona-top-title">User Persona - Wang Lihua</div>
+    <div class="persona-detail-card">
+      <div class="persona-detail-layout">
+        <div class="detail-column-left">
+          <div class="persona-photo">
+            <img src="images/vistor.jpg" alt="Wang Lihua">
+          </div>
+          <div class="user-tagline">"I only have half a day, so I need a simple and reliable route."</div>
+          <div class="basic-info-card">
+            <h4>Basic Info</h4>
+            <div class="basic-info-item"><span>Age</span><span>46</span></div>
+            <div class="basic-info-item"><span>Role</span><span>Parent visitor</span></div>
+            <div class="basic-info-item"><span>Visit type</span><span>Registration day</span></div>
+            <div class="basic-info-item"><span>Time budget</span><span>Half day</span></div>
+          </div>
+          <div class="mtbi-visual">
+            <div class="mtbi-row"><span>Extroverted</span><span>Introverted</span></div>
+            <div class="mtbi-bar-container"><div class="mtbi-bar" style="width: 40%;"></div></div>
+            <div class="mtbi-row"><span>Intuitive</span><span>Observant</span></div>
+            <div class="mtbi-bar-container"><div class="mtbi-bar" style="width: 52%;"></div></div>
+            <div class="mtbi-row"><span>Thinking</span><span>Feeling</span></div>
+            <div class="mtbi-bar-container"><div class="mtbi-bar" style="width: 35%;"></div></div>
+            <div class="mtbi-row"><span>Judging</span><span>Prospecting</span></div>
+            <div class="mtbi-bar-container"><div class="mtbi-bar" style="width: 68%;"></div></div>
+          </div>
         </div>
-
-        <!-- Frustrations -->
-        <div class="detail-item">
-          <h3>⚠️ Frustrations</h3>
-          <ul>
-            <li>Completely unfamiliar with the campus, unsure where to start the tour.</li>
-            <li>No tour guide, afraid of taking detours and wasting time.</li>
-            <li>Difficulty understanding English signage, too embarrassed to ask for directions.</li>
-            <li>Unable to use overly complex apps or functions that require registration.</li>
-          </ul>
+        <div class="detail-column-center">
+          <div class="detail-item">
+            <h3>Goals</h3>
+            <ul>
+              <li>Quickly tour the most important campus areas within limited time.</li>
+              <li>Find landmarks, registration points, and essential services with minimal effort.</li>
+              <li>Feel confident accompanying a family member during an important visit.</li>
+            </ul>
+          </div>
+          <div class="detail-item">
+            <h3>Frustrations</h3>
+            <ul>
+              <li>Completely unfamiliar with campus and unsure where to begin.</li>
+              <li>Too much scattered information online without a clear visitor route.</li>
+              <li>Worries about wasting time and missing important places.</li>
+            </ul>
+          </div>
+          <div class="detail-item">
+            <h3>Bio</h3>
+            <p class="persona-bio-text">
+              Wang Lihua is the mother of a freshman and is visiting XJTLU for the first time during registration. She is not looking for a complex navigation tool. What she needs is a simple, bilingual, low-friction route that helps her understand the campus without needing prior knowledge or app installation.
+            </p>
+          </div>
         </div>
-
-        <!-- Bio (长文本) -->
-        <div class="detail-item">
-          <h3>📖 Bio</h3>
-          <p class="persona-bio-text">
-            Wang Lihua is the mother of a freshman, accompanying her child to XJTLU for the first time for registration. 
-            After settling her child in the dormitory, she wants to use her free time to explore the campus on her own, see the places where her child will attend classes and eat in the future. 
-            She doesn’t need in-depth exploration, just a simple, time-saving tour and a few photos. 
-            She only uses basic phone functions like taking photos, WeChat, and Baidu Maps, prefers an interface with simple, large buttons, and dislikes complicated operations.
-          </p>
+        <div class="detail-column-right">
+          <div class="chart-container">
+            <h3>Motivation</h3>
+            <div class="chart-row"><span>Efficiency</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 82%;"></div></div></div>
+            <div class="chart-row"><span>Social</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 24%;"></div></div></div>
+            <div class="chart-row"><span>Safety</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 86%;"></div></div></div>
+            <div class="chart-row"><span>Control</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 78%;"></div></div></div>
+          </div>
+          <div class="chart-container">
+            <h3>Tech Usage</h3>
+            <div class="chart-row"><span>Mobile</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 80%;"></div></div></div>
+            <div class="chart-row"><span>Web Map</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 78%;"></div></div></div>
+            <div class="chart-row"><span>QR Code</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 74%;"></div></div></div>
+          </div>
+          <div class="chart-container">
+            <h3>Channels</h3>
+            <div class="chart-row"><span>App</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 88%;"></div></div></div>
+            <div class="chart-row"><span>Social</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 74%;"></div></div></div>
+            <div class="chart-row"><span>Official</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 86%;"></div></div></div>
+          </div>
         </div>
       </div>
-
-      <!-- 右侧行为偏好可视化区 -->
-      <div class="detail-column-right">
-        <!-- Motivation -->
-        <div class="chart-container">
-          <h3>Motivation</h3>
-          <div class="chart-row"><span>Efficiency</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 80%;"></div></div></div>
-          <div class="chart-row"><span>Social</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 20%;"></div></div></div>
-          <div class="chart-row"><span>Exploration</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 40%;"></div></div></div>
-          <div class="chart-row"><span>Safety</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 90%;"></div></div></div>
-        </div>
-
-        <!-- Technology Usage -->
-        <div class="chart-container">
-          <h3>📱 Tech Usage</h3>
-          <div class="chart-row"><span>Mobile App</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 80%;"></div></div></div>
-          <div class="chart-row"><span>Web Map</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 80%;"></div></div></div>
-          <div class="chart-row"><span>AR Tools</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 30%;"></div></div></div>
-          <div class="chart-row"><span>Physical Map</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 40%;"></div></div></div>
-        </div>
-
-        <!-- Preferred Channels -->
-        <div class="chart-container">
-          <h3>📡 Channels</h3>
-          <div class="chart-row"><span>Mobile App</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 90%;"></div></div></div>
-          <div class="chart-row"><span>Social Media</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 75%;"></div></div></div>
-          <div class="chart-row"><span>University Site</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 80%;"></div></div></div>
-          <div class="chart-row"><span>Email</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width: 60%;"></div></div></div>
-        </div>
-      </div>
-
     </div>
   </div>
+</section>
+
+<section id="journey-map" class="reveal">
+  <div class="section-shell">
+    <h2>User Journey Map</h2>
+    <div class="section-lead">
+      <p>Primary scenario: Li Hua has just entered campus and wants to find important places without feeling overwhelmed. PuPath turns first-day navigation into a guided exploration flow rather than leaving the user with a blank map.</p>
+    </div>
+    <div class="journey-grid">
+      <article class="journey-step">
+        <span class="tag">Step 1</span>
+        <h3>Select Identity</h3>
+        <p>Choose Freshman, Student, Visitor, or Staff to personalize entry content.</p>
+      </article>
+      <article class="journey-step">
+        <span class="tag">Step 2</span>
+        <h3>Open Home</h3>
+        <p>See weather, recommended routes, featured places, and quick access options.</p>
+      </article>
+      <article class="journey-step">
+        <span class="tag">Step 3</span>
+        <h3>Explore Map</h3>
+        <p>Browse POIs, filters, and details to understand what is nearby and why it matters.</p>
+      </article>
+      <article class="journey-step">
+        <span class="tag">Step 4</span>
+        <h3>Start a Tour</h3>
+        <p>Follow a themed route that gives structure instead of forcing self-planning.</p>
+      </article>
+      <article class="journey-step">
+        <span class="tag">Step 5</span>
+        <h3>Check In</h3>
+        <p>Use manual or mock QR check-ins and get badge feedback during exploration.</p>
+      </article>
+      <article class="journey-step">
+        <span class="tag">Step 6</span>
+        <h3>Review Records</h3>
+        <p>Return to My Page to see saved places, route history, and unlocked badges.</p>
+      </article>
+    </div>
   </div>
-
-
 </section>
 
 <section id="requirements" class="reveal">
-  <h2>Requirements</h2>
-  <div class="requirements-list">
-    <ul>
-      <li>The application must provide accurate indoor and outdoor mapping of the campus.</li>
-      <li>It should offer turn-by-turn voice and visual navigation.</li>
-      <li>The interface must be intuitive and accessible for users of all technical backgrounds.</li>
-      <li>It needs to be compatible with both iOS and Android platforms.</li>
-      <li>The app should include a search function for buildings, departments, and facilities.</li>
-    </ul>
+  <div class="section-shell">
+    <h2>Key Requirements</h2>
+    <div class="section-lead">
+      <p>The requirement structure below moves from target users to core product requirements, and then to the playful requirements that make PuPath distinct from a conventional campus map.</p>
+    </div>
+    <div class="card-grid">
+      <article class="card">
+        <span class="tag">Users</span>
+        <h3>Target User Groups</h3>
+        <p>We categorised users into four groups: freshmen, current students, visitors, and staff, each with different campus priorities.</p>
+      </article>
+      <article class="card">
+        <span class="tag">R1</span>
+        <h3>Mobile-first Access</h3>
+        <p>The app must open quickly on phones and remain usable in a real campus movement scenario.</p>
+      </article>
+      <article class="card">
+        <span class="tag">R2</span>
+        <h3>Identity-based Recommendations</h3>
+        <p>Freshmen, students, visitors, and staff should see different priorities when entering the app.</p>
+      </article>
+      <article class="card">
+        <span class="tag">R3</span>
+        <h3>Bilingual Support</h3>
+        <p>Chinese and English switching is required for an international campus context.</p>
+      </article>
+      <article class="card">
+        <span class="tag">R4</span>
+        <h3>Online Campus Preview</h3>
+        <p>New students and visitors should be able to understand the campus in advance through the Explore Online module.</p>
+      </article>
+      <article class="card">
+        <span class="tag">Playful 1</span>
+        <h3>Themed Route Guidance</h3>
+        <p>Users should be able to follow interest-based routes instead of relying only on point lookup.</p>
+      </article>
+      <article class="card">
+        <span class="tag">Playful 2</span>
+        <h3>Check-ins and Treasure</h3>
+        <p>Check-ins should provide immediate feedback and reward users with virtual collectibles linked to XJTLU elements.</p>
+      </article>
+      <article class="card">
+        <span class="tag">Playful 3</span>
+        <h3>Badge Collection</h3>
+        <p>Badge unlocking should reward exploration progress and encourage repeated campus interaction.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="prototype" class="reveal">
+  <div class="section-shell">
+    <h2>Prototype</h2>
+    <div class="section-lead">
+      <p>The prototype section focuses on what we designed and validated. PuPath is structured as a mobile-first PWA with five main interfaces, and this section explains how that interface model and the related interactions were developed.</p>
+    </div>
+    <div class="card-grid">
+      <article class="card">
+        <span class="tag">Concept</span>
+        <h3>Five Main Interfaces</h3>
+        <p>PuPath consists of Home, Map, Tours, Discover, and My. Together they cover entry, spatial exploration, guided routes, campus topics, and personal records.</p>
+      </article>
+      <article class="card">
+        <span class="tag">Goal</span>
+        <h3>What the Prototype Needed to Prove</h3>
+        <p>We needed to verify that a mobile-first PWA could support first-day campus orientation better than a static map by combining identity-aware entry, guided routes, and lightweight playful interaction.</p>
+      </article>
+      <article class="card">
+        <span class="tag">Low-fidelity</span>
+        <h3>Structure-first Prototype</h3>
+        <p>Early sketches defined the page hierarchy around Home, Map, Tours, Discover, and My, and tested whether users preferred a guided entry rather than jumping straight into a map.</p>
+      </article>
+      <article class="card">
+        <span class="tag">High-fidelity</span>
+        <h3>Interaction Refinement</h3>
+        <p>The high-fidelity prototype focused on identity switching, bilingual UI, route details, check-ins, treasures, badges, weather suggestions, POI browsing, and local record management.</p>
+      </article>
+      <article class="card">
+        <span class="tag">Iteration</span>
+        <h3>Key Design Changes</h3>
+        <ul>
+          <li>From map-only entry to personalized home entry.</li>
+          <li>From generic users to four identity modes.</li>
+          <li>From passive browsing to route-based exploration.</li>
+          <li>From static information to check-ins, badges, and saved records.</li>
+        </ul>
+      </article>
+    </div>
   </div>
 </section>
 
 <section id="development-log" class="reveal">
-  <h2>Development Log</h2>
-  <div class="timeline">
-    <div class="timeline-item">
-      <div class="timeline-content">
-        <h3>2026.03.01</h3>
-        <p>Project initiation and topic selection.</p>
-      </div>
+  <div class="section-shell">
+    <h2>Development Log</h2>
+    <div class="section-lead">
+      <p>The development log records how the project moved forward across different stages, from problem framing to implementation and validation. It also reflects both the internal and public evaluation stages of the project.</p>
     </div>
-
-    <div class="timeline-item">
-      <div class="timeline-content">
-        <h3>2026.03.05</h3>
-        <p>Completed user interviews.</p>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <h3>Phase 1: Topic and Problem Framing</h3>
+          <p>We selected the campus tour topic, clarified the first-day orientation problem, and set boundaries for a realistic course-scale project.</p>
+        </div>
       </div>
-    </div>
-
-    <div class="timeline-item">
-      <div class="timeline-content">
-        <h3>2026.03.10</h3>
-        <p>Low fidelity prototype and testing.</p>
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <h3>Phase 2: Research and User Definition</h3>
+          <p>We collected lightweight interview and survey input, identified key issues, and shaped the first version of personas and user journey.</p>
+        </div>
       </div>
-    </div>
-
-    <div class="timeline-item">
-      <div class="timeline-content">
-        <h3>2026.03.15</h3>
-        <p>High fidelity design completion.</p>
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <h3>Phase 3: PRD Writing and Documentation</h3>
+          <p>After requirement collection and platform confirmation, we wrote the PRDs. We divided the documentation into three parts: a functional document, a UI design document, and a development document to support later design and implementation.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <h3>Phase 4: Low-fidelity Prototype</h3>
+          <p>We tested page structure, navigation hierarchy, and whether the product should start from a map, a route, or a personalized home page.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <h3>Phase 5: High-fidelity Design</h3>
+          <p>We refined the visual language and finalized the main interactions for map browsing, route flow, check-ins, badges, bilingual switching, and local records.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <h3>Phase 6: PWA Implementation</h3>
+          <p>The prototype was implemented using React, TypeScript, Zustand, i18next, MapLibre, local mock data, and GitHub Pages deployment.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <h3>Phase 7: Internal Evaluation</h3>
+          <p>After major functional updates, we ran internal checks to find problems such as incomplete English text, route clarity issues, font encoding problems, and incorrect initial map location.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <h3>Phase 8: Public Evaluation and Revision</h3>
+          <p>We collected feedback from five representative users. Main issues included unclear badge acquisition rules, confusion between themed routes and direct navigation, and the need for real campus validation of POIs and routes.</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <section id="references" class="reveal">
-  <h2>References</h2>
-  <div class="references-content">
-    <ol>
-      <li> </li>
-      
+  <div class="section-shell">
+    <h2>References</h2>
+    <ol class="reference-list">
+      <li><a href="https://www.google.com/maps" target="_blank" rel="noreferrer">Google Maps</a> - product reference for mainstream navigation behavior and information hierarchy.</li>
+      <li><a href="https://www.apple.com/maps/" target="_blank" rel="noreferrer">Apple Maps</a> - product reference for simplified mobile-first route browsing.</li>
+      <li><a href="https://maplibre.org/maplibre-gl-js/docs/" target="_blank" rel="noreferrer">MapLibre GL JS Documentation</a> - implementation reference for map rendering.</li>
+      <li><a href="https://react.dev/" target="_blank" rel="noreferrer">React Documentation</a> - implementation reference for component structure.</li>
+      <li><a href="https://www.i18next.com/" target="_blank" rel="noreferrer">i18next Documentation</a> - implementation reference for bilingual support.</li>
+      <li><a href="https://www.w3.org/TR/appmanifest/" target="_blank" rel="noreferrer">W3C Web App Manifest</a> - standards reference for PWA capability and installable behavior.</li>
     </ol>
   </div>
 </section>
 
-
-<section id="learning-reflection" class="learning-reflection reveal">
-  <h2>Learning & Reflection</h2>
-  <ul>
-    <li>Enhanced skills in interaction design processes.</li>
-    <li>Improved teamwork experience.</li>
-    <li>Future outlook includes adding AR navigation features.</li>
-  </ul>
+<section id="reflection" class="reveal">
+  <div class="section-shell">
+    <h2>Learning &amp; Reflection</h2>
+    <div class="section-lead">
+      <p>The biggest lesson from this project was that campus navigation problems are rarely solved by adding more visual effects. Our early ideas included heavier immersive features, but research and scope control made it clear that portable mobile use, clear route structure, and identity-aware content were more valuable.</p>
+      <p>We also learned that design decisions become stronger when they are tied to concrete requirements and testable flows. Moving from sketches to a working PWA forced us to turn vague ideas into specific user actions such as switching identity, opening a POI, starting a route, checking in, and reviewing saved records. Future improvements will focus on campus data validation, POI accuracy, richer online preview content, and more polished onboarding.</p>
+    </div>
+  </div>
 </section>
-<script>
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('active');
-      }
-    });
-  }, { threshold: 0.12 });
 
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("active");
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
 </script>
 
 </body>
