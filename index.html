@@ -47,8 +47,8 @@ a {
 
 .main-header {
   position: relative;
-  min-height: 62vh;
-  padding: 110px 20px 90px;
+  min-height: 36vh;
+  padding: 58px 20px 40px;
   text-align: center;
   color: white;
   background:
@@ -89,15 +89,17 @@ a {
 }
 
 .main-header h1 {
-  font-size: clamp(2.8rem, 6vw, 4.8rem);
-  margin-bottom: 12px;
+  font-size: clamp(2.3rem, 5vw, 4rem);
+  margin-bottom: 8px;
   letter-spacing: 1px;
 }
 
 .hero-subtitle {
-  font-size: clamp(1.05rem, 2vw, 1.35rem);
+  font-size: clamp(0.95rem, 1.5vw, 1.1rem);
   max-width: 820px;
-  margin: 0 auto 28px;
+  margin: 0 auto 18px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
 }
 
 .hero-meta {
@@ -105,13 +107,13 @@ a {
   justify-content: center;
   gap: 12px;
   flex-wrap: wrap;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
 }
 
-.hero-meta span,
+.hero-meta a,
 .hero-links a {
   display: inline-block;
-  padding: 10px 16px;
+  padding: 8px 14px;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.14);
   border: 1px solid rgba(255, 255, 255, 0.28);
@@ -119,6 +121,14 @@ a {
   text-decoration: none;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  font-size: 0.92rem;
+  transition: all 0.25s ease;
+}
+
+.hero-meta a:hover,
+.hero-links a:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.24);
 }
 
 .hero-links {
@@ -126,11 +136,6 @@ a {
   justify-content: center;
   gap: 14px;
   flex-wrap: wrap;
-}
-
-.hero-links a:hover {
-  transform: translateY(-2px);
-  background: rgba(255, 255, 255, 0.22);
 }
 
 .navbar {
@@ -593,7 +598,7 @@ h2::after {
 @media (max-width: 768px) {
   .main-header {
     min-height: auto;
-    padding: 78px 16px 58px;
+    padding: 48px 14px 32px;
   }
 
   .hero-meta,
@@ -603,15 +608,16 @@ h2::after {
   }
 
   .hero-subtitle {
-    font-size: 1rem;
-    line-height: 1.6;
-    margin-bottom: 22px;
+    font-size: 0.92rem;
+    line-height: 1.5;
+    margin-bottom: 14px;
   }
 
-  .hero-meta span,
+  .hero-meta a,
   .hero-links a {
-    width: min(100%, 320px);
+    width: min(100%, 280px);
     text-align: center;
+    font-size: 0.88rem;
   }
 
   .navbar {
@@ -708,7 +714,7 @@ h2::after {
 
 @media (max-width: 420px) {
   .main-header h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
 
   h2 {
@@ -733,11 +739,11 @@ h2::after {
 <header class="main-header reveal" id="home">
   <div class="hero-shell">
     <h1>PuPath</h1>
-    <p class="hero-subtitle">A process portfolio for a mobile-first campus tour PWA at XJTLU SIP Campus, designed around identity-aware exploration, guided routes, bilingual support, and lightweight playful interaction.</p>
+    <p class="hero-subtitle">Your Campus Tour Buddy</p>
     <div class="hero-meta">
-      <span>CPT208 Human-Centered Computing</span>
-      <span>XJTLU SIP Campus</span>
-      <span>Team B3-4</span>
+      <a href="https://modules.xjtlu.edu.cn/?mod_code=CPT208" target="_blank" rel="noreferrer">CPT208 Human-Centric Computing</a>
+      <a href="https://www.xjtlu.edu.cn/zh/campus-life/our-campus" target="_blank" rel="noreferrer">XJTLU SIP Campus</a>
+      <a href="https://github.com/xjtlu25-26-cpt208-groupb3-4" target="_blank" rel="noreferrer">Team B3-4</a>
     </div>
     <div class="hero-links">
       <a href="https://xjtlu25-26-cpt208-groupb3-4.github.io/PuPath/" target="_blank" rel="noreferrer">Live Demo</a>
