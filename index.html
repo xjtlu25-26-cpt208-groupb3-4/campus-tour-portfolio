@@ -224,14 +224,11 @@
     .journey-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 22px; }
 
         .architecture-flow {
-  max-width: 1040px;
+  max-width: 980px;
   margin: 28px auto;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 300px;
-  gap: 18px;
-  align-items: stretch;
+  gap: 14px;
 }
-.arch-main { display: grid; gap: 12px; }
 .arch-layer {
   background: rgba(255,255,255,.62);
   border: 1px solid var(--border);
@@ -246,7 +243,11 @@
   color: var(--mid-blue);
   margin-bottom: 8px;
 }
-.arch-row { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 10px; }
+.arch-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 10px;
+}
 .arch-row.single { grid-template-columns: 1fr; }
 .architecture-node {
   background: var(--card-bg);
@@ -266,22 +267,17 @@
 .architecture-arrow {
   text-align: center;
   color: var(--mid-blue);
-  font-size: 1.2rem;
-  margin: 2px 0;
-  line-height: 1;
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: 0;
 }
-.arch-side { display: grid; gap: 12px; align-content: start; }
-.arch-side .arch-layer { height: 100%; }
-.arch-side .architecture-node { font-size: .9rem; font-weight: 600; }
 .arch-link {
   text-align: center;
   color: var(--mid-blue);
-  font-size: .92rem;
-  margin: 6px 0;
-  line-height: 1.2;
+  font-size: .9rem;
+  margin: 0;
 }
 @media (max-width: 900px) {
-  .architecture-flow { grid-template-columns: 1fr; }
   .arch-row { grid-template-columns: 1fr; }
 }
 
@@ -352,13 +348,13 @@
     <div class="section-shell">
       <h2>Overview</h2>
       <div class="section-lead">
-        <p><strong>PuPath</strong> is a mobile-first campus tour PWA for XJTLU SIP Campus. It is designed to support orientation and exploration through identity-aware recommendations, interactive map browsing, themed routes, check-ins, badges, weather-aware suggestions, and Chinese/English switching.</p>
+        <p><strong>PuPath</strong> is a mobile-first campus tour PWA for XJTLU SIP Campus. The current version integrates map navigation, cross-campus routing, identity-aware recommendations, themed and custom tours, check-ins, collectibles, badges, story cards, bilingual switching, and accessibility options in one browser-accessible experience.</p>
         <p>This portfolio focuses on process rather than promotion. It records the design problem, research input, personas, user journey, key requirements, and the path from early concept to a working public demo.</p>
       </div>
       <div class="card-grid">
         <article class="card"><span class="tag">Goal</span><h3>Reduce first-time campus orientation anxiety and improve route clarity.</h3></article>
         <article class="card"><span class="tag">Platform</span><h3>Mobile-first Progressive Web App, accessible through a public URL.</h3></article>
-        <article class="card"><span class="tag">Playful Mechanism</span><h3>Themed routes, check-ins, badges, and campus story discovery.</h3></article>
+        <article class="card"><span class="tag">Playful Mechanism</span><h3>Themed routes, custom tours, check-ins, collectibles, badges, and story cards.</h3></article>
         <article class="card"><span class="tag">Core Users</span><h3>Students, visitors, and staff.</h3></article>
       </div>
     </div>
@@ -398,14 +394,14 @@
         <article class="research-card placeholder"><span class="tag">Paper 2</span><h3>[Add actual academic paper title]</h3><p><strong>Topic placeholder:</strong> Mobile guide systems</p><p><strong>Relevance:</strong> [To be completed by team]</p><div class="two-column-list"><div><h4>What it did well</h4><ul><li>[Point 1]</li><li>[Point 2]</li><li>[Point 3]</li></ul></div><div><h4>What it missed</h4><ul><li>[Gap 1]</li><li>[Gap 2]</li><li>[Gap 3]</li></ul></div></div><h4>Implication for PuPath</h4><p>[Add what this paper means for PuPath's design.]</p></article>
         <article class="research-card placeholder"><span class="tag">Paper 3</span><h3>[Add actual academic paper title]</h3><p><strong>Topic placeholder:</strong> Location-based playful experience</p><p><strong>Relevance:</strong> [To be completed by team]</p><div class="two-column-list"><div><h4>What it did well</h4><ul><li>[Point 1]</li><li>[Point 2]</li><li>[Point 3]</li></ul></div><div><h4>What it missed</h4><ul><li>[Gap 1]</li><li>[Gap 2]</li><li>[Gap 3]</li></ul></div></div><h4>Implication for PuPath</h4><p>[Add what this paper means for PuPath's design.]</p></article>
         <article class="research-card placeholder"><span class="tag">Paper 4</span><h3>[Add actual academic paper title]</h3><p><strong>Topic placeholder:</strong> Gamification, check-ins, and badges</p><p><strong>Relevance:</strong> [To be completed by team]</p><div class="two-column-list"><div><h4>What it did well</h4><ul><li>[Point 1]</li><li>[Point 2]</li><li>[Point 3]</li></ul></div><div><h4>What it missed</h4><ul><li>[Gap 1]</li><li>[Gap 2]</li><li>[Gap 3]</li></ul></div></div><h4>Implication for PuPath</h4><p>[Add what this paper means for PuPath's design.]</p></article>
-        <article class="research-card placeholder"><span class="tag">Paper 5</span><h3>[Add actual academic paper title]</h3><p><strong>Topic placeholder:</strong> Accessibility / bilingual mobile UX</p><p><strong>Relevance:</strong> [To be completed by team]</p><div class="two-column-list"><div><h4>What it did well</h4><ul><li>[Point 1]</li><li>[Point 2]</li><li>[Point 3]</li></ul></div><div><h4>What it missed</h4><ul><li>[Gap 1]</li><li>[Gap 2]</li><li>[Gap 3]</li></ul></div></div><h4>Implication for PuPath</h4><p>[Add what this paper means for PuPath's design.]</p></article>
+        
       </div>
       <h3>Commercial Product Review</h3>
       <div class="card-grid">
         <article class="card"><h3>Google Maps</h3><p><strong>What it does well:</strong> route planning, familiar UI, POI search.</p><p><strong>What it misses:</strong> campus-specific meaning, identity-based tour logic, playful feedback.</p><p><strong>PuPath implication:</strong> Add campus context and exploration motivation.</p></article>
-        <article class="card"><h3>AMap / Gaode Maps</h3><p><strong>What it does well:</strong> local map data, routing, mature map interactions.</p><p><strong>What it misses:</strong> not campus-story oriented, no badge or check-in layer, weak visitor-specific route meaning.</p><p><strong>PuPath implication:</strong> Complement route utility with campus orientation context.</p></article>
+        <article class="card"><h3>Gaode Maps</h3><p><strong>What it does well:</strong> local map data, routing, mature map interactions.</p><p><strong>What it misses:</strong> not campus-story oriented, no badge or check-in layer, weak visitor-specific route meaning.</p><p><strong>PuPath implication:</strong> Complement route utility with campus orientation context.</p></article>
         <article class="card"><h3>XJTLU official website / campus map</h3><p><strong>What it does well:</strong> official information, reliable context, campus-related content.</p><p><strong>What it misses:</strong> not designed as a guided route, not playful, less suitable for first-time mobile movement.</p><p><strong>PuPath implication:</strong> Turn static information into a guided campus experience.</p></article>
-        <article class="card"><h3>TripAdvisor / Xiaohongshu / selected discovery platform</h3><p><strong>What it does well:</strong> rich discovery content, story-like posts, social proof.</p><p><strong>What it misses:</strong> fragmented, inconsistent relevance, not structured for campus wayfinding.</p><p><strong>PuPath implication:</strong> Combine discovery content with structured routes.</p></article>
+        <article class="card"><h3>Rednote</h3><p><strong>What it does well:</strong> rich discovery content, story-like posts, social proof.</p><p><strong>What it misses:</strong> fragmented, inconsistent relevance, not structured for campus wayfinding.</p><p><strong>PuPath implication:</strong> Combine discovery content with structured routes.</p></article>
       </div>
     </div>
   </section>
@@ -560,12 +556,12 @@
         <table class="data-table">
           <thead><tr><th>ID</th><th>Requirement</th><th>User Value</th><th>Implemented Feature</th><th>Evidence Link</th></tr></thead>
           <tbody>
-            <tr><td>FR1</td><td>Mobile-first access</td><td>Users can open quickly during real campus movement.</td><td>Responsive PWA interface.</td><td>User evidence: low-friction access need</td></tr>
-            <tr><td>FR2</td><td>Identity-based recommendation</td><td>Different users receive relevant starting points.</td><td>Freshman, student, visitor, and staff modes.</td><td>Journey pain point: unclear first step</td></tr>
-            <tr><td>FR3</td><td>Interactive POI map</td><td>Users can browse places spatially.</td><td>Map page with POI detail cards.</td><td>Research gap: context beyond map labels</td></tr>
-            <tr><td>FR4</td><td>Themed route guidance</td><td>Users can follow structured routes.</td><td>Tours page with route cards.</td><td>Persona need: route structure</td></tr>
-            <tr><td>FR5</td><td>Bilingual interface</td><td>Chinese and international users can both understand content.</td><td>Chinese / English switching.</td><td>Campus context: bilingual orientation</td></tr>
-            <tr><td>FR6</td><td>Personal records</td><td>Users can review progress.</td><td>My page with saved records and badges.</td><td>Engagement need: progress visibility</td></tr>
+            <tr><td>FR1</td><td>Mobile-first access</td><td>Users can open quickly during real campus movement.</td><td>PWA + responsive web UI + GitHub Pages deployment.</td><td>User evidence: low-friction access need</td></tr>
+            <tr><td>FR2</td><td>Identity-based recommendation</td><td>Different users receive relevant starting points.</td><td>Identity modes with home recommendations.</td><td>Journey pain point: unclear first step</td></tr>
+            <tr><td>FR3</td><td>Interactive map and navigation</td><td>Users can browse places and move across campus efficiently.</td><td>AMap-based map, marker interaction, and cross-campus routing with underground-passage priority.</td><td>Research gap: context beyond static labels</td></tr>
+            <tr><td>FR4</td><td>Bilingual and accessible interface</td><td>International and diverse users can use the system with fewer barriers.</td><td>i18next zh/en switching + font size + high contrast + screen-reader support.</td><td>Campus context: bilingual and inclusive orientation</td></tr>
+            <tr><td>FR5</td><td>Tour progress and records</td><td>Users can continue exploration and review history.</td><td>Route progress tracking, favorites/wishlist/visited/recent records.</td><td>Persona need: structured repeat use</td></tr>
+            <tr><td>FR6</td><td>Place details and contextual recommendations</td><td>Users understand why a place matters, not only where it is.</td><td>Place detail pages, category recommendations, and story cards.</td><td>Motivation gap: information fragmentation</td></tr>
           </tbody>
         </table>
       </div>
@@ -574,9 +570,9 @@
         <table class="data-table">
           <thead><tr><th>ID</th><th>Playful Requirement</th><th>Why It Matters</th><th>Implemented Feature</th><th>Evidence Link</th></tr></thead>
           <tbody>
-            <tr><td>PR1</td><td>Themed route exploration</td><td>Provides purposeful and enjoyable exploration.</td><td>Themed route cards and guided tour flow.</td><td>Journey pain point: users do not know where to start</td></tr>
-            <tr><td>PR2</td><td>Check-in or treasure feedback</td><td>Turns movement into active discovery.</td><td>Manual or mock QR check-ins with feedback.</td><td>Motivation gap: low exploration drive</td></tr>
-            <tr><td>PR3</td><td>Badge-based progress feedback</td><td>Encourages completion and revisit behavior.</td><td>Badge collection and progress display in My page.</td><td>Persona feedback: need positive progress signals</td></tr>
+            <tr><td>PR1</td><td>Themed and custom route exploration</td><td>Provides purposeful and enjoyable movement instead of random browsing.</td><td>Core/theme tours + custom tour composition.</td><td>Journey pain point: users do not know where to start</td></tr>
+            <tr><td>PR2</td><td>Check-in and collectible feedback</td><td>Turns route completion into active participation.</td><td>Location-based daily check-in + virtual collectibles.</td><td>Motivation gap: low exploration drive</td></tr>
+            <tr><td>PR3</td><td>Badge progression with auto-unlock logic</td><td>Encourages continuity and repeat exploration.</td><td>Badge rules, auto-unlock, and progress feedback in My page.</td><td>Persona feedback: need clear progress signals</td></tr>
           </tbody>
         </table>
       </div>
@@ -624,21 +620,25 @@
       <h3>Low-Fi Prototype</h3>
       <p>The low-fidelity prototype focused on page structure, navigation hierarchy, and whether users should start from a map, a route list, or a personalized home page.</p>
       <p>Low-fi evaluation focused on information hierarchy, entry flow, and whether users understood the relationship between map, route, and personal progress.</p>
-      <p><a href="[Add Figma low-fi prototype link]" target="_blank" rel="noreferrer">Low-Fi Figma Prototype</a></p>
+      <p><a href="https://www.figma.com/make/oMC1PYgSyQ3NJO2UBSp8CN/Low-Fidelity-Campus-Tour-Prototype?p=f&t=CcBzSMy1zJVtsgG3-0&fullscreen=1" target="_blank" rel="noreferrer">Low-Fi Figma Prototype</a></p>
       <div class="prototype-gallery">
         <figure><img src="images/lowfi-1.jpg" alt="Low-Fi 1"><figcaption>Low-Fi 1</figcaption></figure>
         <figure><img src="images/lowfi-2.jpg" alt="Low-Fi 2"><figcaption>Low-Fi 2</figcaption></figure>
         <figure><img src="images/lowfi-3.jpg" alt="Low-Fi 3"><figcaption>Low-Fi 3</figcaption></figure>
+        <figure><img src="images/lowfi-4.jpg" alt="Low-Fi 4"><figcaption>Low-Fi 4</figcaption></figure>
       </div>
       <h3>High-Fi Prototype</h3>
       <p><a href="https://xjtlu25-26-cpt208-groupb3-4.github.io/PuPath/" target="_blank" rel="noreferrer">Live Demo</a></p>
-      <p>The high-fi prototype demonstrates the core route, POI, check-in, badge, bilingual, and personal record interactions required by the playful requirements.</p>
+      <p>The high-fi prototype demonstrates map navigation, cross-campus routing, themed/custom tours, place details, check-in and collectible feedback, badge auto-unlock, bilingual switching, weather-aware hints, and profile accessibility settings.</p>
       <div class="prototype-gallery">
         <figure><img src="images/hifi-home.jpg" alt="Home"><figcaption>Home: identity-aware recommendation and quick entry.</figcaption></figure>
-        <figure><img src="images/hifi-map.jpg" alt="Map"><figcaption>Map: POI browsing and campus-specific details.</figcaption></figure>
-        <figure><img src="images/hifi-tour.jpg" alt="Tours"><figcaption>Tours: themed route guidance.</figcaption></figure>
-        <figure><img src="images/hifi-checkin.jpg" alt="Check-in"><figcaption>Check-in: playful progress and treasure feedback.</figcaption></figure>
-        <figure><img src="images/hifi-my.jpg" alt="My"><figcaption>My: badges, saved places, and personal records.</figcaption></figure>
+        <figure><img src="images/hifi-map.jpg" alt="Map"><figcaption>Map: POI browsing, cross-campus routing, and campus-specific details.</figcaption></figure>
+        <figure><img src="images/hifi-tour.jpg" alt="Tours"><figcaption>Tours: core/theme routes and custom tour flow.</figcaption></figure>
+        <figure><img src="images/hifi-checkin.jpg" alt="Check-in"><figcaption>Check-in: location-based progress and collectible feedback.</figcaption></figure>
+        <figure><img src="images/hifi-discover.jpg" alt="Discover"><figcaption>Discover: category recommendations and story-based place exploration.</figcaption></figure>
+        <figure><img src="images/hifi-explore-online.jpg" alt="Explore Online"><figcaption>Explore Online: online campus preview and remote exploration entry.</figcaption></figure>
+        <figure><img src="images/hifi-accessibility.jpg" alt="Accessibility Settings"><figcaption>Accessibility Settings: font size, high contrast, and screen-reader support options.</figcaption></figure>
+        <figure><img src="images/hifi-my.jpg" alt="My"><figcaption>My: badges, favorites, wishlist, visited, and recent records.</figcaption></figure>
       </div>
       <h3>Prototype Evolution</h3>
       <div class="table-wrap prototype-evolution-table">
@@ -663,63 +663,52 @@
       <p>The MVP is implemented as a client-side PWA so that the team can focus on validating the campus tour experience without backend complexity. This approach keeps the prototype lightweight, easy to deploy through GitHub Pages, and suitable for live demonstration during the marking period.</p>
             <h3>System Architecture</h3>
       <div class="architecture-flow">
-        <div class="arch-main">
-          <div class="arch-layer">
-            <div class="arch-layer-title">Client Layer</div>
-            <div class="arch-row">
-              <div class="architecture-node">User (Student / Visitor / Staff)</div>
-              <div class="architecture-node">Mobile Browser / PWA Shell</div>
-            </div>
-          </div>
-          <div class="architecture-arrow">&darr;</div>
-          <div class="arch-link">Interaction Events</div>
-          <div class="arch-layer">
-            <div class="arch-layer-title">Application Layer</div>
-            <div class="arch-row">
-              <div class="architecture-node">React UI Components</div>
-              <div class="architecture-node">State Store (Zustand)</div>
-            </div>
-            <div class="arch-row" style="margin-top:10px;">
-              <div class="architecture-node">Routing &amp; Identity Mode Logic</div>
-              <div class="architecture-node">i18n Layer (Chinese / English)</div>
-            </div>
-          </div>
-          <div class="architecture-arrow">&darr;</div>
-          <div class="arch-link">Read / Update State</div>
-          <div class="arch-layer">
-            <div class="arch-layer-title">Data Layer (MVP Local)</div>
-            <div class="arch-row">
-              <div class="architecture-node">POI / Route / Badge Structured Data</div>
-              <div class="architecture-node">Local Interaction State (Check-ins, Saved, Progress)</div>
-            </div>
-          </div>
-          <div class="architecture-arrow">&darr;</div>
-          <div class="arch-link">Build &amp; Deploy</div>
-          <div class="arch-layer">
-            <div class="arch-layer-title">Delivery Layer</div>
-            <div class="arch-row">
-              <div class="architecture-node">Static Build Assets</div>
-              <div class="architecture-node">GitHub Pages Hosting</div>
-            </div>
+        <div class="arch-layer">
+          <div class="arch-layer-title">Client Layer</div>
+          <div class="arch-row">
+            <div class="architecture-node">User (Student / Visitor / Staff)</div>
+            <div class="architecture-node">Mobile Browser / PWA Shell</div>
           </div>
         </div>
-        <div class="arch-side">
-          <div class="arch-layer">
-            <div class="arch-layer-title">External Services</div>
-            <div class="arch-row single">
-              <div class="architecture-node">MapLibre Rendering + Map Tiles</div>
-            </div>
-            <div class="arch-link">&harr; map view requests</div>
-            <div class="arch-row single">
-              <div class="architecture-node">Weather API (Optional Suggestion Input)</div>
-            </div>
-            <div class="arch-link">&harr; contextual recommendation input</div>
+        <div class="architecture-arrow">Downstream Flow</div>
+        <div class="arch-layer">
+          <div class="arch-layer-title">Application Layer</div>
+          <div class="arch-row">
+            <div class="architecture-node">React UI Components</div>
+            <div class="architecture-node">State Store (Zustand)</div>
           </div>
-          <div class="arch-layer">
-            <div class="arch-layer-title">Security / Privacy Scope</div>
-            <div class="arch-row single">
-              <div class="architecture-node">No sensitive personal data persisted server-side in MVP</div>
-            </div>
+          <div class="arch-row" style="margin-top:10px;">
+            <div class="architecture-node">Routing and Identity Mode Logic</div>
+            <div class="architecture-node">i18n Layer (Chinese / English)</div>
+          </div>
+        </div>
+        <div class="architecture-arrow">Downstream Flow</div>
+        <div class="arch-layer">
+          <div class="arch-layer-title">Data Layer (MVP Local)</div>
+          <div class="arch-row">
+            <div class="architecture-node">POI / Route / Badge Structured Data</div>
+            <div class="architecture-node">Local Interaction State (Check-ins, Saved, Progress)</div>
+          </div>
+        </div>
+        <div class="architecture-arrow">Build and Deploy</div>
+        <div class="arch-layer">
+          <div class="arch-layer-title">Delivery Layer</div>
+          <div class="arch-row">
+            <div class="architecture-node">Static Build Assets</div>
+            <div class="architecture-node">GitHub Pages Hosting</div>
+          </div>
+        </div>
+        <div class="arch-layer">
+          <div class="arch-layer-title">External Services</div>
+          <div class="arch-row">
+            <div class="architecture-node">AMap JS API (primary map, geolocation, navigation)</div>
+            <div class="architecture-node">MapLibre (fallback rendering) + Weather API (optional input)</div>
+          </div>
+        </div>
+        <div class="arch-layer">
+          <div class="arch-layer-title">Security / Privacy Scope</div>
+          <div class="arch-row single">
+            <div class="architecture-node">No sensitive personal data persisted server-side in MVP</div>
           </div>
         </div>
       </div>
@@ -731,9 +720,20 @@
         <article class="pillar-card"><h3>Structured Campus Data</h3><p><strong>How:</strong> POIs, route content, badge rules, and bilingual labels are organized as structured local data.</p><p><strong>Benefit:</strong> Separates content from interface components and remains easier to update and test.</p></article>
       </div>
       <h3>Technology Stack</h3>
-      <div class="table-wrap"><table class="data-table"><thead><tr><th>Technology</th><th>Purpose</th><th>Reason for Selection</th></tr></thead><tbody><tr><td>React</td><td>Component-based UI</td><td>Suitable for modular interface development.</td></tr><tr><td>TypeScript</td><td>Type-safe implementation</td><td>Reduces logic errors in state and data handling.</td></tr><tr><td>Zustand</td><td>Local state management</td><td>Lightweight and sufficient for MVP state needs.</td></tr><tr><td>i18next</td><td>Bilingual support</td><td>Supports Chinese / English interface switching.</td></tr><tr><td>MapLibre</td><td>Map rendering</td><td>Open-source map rendering suitable for web apps.</td></tr><tr><td>GitHub Pages</td><td>Deployment</td><td>Free public static hosting.</td></tr><tr><td>Local JSON / mock data</td><td>Data</td><td>Course-scale MVP data source for POIs, routes, and badges.</td></tr></tbody></table></div>
-      <h3>Data Handling</h3>
-      <p>PuPath uses local structured data for POIs, themed routes, badges, and campus content. Route data connects multiple POIs into meaningful exploration flows. User check-ins, saved places, and badge status are handled as local interaction states in the MVP. The prototype does not collect sensitive personal information. No sensitive personal information is collected or transmitted in the MVP. Future versions would require clear consent, privacy notice, and secure storage if account-based synchronization is introduced.</p>
+      <div class="table-wrap"><table class="data-table"><thead><tr><th>Technology</th><th>Purpose</th><th>Reason for Selection</th></tr></thead><tbody>
+      <tr><td>React 19 + TypeScript</td><td>Component-based implementation</td><td>Supports modular UI and type-safe development.</td></tr>
+      <tr><td>Vite 7</td><td>Build and dev tooling</td><td>Fast local iteration and production bundling.</td></tr>
+      <tr><td>React Router 7</td><td>Client-side routing</td><td>Supports multi-page navigation flow in PWA.</td></tr>
+      <tr><td>Zustand</td><td>State management</td><td>Lightweight store for tour, app, and user state.</td></tr>
+      <tr><td>i18next + react-i18next</td><td>Bilingual support</td><td>Structured zh/en resource management.</td></tr>
+      <tr><td>AMap JS API</td><td>Primary map/navigation</td><td>Strong local map service capability for campus routing.</td></tr>
+      <tr><td>MapLibre</td><td>Fallback rendering</td><td>Fallback map rendering path and open map compatibility.</td></tr>
+      <tr><td>Tailwind CSS</td><td>Styling system</td><td>Consistent UI and rapid component styling.</td></tr>
+      <tr><td>vite-plugin-pwa</td><td>PWA support</td><td>Installable web app behavior and caching support.</td></tr>
+      <tr><td>GitHub Pages</td><td>Deployment</td><td>Free public static hosting for coursework delivery.</td></tr>
+      <tr><td>Local JSON / mock data</td><td>MVP data source</td><td>Supports POIs, routes, badges, and story content without backend.</td></tr>
+      </tbody></table></div>
+      <h3>Data Handling</h3><p>PuPath uses structured local datasets for POIs, routes, recommendations, story cards, badges, treasures, and contact/school profile content. Route progress, favorites, wishlist, visited records, recent views, and check-in outcomes are handled as local interaction state in the MVP. Check-ins are constrained by local daily logic to avoid repeated same-day claims. No sensitive personal information is collected or transmitted in the MVP. Future account-based synchronization would require explicit consent, privacy notice, and secure storage.</p>
       <h3>Future Production Roadmap</h3>
       <div class="table-wrap roadmap-table"><table class="data-table"><thead><tr><th>Layer</th><th>Current MVP</th><th>Future Version</th></tr></thead><tbody><tr><td>Hosting</td><td>GitHub Pages static deployment</td><td>Vercel or server-backed deployment</td></tr><tr><td>Data</td><td>Local JSON / mock data</td><td>Validated campus POI database</td></tr><tr><td>User State</td><td>Local browser state</td><td>Optional account-based sync with consent</td></tr><tr><td>Map</td><td>MapLibre and static POI data</td><td>Validated coordinates and real routing support</td></tr><tr><td>Evaluation</td><td>Small task-based usability test</td><td>Larger campus field test</td></tr><tr><td>Content</td><td>Basic POI and route content</td><td>Richer campus stories and accessibility metadata</td></tr></tbody></table></div>
       <h3>Development Timeline</h3>
@@ -757,7 +757,7 @@
       <h2>Evaluation</h2>
       <h3>Usability Testing Setup</h3>
       <p>We evaluated the Alpha / High-Fi version through task-based usability testing with representative users. The evaluation focused on whether users could understand the entry flow, find campus places, follow a route, complete playful actions, and review progress.</p>
-      <div class="table-wrap"><table class="data-table"><tbody><tr><th>Participants</th><td>[To be completed after final usability test]</td></tr><tr><th>Target Groups</th><td>freshmen, current students, visitors</td></tr><tr><th>Method</th><td>task-based usability testing</td></tr><tr><th>Device</th><td>mobile browser</td></tr><tr><th>Tested Version</th><td>Alpha / High-Fi prototype</td></tr></tbody></table></div>
+      <div class="table-wrap"><table class="data-table"><tbody><tr><th>Participants</th><td>[To be completed after final usability test]</td></tr><tr><th>Target Groups</th><td>freshmen, current students, visitors</td></tr><tr><th>Method</th><td>task-based usability testing</td></tr><tr><th>Device</th><td>mobile browser</td></tr><tr><th>Tested Version</th><td>Latest PWA build with map, tours, check-in, collectibles, badges, and bilingual modules</td></tr></tbody></table></div>
       <h3>Testing Tasks</h3>
       <div class="table-wrap"><table class="data-table"><thead><tr><th>Task</th><th>Purpose</th></tr></thead><tbody><tr><td>Task 1: Select identity and find a recommended route.</td><td>Test whether users understand the entry flow.</td></tr><tr><td>Task 2: Use the map to open one POI detail.</td><td>Test map and POI discoverability.</td></tr><tr><td>Task 3: Start a themed route and complete a check-in.</td><td>Test playful route interaction.</td></tr><tr><td>Task 4: Switch language between Chinese and English.</td><td>Test bilingual usability.</td></tr><tr><td>Task 5: Find badge or saved record in My page.</td><td>Test progress feedback visibility.</td></tr></tbody></table></div>
       <h3>Results</h3>
@@ -845,13 +845,13 @@
       <h3>Commercial / Product References</h3>
       <ol>
         <li>Google Maps. Used as a comparison point for generic map navigation.</li>
-        <li>AMap / Gaode Maps. Used as a comparison point for local map services and route planning.</li>
+        <li>Gaode Maps. Used as a comparison point for local map services and route planning.</li>
         <li>XJTLU official website / campus information pages. Used as a comparison point for official campus information.</li>
-        <li>TripAdvisor / Xiaohongshu / selected discovery platform. Used as a comparison point for discovery-oriented content flow.</li>
+        <li>Rednote. Used as a comparison point for discovery-oriented content flow.</li>
       </ol>
       <h3>Technical References</h3>
       <ol>
-        <li><a href="https://lbs.amap.com/" target="_blank" rel="noreferrer">AMap / Gaode Maps Documentation</a></li>
+        <li><a href="https://lbs.amap.com/" target="_blank" rel="noreferrer">Gaode Maps Documentation</a></li>
         <li><a href="https://open-meteo.com/en/docs" target="_blank" rel="noreferrer">Open-Meteo API Documentation</a></li>
         <li><a href="https://maplibre.org/maplibre-gl-js/docs/" target="_blank" rel="noreferrer">MapLibre GL JS Documentation</a></li>
         <li><a href="https://react.dev/" target="_blank" rel="noreferrer">React Documentation</a></li>
@@ -878,3 +878,4 @@
   </script>
 </body>
 </html>
+
