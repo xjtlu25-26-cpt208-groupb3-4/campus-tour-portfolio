@@ -55,10 +55,18 @@
     .hero-shell { max-width: 980px; margin: 0 auto; }
     .main-header h1 { font-size: clamp(2.3rem, 5vw, 4rem); margin-bottom: 8px; }
     .hero-subtitle { font-size: clamp(0.95rem, 1.5vw, 1.1rem); margin-bottom: 18px; font-weight: 600; }
-    .hero-meta, .hero-links { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+    .hero-meta,
+    .hero-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      column-gap: 16px;
+      row-gap: 12px;
+    }
+    .hero-meta { margin-bottom: 12px; }
     .hero-meta a, .hero-links a {
       display: inline-block;
-      padding: 8px 14px;
+      padding: 10px 20px;
       border-radius: 999px;
       background: rgba(255, 255, 255, 0.14);
       border: 1px solid rgba(255, 255, 255, 0.28);
@@ -527,26 +535,74 @@
     <div class="section-shell">
       <h2>User Journey Map</h2>
       <div class="section-checkpoint">Primary scenario: Li Hua, a freshman, enters campus during orientation week and wants to understand where to go first.</div>
-      <h3>Current State: First-time Campus Orientation Without PuPath</h3>
+      <h3>Baseline Journey: First-time Campus Orientation Without PuPath</h3>
       <div class="table-wrap">
         <table class="data-table">
           <thead><tr><th>Persona</th><th>Stage</th><th>User Action</th><th>Pain Point</th><th>Emotion</th><th>Opportunity</th></tr></thead>
           <tbody>
-            <tr><td>Li Hua</td><td>Arrival</td><td>Enters campus for the first time</td><td>Does not know where to start</td><td>Anxious</td><td>Provide identity-based first-step guidance</td></tr>
-            <tr><td>Li Hua</td><td>Searching</td><td>Looks for a classroom or service point</td><td>Map labels do not explain what matters</td><td>Confused</td><td>Add POI cards and campus-specific descriptions</td></tr>
-            <tr><td>Li Hua</td><td>Moving</td><td>Walks between unfamiliar places</td><td>Unsure if route is meaningful or efficient</td><td>Uncertain</td><td>Provide themed route guidance</td></tr>
-            <tr><td>Li Hua</td><td>Exploring</td><td>Finds places by chance</td><td>Important campus stories or services may be missed</td><td>Passive</td><td>Add check-ins, badges, and discovery prompts</td></tr>
+            <tr><td>Li Hua</td><td>Arrival</td><td>Enters campus from the main gate and tries to decide the first stop.</td><td>No clear first-step orientation for a freshman during the first visit.</td><td>Anxious</td><td>Provide identity-based first-step guidance and suggested starter routes.</td></tr>
+            <tr><td>Li Hua</td><td>Searching</td><td>Searches for a classroom, canteen, or service office by building name.</td><td>Building labels show location but not usage priority, context, or why it matters now.</td><td>Confused</td><td>Add POI cards with campus-specific descriptions and newcomer-oriented context.</td></tr>
+            <tr><td>Li Hua</td><td>Moving</td><td>Walks between unfamiliar buildings while comparing possible paths.</td><td>Cannot judge whether a route is beginner-friendly, efficient, or suitable for current time pressure.</td><td>Uncertain</td><td>Provide structured themed routes with clearer path logic and movement guidance.</td></tr>
+            <tr><td>Li Hua</td><td>Exploring</td><td>Reaches places passively and often skips non-obvious but important campus points.</td><td>Exploration lacks motivation and key stories/services are easily missed.</td><td>Passive</td><td>Add check-ins, badges, and discovery prompts to encourage active exploration.</td></tr>
           </tbody>
         </table>
       </div>
-      <h3>Future State: First-time Campus Orientation With PuPath</h3>
-      <div class="journey-grid">
-        <article class="journey-step"><span class="tag">Step 1</span><h3>Select Identity</h3><p><strong>User Action:</strong> Chooses Freshman mode.<br><strong>User Benefit:</strong> Reduces irrelevant information.<br><strong>Related Feature:</strong> Freshman, student, visitor, and staff modes.</p></article>
-        <article class="journey-step"><span class="tag">Step 2</span><h3>Open Home</h3><p><strong>User Action:</strong> Starts from the home panel.<br><strong>User Benefit:</strong> Gets clear first-step guidance.<br><strong>Related Feature:</strong> Identity-based home recommendations.</p></article>
-        <article class="journey-step"><span class="tag">Step 3</span><h3>Explore Map</h3><p><strong>User Action:</strong> Opens POI details.<br><strong>User Benefit:</strong> Understands places and context.<br><strong>Related Feature:</strong> POI cards and map browsing.</p></article>
-        <article class="journey-step"><span class="tag">Step 4</span><h3>Start a Tour</h3><p><strong>User Action:</strong> Selects a themed route.<br><strong>User Benefit:</strong> Follows structured movement.<br><strong>Related Feature:</strong> Route cards and guided flow.</p></article>
-        <article class="journey-step"><span class="tag">Step 5</span><h3>Check In</h3><p><strong>User Action:</strong> Completes route points.<br><strong>User Benefit:</strong> Receives immediate feedback.<br><strong>Related Feature:</strong> Check-ins and badge triggers.</p></article>
-        <article class="journey-step"><span class="tag">Step 6</span><h3>Review Records</h3><p><strong>User Action:</strong> Opens My page.<br><strong>User Benefit:</strong> Sees progress and history.<br><strong>Related Feature:</strong> Saved records and badges.</p></article>
+      <h3>Validated Journey: First-time Campus Orientation in the Current PuPath MVP</h3>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Step</th>
+              <th>User Action</th>
+              <th>MVP Value</th>
+              <th>Implemented Feature</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Step 1: Choose Language and Identity</td>
+              <td>Selects preferred language and user mode before exploring.</td>
+              <td>Reduces comprehension barriers and irrelevant content at entry.</td>
+              <td>Chinese/English switching and identity modes (student, visitor, staff).</td>
+            </tr>
+            <tr>
+              <td>Step 2: Open Home</td>
+              <td>Starts from the home panel and views recommended quick entries.</td>
+              <td>Gets clear first-step guidance with lower decision pressure.</td>
+              <td>Identity-aware home recommendations and quick action cards.</td>
+            </tr>
+            <tr>
+              <td>Step 3: Explore Map</td>
+              <td>Browses POIs, route overlays, and map details.</td>
+              <td>Understands where to go using structured context instead of raw labels.</td>
+              <td>Multi-route overlays, time/distance filters, and underground-passage-priority routing support.</td>
+            </tr>
+            <tr>
+              <td>Step 4: Start a Tour</td>
+              <td>Starts a core, themed, or custom route based on purpose.</td>
+              <td>Follows meaningful and scenario-based campus movement.</td>
+              <td>Core/theme tour modules and custom route composition.</td>
+            </tr>
+            <tr>
+              <td>Step 5: Check In</td>
+              <td>Completes route points and performs location-based daily check-ins.</td>
+              <td>Receives immediate playful feedback that sustains exploration motivation.</td>
+              <td>Daily check-in logic, collectible feedback, and badge auto-unlock triggers.</td>
+            </tr>
+            <tr>
+              <td>Step 6: Discover and View Details</td>
+              <td>Opens recommendation cards and place detail pages during exploration.</td>
+              <td>Understands why places matter, not only how to reach them.</td>
+              <td>Category recommendations, story-oriented content, and detailed place pages.</td>
+            </tr>
+            <tr>
+              <td>Step 7: Review Records and Accessibility</td>
+              <td>Checks My page records and adjusts accessibility preferences.</td>
+              <td>Maintains continuity across visits and improves individual usability.</td>
+              <td>Favorites, wishlist, visited/recent records, route history, and accessibility settings.</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </section>
@@ -752,7 +808,8 @@
         <div class="timeline-item"><div class="timeline-content"><h3>Phase 8: Public Evaluation and Revision</h3><p><strong>Goal:</strong> Test the high-fi prototype with representative users.</p><p><strong>Output:</strong> Usability results and design changes.</p><p><strong>Evidence:</strong> Evaluation table and before/after iteration cards.</p></div></div>
       </div>
       <h3>Individual Contributions</h3>
-      <div class="table-wrap"><table class="data-table"><thead><tr><th>Member</th><th>Role</th><th>Main Contributions</th><th>Evidence / Output</th></tr></thead><tbody><tr><td>Linhua Dong</td><td>[To be completed by team]</td><td>[To be completed by team]</td><td>[To be completed by team]</td></tr><tr><td>Xi Han</td><td>[To be completed by team]</td><td>[To be completed by team]</td><td>[To be completed by team]</td></tr><tr><td>Sihan Zhang</td><td>[To be completed by team]</td><td>[To be completed by team]</td><td>[To be completed by team]</td></tr><tr><td>Zhanhao Zhang</td><td>[To be completed by team]</td><td>[To be completed by team]</td><td>[To be completed by team]</td></tr></tbody></table></div>
+      <div class="table-wrap"><table class="data-table"><thead><tr><th>Member</th><th>Main Contributions</th><th>Contribution Percentage</th></tr></thead><tbody><tr><td>Linhua Dong</td><td>Project coding, project testing, and project content filling.</td><td>25%</td></tr><tr><td>Xi Han</td><td>UI design, requirement collection, and outcome presentation.</td><td>25%</td></tr><tr><td>Sihan Zhang</td><td>UI design, requirement collection, and outcome presentation.</td><td>25%</td></tr><tr><td>Zhanhao Zhang</td><td>Project coding, project testing, and project content filling.</td><td>25%</td></tr></tbody></table></div>
+      <p style="margin-top:10px; color:#4a6478; font-size:.95rem;">Note: Members are listed in alphabetical order by surname initial; this order does not indicate ranking or contribution priority.</p>
     </div>
   </section>
 
@@ -761,7 +818,7 @@
       <h2>Evaluation</h2>
       <h3>Usability Testing Setup</h3>
       <p>We evaluated the Alpha / High-Fi version through task-based usability testing with representative users. The evaluation focused on whether users could understand the entry flow, find campus places, follow a route, complete playful actions, and review progress.</p>
-      <div class="table-wrap"><table class="data-table"><tbody><tr><th>Participants</th><td>[To be completed after final usability test]</td></tr><tr><th>Target Groups</th><td>freshmen, current students, visitors</td></tr><tr><th>Method</th><td>task-based usability testing</td></tr><tr><th>Device</th><td>mobile browser</td></tr><tr><th>Tested Version</th><td>Latest PWA build with map, tours, check-in, collectibles, badges, and bilingual modules</td></tr></tbody></table></div>
+      <div class="table-wrap"><table class="data-table"><tbody><tr><th>Participants</th><td>[To be completed after final usability test]</td></tr><tr><th>Target Groups</th><td>freshmen, current students, visitors</td></tr><tr><th>Method</th><td>task-based usability testing</td></tr><tr><th>Device</th><td>mobile browser</td></tr><tr><th>Tested Version</th><td>Pre-iteration high-fidelity prototype build (before iterative refinements), including map, tours, check-in, collectibles, badges, and bilingual modules</td></tr></tbody></table></div>
       <h3>Testing Tasks</h3>
       <div class="table-wrap"><table class="data-table"><thead><tr><th>Task</th><th>Purpose</th></tr></thead><tbody><tr><td>Task 1: Select identity and find a recommended route.</td><td>Test whether users understand the entry flow.</td></tr><tr><td>Task 2: Use the map to open one POI detail.</td><td>Test map and POI discoverability.</td></tr><tr><td>Task 3: Start a themed route and complete a check-in.</td><td>Test playful route interaction.</td></tr><tr><td>Task 4: Switch language between Chinese and English.</td><td>Test bilingual usability.</td></tr><tr><td>Task 5: Find badge or saved record in My page.</td><td>Test progress feedback visibility.</td></tr></tbody></table></div>
       <h3>Results</h3>
@@ -864,10 +921,10 @@
       </ol>
       <h3>AI Tools Disclosure</h3>
       <ol>
-        <li><a href="https://openai.com/codex" target="_blank" rel="noreferrer">OpenAI Codex</a>, accessed on [date].</li>
-        <li><a href="https://chatgpt.com" target="_blank" rel="noreferrer">ChatGPT</a>, accessed on [date].</li>
-        <li><a href="https://cursor.com" target="_blank" rel="noreferrer">Cursor</a>, accessed on [date].</li>
-        <li>[Add image or video AI tool if used].</li>
+        <li><a href="https://openai.com/codex" target="_blank" rel="noreferrer">OpenAI Codex</a></li>
+        <li><a href="https://chatgpt.com" target="_blank" rel="noreferrer">ChatGPT</a></li>
+        <li><a href="https://cursor.com" target="_blank" rel="noreferrer">Cursor</a></li>
+        <li><a href="https://www.figma.com/" target="_blank" rel="noreferrer">Figma</a></li>
       </ol>
     </div>
   </section>
@@ -882,4 +939,3 @@
   </script>
 </body>
 </html>
-
