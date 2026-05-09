@@ -235,6 +235,560 @@
 
     .journey-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 22px; }
 
+    #requirements.requirements-list {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 42px 0 56px;
+      background: transparent;
+    }
+    #requirements .req-section-title {
+      margin-bottom: 24px;
+      color: var(--deep-blue);
+      text-align: center;
+      font-family: "Trebuchet MS", "Segoe UI", Arial, sans-serif;
+      font-size: clamp(1.9rem, 3vw, 2.6rem);
+      line-height: 1.7;
+      letter-spacing: 0;
+      position: relative;
+      padding-bottom: 15px;
+    }
+    #requirements .req-section-title::after {
+      display: none;
+    }
+    #requirements .req-shell { display: grid; gap: 18px; }
+    #requirements .req-hero,
+    #requirements .req-panel {
+      background: transparent;
+      border: 0;
+      border-radius: 0;
+      padding: 28px 0;
+      box-shadow: none;
+    }
+    #requirements .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(320px, 0.8fr);
+      gap: 28px;
+      align-items: end;
+    }
+    #requirements .req-eyebrow,
+    #requirements .section-kicker {
+      margin: 0 0 8px;
+      color: #1f5fbf;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    #requirements h1 {
+      margin-bottom: 12px;
+      color: #172033;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: clamp(34px, 4vw, 52px);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+    }
+    #requirements h2 {
+      margin-bottom: 6px;
+      color: #172033;
+      text-align: left;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 24px;
+      line-height: 1.16;
+      letter-spacing: -0.02em;
+    }
+    #requirements h2::after { display: none; }
+    #requirements h3 {
+      color: #172033;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 16px;
+      line-height: 1.22;
+    }
+    #requirements .lead,
+    #requirements .panel-intro {
+      margin-bottom: 0;
+      color: #536275;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+      line-height: 1.48;
+      text-align: justify;
+      text-justify: inter-word;
+    }
+    #requirements .lead {
+      max-width: 880px;
+      font-size: 15px;
+    }
+    #requirements .panel-intro {
+      width: 100%;
+      max-width: none;
+    }
+    #requirements .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+    #requirements .metric-card {
+      min-height: 96px;
+      padding: 16px;
+      background: #f8fafc;
+      border: 1px solid #edf1f6;
+      border-radius: 14px;
+    }
+    #requirements .metric-card strong {
+      display: block;
+      margin-bottom: 5px;
+      color: #1f5fbf;
+      font-size: 28px;
+      line-height: 1;
+    }
+    #requirements .metric-card span {
+      display: block;
+      color: #667085;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    #requirements .panel-header {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 18px;
+      align-items: end;
+      margin-bottom: 18px;
+    }
+    #requirements .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: flex-end;
+    }
+    #requirements .chip,
+    #requirements .req-tag,
+    #requirements .priority {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+    #requirements .chip {
+      padding: 7px 10px;
+      background: #eef2f7;
+      color: #40516a;
+    }
+    #requirements .req-tag {
+      padding: 5px 8px;
+      background: #eef2f7;
+      color: #42526b;
+    }
+    #requirements .priority {
+      min-width: 42px;
+      justify-content: center;
+      padding: 4px 8px;
+      font-weight: 900;
+    }
+    #requirements .tone-p0 { background: #fae8e5; color: #8c3b32; }
+    #requirements .tone-p1 { background: #e8f0ff; color: #234b8f; }
+    #requirements .tone-p2 { background: #e8f5ee; color: #245f3b; }
+    #requirements .tone-core { background: #e8f0ff; color: #1f5fbf; }
+    #requirements .tone-playful { background: #f0edff; color: #5b4bb7; }
+    #requirements .source-grid,
+    #requirements .req-card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+    #requirements .info-card,
+    #requirements .requirement-card {
+      background: #f8fafc;
+      border: 1px solid #edf1f6;
+      border-radius: 14px;
+      box-shadow: none;
+    }
+    #requirements .info-card { padding: 18px; }
+    #requirements .info-card h3 { margin-bottom: 8px; }
+    #requirements .info-card p {
+      margin-bottom: 0;
+      color: #536275;
+      font-size: 13px;
+    }
+    #requirements .req-table-wrap {
+      overflow-x: auto;
+      border: 1px solid #d9e0ea;
+      border-radius: 14px;
+      background: #ffffff;
+    }
+    #requirements table {
+      width: 100%;
+      min-width: 1080px;
+      border-collapse: collapse;
+      box-shadow: none;
+    }
+    #requirements th,
+    #requirements td {
+      padding: 13px 14px;
+      border-bottom: 1px solid #edf1f6;
+      text-align: left;
+      vertical-align: top;
+      color: #172033;
+      font-size: 12.5px;
+      line-height: 1.48;
+    }
+    #requirements th {
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      background: #f2f5f9;
+      color: #44536a;
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    #requirements tr:last-child td { border-bottom: 0; }
+    #requirements .req-id {
+      width: 72px;
+      color: #667085;
+      font-weight: 800;
+    }
+    #requirements .source-text {
+      color: #31445c;
+      font-weight: 800;
+    }
+    #requirements .requirement-card {
+      position: relative;
+      min-height: 340px;
+      padding: 20px;
+      overflow: hidden;
+    }
+    #requirements .requirement-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 4px;
+      background: #1f5fbf;
+    }
+    #requirements .requirement-card.playful::before { background: #5b4bb7; }
+    #requirements .card-label { margin: 6px 0 10px; }
+    #requirements .requirement-card h3 {
+      margin-bottom: 10px;
+      color: #172033;
+      font-size: 18px;
+    }
+    #requirements .requirement-card p {
+      margin-bottom: 12px;
+      color: #4f5f73;
+      font-size: 13px;
+    }
+    #requirements .requirement-card h4 {
+      margin: 16px 0 8px;
+      color: #35465d;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    #requirements .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    #requirements .bridge-note {
+      margin-top: 18px;
+      padding: 18px;
+      background: #f7f5ff;
+      border: 1px solid #ddd6ff;
+      border-radius: 14px;
+    }
+    #requirements .bridge-note h3 {
+      margin-bottom: 8px;
+      color: #5b4bb7;
+    }
+    #requirements .bridge-note p {
+      margin-bottom: 0;
+      color: #4f5f73;
+      font-size: 13.5px;
+    }
+    @media (max-width: 980px) {
+      #requirements .hero-grid,
+      #requirements .panel-header,
+      #requirements .source-grid,
+      #requirements .req-card-grid {
+        grid-template-columns: 1fr;
+      }
+      #requirements .chip-row { justify-content: flex-start; }
+    }
+    @media (max-width: 620px) {
+      #requirements.requirements-list {
+        width: min(100% - 20px, 1180px);
+        padding: 22px 0 36px;
+      }
+      #requirements .req-hero,
+      #requirements .req-panel {
+        padding: 20px;
+        border-radius: 14px;
+      }
+      #requirements .metric-grid { grid-template-columns: 1fr; }
+    }
+
+    #alternatives.design-alternatives {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 42px 0 56px;
+      background: transparent;
+    }
+    #alternatives .alt-shell {
+      display: grid;
+      gap: 18px;
+    }
+    #alternatives .alt-panel {
+      background: #ffffff;
+      border: 1px solid #d9e0ea;
+      border-radius: 18px;
+      padding: 28px;
+      box-shadow: none;
+    }
+    #alternatives .alt-panel.no-frame {
+      background: transparent;
+      border: 0;
+      border-radius: 0;
+      padding: 0;
+    }
+    #alternatives .alt-section-title {
+      margin-bottom: 18px;
+      color: var(--deep-blue);
+      text-align: center;
+    }
+    #alternatives .section-kicker {
+      margin: 0 0 8px;
+      color: #1f5fbf;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    #alternatives .panel-header {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 18px;
+      align-items: end;
+      margin-bottom: 18px;
+    }
+    #alternatives h2.alt-heading {
+      margin-bottom: 6px;
+      color: #172033;
+      text-align: left;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 24px;
+      line-height: 1.16;
+      letter-spacing: -0.02em;
+    }
+    #alternatives h2.alt-heading::after { display: none; }
+    #alternatives h3 {
+      margin-bottom: 10px;
+      color: #172033;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 18px;
+      line-height: 1.2;
+    }
+    #alternatives .lead,
+    #alternatives .panel-intro {
+      max-width: 880px;
+      margin-bottom: 0;
+      color: #536275;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+      line-height: 1.48;
+    }
+    #alternatives .lead {
+      max-width: none;
+      padding: 0 2px;
+      font-size: 15px;
+      text-align: justify;
+      text-justify: inter-word;
+    }
+    #alternatives .chip-row,
+    #alternatives .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    #alternatives .chip-row { justify-content: flex-end; }
+    #alternatives .chip,
+    #alternatives .alt-tag,
+    #alternatives .rating {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+    #alternatives .chip {
+      padding: 7px 10px;
+      background: #eef2f7;
+      color: #40516a;
+    }
+    #alternatives .alt-tag {
+      padding: 5px 8px;
+      background: #eef2f7;
+      color: #42526b;
+    }
+    #alternatives .tone-blue { background: #e8f0ff; color: #1f5fbf; }
+    #alternatives .tone-green { background: #e8f5ee; color: #20734d; }
+    #alternatives .tone-purple { background: #f0edff; color: #5b4bb7; }
+    #alternatives .tone-amber { background: #fff3d8; color: #b7791f; }
+    #alternatives .tone-red { background: #fae8e5; color: #b44438; }
+    #alternatives .logic-grid,
+    #alternatives .alternative-grid,
+    #alternatives .trace-grid {
+      display: grid;
+      gap: 14px;
+    }
+    #alternatives .logic-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    #alternatives .alternative-grid,
+    #alternatives .trace-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    #alternatives .logic-card,
+    #alternatives .alt-card,
+    #alternatives .trace-card,
+    #alternatives .quote-box {
+      background: #f8fafc;
+      border: 1px solid #edf1f6;
+      border-radius: 14px;
+      box-shadow: none;
+    }
+    #alternatives .logic-card,
+    #alternatives .trace-card,
+    #alternatives .quote-box {
+      padding: 18px;
+    }
+    #alternatives .logic-card h3,
+    #alternatives .trace-card h3 {
+      margin-bottom: 8px;
+      font-size: 15px;
+    }
+    #alternatives .logic-card p,
+    #alternatives .trace-card li,
+    #alternatives .alt-card p,
+    #alternatives .quote-box p {
+      color: #536275;
+      font-size: 13px;
+    }
+    #alternatives .logic-card p,
+    #alternatives .quote-box p {
+      margin-bottom: 0;
+    }
+    #alternatives .alt-card {
+      position: relative;
+      min-height: 470px;
+      padding: 20px;
+      overflow: hidden;
+    }
+    #alternatives .alt-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 4px;
+      background: #1f5fbf;
+    }
+    #alternatives .alt-card.alt-two::before { background: #20734d; }
+    #alternatives .alt-card.alt-three::before { background: #5b4bb7; }
+    #alternatives .alt-card h4 {
+      margin: 16px 0 8px;
+      color: #35465d;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    #alternatives .alt-card ul,
+    #alternatives .trace-card ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+    #alternatives .alt-card li,
+    #alternatives .trace-card li {
+      color: #536275;
+      font-size: 13px;
+    }
+    #alternatives .alt-card li + li,
+    #alternatives .trace-card li + li { margin-top: 5px; }
+    #alternatives .alt-table-wrap {
+      overflow-x: auto;
+      border: 1px solid #d9e0ea;
+      border-radius: 14px;
+      background: #ffffff;
+    }
+    #alternatives table {
+      width: 100%;
+      min-width: 980px;
+      border-collapse: collapse;
+      box-shadow: none;
+    }
+    #alternatives th,
+    #alternatives td {
+      padding: 13px 14px;
+      border-bottom: 1px solid #edf1f6;
+      text-align: left;
+      vertical-align: top;
+      color: #172033;
+      font-size: 12.5px;
+      line-height: 1.48;
+    }
+    #alternatives th {
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      background: #f2f5f9;
+      color: #44536a;
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    #alternatives tr:last-child td { border-bottom: 0; }
+    #alternatives .rating {
+      min-width: 76px;
+      justify-content: center;
+      padding: 4px 8px;
+    }
+    #alternatives .selected-panel {
+      padding: 22px;
+      background: #f7f5ff;
+      border: 1px solid #ddd6ff;
+      border-radius: 14px;
+    }
+    #alternatives .selected-panel h3 { color: #5b4bb7; }
+    #alternatives .selected-panel p {
+      margin-bottom: 12px;
+      color: #4f5f73;
+      font-size: 13.5px;
+    }
+    #alternatives .quote-box {
+      margin-top: 18px;
+      border-color: #cbdcff;
+      background: #e8f0ff;
+    }
+    #alternatives .quote-box strong {
+      display: block;
+      margin-bottom: 6px;
+      color: #1f5fbf;
+      font-size: 13px;
+    }
+    @media (max-width: 980px) {
+      #alternatives .panel-header,
+      #alternatives .logic-grid,
+      #alternatives .alternative-grid,
+      #alternatives .trace-grid {
+        grid-template-columns: 1fr;
+      }
+      #alternatives .chip-row { justify-content: flex-start; }
+    }
+    @media (max-width: 620px) {
+      #alternatives.design-alternatives {
+        width: min(100% - 20px, 1180px);
+        padding: 22px 0 36px;
+      }
+      #alternatives .alt-panel {
+        padding: 20px;
+        border-radius: 14px;
+      }
+    }
+
         .architecture-flow {
   max-width: 980px;
   margin: 28px auto;
@@ -289,8 +843,312 @@
   font-size: .9rem;
   margin: 0;
 }
+.system-architecture-placeholder {
+  width: 100%;
+  max-width: 100%;
+  min-height: 360px;
+  margin: 24px auto 30px;
+  border: 2px dashed rgba(53, 92, 125, 0.32);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.58);
+  overflow: hidden;
+}
+.system-architecture-placeholder img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.system-architecture-placeholder:has(img:not([src=""])) {
+  min-height: 0;
+}
+#evaluation .eval-shell,
+#iteration .iteration-shell {
+  display: grid;
+  gap: 18px;
+}
+#evaluation .eval-panel,
+#iteration .iteration-panel {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+}
+#evaluation .eval-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(320px, 0.8fr);
+  gap: 28px;
+  align-items: end;
+}
+#evaluation .eval-lead,
+#evaluation .eval-panel-intro,
+#iteration .iteration-panel-intro {
+  max-width: none;
+  margin-bottom: 0;
+  color: #536275;
+  font-size: 14px;
+  line-height: 1.48;
+  text-align: justify;
+  text-justify: inter-word;
+}
+#evaluation .eval-lead {
+  font-size: 15px;
+}
+#evaluation .eval-metric-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+#evaluation .eval-metric-card {
+  min-height: 96px;
+  padding: 16px;
+  background: #f8fafc;
+  border: 1px solid #edf1f6;
+  border-radius: 14px;
+}
+#evaluation .eval-metric-card strong {
+  display: block;
+  margin-bottom: 5px;
+  color: #1f5fbf;
+  font-size: 28px;
+  line-height: 1;
+}
+#evaluation .eval-metric-card span {
+  display: block;
+  color: #667085;
+  font-size: 12px;
+  font-weight: 700;
+}
+#evaluation .eval-panel-header,
+#iteration .iteration-panel-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 18px;
+  align-items: end;
+  margin-bottom: 18px;
+}
+#evaluation .eval-chip-row,
+#iteration .iteration-chip-row,
+#iteration .iteration-tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+#evaluation .eval-chip-row,
+#iteration .iteration-chip-row {
+  justify-content: flex-end;
+}
+#evaluation .eval-chip,
+#iteration .iteration-chip,
+#iteration .iteration-tag,
+#evaluation .eval-status {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+#evaluation .eval-chip,
+#iteration .iteration-chip {
+  padding: 7px 10px;
+  background: #eef2f7;
+  color: #40516a;
+}
+#iteration .iteration-tag {
+  padding: 5px 8px;
+  background: #eef2f7;
+  color: #42526b;
+}
+#evaluation .eval-status {
+  min-width: 80px;
+  justify-content: center;
+  padding: 4px 8px;
+}
+#evaluation .tone-blue,
+#iteration .tone-blue { background: #e8f0ff; color: #1f5fbf; }
+#evaluation .tone-green,
+#iteration .tone-green { background: #e8f5ee; color: #20734d; }
+#evaluation .tone-purple,
+#iteration .tone-purple { background: #f0edff; color: #5b4bb7; }
+#evaluation .tone-amber,
+#iteration .tone-amber { background: #fff3d8; color: #b7791f; }
+#evaluation .tone-red,
+#iteration .tone-red { background: #fae8e5; color: #b44438; }
+#evaluation .eval-goal-grid,
+#evaluation .eval-method-grid,
+#evaluation .eval-finding-grid,
+#iteration .iteration-grid {
+  display: grid;
+  gap: 14px;
+}
+#evaluation .eval-goal-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+#evaluation .eval-method-grid,
+#evaluation .eval-finding-grid,
+#iteration .iteration-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+#evaluation .eval-goal-card,
+#evaluation .eval-method-card,
+#evaluation .eval-finding-card,
+#iteration .iteration-card,
+#iteration .iteration-note-box {
+  background: #f8fafc;
+  border: 1px solid #edf1f6;
+  border-radius: 14px;
+  box-shadow: none;
+}
+#evaluation .eval-goal-card,
+#evaluation .eval-method-card,
+#evaluation .eval-finding-card,
+#iteration .iteration-card,
+#iteration .iteration-note-box {
+  padding: 18px;
+}
+#evaluation .eval-goal-card h3,
+#evaluation .eval-method-card h3,
+#evaluation .eval-finding-card h3 {
+  margin-bottom: 8px;
+  font-size: 15px;
+}
+#iteration .iteration-card h3 {
+  margin-bottom: 10px;
+  font-size: 16px;
+  line-height: 1.25;
+}
+#evaluation .eval-goal-card p,
+#evaluation .eval-method-card p,
+#evaluation .eval-finding-card p,
+#iteration .iteration-card p,
+#iteration .iteration-note-box p,
+#evaluation .eval-task-list li {
+  color: #536275;
+  font-size: 13px;
+}
+#evaluation .eval-goal-card p,
+#evaluation .eval-method-card p,
+#evaluation .eval-finding-card p {
+  margin-bottom: 0;
+}
+#evaluation .eval-table-wrap {
+  overflow-x: auto;
+  border: 1px solid #d9e0ea;
+  border-radius: 14px;
+  background: #ffffff;
+}
+#evaluation .eval-table-wrap table {
+  width: 100%;
+  min-width: 980px;
+  border-collapse: collapse;
+  box-shadow: none;
+}
+#evaluation .eval-table-wrap th,
+#evaluation .eval-table-wrap td {
+  padding: 13px 14px;
+  border-bottom: 1px solid #edf1f6;
+  text-align: left;
+  vertical-align: top;
+  color: #172033;
+  font-size: 12.5px;
+  line-height: 1.48;
+}
+#evaluation .eval-table-wrap th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: #f2f5f9;
+  color: #44536a;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+#evaluation .eval-table-wrap tr:last-child td {
+  border-bottom: 0;
+}
+#evaluation .eval-task-list {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding-left: 20px;
+}
+#evaluation .eval-task-list strong {
+  color: #172033;
+}
+#iteration .iteration-before-after-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin: 12px 0;
+}
+#iteration .iteration-screenshot-box {
+  min-height: 260px;
+  display: grid;
+  place-items: center;
+  padding: 18px;
+  border: 1px dashed #c4ccd8;
+  border-radius: 12px;
+  background: #ffffff;
+  color: #7a8798;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 700;
+}
+#iteration .iteration-meta {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin-top: 12px;
+}
+#iteration .iteration-meta div {
+  padding: 10px;
+  background: #ffffff;
+  border: 1px solid #edf1f6;
+  border-radius: 12px;
+}
+#iteration .iteration-meta strong {
+  display: block;
+  margin-bottom: 4px;
+  color: #172033;
+  font-size: 12px;
+}
+#iteration .iteration-meta span {
+  color: #536275;
+  font-size: 11.5px;
+}
+#iteration .iteration-note-box {
+  margin-top: 18px;
+  background: #e8f0ff;
+  border-color: #cbdcff;
+}
+#iteration .iteration-note-box strong {
+  display: block;
+  margin-bottom: 6px;
+  color: #1f5fbf;
+  font-size: 13px;
+}
 @media (max-width: 900px) {
   .arch-row { grid-template-columns: 1fr; }
+}
+@media (max-width: 980px) {
+  #evaluation .eval-hero-grid,
+  #evaluation .eval-panel-header,
+  #iteration .iteration-panel-header,
+  #evaluation .eval-goal-grid,
+  #evaluation .eval-method-grid,
+  #evaluation .eval-finding-grid,
+  #iteration .iteration-grid {
+    grid-template-columns: 1fr;
+  }
+  #evaluation .eval-chip-row,
+  #iteration .iteration-chip-row {
+    justify-content: flex-start;
+  }
+}
+@media (max-width: 620px) {
+  #evaluation .eval-metric-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
     .timeline { position: relative; max-width: 1000px; margin: 0 auto; padding: 8px 0; }
@@ -676,35 +1534,155 @@
     </div>
   </section>
 
-  <section id="requirements" class="reveal">
-    <div class="section-shell">
-      <h2>Requirements</h2>
-      <p class="section-checkpoint">These requirements were derived from the research gap, user evidence, personas, and journey-map opportunities.</p>
-      <h3>Functional Requirements</h3>
-      <div class="table-wrap">
-        <table class="data-table">
-          <thead><tr><th>ID</th><th>Requirement</th><th>User Value</th><th>Implemented Feature</th><th>Evidence Link</th></tr></thead>
-          <tbody>
-            <tr><td>FR1</td><td>Mobile-first access</td><td>Users can open quickly during real campus movement.</td><td>PWA + responsive web UI + GitHub Pages deployment.</td><td>User evidence: low-friction access need</td></tr>
-            <tr><td>FR2</td><td>Identity-based recommendation</td><td>Different users receive relevant starting points.</td><td>Identity modes with home recommendations.</td><td>Journey pain point: unclear first step</td></tr>
-            <tr><td>FR3</td><td>Interactive map and navigation</td><td>Users can browse places and move across campus efficiently.</td><td>AMap-based map, marker interaction, and cross-campus routing with underground-passage priority.</td><td>Research gap: context beyond static labels</td></tr>
-            <tr><td>FR4</td><td>Bilingual and accessible interface</td><td>International and diverse users can use the system with fewer barriers.</td><td>i18next zh/en switching + font size + high contrast + screen-reader support.</td><td>Campus context: bilingual and inclusive orientation</td></tr>
-            <tr><td>FR5</td><td>Tour progress and records</td><td>Users can continue exploration and review history.</td><td>Route progress tracking, favorites/wishlist/visited/recent records.</td><td>Persona need: structured repeat use</td></tr>
-            <tr><td>FR6</td><td>Place details and contextual recommendations</td><td>Users understand why a place matters, not only where it is.</td><td>Place detail pages, category recommendations, and story cards.</td><td>Motivation gap: information fragmentation</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <h3>Playful Requirements</h3>
-      <div class="table-wrap">
-        <table class="data-table">
-          <thead><tr><th>ID</th><th>Playful Requirement</th><th>Why It Matters</th><th>Implemented Feature</th><th>Evidence Link</th></tr></thead>
-          <tbody>
-            <tr><td>PR1</td><td>Themed and custom route exploration</td><td>Provides purposeful and enjoyable movement instead of random browsing.</td><td>Core/theme tours + custom tour composition.</td><td>Journey pain point: users do not know where to start</td></tr>
-            <tr><td>PR2</td><td>Check-in and collectible feedback</td><td>Turns route completion into active participation.</td><td>Location-based daily check-in + virtual collectibles.</td><td>Motivation gap: low exploration drive</td></tr>
-            <tr><td>PR3</td><td>Badge progression with auto-unlock logic</td><td>Encourages continuity and repeat exploration.</td><td>Badge rules, auto-unlock, and progress feedback in My page.</td><td>Persona feedback: need clear progress signals</td></tr>
-          </tbody>
-        </table>
-      </div>
+  <section id="requirements" class="reveal requirements-list" aria-labelledby="requirements-title">
+    <h2 class="req-section-title" id="requirements-title">Requirements List</h2>
+    <div class="req-shell">
+      <section class="req-hero" aria-label="Requirements overview">
+        <div class="hero-grid">
+          <div>
+            <p class="lead">This section translates PuPath's user research into a structured set of requirements. It first presents the full requirement pool, then extracts the core functional requirements, and finally defines the three playful requirements that make PuPath more than a conventional campus navigation tool.</p>
+          </div>
+          <div class="metric-grid" aria-label="Requirement summary">
+            <div class="metric-card"><strong>24</strong><span>overall user requirements</span></div>
+            <div class="metric-card"><strong>3</strong><span>core requirement groups</span></div>
+            <div class="metric-card"><strong>3</strong><span>must-have playful requirements</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="req-panel" aria-labelledby="derivation-title">
+        <div class="panel-header">
+          <div>
+            <h2 id="derivation-title">Requirement Derivation</h2>
+            <p class="panel-intro">The requirements were derived from three connected user research sources: the Journey Map, the Questionnaire, and Online / Offline Interviews. The Journey Map identifies the user's pain points, the questionnaire provides broader quantitative signals, and the interviews add deeper qualitative insights from real campus guidance and visitor reception scenarios.</p>
+          </div>
+        </div>
+        <div class="source-grid">
+          <article class="info-card"><h3>1. Journey Map</h3><p>Shows the current user journey and highlights pain points such as scattered information, weak landmark recognition, route uncertainty, safety gaps, and lack of reusable campus records.</p></article>
+          <article class="info-card"><h3>2. Questionnaire</h3><p>Provides broader quantitative evidence about users' priorities, including POI finding, real-time route support, low-barrier access, safety assistance, accessibility, and multilingual support.</p></article>
+          <article class="info-card"><h3>3. Online / Offline Interviews</h3><p>Adds qualitative insights from real campus guidance, visitor reception, teaching management, and service scenarios, helping us understand why certain requirements should be prioritized.</p></article>
+        </div>
+      </section>
+
+      <section class="req-panel" aria-labelledby="overall-title">
+        <div class="panel-header">
+          <div>
+            <h2 id="overall-title">1. Overall User Requirements</h2>
+            <p class="panel-intro">This table keeps the full requirement pool visible. Requirements are sorted strictly by priority. Within the same priority level, requirements related to the later core and playful requirement groups are placed earlier for clearer traceability.</p>
+          </div>
+          <div class="chip-row">
+            <span class="chip tone-p0">P0: must satisfy</span>
+            <span class="chip tone-p1">P1: important enhancement</span>
+            <span class="chip tone-p2">P2: lower-priority enhancement</span>
+          </div>
+        </div>
+        <div class="req-table-wrap">
+          <table>
+            <thead>
+              <tr><th>ID</th><th>Priority</th><th>User requirement</th><th>Source</th><th>PuPath response / current direction</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="req-id">UR-01</td><td><span class="priority tone-p0">P0</span></td><td>Users need to quickly find key campus places such as classrooms, teaching buildings, parking areas, dorms, food places, and service points.</td><td><span class="source-text">Questionnaire + interview</span></td><td>POI map, place details, category filters, and navigation entry points.</td></tr>
+              <tr><td class="req-id">UR-05</td><td><span class="priority tone-p0">P0</span></td><td>Users need route and place information to be clear, trustworthy, and not misleading due to outdated or scattered sources.</td><td><span class="source-text">Questionnaire + interview</span></td><td>Structured POI data, consistent place details, and future source / update-time labels.</td></tr>
+              <tr><td class="req-id">UR-02</td><td><span class="priority tone-p0">P0</span></td><td>Users need more precise campus positioning and route guidance instead of only relying on generic map applications.</td><td><span class="source-text">Questionnaire + interview</span></td><td>Current location, return-to-location, POI navigation, and cross-campus path logic.</td></tr>
+              <tr><td class="req-id">UR-03</td><td><span class="priority tone-p0">P0</span></td><td>Users need to view route and place information even when the network or campus environment is unstable.</td><td><span class="source-text">Questionnaire + interview</span></td><td>PWA structure, local route / POI data foundation, and future route-list fallback.</td></tr>
+              <tr><td class="req-id">UR-04</td><td><span class="priority tone-p0">P0</span></td><td>Users need scenario-based routes for real campus tasks such as going to class, visiting landmarks, finding food, or moving between campuses.</td><td><span class="source-text">Questionnaire + interview</span></td><td>Scenario route cards, route details, duration, station count, and station lists.</td></tr>
+              <tr><td class="req-id">UR-07</td><td><span class="priority tone-p0">P0</span></td><td>Users need to quickly obtain help or contact campus safety-related services in urgent situations.</td><td><span class="source-text">Questionnaire + interview</span></td><td>Emergency contact entry and future one-tap contact / location sharing support.</td></tr>
+              <tr><td class="req-id">UR-08</td><td><span class="priority tone-p0">P0</span></td><td>Users need low-barrier access, without being blocked by registration, login, or complex onboarding.</td><td><span class="source-text">Questionnaire</span></td><td>No-login PWA access, local records, and lightweight user state.</td></tr>
+              <tr><td class="req-id">UR-06</td><td><span class="priority tone-p0">P0</span></td><td>Users need to avoid inaccessible areas, dangerous road sections, mixed pedestrian-vehicle areas, or unsuitable paths.</td><td><span class="source-text">Interview</span></td><td>Route constraints and future annotations for risky roads, blocked areas, and accessibility limits.</td></tr>
+              <tr><td class="req-id">UR-09</td><td><span class="priority tone-p1">P1</span></td><td>Users need to clearly know their current position, route progress, and whether they have reached the correct stop.</td><td><span class="source-text">Questionnaire</span></td><td>Route progress, current stop, next stop, manual check-in, and route completion feedback.</td></tr>
+              <tr><td class="req-id">UR-14</td><td><span class="priority tone-p1">P1</span></td><td>Users need to understand places quickly through images and short text rather than long descriptions, audio, or complex media.</td><td><span class="source-text">Questionnaire</span></td><td>Image-based POI cards, Discover cards, story cards, and short descriptions.</td></tr>
+              <tr><td class="req-id">UR-15</td><td><span class="priority tone-p1">P1</span></td><td>Users need to understand a place's purpose, features, and campus meaning, not only its coordinate.</td><td><span class="source-text">Questionnaire + interview</span></td><td>POI details, story cards, campus exploration content, and related routes.</td></tr>
+              <tr><td class="req-id">UR-19</td><td><span class="priority tone-p1">P1</span></td><td>Users need lightweight participation during campus exploration, such as check-ins, badges, favorites, and visited records.</td><td><span class="source-text">Questionnaire</span></td><td>Manual check-in, badges, favorites, want-to-go, and visited records.</td></tr>
+              <tr><td class="req-id">UR-22</td><td><span class="priority tone-p1">P1</span></td><td>Users need recommended content to turn into action, such as navigation, collection, or route joining.</td><td><span class="source-text">Questionnaire</span></td><td>Discover categories, recommendation cards, map links, favorite actions, and route entry points.</td></tr>
+              <tr><td class="req-id">UR-16</td><td><span class="priority tone-p1">P1</span></td><td>Users need route suggestions that fit current tasks such as classes, events, visits, or reception scenarios.</td><td><span class="source-text">Questionnaire + interview</span></td><td>Current scenario routes, with future timetable / event integration as an extension.</td></tr>
+              <tr><td class="req-id">UR-10</td><td><span class="priority tone-p1">P1</span></td><td>Users need special route options such as accessible routes, rainy-day routes, night routes, or safer routes.</td><td><span class="source-text">Questionnaire + interview</span></td><td>Existing scenario routes plus future route tags for weather, night safety, and accessibility.</td></tr>
+              <tr><td class="req-id">UR-11</td><td><span class="priority tone-p1">P1</span></td><td>Wheelchair users, mobility-impaired users, and visually impaired users need dedicated accessibility support.</td><td><span class="source-text">Questionnaire + interview</span></td><td>Accessibility display settings and future route data for ramps, elevators, tactile paving, and barrier-free paths.</td></tr>
+              <tr><td class="req-id">UR-12</td><td><span class="priority tone-p1">P1</span></td><td>International students, staff, and visitors need multilingual support.</td><td><span class="source-text">Questionnaire + interview</span></td><td>Chinese / English interface switching, with future expansion for additional languages.</td></tr>
+              <tr><td class="req-id">UR-17</td><td><span class="priority tone-p1">P1</span></td><td>Users need to know whether personal location, schedule, and record data are saved and how they are used.</td><td><span class="source-text">Questionnaire + interview</span></td><td>Local records, local reset, and future privacy explanation for saved data boundaries.</td></tr>
+              <tr><td class="req-id">UR-18</td><td><span class="priority tone-p1">P1</span></td><td>Users need more suitable guide content according to identity, such as freshman, visitor, student, or staff.</td><td><span class="source-text">Questionnaire + interview</span></td><td>Identity switch and different content entry points.</td></tr>
+              <tr><td class="req-id">UR-13</td><td><span class="priority tone-p1">P1</span></td><td>Staff or reception users need to plan, save, and share visiting routes.</td><td><span class="source-text">Interview</span></td><td>Route cards and route details, with future productization of route sharing.</td></tr>
+              <tr><td class="req-id">UR-23</td><td><span class="priority tone-p2">P2</span></td><td>Users need control over sharing range, especially for location, routes, and personal records.</td><td><span class="source-text">Questionnaire</span></td><td>Local-first records now; future sharing should include permission and visibility control.</td></tr>
+              <tr><td class="req-id">UR-20</td><td><span class="priority tone-p2">P2</span></td><td>Users need route reminders based on weather or environmental changes.</td><td><span class="source-text">Questionnaire</span></td><td>Weather card and future weather-based route recommendations.</td></tr>
+              <tr><td class="req-id">UR-21</td><td><span class="priority tone-p2">P2</span></td><td>Users may need voice guidance, but it should remain an auxiliary feature rather than the main path.</td><td><span class="source-text">Interview</span></td><td>Voice guide toggle during navigation.</td></tr>
+              <tr><td class="req-id">UR-24</td><td><span class="priority tone-p2">P2</span></td><td>The project should stay focused on an MVP and avoid adding heavy functions such as complex permission systems or large event route management too early.</td><td><span class="source-text">Interview</span></td><td>Current scope remains centered on campus wayfinding, scenario routes, and lightweight exploration.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="req-panel" aria-labelledby="core-title">
+        <div class="panel-header">
+          <div>
+            <h2 id="core-title">2. Core Requirements: Foundation of the PuPath Experience</h2>
+            <p class="panel-intro">These core requirements are synthesized from the overall requirement pool. They do not need to be playful by themselves; their role is to make PuPath useful, reliable, inclusive, and trustworthy. Without this foundation, playful mechanisms such as check-ins, stories, badges, and records would not be meaningful.</p>
+          </div>
+          <div class="chip-row"><span class="chip tone-core">Useful</span><span class="chip tone-core">Reliable</span><span class="chip tone-core">Inclusive</span></div>
+        </div>
+        <div class="req-card-grid">
+          <article class="requirement-card core">
+            <p class="card-label"><span class="chip tone-core">Core 01</span></p>
+            <h3>Campus-specific POI Recognition</h3>
+            <p>PuPath must help users quickly identify and understand key campus places through a campus-specific POI map, category filters, search, photos, and place detail cards.</p>
+            <h4>Related pain point</h4><p>Users often know a building name or destination, but cannot easily connect it with the real campus environment.</p>
+            <h4>Related overall requirements</h4><div class="tag-row"><span class="req-tag tone-core">UR-01</span><span class="req-tag tone-core">UR-05</span><span class="req-tag tone-core">UR-14</span><span class="req-tag tone-core">UR-15</span></div>
+            <h4>Implemented through</h4><div class="tag-row"><span class="req-tag">POI map</span><span class="req-tag">Category filters</span><span class="req-tag">Place details</span><span class="req-tag">Photos</span><span class="req-tag">Discover entries</span></div>
+          </article>
+          <article class="requirement-card core">
+            <p class="card-label"><span class="chip tone-core">Core 02</span></p>
+            <h3>Reliable Route and Navigation Support</h3>
+            <p>PuPath must provide route guidance for common campus tasks, including route cards, route details, stop lists, current location, next stop, and route progress.</p>
+            <h4>Related pain point</h4><p>Users may know the destination but still feel uncertain about which path to take and whether they are getting closer.</p>
+            <h4>Related overall requirements</h4><div class="tag-row"><span class="req-tag tone-core">UR-02</span><span class="req-tag tone-core">UR-03</span><span class="req-tag tone-core">UR-04</span><span class="req-tag tone-core">UR-09</span><span class="req-tag tone-core">UR-16</span></div>
+            <h4>Implemented through</h4><div class="tag-row"><span class="req-tag">Route cards</span><span class="req-tag">Scenario routes</span><span class="req-tag">Current location</span><span class="req-tag">Stop list</span><span class="req-tag">Route progress</span></div>
+          </article>
+          <article class="requirement-card core">
+            <p class="card-label"><span class="chip tone-core">Core 03</span></p>
+            <h3>Inclusive and Safe Access</h3>
+            <p>PuPath must support different users and usage contexts through no-login access, identity switching, bilingual interface, accessibility settings, weather hints, and emergency contact information.</p>
+            <h4>Related pain point</h4><p>Freshmen, visitors, international users, staff guides, and accessibility-sensitive users have different support needs.</p>
+            <h4>Related overall requirements</h4><div class="tag-row"><span class="req-tag tone-core">UR-07</span><span class="req-tag tone-core">UR-08</span><span class="req-tag tone-core">UR-10</span><span class="req-tag tone-core">UR-11</span><span class="req-tag tone-core">UR-12</span><span class="req-tag tone-core">UR-17</span><span class="req-tag tone-core">UR-18</span></div>
+            <h4>Implemented through</h4><div class="tag-row"><span class="req-tag">No login</span><span class="req-tag">Identity switch</span><span class="req-tag">EN / CN</span><span class="req-tag">Accessibility settings</span><span class="req-tag">Emergency contacts</span></div>
+          </article>
+        </div>
+        <div class="bridge-note"><h3>Transition from Core to Playful</h3><p>The core requirements make PuPath a reliable campus guide. However, a reliable guide alone is not enough for a playful experience. The following playful requirements define how PuPath turns functional wayfinding into staged progress, meaningful discovery, and continuous personal exploration.</p></div>
+      </section>
+
+      <section class="req-panel" aria-labelledby="playful-title">
+        <div class="panel-header">
+          <div>
+            <h2 id="playful-title">3. Playful Requirements: Three Must-haves for Playful Campus Exploration</h2>
+            <p class="panel-intro">These playful requirements are also derived from the overall requirement pool, especially the needs related to route progress, campus discovery, lightweight participation, personal records, and continued exploration. They are written as user experience needs rather than direct feature names, explaining why PuPath includes check-ins, stories, badges, treasures, and records.</p>
+          </div>
+          <div class="chip-row"><span class="chip tone-playful">Stage</span><span class="chip tone-playful">Discover</span><span class="chip tone-playful">Continue</span></div>
+        </div>
+        <div class="req-card-grid">
+          <article class="requirement-card playful">
+            <p class="card-label"><span class="chip tone-playful">Playful 01</span></p>
+            <h3>Need for Staged Progress and Achievement</h3>
+            <p>Users need a sense of staged progress and achievement during campus navigation. Instead of treating navigation as simple movement from point A to point B, PuPath should divide the journey into meaningful stages.</p>
+            <h4>Playful value</h4><p>The walking process becomes a guided campus journey with visible goals, stages, and completion moments.</p>
+            <h4>Related overall requirements</h4><div class="tag-row"><span class="req-tag tone-playful">UR-09</span><span class="req-tag tone-playful">UR-19</span></div>
+            <h4>Implemented through</h4><div class="tag-row"><span class="req-tag">Current stop</span><span class="req-tag">Next stop</span><span class="req-tag">Progress bar</span><span class="req-tag">Manual check-in</span><span class="req-tag">Completion feedback</span></div>
+          </article>
+          <article class="requirement-card playful">
+            <p class="card-label"><span class="chip tone-playful">Playful 02</span></p>
+            <h3>Need for Meaningful Campus Discovery</h3>
+            <p>Users need to discover meaningful campus content beyond basic location information. PuPath should help users understand why a place is worth visiting, not only where it is.</p>
+            <h4>Playful value</h4><p>Campus places become explorable content, making the experience more memorable than a normal map interface.</p>
+            <h4>Related overall requirements</h4><div class="tag-row"><span class="req-tag tone-playful">UR-14</span><span class="req-tag tone-playful">UR-15</span><span class="req-tag tone-playful">UR-19</span><span class="req-tag tone-playful">UR-22</span></div>
+            <h4>Implemented through</h4><div class="tag-row"><span class="req-tag">Story cards</span><span class="req-tag">Discover content</span><span class="req-tag">Themed routes</span><span class="req-tag">Badges</span><span class="req-tag">Treasures</span></div>
+          </article>
+          <article class="requirement-card playful">
+            <p class="card-label"><span class="chip tone-playful">Playful 03</span></p>
+            <h3>Need for Personal Exploration Continuity</h3>
+            <p>Users need their campus exploration to continue beyond a single visit. PuPath should allow users to save places, mark visited locations, review recent activity, and continue exploring later.</p>
+            <h4>Playful value</h4><p>The campus becomes something users can gradually collect, remember, and revisit without requiring public posting or account registration.</p>
+            <h4>Related overall requirements</h4><div class="tag-row"><span class="req-tag tone-playful">UR-17</span><span class="req-tag tone-playful">UR-19</span><span class="req-tag tone-playful">UR-22</span><span class="req-tag tone-playful">UR-23</span></div>
+            <h4>Implemented through</h4><div class="tag-row"><span class="req-tag">Favorites</span><span class="req-tag">Want-to-go</span><span class="req-tag">Visited list</span><span class="req-tag">Recent views</span><span class="req-tag">Local records</span></div>
+          </article>
+        </div>
+      </section>
     </div>
   </section>
     <section id="ideation" class="reveal">
@@ -725,21 +1703,258 @@
     </div>
   </section>
 
-  <section id="alternatives" class="reveal">
-    <div class="section-shell">
-      <h2>Design Alternatives</h2>
-      <div class="table-wrap">
-        <table class="data-table">
-          <thead><tr><th>Alternative</th><th>Description</th><th>Strengths</th><th>Weaknesses</th><th>Decision</th></tr></thead>
-          <tbody>
-            <tr><td>Map-only Guide</td><td>A traditional campus map with POI search.</td><td>Simple and technically feasible.</td><td>Not playful; weak first-step guidance.</td><td>Rejected as main concept.</td></tr>
-            <tr><td>Social Campus Guide</td><td>Users share posts and personal routes.</td><td>Potential community engagement.</td><td>Privacy, moderation, and scope risks.</td><td>Deferred beyond MVP.</td></tr>
-            <tr><td>AR/XR Campus Guide</td><td>Immersive overlay exploration.</td><td>High novelty and onsite engagement.</td><td>Too complex for course-scale web prototype.</td><td>Deferred as future work.</td></tr>
-            <tr><td>Guided Playful PWA</td><td>Routes, POIs, check-ins, badges, bilingual support.</td><td>Balances value, feasibility, and deployment.</td><td>Less immersive than AR/XR.</td><td>Selected for MVP.</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <p>We selected the guided playful PWA because it best matched the user evidence: first-time users needed structure, low-friction mobile access, and motivation to explore, while the course required a live web-based prototype.</p>
+  <section id="alternatives" class="reveal design-alternatives">
+    <h2 class="alt-section-title">Design Alternatives</h2>
+    <div class="alt-shell">
+      <p class="lead">After defining the user requirements, we explored different ways PuPath could work as a campus tour system. This section compares three system-level alternatives and explains why the final design combines practical wayfinding, scenario-based routes, and lightweight playful discovery.</p>
+
+      <section class="alt-panel" aria-labelledby="logic-title">
+        <div class="panel-header">
+          <div>
+            <p class="section-kicker">Design logic</p>
+            <h2 class="alt-heading" id="logic-title">From Requirements to Alternative Concepts</h2>
+            <p class="panel-intro">The alternatives were generated from the requirement pool. We focused on four design tensions: users need efficient navigation, but the experience also has to be understandable, inclusive, and playful enough to support campus exploration.</p>
+          </div>
+          <div class="chip-row">
+            <span class="chip tone-blue">Wayfinding</span>
+            <span class="chip tone-green">Guided route</span>
+            <span class="chip tone-purple">Playful discovery</span>
+          </div>
+        </div>
+
+        <div class="logic-grid">
+          <article class="logic-card">
+            <h3>POI Recognition</h3>
+            <p>Users need to identify campus buildings, services, food places, and landmarks without relying on scattered messages or generic map search.</p>
+          </article>
+          <article class="logic-card">
+            <h3>Route Confidence</h3>
+            <p>Users need route order, current stop, next stop, and progress feedback so they can understand whether they are moving correctly.</p>
+          </article>
+          <article class="logic-card">
+            <h3>Inclusive Support</h3>
+            <p>Different users need low-barrier access, language support, accessibility settings, safety help, and identity-based route suggestions.</p>
+          </article>
+          <article class="logic-card">
+            <h3>Playful Continuity</h3>
+            <p>Campus navigation should not end at arrival. Users need stories, records, check-ins, and lightweight rewards to make exploration memorable.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="alt-panel no-frame" aria-labelledby="alternatives-title">
+        <div class="panel-header">
+          <div>
+            <p class="section-kicker">Alternative concepts</p>
+            <h2 class="alt-heading" id="alternatives-title">Three Possible Ways the System Could Work</h2>
+            <p class="panel-intro">Each alternative focuses on a different primary interaction model. The comparison helped us decide whether PuPath should behave mainly like a map tool, a guided tour system, or a playful discovery platform.</p>
+          </div>
+        </div>
+
+        <div class="alternative-grid">
+          <article class="alt-card alt-one">
+            <p class="card-label"><span class="chip tone-blue">Alternative 01</span></p>
+            <h3>Map-first Campus Navigation</h3>
+            <p>Users start from a campus-specific map, browse POIs, filter place categories, open place detail cards, and start navigation from a selected destination.</p>
+            <h4>Best suited for</h4>
+            <ul>
+              <li>Finding classrooms, teaching buildings, parking areas, food places, and service points.</li>
+              <li>Connecting building names with real campus locations.</li>
+              <li>Supporting quick, practical wayfinding tasks.</li>
+            </ul>
+            <h4>Strengths</h4>
+            <ul>
+              <li>Highly practical and easy to understand.</li>
+              <li>Directly responds to the strongest navigation pain points.</li>
+              <li>Fits well with a mobile-first PWA prototype.</li>
+            </ul>
+            <h4>Limitations</h4>
+            <ul>
+              <li>May feel too similar to a normal map if used alone.</li>
+              <li>Playful value is limited unless route progress or discovery features are added.</li>
+            </ul>
+          </article>
+
+          <article class="alt-card alt-two">
+            <p class="card-label"><span class="chip tone-green">Alternative 02</span></p>
+            <h3>Scenario-based Guided Tour</h3>
+            <p>Users select a route based on a real campus scenario, such as a freshman route, visitor route, food route, cross-campus route, or themed exploration route.</p>
+            <h4>Best suited for</h4>
+            <ul>
+              <li>Helping users choose a suitable route without manually planning every stop.</li>
+              <li>Showing route duration, station count, current stop, next stop, and progress.</li>
+              <li>Supporting new students, visitors, and staff-guided campus reception.</li>
+            </ul>
+            <h4>Strengths</h4>
+            <ul>
+              <li>Turns campus movement into a structured journey.</li>
+              <li>Improves confidence through progress feedback and stop lists.</li>
+              <li>Connects well with check-in and lightweight achievement mechanics.</li>
+            </ul>
+            <h4>Limitations</h4>
+            <ul>
+              <li>Less flexible for users who only want a single destination quickly.</li>
+              <li>Requires carefully designed route categories to avoid overwhelming users.</li>
+            </ul>
+          </article>
+
+          <article class="alt-card alt-three">
+            <p class="card-label"><span class="chip tone-purple">Alternative 03</span></p>
+            <h3>Playful Discovery and Memory System</h3>
+            <p>Users explore campus through recommended content, story cards, check-ins, badges, treasures, favorites, visited records, and recent views.</p>
+            <h4>Best suited for</h4>
+            <ul>
+              <li>Making campus places more meaningful than simple coordinates.</li>
+              <li>Encouraging repeated exploration and personal campus memory.</li>
+              <li>Supporting playful value through discovery, collection, and lightweight rewards.</li>
+            </ul>
+            <h4>Strengths</h4>
+            <ul>
+              <li>Creates the strongest playful and memorable experience.</li>
+              <li>Extends the journey beyond arrival.</li>
+              <li>Connects well with Discover content and personal records.</li>
+            </ul>
+            <h4>Limitations</h4>
+            <ul>
+              <li>Cannot solve urgent wayfinding problems by itself.</li>
+              <li>Should remain lightweight so it does not distract from core navigation tasks.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="alt-panel" aria-labelledby="comparison-title">
+        <div class="panel-header">
+          <div>
+            <p class="section-kicker">Comparison matrix</p>
+            <h2 class="alt-heading" id="comparison-title">Alternative Evaluation</h2>
+            <p class="panel-intro">We compared the alternatives against the main requirements identified earlier. The goal was not to pick the most playful option alone, but to find the best balance between reliable navigation, usability, inclusivity, and playful exploration.</p>
+          </div>
+          <div class="chip-row">
+            <span class="chip tone-green">High</span>
+            <span class="chip tone-amber">Medium</span>
+            <span class="chip tone-red">Low</span>
+          </div>
+        </div>
+
+        <div class="alt-table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Criteria</th>
+                <th>Alternative 1: Map-first Navigation</th>
+                <th>Alternative 2: Scenario-based Guided Tour</th>
+                <th>Alternative 3: Playful Discovery &amp; Memory</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Wayfinding usefulness</td>
+                <td><span class="rating tone-green">High</span><br>Strong for quick POI search and destination finding.</td>
+                <td><span class="rating tone-amber">Medium</span><br>Useful when the user's task matches a route scenario.</td>
+                <td><span class="rating tone-red">Low</span><br>Not enough for urgent navigation by itself.</td>
+              </tr>
+              <tr>
+                <td>Route clarity</td>
+                <td><span class="rating tone-amber">Medium</span><br>Can show destination routes, but less structured.</td>
+                <td><span class="rating tone-green">High</span><br>Strong through route cards, stop lists, and progress feedback.</td>
+                <td><span class="rating tone-amber">Medium</span><br>Can support route continuation, but not the main route model.</td>
+              </tr>
+              <tr>
+                <td>Playful value</td>
+                <td><span class="rating tone-amber">Medium</span><br>Discovery exists through POIs, but limited if map-only.</td>
+                <td><span class="rating tone-green">High</span><br>Journey stages and check-ins create achievement moments.</td>
+                <td><span class="rating tone-green">High</span><br>Stories, badges, treasures, and records provide strong playful engagement.</td>
+              </tr>
+              <tr>
+                <td>Inclusivity and safety</td>
+                <td><span class="rating tone-green">High</span><br>Can show accessibility, emergency, and service POIs clearly.</td>
+                <td><span class="rating tone-green">High</span><br>Can provide safer, shorter, or identity-based route options.</td>
+                <td><span class="rating tone-amber">Medium</span><br>Can support records and identity, but not enough for safety alone.</td>
+              </tr>
+              <tr>
+                <td>Technical feasibility</td>
+                <td><span class="rating tone-green">High</span><br>Feasible with map components, POI data, and local state.</td>
+                <td><span class="rating tone-green">High</span><br>Feasible with predefined route data and progress logic.</td>
+                <td><span class="rating tone-amber">Medium</span><br>Requires additional content design and reward logic.</td>
+              </tr>
+              <tr>
+                <td>Fit with mobile PWA</td>
+                <td><span class="rating tone-green">High</span><br>Fits outdoor campus usage on mobile.</td>
+                <td><span class="rating tone-green">High</span><br>Route cards and progress panels work well on mobile.</td>
+                <td><span class="rating tone-green">High</span><br>Local records and lightweight rewards fit PWA use.</td>
+              </tr>
+              <tr>
+                <td>Long-term engagement</td>
+                <td><span class="rating tone-amber">Medium</span><br>Useful when users need navigation, but less sticky alone.</td>
+                <td><span class="rating tone-amber">Medium</span><br>Encourages route completion but may not drive repeated use alone.</td>
+                <td><span class="rating tone-green">High</span><br>Favorites, visited records, badges, and treasures support repeated exploration.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="alt-panel" aria-labelledby="decision-title">
+        <div class="panel-header">
+          <div>
+            <p class="section-kicker">Final decision</p>
+            <h2 class="alt-heading" id="decision-title">Selected Direction: Map-based Scenario Campus Tour with Playful Discovery</h2>
+            <p class="panel-intro">The final PuPath concept does not choose only one alternative. Instead, it combines the most useful parts of all three alternatives, while keeping the navigation task as the foundation.</p>
+          </div>
+        </div>
+
+        <div class="selected-panel">
+          <h3>Why this direction was selected</h3>
+          <p>We selected a hybrid direction because the user research shows that PuPath must first solve practical campus wayfinding, but it also needs to provide a playful campus tour experience. Alternative 1 provides the necessary POI map and destination search foundation. Alternative 2 adds scenario-based route selection, stop lists, progress feedback, and check-in moments. Alternative 3 contributes discovery content, stories, badges, treasures, and personal records.</p>
+          <p>This combination allows PuPath to remain useful for quick navigation while also supporting staged progress, meaningful campus discovery, and continued exploration.</p>
+          <div class="tag-row">
+            <span class="alt-tag tone-blue">Map + POI foundation</span>
+            <span class="alt-tag tone-green">Scenario route structure</span>
+            <span class="alt-tag tone-purple">Playful discovery layer</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="alt-panel" aria-labelledby="trace-title">
+        <div class="panel-header">
+          <div>
+            <p class="section-kicker">Requirement traceability</p>
+            <h2 class="alt-heading" id="trace-title">How the Final Direction Responds to Requirements</h2>
+            <p class="panel-intro">The selected direction directly connects back to the core and playful requirements from the previous section.</p>
+          </div>
+        </div>
+
+        <div class="trace-grid">
+          <article class="trace-card">
+            <h3>Core Requirement 1</h3>
+            <ul>
+              <li>Campus-specific POI Recognition is mainly supported by Alternative 1.</li>
+              <li>POI map, filters, photos, and place details help users identify campus places.</li>
+            </ul>
+          </article>
+          <article class="trace-card">
+            <h3>Core Requirement 2</h3>
+            <ul>
+              <li>Reliable Route and Navigation Support is mainly supported by Alternative 2.</li>
+              <li>Route cards, stop lists, current stop, next stop, and progress feedback improve route confidence.</li>
+            </ul>
+          </article>
+          <article class="trace-card">
+            <h3>Playful Requirements</h3>
+            <ul>
+              <li>Staged progress is supported by route progress and check-ins.</li>
+              <li>Meaningful discovery is supported by stories, themed content, badges, and treasures.</li>
+              <li>Exploration continuity is supported by favorites, visited records, and recent views.</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="quote-box">
+          <strong>Transition to Low-Fi Prototype</strong>
+          <p>Based on this final direction, the next step is to create a low-fidelity prototype that tests the combined flow: finding a POI, choosing a scenario route, following route progress, completing check-ins, and saving or revisiting campus exploration records.</p>
+        </div>
+      </section>
     </div>
   </section>
 
@@ -790,58 +2005,10 @@
       <h2>Technical Implementation</h2>
       <h3>MVP Architecture: Static Client-side Prototype</h3>
       <p>The MVP is implemented as a client-side PWA so that the team can focus on validating the campus tour experience without backend complexity. This approach keeps the prototype lightweight, easy to deploy through GitHub Pages, and suitable for live demonstration during the marking period.</p>
-            <h3>System Architecture</h3>
-      <div class="architecture-flow">
-        <div class="arch-layer">
-          <div class="arch-layer-title">Client Layer</div>
-          <div class="arch-row">
-            <div class="architecture-node">User (Student / Visitor / Staff)</div>
-            <div class="architecture-node">Mobile Browser / PWA Shell</div>
-          </div>
-        </div>
-        <div class="architecture-arrow">Downstream Flow</div>
-        <div class="arch-layer">
-          <div class="arch-layer-title">Application Layer</div>
-          <div class="arch-row">
-            <div class="architecture-node">React UI Components</div>
-            <div class="architecture-node">State Store (Zustand)</div>
-          </div>
-          <div class="arch-row" style="margin-top:10px;">
-            <div class="architecture-node">Routing and Identity Mode Logic</div>
-            <div class="architecture-node">i18n Layer (Chinese / English)</div>
-          </div>
-        </div>
-        <div class="architecture-arrow">Downstream Flow</div>
-        <div class="arch-layer">
-          <div class="arch-layer-title">Data Layer (MVP Local)</div>
-          <div class="arch-row">
-            <div class="architecture-node">POI / Route / Badge Structured Data</div>
-            <div class="architecture-node">Local Interaction State (Check-ins, Saved, Progress)</div>
-          </div>
-        </div>
-        <div class="architecture-arrow">Build and Deploy</div>
-        <div class="arch-layer">
-          <div class="arch-layer-title">Delivery Layer</div>
-          <div class="arch-row">
-            <div class="architecture-node">Static Build Assets</div>
-            <div class="architecture-node">GitHub Pages Hosting</div>
-          </div>
-        </div>
-        <div class="arch-layer">
-          <div class="arch-layer-title">External Services</div>
-          <div class="arch-row">
-            <div class="architecture-node">AMap JS API (primary map, geolocation, navigation)</div>
-            <div class="architecture-node">MapLibre (fallback rendering) + Weather API (optional input)</div>
-          </div>
-        </div>
-        <div class="arch-layer">
-          <div class="arch-layer-title">Security / Privacy Scope</div>
-          <div class="arch-row single">
-            <div class="architecture-node">No sensitive personal data persisted server-side in MVP</div>
-          </div>
-        </div>
-      </div>
-      <p>This architecture prioritizes fast access, simple maintenance, and clear demonstration of the core user experience. Since this is an MVP, user records such as check-ins and badges are treated as local interaction states rather than server-side accounts.</p>
+      <h3>System Architecture</h3>
+      <figure class="system-architecture-placeholder">
+        <img src="images/system-architecture.png" alt="PuPath system architecture diagram">
+      </figure>
       <h3>Engineering Pillars</h3>
       <div class="pillar-grid">
         <article class="pillar-card"><h3>Mobile-first Static Deployment</h3><p><strong>How:</strong> GitHub Pages hosts the static PWA and allows public access through URL or QR code.</p><p><strong>Benefit:</strong> Users and markers can open the prototype quickly without installation.</p></article>
@@ -885,47 +2052,168 @@
   <section id="evaluation" class="reveal">
     <div class="section-shell">
       <h2>Evaluation</h2>
-      <h3>Usability Testing Setup</h3>
-      <p>We evaluated the Alpha / High-Fi version through task-based usability testing with representative users. The evaluation focused on whether users could understand the entry flow, find campus places, follow a route, complete playful actions, and review progress.</p>
-      <div class="table-wrap"><table class="data-table"><tbody><tr><th>Participants</th><td>[To be completed after final usability test]</td></tr><tr><th>Target Groups</th><td>freshmen, current students, visitors</td></tr><tr><th>Method</th><td>task-based usability testing</td></tr><tr><th>Device</th><td>mobile browser</td></tr><tr><th>Tested Version</th><td>Pre-iteration high-fidelity prototype build (before iterative refinements), including map, tours, check-in, collectibles, badges, and bilingual modules</td></tr></tbody></table></div>
-      <h3>Testing Tasks</h3>
-      <div class="table-wrap"><table class="data-table"><thead><tr><th>Task</th><th>Purpose</th></tr></thead><tbody><tr><td>Task 1: Select identity and find a recommended route.</td><td>Test whether users understand the entry flow.</td></tr><tr><td>Task 2: Use the map to open one POI detail.</td><td>Test map and POI discoverability.</td></tr><tr><td>Task 3: Start a themed route and complete a check-in.</td><td>Test playful route interaction.</td></tr><tr><td>Task 4: Switch language between Chinese and English.</td><td>Test bilingual usability.</td></tr><tr><td>Task 5: Find badge or saved record in My page.</td><td>Test progress feedback visibility.</td></tr></tbody></table></div>
-      <h3>Results</h3>
-      <p class="section-checkpoint">The issue IDs are used to link usability findings with the later iteration records.</p>
-      <div class="table-wrap"><table class="data-table"><thead><tr><th>Issue ID</th><th>Task</th><th>Success Rate</th><th>Main Issue</th><th>Severity</th><th>Design Response</th></tr></thead><tbody><tr><td><span class="issue-id">E1</span></td><td>Select identity and find route</td><td>[To be completed after final usability test]</td><td>[Add observed issue]</td><td>[Low / Medium / High]</td><td>[Add improvement]</td></tr><tr><td><span class="issue-id">E2</span></td><td>Open POI detail from map</td><td>[To be completed after final usability test]</td><td>[Add observed issue]</td><td>[Low / Medium / High]</td><td>[Add improvement]</td></tr><tr><td><span class="issue-id">E3</span></td><td>Start route and complete check-in</td><td>[To be completed after final usability test]</td><td>[Add observed issue]</td><td>[Low / Medium / High]</td><td>[Add improvement]</td></tr><tr><td><span class="issue-id">E4</span></td><td>Switch language</td><td>[To be completed after final usability test]</td><td>[Add observed issue]</td><td>[Low / Medium / High]</td><td>[Add improvement]</td></tr><tr><td><span class="issue-id">E5</span></td><td>Find badge or saved record</td><td>[To be completed after final usability test]</td><td>[Add observed issue]</td><td>[Low / Medium / High]</td><td>[Add improvement]</td></tr></tbody></table></div>
-      <h3>User Quotes</h3>
-      <blockquote>"[Add real participant quote]"</blockquote>
-      <blockquote>"[Add real participant quote]"</blockquote>
-      <blockquote>"[Add real participant quote]"</blockquote>
+      <div class="eval-shell">
+        <section class="eval-panel">
+          <div class="eval-hero-grid">
+            <div>
+              <p class="eval-lead">To evaluate whether PuPath effectively supports campus wayfinding and playful exploration, we conducted usability testing with the Alpha version of the system. The evaluation focused on whether users could find campus places, choose suitable routes, understand route progress, use playful features, and notice inclusive support functions.</p>
+            </div>
+            <div class="eval-metric-grid" aria-label="Evaluation summary">
+              <div class="eval-metric-card"><strong>3</strong><span>real users tested</span></div>
+              <div class="eval-metric-card"><strong>5</strong><span>usability tasks</span></div>
+              <div class="eval-metric-card"><strong>3</strong><span>iteration decisions</span></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="eval-panel" aria-labelledby="goals-title">
+          <div class="eval-panel-header">
+            <div>
+              <h3 id="goals-title">What We Wanted to Test</h3>
+              <p class="eval-panel-intro">The evaluation goals were aligned with the core and playful requirements defined earlier. The purpose was not only to check whether the interface worked, but also to understand whether the system improved user confidence and exploration experience.</p>
+            </div>
+          </div>
+          <div class="eval-goal-grid">
+            <article class="eval-goal-card"><h3>1. Wayfinding Effectiveness</h3><p>Test whether users can quickly find a target campus place through the POI map, category filters, and place detail page.</p></article>
+            <article class="eval-goal-card"><h3>2. Route Clarity</h3><p>Test whether users can choose a suitable scenario route and understand the current stop, next stop, and route progress.</p></article>
+            <article class="eval-goal-card"><h3>3. Playful Engagement</h3><p>Test whether users understand check-ins, badges, Discover content, and personal records as part of campus exploration.</p></article>
+            <article class="eval-goal-card"><h3>4. Inclusive Support</h3><p>Test whether users can find language settings, accessibility settings, weather hints, and emergency contact information when needed.</p></article>
+          </div>
+        </section>
+
+        <section class="eval-panel" aria-labelledby="method-title">
+          <div class="eval-panel-header">
+            <div>
+              <h3 id="method-title">Usability Testing Setup</h3>
+              <p class="eval-panel-intro">We tested the Alpha prototype with three target users. Each participant completed the same task sequence while we observed task completion, confusion points, comments, and post-test feedback.</p>
+            </div>
+          </div>
+          <div class="eval-method-grid">
+            <article class="eval-method-card"><h3>Participant 1</h3><p><strong>User type:</strong> New student / campus-unfamiliar user<br><strong>Reason:</strong> Represents users who need help finding buildings and understanding routes.</p></article>
+            <article class="eval-method-card"><h3>Participant 2</h3><p><strong>User type:</strong> Current student / frequent campus user<br><strong>Reason:</strong> Represents users who value fast access to common places and efficient route choice.</p></article>
+            <article class="eval-method-card"><h3>Participant 3</h3><p><strong>User type:</strong> Visitor / international or staff-related user<br><strong>Reason:</strong> Represents users who need clearer guidance, bilingual support, and safety information.</p></article>
+          </div>
+        </section>
+
+        <section class="eval-panel" aria-labelledby="tasks-title">
+          <div class="eval-panel-header">
+            <div>
+              <h3 id="tasks-title">Task Design</h3>
+              <p class="eval-panel-intro">The test tasks were designed to cover the main PuPath user flow: finding a place, checking details, choosing a route, following progress, using a playful action, and reviewing personal records.</p>
+            </div>
+          </div>
+          <ol class="eval-task-list">
+            <li><strong>T1: Find a campus POI.</strong> Ask the participant to find a teaching building, food place, or service point on the map.</li>
+            <li><strong>T2: Open place details and start navigation.</strong> Ask the participant to open a POI detail card and find the action for navigation.</li>
+            <li><strong>T3: Choose a scenario route.</strong> Ask the participant to compare route cards and select a route that fits a given scenario.</li>
+            <li><strong>T4: Complete a check-in and read progress feedback.</strong> Ask the participant to confirm arrival at a stop and explain what changed in the route progress.</li>
+            <li><strong>T5: Save or review a personal record.</strong> Ask the participant to favorite a place, mark a place as visited, or find recent records in My Page.</li>
+          </ol>
+        </section>
+
+        <section class="eval-panel" aria-labelledby="results-title">
+          <div class="eval-panel-header">
+            <div>
+              <h3 id="results-title">Task Completion and Observations</h3>
+              <p class="eval-panel-intro">The table below summarizes the usability testing results and links each major issue to a design response.</p>
+            </div>
+          </div>
+          <div class="eval-table-wrap">
+            <table>
+              <thead><tr><th>Task</th><th>Completion</th><th>Main observation</th><th>Issue found</th><th>Design response</th></tr></thead>
+              <tbody>
+                <tr><td>T1: Find a campus POI</td><td><span class="eval-status tone-amber">2 / 3</span></td><td>Users could understand the POI map, but they needed extra time to distinguish target places when many POI markers were shown together.</td><td>POI points were too dense, making it inconvenient to find a specific destination.</td><td>Improve POI clustering, category filtering, and visual hierarchy for high-priority places.</td></tr>
+                <tr><td>T2: Open place details and start navigation</td><td><span class="eval-status tone-green">3 / 3</span></td><td>All users were satisfied with the place detail page and could successfully find the navigation action without extra guidance.</td><td>No major issue was found in this task.</td><td>Keep the current POI detail and navigation-entry flow, while maintaining clear action labels.</td></tr>
+                <tr><td>T3: Choose a scenario route</td><td><span class="eval-status tone-amber">2 / 3</span></td><td>Users understood the route card structure, but felt that the available route options did not cover enough real campus scenarios.</td><td>The current routes were relatively limited and lacked enough scenario diversity.</td><td>Add more route types, such as quick class route, visitor landmark route, rainy-day route, food route, and accessibility-friendly route.</td></tr>
+                <tr><td>T4: Complete a check-in and read progress feedback</td><td><span class="eval-status tone-amber">2 / 3</span></td><td>Users noticed badges as part of exploration feedback, but did not fully understand when and why a badge would be unlocked.</td><td>The badge unlocking logic was not clear enough as an exploration feedback mechanism.</td><td>Make badge conditions visible, show progress toward each badge, and explain the reward after a route or check-in action.</td></tr>
+                <tr><td>T5: Save or review a personal record</td><td><span class="eval-status tone-green">3 / 3</span></td><td>Users understood favorites, visited records, and recent views after entering My Page.</td><td>Users wanted clearer explanation of where records are saved.</td><td>Add local-data explanation and keep clear data reset entry.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="eval-panel" aria-labelledby="findings-title">
+          <div class="eval-panel-header">
+            <div>
+              <h3 id="findings-title">What We Learned</h3>
+              <p class="eval-panel-intro">The findings show which parts of the Alpha prototype already supported user needs and which parts required refinement before the final version.</p>
+            </div>
+          </div>
+          <div class="eval-finding-grid">
+            <article class="eval-finding-card"><h3>Finding 1: POI density affected search efficiency</h3><p>Users could understand the POI map, but when many markers were displayed together, it became harder to locate a specific destination quickly. The map needs clearer POI hierarchy, filtering, or clustering.</p></article>
+            <article class="eval-finding-card"><h3>Finding 2: Route options were not diverse enough</h3><p>Users understood the route card format, but the current route set felt relatively limited. More scenario-based routes are needed to support different tasks, weather conditions, accessibility needs, and visitor situations.</p></article>
+            <article class="eval-finding-card"><h3>Finding 3: Badge feedback needed clearer rules</h3><p>Users liked the idea of badges as exploration feedback, but the unlocking logic was not obvious. The system should explain badge conditions, progress, and reward moments more clearly.</p></article>
+            <article class="eval-finding-card"><h3>Finding 4: Support functions need visibility</h3><p>Language, accessibility, and emergency support were useful, but should remain easy to notice without interrupting the main navigation flow.</p></article>
+            <article class="eval-finding-card"><h3>Finding 5: Personal records encouraged return use</h3><p>Favorites, visited places, and recent views helped users understand that PuPath can support continued campus exploration beyond one visit.</p></article>
+            <article class="eval-finding-card"><h3>Finding 6: Privacy explanation should be clearer</h3><p>Because PuPath stores records locally, the interface should explain that user records are saved on the current device and can be cleared.</p></article>
+          </div>
+        </section>
+      </div>
     </div>
   </section>
 
   <section id="iteration" class="reveal">
     <div class="section-shell">
       <h2>Iterative Refinement</h2>
-      <p class="section-checkpoint">Each iteration below links a user testing or internal evaluation issue to a concrete interface change.</p>
-      <div class="before-after-grid">
-        <article class="before-after-card">
-          <h3>Entry Flow</h3>
-          <p><strong>Related Evaluation Issue:</strong> <span class="issue-id">E1</span></p>
-          <p><strong>Before:</strong> Map-only entry<br><strong>After:</strong> Identity-based home page<br><strong>Reason:</strong> Users needed clearer first-step guidance.</p>
-          <div class="prototype-gallery"><figure><img src="images/before-home.jpg" alt="Before home"><figcaption>Before</figcaption></figure><figure><img src="images/after-home.jpg" alt="After home"><figcaption>After</figcaption></figure></div>
-          <p><strong>Feedback Source:</strong> [Add source]<br><strong>Change Made:</strong> Added identity-based entry and recommended route cards.<br><strong>Usability Improvement:</strong> Reduced first-step uncertainty.</p>
-        </article>
-        <article class="before-after-card">
-          <h3>Route Design</h3>
-          <p><strong>Related Evaluation Issue:</strong> <span class="issue-id">E3</span></p>
-          <p><strong>Before:</strong> Plain route list<br><strong>After:</strong> Themed route card with purpose and progress<br><strong>Reason:</strong> Users needed to understand why a route was useful.</p>
-          <div class="prototype-gallery"><figure><img src="images/before-route.jpg" alt="Before route"><figcaption>Before</figcaption></figure><figure><img src="images/after-route.jpg" alt="After route"><figcaption>After</figcaption></figure></div>
-          <p><strong>Feedback Source:</strong> [Add source]<br><strong>Change Made:</strong> Added themed route framing, route purpose, and progress indication.<br><strong>Usability Improvement:</strong> Improved route comprehension and motivation.</p>
-        </article>
-        <article class="before-after-card">
-          <h3>Badge / Check-in Logic</h3>
-          <p><strong>Related Evaluation Issue:</strong> <span class="issue-id">E5</span></p>
-          <p><strong>Before:</strong> Unclear reward logic<br><strong>After:</strong> Clearer badge acquisition explanation<br><strong>Reason:</strong> Users needed immediate feedback after playful actions.</p>
-          <div class="prototype-gallery"><figure><img src="images/before-badge.jpg" alt="Before badge"><figcaption>Before</figcaption></figure><figure><img src="images/after-badge.jpg" alt="After badge"><figcaption>After</figcaption></figure></div>
-          <p><strong>Feedback Source:</strong> [Add source]<br><strong>Change Made:</strong> Added clearer check-in feedback and badge explanation.<br><strong>Usability Improvement:</strong> Made playful rewards easier to understand.</p>
-        </article>
+      <div class="iteration-shell">
+        <section class="iteration-panel">
+          <div class="iteration-panel-header">
+            <div>
+              <p class="iteration-panel-intro">Based on the usability testing feedback, we identified several interface changes. The boxes below reserve space for final before-and-after screenshots from the Alpha and refined versions.</p>
+            </div>
+            <div class="iteration-chip-row">
+              <span class="iteration-chip tone-red">Before</span>
+              <span class="iteration-chip tone-green">After</span>
+            </div>
+          </div>
+          <div class="iteration-grid">
+            <article class="iteration-card">
+              <h3>Iteration 1: Reduce POI Density and Improve Map Readability</h3>
+              <p>Users reported that POI points were too dense, making it inconvenient to find a specific destination. We refined the map display by emphasizing key POIs, improving category filtering, and reducing visual clutter when multiple points appear close together.</p>
+              <div class="iteration-before-after-grid">
+                <div class="iteration-screenshot-box">Before screenshot: Map page with dense POI markers that make target places harder to identify</div>
+                <div class="iteration-screenshot-box">After screenshot: Map page with clearer POI hierarchy, filtering, or clustered display</div>
+              </div>
+              <div class="iteration-meta">
+                <div><strong>Feedback source</strong><span>T1 POI finding task</span></div>
+                <div><strong>Requirement link</strong><span>Campus-specific POI Recognition</span></div>
+                <div><strong>Expected impact</strong><span>Lower visual load and faster destination finding</span></div>
+              </div>
+            </article>
+
+            <article class="iteration-card">
+              <h3>Iteration 2: Expand Scenario Route Diversity</h3>
+              <p>Users felt that the existing routes were relatively single-purpose and did not cover enough campus scenarios. We refined the route system by adding or planning more route types for different user goals, such as quick class navigation, visitor landmarks, rainy-day walking, food discovery, and accessibility-friendly movement.</p>
+              <div class="iteration-before-after-grid">
+                <div class="iteration-screenshot-box">Before screenshot: Route page with a relatively limited set of route options</div>
+                <div class="iteration-screenshot-box">After screenshot: Route page with more scenario-based route categories and clearer route purposes</div>
+              </div>
+              <div class="iteration-meta">
+                <div><strong>Feedback source</strong><span>T3 route selection task</span></div>
+                <div><strong>Requirement link</strong><span>Reliable Route and Navigation Support</span></div>
+                <div><strong>Expected impact</strong><span>Better fit for different campus tasks and user identities</span></div>
+              </div>
+            </article>
+
+            <article class="iteration-card">
+              <h3>Iteration 3: Clarify Badge Unlocking Logic</h3>
+              <p>Users saw badges as one form of exploration feedback, but the conditions for earning them were not clear. We refined the badge design by showing unlock conditions, current progress, and clearer reward feedback after check-ins or route completion.</p>
+              <div class="iteration-before-after-grid">
+                <div class="iteration-screenshot-box">Before screenshot: Badge page or reward feedback without clear unlocking conditions</div>
+                <div class="iteration-screenshot-box">After screenshot: Badge page with visible unlock rules, progress, and completion feedback</div>
+              </div>
+              <div class="iteration-meta">
+                <div><strong>Feedback source</strong><span>T4 check-in / badge feedback task</span></div>
+                <div><strong>Requirement link</strong><span>Meaningful Campus Discovery and Staged Progress</span></div>
+                <div><strong>Expected impact</strong><span>Clearer exploration motivation and more understandable reward feedback</span></div>
+              </div>
+            </article>
+          </div>
+          <div class="iteration-note-box">
+            <strong>Screenshot replacement note</strong>
+            <p>Replace each placeholder box with the corresponding before-and-after interface screenshot once the final test evidence is ready.</p>
+          </div>
+        </section>
       </div>
     </div>
   </section>
