@@ -235,6 +235,159 @@
 
     .journey-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 22px; }
 
+    #research .research-shell {
+      display: grid;
+      gap: 18px;
+    }
+    #research .research-panel {
+      background: transparent;
+      border: 0;
+      padding: 0;
+    }
+    #research .research-lead,
+    #research .research-panel-intro {
+      max-width: none;
+      margin-bottom: 0;
+      color: #536275;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+      line-height: 1.48;
+      text-align: justify;
+      text-justify: inter-word;
+    }
+    #research .research-lead {
+      font-size: 15px;
+    }
+    #research .research-panel-header {
+      margin-bottom: 18px;
+    }
+    #research .research-grid,
+    #research .stakeholder-grid,
+    #research .implication-grid {
+      display: grid;
+      gap: 14px;
+    }
+    #research .research-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    #research .stakeholder-grid {
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+    #research .implication-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    #research .research-review-card,
+    #research .stakeholder-card,
+    #research .implication-card,
+    #research .research-note-box {
+      padding: 18px;
+      background: #f8fafc;
+      border: 1px solid #edf1f6;
+      border-radius: 14px;
+      box-shadow: none;
+    }
+    #research .research-review-card {
+      position: relative;
+      overflow: hidden;
+    }
+    #research .research-review-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 4px;
+      background: #1f5fbf;
+    }
+    #research .research-review-card.product::before {
+      background: #20734d;
+    }
+    #research .research-review-card h4 {
+      margin: 16px 0 8px;
+      color: #35465d;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    #research .research-review-card p,
+    #research .stakeholder-card p,
+    #research .implication-card p,
+    #research .research-note-box p,
+    #research .research-review-card li {
+      color: #536275;
+      font-size: 13px;
+    }
+    #research .stakeholder-card p,
+    #research .implication-card p,
+    #research .research-note-box p {
+      margin-bottom: 0;
+    }
+    #research .research-review-card ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+    #research .research-review-card li + li {
+      margin-top: 5px;
+    }
+    #research .research-tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    #research .research-tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 5px 8px;
+      border-radius: 999px;
+      background: #eef2f7;
+      color: #42526b;
+      font-size: 11px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+    #research .tone-blue { background: #e8f0ff; color: #1f5fbf; }
+    #research .tone-green { background: #e8f5ee; color: #20734d; }
+    #research .tone-purple { background: #f0edff; color: #5b4bb7; }
+    #research .tone-amber { background: #fff3d8; color: #b7791f; }
+    #research .research-note-box {
+      margin-top: 18px;
+      background: #e8f0ff;
+      border-color: #cbdcff;
+    }
+    #research .research-note-box strong {
+      display: block;
+      margin-bottom: 6px;
+      color: #1f5fbf;
+      font-size: 13px;
+    }
+    #research .research-personas {
+      margin-top: 10px;
+      display: grid;
+      gap: 26px;
+    }
+    #research .research-subsection-title {
+      margin: 8px 0 0;
+      color: var(--deep-blue);
+      font-size: 1.5rem;
+      line-height: 1.3;
+    }
+    #research .research-personas .persona-top-title {
+      width: 100%;
+      max-width: 100%;
+      margin: 0 auto 16px;
+    }
+    #research .research-personas .persona-detail-card {
+      width: 100%;
+      max-width: 100%;
+      margin: 0;
+    }
+    @media (max-width: 980px) {
+      #research .research-grid,
+      #research .stakeholder-grid,
+      #research .implication-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
     #requirements.requirements-list {
       width: min(1180px, calc(100% - 32px));
       margin: 0 auto;
@@ -538,10 +691,10 @@
       gap: 18px;
     }
     #alternatives .alt-panel {
-      background: #ffffff;
-      border: 1px solid #d9e0ea;
-      border-radius: 18px;
-      padding: 28px;
+      background: transparent;
+      border: 0;
+      border-radius: 0;
+      padding: 28px 0;
       box-shadow: none;
     }
     #alternatives .alt-panel.no-frame {
@@ -589,19 +742,22 @@
     }
     #alternatives .lead,
     #alternatives .panel-intro {
-      max-width: 880px;
       margin-bottom: 0;
       color: #536275;
       font-family: Arial, Helvetica, sans-serif;
       font-size: 14px;
       line-height: 1.48;
+      text-align: justify;
+      text-justify: inter-word;
     }
     #alternatives .lead {
       max-width: none;
       padding: 0 2px;
       font-size: 15px;
-      text-align: justify;
-      text-justify: inter-word;
+    }
+    #alternatives .panel-intro {
+      width: 100%;
+      max-width: none;
     }
     #alternatives .chip-row,
     #alternatives .tag-row {
@@ -784,8 +940,8 @@
         padding: 22px 0 36px;
       }
       #alternatives .alt-panel {
-        padding: 20px;
-        border-radius: 14px;
+        padding: 20px 0;
+        border-radius: 0;
       }
     }
 
@@ -1208,7 +1364,7 @@
   <nav class="navbar">
     <div class="nav-container">
       <a href="#intro">Overview</a><a href="#team-members">Team</a><a href="#motivation">Motivation</a><a href="#research">Research</a>
-      <a href="#user-evidence">User Evidence</a><a href="#personas">Personas</a><a href="#journey-map">Journey Map</a><a href="#requirements">Requirements</a>
+      <a href="#journey-map">Journey Map</a><a href="#requirements">Requirements</a>
       <a href="#ideation">Ideation</a><a href="#alternatives">Alternatives</a><a href="#prototype">Prototype</a><a href="#implementation">Implementation</a>
       <a href="#evaluation">Evaluation</a><a href="#iteration">Iteration</a><a href="#ai-reflection">AI Reflection</a><a href="#references">References</a>
     </div>
@@ -1258,62 +1414,261 @@
   <section id="research" class="reveal">
     <div class="section-shell">
       <h2>Research</h2>
-      <h3>Academic Literature Review</h3>
-      <div class="card-grid">
-        <article class="research-card placeholder"><span class="tag">Paper 1</span><h3>[Add actual academic paper title]</h3><p><strong>Topic placeholder:</strong> Campus wayfinding / university navigation</p><p><strong>Relevance:</strong> [To be completed by team]</p><div class="two-column-list"><div><h4>What it did well</h4><ul><li>[Point 1]</li><li>[Point 2]</li><li>[Point 3]</li></ul></div><div><h4>What it missed</h4><ul><li>[Gap 1]</li><li>[Gap 2]</li><li>[Gap 3]</li></ul></div></div><h4>Implication for PuPath</h4><p>[Add what this paper means for PuPath's design.]</p></article>
-        <article class="research-card placeholder"><span class="tag">Paper 2</span><h3>[Add actual academic paper title]</h3><p><strong>Topic placeholder:</strong> Mobile guide systems</p><p><strong>Relevance:</strong> [To be completed by team]</p><div class="two-column-list"><div><h4>What it did well</h4><ul><li>[Point 1]</li><li>[Point 2]</li><li>[Point 3]</li></ul></div><div><h4>What it missed</h4><ul><li>[Gap 1]</li><li>[Gap 2]</li><li>[Gap 3]</li></ul></div></div><h4>Implication for PuPath</h4><p>[Add what this paper means for PuPath's design.]</p></article>
-        <article class="research-card placeholder"><span class="tag">Paper 3</span><h3>[Add actual academic paper title]</h3><p><strong>Topic placeholder:</strong> Location-based playful experience</p><p><strong>Relevance:</strong> [To be completed by team]</p><div class="two-column-list"><div><h4>What it did well</h4><ul><li>[Point 1]</li><li>[Point 2]</li><li>[Point 3]</li></ul></div><div><h4>What it missed</h4><ul><li>[Gap 1]</li><li>[Gap 2]</li><li>[Gap 3]</li></ul></div></div><h4>Implication for PuPath</h4><p>[Add what this paper means for PuPath's design.]</p></article>
-        <article class="research-card placeholder"><span class="tag">Paper 4</span><h3>[Add actual academic paper title]</h3><p><strong>Topic placeholder:</strong> Gamification, check-ins, and badges</p><p><strong>Relevance:</strong> [To be completed by team]</p><div class="two-column-list"><div><h4>What it did well</h4><ul><li>[Point 1]</li><li>[Point 2]</li><li>[Point 3]</li></ul></div><div><h4>What it missed</h4><ul><li>[Gap 1]</li><li>[Gap 2]</li><li>[Gap 3]</li></ul></div></div><h4>Implication for PuPath</h4><p>[Add what this paper means for PuPath's design.]</p></article>
-        
-      </div>
-      <h3>Commercial Product Review</h3>
-      <div class="card-grid">
-        <article class="card"><h3>Google Maps</h3><p><strong>What it does well:</strong> route planning, familiar UI, POI search.</p><p><strong>What it misses:</strong> campus-specific meaning, identity-based tour logic, playful feedback.</p><p><strong>PuPath implication:</strong> Add campus context and exploration motivation.</p></article>
-        <article class="card"><h3>Gaode Maps</h3><p><strong>What it does well:</strong> local map data, routing, mature map interactions.</p><p><strong>What it misses:</strong> not campus-story oriented, no badge or check-in layer, weak visitor-specific route meaning.</p><p><strong>PuPath implication:</strong> Complement route utility with campus orientation context.</p></article>
-        <article class="card"><h3>XJTLU official website / campus map</h3><p><strong>What it does well:</strong> official information, reliable context, campus-related content.</p><p><strong>What it misses:</strong> not designed as a guided route, not playful, less suitable for first-time mobile movement.</p><p><strong>PuPath implication:</strong> Turn static information into a guided campus experience.</p></article>
-        <article class="card"><h3>Rednote</h3><p><strong>What it does well:</strong> rich discovery content, story-like posts, social proof.</p><p><strong>What it misses:</strong> fragmented, inconsistent relevance, not structured for campus wayfinding.</p><p><strong>PuPath implication:</strong> Combine discovery content with structured routes.</p></article>
-      </div>
-    </div>
-  </section>
+      <div class="research-shell">
+        <section class="research-panel" aria-label="Research introduction">
+          <p class="research-lead">This research section focuses on the gap analysis and stakeholder definition for PuPath. It reviews academic research and commercial products to identify what existing solutions do well, what they miss, and how these insights inform PuPath's campus-specific, scenario-based, and playful tour experience.</p>
+        </section>
 
-  <section id="user-evidence" class="reveal">
-    <div class="section-shell">
-      <h2>User Research Evidence</h2>
-      <div class="section-lead">
-        <p>We collected primary data through questionnaires, short interviews, online communication, and campus observation. The goal was to understand how new students, current students, and visitors experience campus orientation before deciding the core features of PuPath.</p>
-      </div>
-      <div class="card-grid">
-        <article class="card"><h3>Freshmen</h3><p><strong>Why included:</strong> They are the main first-time campus users.</p><p><strong>What we asked / observed:</strong> First-week route confusion, useful places, preferred guidance style.</p><p><strong>Design relevance:</strong> Informed identity-based home and beginner routes.</p></article>
-        <article class="card"><h3>Current students</h3><p><strong>Why included:</strong> They understand repeated campus use and hidden campus routines.</p><p><strong>What we asked / observed:</strong> Places they often visit, confusing areas, useful shortcuts.</p><p><strong>Design relevance:</strong> Informed POI categories and saved places.</p></article>
-        <article class="card"><h3>External visitors / parent visitors</h3><p><strong>Why included:</strong> They have limited time and low campus familiarity.</p><p><strong>What we asked / observed:</strong> Need for short routes, landmarks, bilingual explanation, and low-friction access.</p><p><strong>Design relevance:</strong> Informed visitor routes and simple route descriptions.</p></article>
-        <article class="card"><h3>Experienced students or staff</h3><p><strong>Why included:</strong> They can identify important campus services and route priorities.</p><p><strong>What we asked / observed:</strong> Essential POIs, route feasibility, and campus information accuracy.</p><p><strong>Design relevance:</strong> Informed POI validation and route content.</p></article>
-        <article class="card"><h3>Ethical Handling</h3><p>Participants were informed of the project purpose. Interview or observation photos are used only as process evidence. Personal information should not be displayed in the public portfolio. The MVP does not collect sensitive personal data.</p></article>
-      </div>
-      <!-- Replace these placeholder images with actual interview / observation evidence before final submission. -->
-      <div class="evidence-grid">
-        <figure><img src="images/evidence-1.jpg" alt="Campus observation evidence 1"><figcaption>Evidence 1: [Replace with real interview photo]</figcaption></figure>
-        <figure><img src="images/evidence-2.jpg" alt="Campus observation evidence 2"><figcaption>Evidence 2: [Replace with real interview photo]</figcaption></figure>
-        <figure><img src="images/evidence-3.jpg" alt="Campus observation evidence 3"><figcaption>Evidence 3: [Replace with real interview photo]</figcaption></figure>
-        <figure><img src="images/evidence-4.jpg" alt="Campus observation evidence 4"><figcaption>Evidence 4: [Replace with real interview photo]</figcaption></figure>
-        <figure><img src="images/evidence-5.jpg" alt="Campus observation evidence 5"><figcaption>Evidence 5: [Replace with real interview photo]</figcaption></figure>
-      </div>
-      <div class="table-wrap">
-        <table class="data-table">
-          <thead><tr><th>Finding</th><th>Evidence Source</th><th>Design Response</th></tr></thead>
-          <tbody>
-            <tr><td>Users do not know where to start when entering campus.</td><td>Questionnaire + interview</td><td>Added identity-based home entry and recommended routes.</td></tr>
-            <tr><td>Generic maps lack campus-specific context.</td><td>Interview + observation</td><td>Added POI detail cards and campus story content.</td></tr>
-            <tr><td>Visitors need simple routes under time pressure.</td><td>Visitor persona analysis</td><td>Added themed route suggestions.</td></tr>
-            <tr><td>International users need bilingual support.</td><td>Campus context + user feedback</td><td>Added Chinese / English switching.</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
+        <section class="research-panel" aria-labelledby="gap-title">
+          <div class="research-panel-header">
+            <h3 id="gap-title">The Gap: Research and Product Review</h3>
+            <p class="research-panel-intro">Instead of only summarizing previous work, we reviewed what existing academic research and commercial products did well and what they missed. This helped us identify the design opportunity for PuPath: a campus-specific guide that combines reliable wayfinding, scenario-based routes, inclusive support, and lightweight playful exploration.</p>
+          </div>
 
-    <section id="personas" class="reveal">
-    <div class="section-shell">
-      <h2>Personas</h2>
+          <div class="research-grid">
+            <article class="research-review-card">
+              <div class="research-tag-row"><span class="research-tag tone-blue">Academic research</span><span class="research-tag">Reference [5]</span></div>
+              <h3>Landmark-based Wayfinding</h3>
+              <h4>Source</h4>
+              <p>Yesiltepe, D., Dalton, R. C., &amp; Ozbil Torun, A. (2021). <em>Landmarks in wayfinding: a review of the existing literature</em>. Cognitive Processing, 22, 369-410.</p>
+              <h4>What it did well</h4>
+              <ul>
+                <li>Reviews why landmarks are important in real and virtual wayfinding tasks.</li>
+                <li>Explains landmark visibility and salience as key factors for spatial orientation.</li>
+                <li>Shows that recognizable cues help users navigate large-scale outdoor environments.</li>
+              </ul>
+              <h4>What it missed</h4>
+              <ul>
+                <li>Focuses mainly on wayfinding theory rather than campus-tour implementation.</li>
+                <li>Does not address playful exploration, check-ins, or personal records.</li>
+                <li>Does not explain how landmarks should connect to user identity or campus scenarios.</li>
+              </ul>
+              <h4>Implication for PuPath</h4>
+              <p>PuPath should make POIs visually and contextually recognizable through photos, categories, detail cards, and route context, so users can connect campus names with real places.</p>
+            </article>
+
+            <article class="research-review-card">
+              <div class="research-tag-row"><span class="research-tag tone-blue">Academic research</span><span class="research-tag">Reference [6]</span></div>
+              <h3>Mobile Campus Touring with AR and GPS</h3>
+              <h4>Source</h4>
+              <p>Cai, S., Pei, L.-S., &amp; Shi, P.-F. (2013). <em>Mobile Campus Touring System based on AR and GPS: a Case Study of Campus Cultural Activity</em>. International Conference on Computers in Education.</p>
+              <h4>What it did well</h4>
+              <ul>
+                <li>Directly studies a mobile campus touring system for cultural campus activity.</li>
+                <li>Uses smartphone sensors such as GPS, camera, Wi-Fi, and digital compass.</li>
+                <li>Connects real campus locations with situated cultural learning and interaction.</li>
+              </ul>
+              <h4>What it missed</h4>
+              <ul>
+                <li>AR-based interaction can increase technical complexity and device dependency.</li>
+                <li>Focuses more on cultural learning than everyday wayfinding and route confidence.</li>
+                <li>Provides less detail on long-term records, badges, or lightweight repeated use.</li>
+              </ul>
+              <h4>Implication for PuPath</h4>
+              <p>PuPath should keep the campus-tour idea but implement it in a lighter PWA form, combining location-based exploration with practical route actions instead of relying on heavy AR.</p>
+            </article>
+
+            <article class="research-review-card">
+              <div class="research-tag-row"><span class="research-tag tone-blue">Academic research</span><span class="research-tag">Reference [7]</span></div>
+              <h3>User-Centered GPS Mobile Tour Design</h3>
+              <h4>Source</h4>
+              <p>Clements, K. (2017). <em>Designing a GPS Mobile Tour: A Lesson in User-Centered Design</em>. International Journal of Designs for Learning, 8(2).</p>
+              <h4>What it did well</h4>
+              <ul>
+                <li>Presents a GPS-guided smartphone tour through a user-centered design process.</li>
+                <li>Shows how mobile tours are affected by environment, technology, and user context.</li>
+                <li>Emphasizes testing and refining a guided tour experience around real user needs.</li>
+              </ul>
+              <h4>What it missed</h4>
+              <ul>
+                <li>Its case is not specifically designed for a university campus navigation problem.</li>
+                <li>It does not focus on POI density, scenario route diversity, or campus service points.</li>
+                <li>It gives limited attention to playful reward systems such as badges and treasures.</li>
+              </ul>
+              <h4>Implication for PuPath</h4>
+              <p>PuPath should treat the tour as an iterative, user-tested experience: users should find places, choose routes, follow progress, and receive feedback in a coherent flow.</p>
+            </article>
+
+            <article class="research-review-card">
+              <div class="research-tag-row"><span class="research-tag tone-blue">Academic research</span><span class="research-tag">Reference [8]</span></div>
+              <h3>Gamification, Progress Feedback, and Rewards</h3>
+              <h4>Source</h4>
+              <p>Kim, J., &amp; Castelli, D. M. (2021). <em>Effects of Gamification on Behavioral Change in Education: A Meta-Analysis</em>. International Journal of Environmental Research and Public Health, 18(7), 3550.</p>
+              <h4>What it did well</h4>
+              <ul>
+                <li>Provides meta-analytic evidence about gamified interventions in education.</li>
+                <li>Shows that gamification can support behaviour change and learning outcomes.</li>
+                <li>Helps justify progress feedback, badges, and achievement moments as motivational tools.</li>
+              </ul>
+              <h4>What it missed</h4>
+              <ul>
+                <li>Gamification effects depend on context and may not automatically transfer to navigation.</li>
+                <li>It does not specify how badges should be explained in a campus tour interface.</li>
+                <li>It does not address the balance between utility-first navigation and playful rewards.</li>
+              </ul>
+              <h4>Implication for PuPath</h4>
+              <p>PuPath should use lightweight playful feedback, but badge conditions and progress rules must be transparent so rewards support exploration instead of confusing users.</p>
+            </article>
+
+            <article class="research-review-card">
+              <div class="research-tag-row"><span class="research-tag tone-blue">Academic research</span><span class="research-tag">Reference [9]</span></div>
+              <h3>Accessible Wayfinding and Navigation</h3>
+              <h4>Source</h4>
+              <p>Prandi, C., Nisi, V., Salomoni, P., &amp; Nunes, N. J. (2023). <em>Accessible wayfinding and navigation: a systematic mapping study</em>. Universal Access in the Information Society, 22, 185-212.</p>
+              <h4>What it did well</h4>
+              <ul>
+                <li>Maps research on devices and software for accessible wayfinding and navigation.</li>
+                <li>Highlights barriers faced by people with disabilities and special needs.</li>
+                <li>Shows that both indoor and outdoor environments require inclusive navigation support.</li>
+              </ul>
+              <h4>What it missed</h4>
+              <ul>
+                <li>Does not focus specifically on playful campus tour experiences.</li>
+                <li>Accessible route data can be difficult to collect fully for a campus prototype.</li>
+                <li>Does not directly address visitor storytelling, badges, or discovery records.</li>
+              </ul>
+              <h4>Implication for PuPath</h4>
+              <p>PuPath should make inclusive support visible through language settings, accessibility options, emergency contacts, and future route data for safer and more accessible campus movement.</p>
+            </article>
+
+            <article class="research-review-card product">
+              <div class="research-tag-row"><span class="research-tag tone-green">Commercial product</span><span class="research-tag">Google Maps</span></div>
+              <h3>Google Maps</h3>
+              <h4>What it does well</h4>
+              <ul>
+                <li>Provides mature route planning for everyday navigation.</li>
+                <li>Uses a familiar and widely understood map interface.</li>
+                <li>Supports POI search and basic destination finding.</li>
+              </ul>
+              <h4>What it misses</h4>
+              <ul>
+                <li>Does not explain campus-specific meanings, such as building functions or informal landmarks.</li>
+                <li>Does not provide identity-based campus tour logic for freshmen, visitors, or staff guides.</li>
+                <li>Does not include playful feedback such as check-ins, badges, or exploration records.</li>
+              </ul>
+              <h4>PuPath implication</h4>
+              <p>PuPath should add campus-specific context and exploration motivation on top of basic navigation, helping users understand not only where a place is, but also why it matters within the campus.</p>
+            </article>
+
+            <article class="research-review-card product">
+              <div class="research-tag-row"><span class="research-tag tone-green">Commercial product</span><span class="research-tag">Gaode Maps</span></div>
+              <h3>Gaode Maps</h3>
+              <h4>What it does well</h4>
+              <ul>
+                <li>Provides strong local map data and mature routing support in China.</li>
+                <li>Offers familiar map interactions for Chinese users.</li>
+                <li>Supports general POI search, walking routes, and real-time map use.</li>
+              </ul>
+              <h4>What it misses</h4>
+              <ul>
+                <li>Is not designed around campus stories or campus-specific discovery.</li>
+                <li>Does not provide a badge, check-in, or personal exploration layer.</li>
+                <li>Provides limited visitor-specific route meaning, such as visitor landmark route or freshman orientation route.</li>
+              </ul>
+              <h4>PuPath implication</h4>
+              <p>PuPath should complement route utility with campus orientation context, helping users choose routes based on real campus scenarios rather than only shortest-path navigation.</p>
+            </article>
+
+            <article class="research-review-card product">
+              <div class="research-tag-row"><span class="research-tag tone-green">Commercial product</span><span class="research-tag">XJTLU official website / campus map</span></div>
+              <h3>XJTLU Official Website / Campus Map</h3>
+              <h4>What it does well</h4>
+              <ul>
+                <li>Provides official and reliable campus-related information.</li>
+                <li>Offers trustworthy institutional context.</li>
+                <li>Helps users understand basic campus facilities and university information.</li>
+              </ul>
+              <h4>What it misses</h4>
+              <ul>
+                <li>Is not designed as a guided route experience.</li>
+                <li>Does not support playful exploration or progress feedback.</li>
+                <li>Is less suitable for first-time mobile movement on campus, especially when users need real-time guidance.</li>
+              </ul>
+              <h4>PuPath implication</h4>
+              <p>PuPath should turn static official-style information into a guided and interactive campus experience, connecting campus content with map actions, route choices, and user progress.</p>
+            </article>
+
+            <article class="research-review-card product">
+              <div class="research-tag-row"><span class="research-tag tone-green">Commercial product</span><span class="research-tag">Rednote</span></div>
+              <h3>Rednote</h3>
+              <h4>What it does well</h4>
+              <ul>
+                <li>Provides rich discovery content through posts, photos, and user-generated stories.</li>
+                <li>Presents places in a more narrative and experience-oriented way.</li>
+                <li>Offers social proof that helps users judge whether a place is worth visiting.</li>
+              </ul>
+              <h4>What it misses</h4>
+              <ul>
+                <li>Content is fragmented and not organized around structured campus navigation.</li>
+                <li>Relevance can be inconsistent because posts are created for different purposes.</li>
+                <li>It is not designed for campus wayfinding, route planning, or official visitor guidance.</li>
+              </ul>
+              <h4>PuPath implication</h4>
+              <p>PuPath should combine discovery-style content with structured campus routes, so users can enjoy meaningful exploration while still receiving clear wayfinding support.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="research-panel" aria-labelledby="stakeholders-title">
+          <div class="research-panel-header">
+            <h3 id="stakeholders-title">The Stakeholders</h3>
+            <p class="research-panel-intro">PuPath is designed for users who need to understand and move through XJTLU's campus with different levels of familiarity. The stakeholder map separates primary users, secondary users, and indirect stakeholders.</p>
+          </div>
+
+          <div class="stakeholder-grid">
+            <article class="stakeholder-card">
+              <div class="research-tag-row"><span class="research-tag tone-blue">Primary</span></div>
+              <h3>New Students</h3>
+              <p>Need to find teaching buildings, food places, services, and common campus routes with low uncertainty.</p>
+            </article>
+            <article class="stakeholder-card">
+              <div class="research-tag-row"><span class="research-tag tone-blue">Primary</span></div>
+              <h3>External Visitors</h3>
+              <p>Need to understand representative landmarks, visitor routes, exits, and service points.</p>
+            </article>
+            <article class="stakeholder-card">
+              <div class="research-tag-row"><span class="research-tag tone-purple">Secondary</span></div>
+              <h3>International Users</h3>
+              <p>Need bilingual support, clear visual information, and reduced dependence on asking others.</p>
+            </article>
+            <article class="stakeholder-card">
+              <div class="research-tag-row"><span class="research-tag tone-purple">Secondary</span></div>
+              <h3>Staff / Reception Guides</h3>
+              <p>Need reliable route references, visitor guidance, and campus service information.</p>
+            </article>
+            <article class="stakeholder-card">
+              <div class="research-tag-row"><span class="research-tag tone-amber">Indirect</span></div>
+              <h3>University Services</h3>
+              <p>Benefit from fewer repeated direction questions and a clearer campus reception experience.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="research-panel" aria-labelledby="implications-title">
+          <div class="research-panel-header">
+            <h3 id="implications-title">Research Implications</h3>
+            <p class="research-panel-intro">The research shows that PuPath should not be designed as a normal map replacement. It should first solve reliable campus wayfinding, then support scenario-based route selection, inclusive access, and lightweight playful exploration.</p>
+          </div>
+
+          <div class="implication-grid">
+            <article class="implication-card">
+              <h3>1. Reliable Wayfinding First</h3>
+              <p>The system must make campus places easier to identify through POI categories, photos, detail cards, and route actions.</p>
+            </article>
+            <article class="implication-card">
+              <h3>2. Scenario Routes Matter</h3>
+              <p>Users need route choices that match real campus goals, such as going to class, visiting landmarks, finding food, or moving across campus.</p>
+            </article>
+            <article class="implication-card">
+              <h3>3. Playful Features Should Support Usefulness</h3>
+              <p>Check-ins, stories, badges, and records should make exploration more memorable without distracting from navigation confidence.</p>
+            </article>
+          </div>
+        </section>
+      </div>
+
+      <section class="research-panel research-personas" aria-labelledby="research-personas-title">
+      <h3 class="research-subsection-title" id="research-personas-title">Personas</h3>
       <div class="persona-top-title">Li Hua - Freshman / Primary User</div>
       <div class="persona-detail-card">
         <div class="persona-detail-layout">
@@ -1386,6 +1741,7 @@
           </div>
         </div>
       </div>
+      </section>
     </div>
   </section>
 
@@ -1711,7 +2067,6 @@
       <section class="alt-panel" aria-labelledby="logic-title">
         <div class="panel-header">
           <div>
-            <p class="section-kicker">Design logic</p>
             <h2 class="alt-heading" id="logic-title">From Requirements to Alternative Concepts</h2>
             <p class="panel-intro">The alternatives were generated from the requirement pool. We focused on four design tensions: users need efficient navigation, but the experience also has to be understandable, inclusive, and playful enough to support campus exploration.</p>
           </div>
@@ -1745,7 +2100,6 @@
       <section class="alt-panel no-frame" aria-labelledby="alternatives-title">
         <div class="panel-header">
           <div>
-            <p class="section-kicker">Alternative concepts</p>
             <h2 class="alt-heading" id="alternatives-title">Three Possible Ways the System Could Work</h2>
             <p class="panel-intro">Each alternative focuses on a different primary interaction model. The comparison helped us decide whether PuPath should behave mainly like a map tool, a guided tour system, or a playful discovery platform.</p>
           </div>
@@ -1826,7 +2180,6 @@
       <section class="alt-panel" aria-labelledby="comparison-title">
         <div class="panel-header">
           <div>
-            <p class="section-kicker">Comparison matrix</p>
             <h2 class="alt-heading" id="comparison-title">Alternative Evaluation</h2>
             <p class="panel-intro">We compared the alternatives against the main requirements identified earlier. The goal was not to pick the most playful option alone, but to find the best balance between reliable navigation, usability, inclusivity, and playful exploration.</p>
           </div>
@@ -1898,7 +2251,6 @@
       <section class="alt-panel" aria-labelledby="decision-title">
         <div class="panel-header">
           <div>
-            <p class="section-kicker">Final decision</p>
             <h2 class="alt-heading" id="decision-title">Selected Direction: Map-based Scenario Campus Tour with Playful Discovery</h2>
             <p class="panel-intro">The final PuPath concept does not choose only one alternative. Instead, it combines the most useful parts of all three alternatives, while keeping the navigation task as the foundation.</p>
           </div>
@@ -1919,7 +2271,6 @@
       <section class="alt-panel" aria-labelledby="trace-title">
         <div class="panel-header">
           <div>
-            <p class="section-kicker">Requirement traceability</p>
             <h2 class="alt-heading" id="trace-title">How the Final Direction Responds to Requirements</h2>
             <p class="panel-intro">The selected direction directly connects back to the core and playful requirements from the previous section.</p>
           </div>
@@ -1948,11 +2299,6 @@
               <li>Exploration continuity is supported by favorites, visited records, and recent views.</li>
             </ul>
           </article>
-        </div>
-
-        <div class="quote-box">
-          <strong>Transition to Low-Fi Prototype</strong>
-          <p>Based on this final direction, the next step is to create a low-fidelity prototype that tests the combined flow: finding a POI, choosing a scenario route, following route progress, completing check-ins, and saving or revisiting campus exploration records.</p>
         </div>
       </section>
     </div>
@@ -2259,6 +2605,11 @@
         <li>M. H. A. Abuelgasim, S. A. Alwadaee, and M. S. Saleh, "Smart campus navigation system using web and mobile application," <em>Journal of King Saud University - Computer and Information Sciences</em>, vol. 34, no. 8, pp. 5210-5222, 2022.</li>
         <li>N. Shakeel, M. H. Saeed, and M. U. Khan, "Context-aware campus guidance application with gamification and personalized recommendation," <em>Sustainability</em>, vol. 15, no. 3, p. 1784, 2023.</li>
         <li>L. Shang, Y. Liu, and J. Wang, "Design and implementation of a multilingual campus navigation system for international universities," <em>Mobile Information Systems</em>, vol. 2021, pp. 1-11, 2021.</li>
+        <li>D. Yesiltepe, R. C. Dalton, and A. Ozbil Torun, "Landmarks in wayfinding: a review of the existing literature," <em>Cognitive Processing</em>, vol. 22, pp. 369-410, 2021.</li>
+        <li>S. Cai, L.-S. Pei, and P.-F. Shi, "Mobile Campus Touring System based on AR and GPS: a Case Study of Campus Cultural Activity," <em>International Conference on Computers in Education</em>, 2013.</li>
+        <li>K. Clements, "Designing a GPS Mobile Tour: A Lesson in User-Centered Design," <em>International Journal of Designs for Learning</em>, vol. 8, no. 2, 2017.</li>
+        <li>J. Kim and D. M. Castelli, "Effects of Gamification on Behavioral Change in Education: A Meta-Analysis," <em>International Journal of Environmental Research and Public Health</em>, vol. 18, no. 7, p. 3550, 2021.</li>
+        <li>C. Prandi, V. Nisi, P. Salomoni, and N. J. Nunes, "Accessible wayfinding and navigation: a systematic mapping study," <em>Universal Access in the Information Society</em>, vol. 22, pp. 185-212, 2023.</li>
       </ol>
       <h3>Commercial / Product References</h3>
       <ol>
