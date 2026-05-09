@@ -81,15 +81,18 @@
       background: rgba(63, 93, 113, 0.88);
       backdrop-filter: blur(14px);
       border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+      overflow-x: auto;
     }
     .nav-container {
-      max-width: 1180px;
+      max-width: 1360px;
       margin: 0 auto;
       display: flex;
       justify-content: center;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
+      min-width: max-content;
+      padding: 0 10px;
     }
-    .navbar a { color: #fff; text-decoration: none; padding: 14px 16px; font-size: 0.95rem; }
+    .navbar a { color: #fff; text-decoration: none; padding: 14px 11px; font-size: 0.9rem; white-space: nowrap; }
 
     .section-lead { max-width: 900px; margin: 0 auto 24px; }
     #intro .section-lead,
@@ -1771,8 +1774,7 @@
     }
 
     @media (max-width: 768px) {
-      .navbar { overflow-x: auto; }
-      .nav-container { justify-content: flex-start; flex-wrap: nowrap; width: max-content; min-width: 100%; padding: 0 8px; }
+      .nav-container { justify-content: flex-start; width: max-content; min-width: 100%; padding: 0 8px; }
       .navbar a { flex: 0 0 auto; white-space: nowrap; padding: 12px; font-size: 0.9rem; }
       section { padding: 60px 14px; }
       .data-table th, .data-table td { padding: 12px; font-size: 0.9rem; }
@@ -1801,7 +1803,7 @@
       <a href="#intro">Overview</a><a href="#team-members">Team</a><a href="#motivation">Motivation</a><a href="#research">Research</a>
       <a href="#user-requirements">User Requirements</a>
       <a href="#ideation">Ideation</a><a href="#alternatives">Alternatives</a><a href="#prototype">Prototype</a><a href="#implementation">Implementation</a>
-      <a href="#evaluation">Evaluation</a><a href="#iteration">Iteration</a><a href="#ai-reflection">Reflection</a><a href="#references">References</a>
+      <a href="#evaluation">Evaluation</a><a href="#ai-reflection">Reflection</a><a href="#references">References</a>
     </div>
   </nav>
 
@@ -2944,7 +2946,7 @@
         <div class="timeline-item"><div class="timeline-content"><h3>Phase 4: Low-Fi Prototype</h3><p><strong>Goal:</strong> Test page hierarchy and entry flow.</p><p><strong>Output:</strong> Low-fi sketches and Figma prototype.</p><p><strong>Evidence:</strong> Low-fi screenshots and Crazy Eights photos.</p></div></div>
         <div class="timeline-item"><div class="timeline-content"><h3>Phase 5: High-Fi Design</h3><p><strong>Goal:</strong> Refine the visual interface and interaction flow.</p><p><strong>Output:</strong> Home, Map, Tours, Check-in, and My page designs.</p><p><strong>Evidence:</strong> High-fi prototype screenshots.</p></div></div>
         <div class="timeline-item"><div class="timeline-content"><h3>Phase 6: PWA Implementation</h3><p><strong>Goal:</strong> Implement a working web-based prototype.</p><p><strong>Output:</strong> Public live demo.</p><p><strong>Evidence:</strong> GitHub Pages demo link and technology stack.</p></div></div>
-        <div class="timeline-item"><div class="timeline-content"><h3>Phase 7: Internal Evaluation</h3><p><strong>Goal:</strong> Identify technical and usability issues before public testing.</p><p><strong>Output:</strong> Internal issue list and quick fixes.</p><p><strong>Evidence:</strong> Iterative refinement section.</p></div></div>
+        <div class="timeline-item"><div class="timeline-content"><h3>Phase 7: Internal Evaluation</h3><p><strong>Goal:</strong> Identify technical and usability issues before public testing.</p><p><strong>Output:</strong> Internal issue list and quick fixes.</p><p><strong>Evidence:</strong> Evaluation section.</p></div></div>
         <div class="timeline-item"><div class="timeline-content"><h3>Phase 8: Public Evaluation and Revision</h3><p><strong>Goal:</strong> Test the high-fi prototype with representative users.</p><p><strong>Output:</strong> Usability results and design changes.</p><p><strong>Evidence:</strong> Evaluation table and before/after iteration cards.</p></div></div>
       </div>
     </div>
@@ -3049,17 +3051,12 @@
             <article class="eval-finding-card"><h3>Finding 6: Privacy explanation should be clearer</h3><p>Because PuPath stores records locally, the interface should explain that user records are saved on the current device and can be cleared.</p></article>
           </div>
         </section>
-      </div>
-    </div>
-  </section>
 
-  <section id="iteration" class="reveal">
-    <div class="section-shell">
-      <h2>Iterative Refinement</h2>
-      <div class="iteration-shell">
+        <div id="iteration" class="iteration-shell">
         <section class="iteration-panel">
           <div class="iteration-panel-header">
             <div>
+              <h3 id="iteration-title">Iterative Refinement</h3>
               <p class="iteration-panel-intro">Based on the usability testing feedback, we identified several interface changes. Each refinement below pairs the design rationale with before-and-after interface screenshots from the Alpha and refined versions.</p>
             </div>
           </div>
@@ -3107,6 +3104,7 @@
             </article>
           </div>
         </section>
+      </div>
       </div>
     </div>
   </section>
