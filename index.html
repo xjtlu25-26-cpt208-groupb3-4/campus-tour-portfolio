@@ -534,76 +534,145 @@
   <section id="journey-map" class="reveal">
     <div class="section-shell">
       <h2>User Journey Map</h2>
-      <div class="section-checkpoint">Primary scenario: Li Hua, a freshman, enters campus during orientation week and wants to understand where to go first.</div>
-      <h3>Baseline Journey: First-time Campus Orientation Without PuPath</h3>
-      <div class="table-wrap">
-        <table class="data-table">
-          <thead><tr><th>Persona</th><th>Stage</th><th>User Action</th><th>Pain Point</th><th>Emotion</th><th>Opportunity</th></tr></thead>
-          <tbody>
-            <tr><td>Li Hua</td><td>Arrival</td><td>Enters campus from the main gate and tries to decide the first stop.</td><td>No clear first-step orientation for a freshman during the first visit.</td><td>Anxious</td><td>Provide identity-based first-step guidance and suggested starter routes.</td></tr>
-            <tr><td>Li Hua</td><td>Searching</td><td>Searches for a classroom, canteen, or service office by building name.</td><td>Building labels show location but not usage priority, context, or why it matters now.</td><td>Confused</td><td>Add POI cards with campus-specific descriptions and newcomer-oriented context.</td></tr>
-            <tr><td>Li Hua</td><td>Moving</td><td>Walks between unfamiliar buildings while comparing possible paths.</td><td>Cannot judge whether a route is beginner-friendly, efficient, or suitable for current time pressure.</td><td>Uncertain</td><td>Provide structured themed routes with clearer path logic and movement guidance.</td></tr>
-            <tr><td>Li Hua</td><td>Exploring</td><td>Reaches places passively and often skips non-obvious but important campus points.</td><td>Exploration lacks motivation and key stories/services are easily missed.</td><td>Passive</td><td>Add check-ins, badges, and discovery prompts to encourage active exploration.</td></tr>
-          </tbody>
-        </table>
+      <h3 class="journey-copy-title">User Journey Map Comparison</h3>
+      <p class="journey-copy-text">To understand how PuPath improves the campus navigation experience, we created two connected user journey maps. The first map describes the current journey without PuPath, where new students and visitors rely on scattered information, generic map tools, and help from others. The second map presents the improved journey with PuPath, showing how the same user can move from uncertainty to guided, safer, and more confident campus exploration.</p>
+      <style>
+        .journey-compare { --bg:#eef2f6; --paper:#fff; --ink:#172033; --muted:#667085; --line:#d7dde7; --blue:#1f5fbf; --blue-2:#e8f0ff; --green:#20734d; --green-2:#e8f5ee; --red:#b44438; --red-2:#fae8e5; }
+        .journey-compare .journey-copy-title {
+          margin: 0 0 8px;
+          color: var(--deep-blue);
+          font-size: 1.5rem;
+          line-height: 1.3;
+          font-weight: 700;
+        }
+        .journey-compare .journey-copy-text { margin: 0 0 18px; font-size: 1rem; }
+        .journey-compare .journey { margin:0 0 22px; padding:24px; background:var(--paper); border:1px solid var(--line); border-radius:12px; }
+        .journey-compare .top { display:grid; grid-template-columns:1.4fr .9fr .8fr; gap:16px; margin-bottom:18px; }
+        .journey-compare .eyebrow { margin:0 0 8px; color:var(--blue); font-size:12px; font-weight:700; text-transform:uppercase; }
+        .journey-compare h3 { margin:0 0 8px; font-size:1.9rem; color:var(--ink); }
+        .journey-compare .intro { margin:0; color:#475467; font-size:14px; }
+        .journey-compare .meta { padding:14px; background:#f3f6fa; border:1px solid var(--line); border-radius:8px; }
+        .journey-compare .meta h4 { margin:0 0 8px; color:var(--ink); }
+        .journey-compare .meta-row { display:grid; grid-template-columns:72px 1fr; gap:8px; margin-top:7px; font-size:12px; }
+        .journey-compare .meta-row strong { color:var(--muted); }
+        .journey-compare .scorecard { display:grid; gap:8px; }
+        .journey-compare .score { padding:10px 12px; border:1px solid var(--line); border-radius:8px; background:#fbfcfe; font-size:12px; }
+        .journey-compare .score strong { display:block; font-size:16px; }
+        .journey-compare .without .eyebrow { color:var(--red); } .journey-compare .without .score strong { color:var(--red); }
+        .journey-compare .with .eyebrow { color:var(--green); } .journey-compare .with .score strong { color:var(--green); }
+        .journey-compare .stages { display:grid; grid-template-columns:110px repeat(7,1fr); border:1px solid var(--line); border-bottom:0; }
+        .journey-compare .corner,.journey-compare .stage { min-height:96px; padding:12px; border-right:1px solid var(--line); border-bottom:1px solid var(--line); background:#fbfcfe; }
+        .journey-compare .stage:last-child,.journey-compare .cell:last-child { border-right:0; }
+        .journey-compare .index { display:inline-flex; align-items:center; justify-content:center; width:24px; height:24px; margin-bottom:8px; border-radius:999px; color:#fff; font-size:12px; font-weight:700; }
+        .journey-compare .without .index { background:var(--red); } .journey-compare .with .index { background:var(--green); }
+        .journey-compare .stage h4 { margin:0 0 6px; color:var(--ink); font-size:14px; } .journey-compare .stage p { margin:0; color:var(--muted); font-size:11.5px; }
+        .journey-compare .lane { display:grid; grid-template-columns:110px repeat(7,1fr); border-left:1px solid var(--line); border-right:1px solid var(--line); }
+        .journey-compare .label,.journey-compare .cell { min-height:86px; padding:12px; border-right:1px solid var(--line); border-bottom:1px solid var(--line); font-size:12px; }
+        .journey-compare .label { background:#f7f9fc; color:#52677f; font-weight:700; }
+        .journey-compare .pain { background:var(--red-2); color:#6f2c26; } .journey-compare .solution { background:var(--green-2); color:#1f4f39; } .journey-compare .evidence { background:var(--blue-2); color:#234b8f; }
+        .journey-compare .quote { font-style:italic; color:#35465d; }
+        .journey-compare .tag { display:inline-block; margin:0 5px 6px 0; padding:4px 7px; border-radius:999px; background:#eef2f7; color:#42526b; font-size:10.5px; font-weight:700; }
+        .journey-compare .tag.red { background:#f6d7d3; color:#88372e; } .journey-compare .tag.green { background:#d8efdf; color:#255f3a; }
+        .journey-compare .emotion .bar { width:100%; height:12px; margin-top:6px; overflow:hidden; border-radius:999px; background:#dfe6ef; }
+        .journey-compare .emotion .bar span { display:block; height:100%; border-radius:inherit; }
+        .journey-compare .emotion .down span { background:linear-gradient(90deg,#dca647,#cf6c50,#a64135); } .journey-compare .emotion .up span { background:linear-gradient(90deg,#dca647,#4389d4,#277a51); }
+        .journey-compare .emotion small { display:block; margin-top:8px; color:var(--muted); font-weight:700; }
+        .journey-compare .bottom { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-top:16px; }
+        .journey-compare .note { min-height:116px; padding:14px; border:1px solid var(--line); border-radius:8px; background:#fbfcfe; }
+        .journey-compare .note h4 { margin:0 0 8px; color:var(--ink); } .journey-compare .note p { margin:0; color:#4c5d73; font-size:12px; }
+        @media (max-width: 1100px) { .journey-compare .top { grid-template-columns: 1fr; } .journey-compare .stages, .journey-compare .lane { min-width: 980px; } .journey-compare .scroll { overflow-x:auto; } .journey-compare .bottom { grid-template-columns:1fr 1fr; } }
+        @media (max-width: 700px) { .journey-compare .bottom { grid-template-columns:1fr; } }
+      </style>
+      <div class="journey-compare">
+        <section class="journey without">
+          <div class="top">
+            <div>
+              <p class="eyebrow">Journey Map 01 / Without PuPath</p>
+              <h3>Finding a campus destination with scattered information</h3>
+              <p class="intro">Scenario: a new student or visitor needs to find a classroom, teaching building, parking area, or campus service point at XJTLU SIP Campus without using PuPath.</p>
+            </div>
+            <aside class="meta">
+              <h4>Primary user</h4>
+              <div class="meta-row"><strong>Role</strong><span>Freshman / visitor / staff-led guest</span></div>
+              <div class="meta-row"><strong>Goal</strong><span>Arrive on time and understand where to go next</span></div>
+              <div class="meta-row"><strong>Context</strong><span>Unfamiliar building names, weak indoor precision, scattered campus information</span></div>
+            </aside>
+            <aside class="scorecard">
+              <div class="score"><strong>High friction</strong><span>Key places are hard to identify quickly</span></div>
+              <div class="score"><strong>Low confidence</strong><span>Generic maps do not explain campus-specific routes</span></div>
+              <div class="score"><strong>Safety gap</strong><span>Users lack timely hints for risky or unsuitable paths</span></div>
+            </aside>
+          </div>
+          <div class="scroll">
+            <div class="stages">
+              <div class="corner"></div>
+              <div class="stage"><span class="index">1</span><h4>Plan before arrival</h4><p>Try to understand campus layout from memory or messages.</p></div>
+              <div class="stage"><span class="index">2</span><h4>Search the place</h4><p>Use generic map, chat history, or a web page.</p></div>
+              <div class="stage"><span class="index">3</span><h4>Arrive on campus</h4><p>Match building names with the real environment.</p></div>
+              <div class="stage"><span class="index">4</span><h4>Ask for help</h4><p>Ask students, staff, guards, or classmates.</p></div>
+              <div class="stage"><span class="index">5</span><h4>Walk and adjust</h4><p>Keep checking direction and correcting the route.</p></div>
+              <div class="stage"><span class="index">6</span><h4>Handle constraints</h4><p>Deal with weather, accessibility, language, or safety issues.</p></div>
+              <div class="stage"><span class="index">7</span><h4>Arrive and remember</h4><p>Reach destination but keep no reusable record.</p></div>
+            </div>
+            <div class="lane"><div class="label">User action</div><div class="cell">Checks WeChat messages, official pages, or screenshots from others.</div><div class="cell">Types a building name into Gaode or another map app.</div><div class="cell">Looks for signs and tries to connect abbreviations with actual buildings.</div><div class="cell">Interrupts someone nearby or calls a classmate for confirmation.</div><div class="cell">Walks, backtracks, and reopens the map when route feels wrong.</div><div class="cell">Makes personal judgement about rain, night walking, stairs, or road conditions.</div><div class="cell">Screenshots result or tries to remember route for next time.</div></div>
+            <div class="lane"><div class="label">Main pain points</div><div class="cell pain"><span class="tag red">Scattered info</span><br>Campus details are split across messages, websites, and word of mouth.</div><div class="cell pain"><span class="tag red">Low precision</span><br>Generic maps help outside campus but struggle with exact campus destinations.</div><div class="cell pain"><span class="tag red">Weak landmarks</span><br>Building names and real-world signs are hard to match quickly.</div><div class="cell pain"><span class="tag red">Dependency</span><br>The user relies on others, which slows visitors and staff reception.</div><div class="cell pain"><span class="tag red">Uncertain route</span><br>No clear route progress, stop order, or campus-specific logic.</div><div class="cell pain"><span class="tag red">Risk blind spot</span><br>No reliable prompt for inaccessible or unsuitable sections.</div><div class="cell pain"><span class="tag red">No continuity</span><br>Route is not saved as reusable campus memory.</div></div>
+            <div class="lane"><div class="label">Likely thought</div><div class="cell quote">"I know the name, but I still do not know where it is."</div><div class="cell quote">"The map points nearby, but is this the right entrance?"</div><div class="cell quote">"Which building am I looking at?"</div><div class="cell quote">"I have to ask again, otherwise I may be late."</div><div class="cell quote">"I am walking, but I cannot tell if I am getting closer."</div><div class="cell quote">"Can I take this path if it rains?"</div><div class="cell quote">"I found it this time, but next time I may need to search again."</div></div>
+            <div class="lane"><div class="label">Emotion</div><div class="cell emotion"><div class="bar down"><span style="width:55%"></span></div><small>3/5 unsure</small></div><div class="cell emotion"><div class="bar down"><span style="width:44%"></span></div><small>2/5 confused</small></div><div class="cell emotion"><div class="bar down"><span style="width:36%"></span></div><small>2/5 anxious</small></div><div class="cell emotion"><div class="bar down"><span style="width:42%"></span></div><small>2/5 dependent</small></div><div class="cell emotion"><div class="bar down"><span style="width:32%"></span></div><small>1/5 stressed</small></div><div class="cell emotion"><div class="bar down"><span style="width:38%"></span></div><small>2/5 cautious</small></div><div class="cell emotion"><div class="bar down"><span style="width:50%"></span></div><small>3/5 relieved</small></div></div>
+          </div>
+          <div class="bottom">
+            <div class="note"><h4>Research signal</h4><p>The strongest repeated pain is finding key locations such as classrooms, teaching buildings, and parking points.</p></div>
+            <div class="note"><h4>Interview signal</h4><p>Offline map plus real-time positioning was repeatedly identified as first priority.</p></div>
+            <div class="note"><h4>Impact</h4><p>Users lose time, confidence, and independence before reaching a destination.</p></div>
+            <div class="note"><h4>Design implication</h4><p>The product must first solve reliable wayfinding before adding lighter exploration features.</p></div>
+          </div>
+        </section>
+        <h3 class="journey-copy-title">From Pain Points to Design Response</h3>
+        <p class="journey-copy-text">Based on the pain points identified in the current journey, PuPath was designed as a campus-specific navigation and exploration tool rather than a generic map replacement. Scattered information is addressed through a single PWA entry point; unclear building recognition is supported by POI categories, photos, and detail cards; route uncertainty is reduced through scenario-based route cards and progress feedback; and safety concerns are supported through weather hints, emergency contacts, accessibility settings, and language options.</p>
+        <section class="journey with">
+          <div class="top">
+            <div>
+              <p class="eyebrow">Journey Map 02 / With PuPath</p>
+              <h3>Using PuPath to turn campus confusion into guided movement</h3>
+              <p class="intro">Scenario: the same user opens PuPath, chooses relevant identity and route, follows campus-specific navigation, receives support, and keeps a lightweight record.</p>
+            </div>
+            <aside class="meta">
+              <h4>Primary user</h4>
+              <div class="meta-row"><strong>Role</strong><span>Freshman / visitor / international user / staff guide</span></div>
+              <div class="meta-row"><strong>Goal</strong><span>Find the right place, follow the right route, and understand campus context</span></div>
+              <div class="meta-row"><strong>Context</strong><span>Uses existing PuPath features: POI map, route cards, Discover, identity switch, records</span></div>
+            </aside>
+            <aside class="scorecard">
+              <div class="score"><strong>Guided route</strong><span>Key actions are connected from search to navigation</span></div>
+              <div class="score"><strong>Higher confidence</strong><span>Route progress and place details reduce uncertainty</span></div>
+              <div class="score"><strong>Better fit</strong><span>Language, accessibility, weather, and identity settings support different users</span></div>
+            </aside>
+          </div>
+          <div class="scroll">
+            <div class="stages">
+              <div class="corner"></div>
+              <div class="stage"><span class="index">1</span><h4>Open PuPath</h4><p>Start from a campus-specific guide instead of scattered channels.</p></div>
+              <div class="stage"><span class="index">2</span><h4>Set context</h4><p>Choose identity, language, and accessibility preferences.</p></div>
+              <div class="stage"><span class="index">3</span><h4>Find destination</h4><p>Use POI map, categories, search, and place detail.</p></div>
+              <div class="stage"><span class="index">4</span><h4>Select route</h4><p>Pick a scenario route or start navigation from a POI.</p></div>
+              <div class="stage"><span class="index">5</span><h4>Navigate campus</h4><p>Follow current location, route progress, and stop list.</p></div>
+              <div class="stage"><span class="index">6</span><h4>Stay supported</h4><p>Use emergency contact, weather hint, language, and accessibility settings.</p></div>
+              <div class="stage"><span class="index">7</span><h4>Record and return</h4><p>Check in, save places, review visited history, and continue later.</p></div>
+            </div>
+            <div class="lane"><div class="label">PuPath response</div><div class="cell solution"><span class="tag green">No login</span><br>The user can enter directly through PWA and start campus tasks.</div><div class="cell solution"><span class="tag green">Personal fit</span><br>Identity switch, Chinese/English, and accessibility settings adjust experience.</div><div class="cell solution"><span class="tag green">POI clarity</span><br>POI map, categories, photos, and details make places easier to recognize.</div><div class="cell solution"><span class="tag green">Scenario route</span><br>Route cards and cross-campus paths support common tasks.</div><div class="cell solution"><span class="tag green">Progress feedback</span><br>Current location, progress, stop list, and check-in show movement.</div><div class="cell solution"><span class="tag green">Support layer</span><br>Emergency contacts, weather hints, voice toggle, and accessibility settings reduce risk.</div><div class="cell solution"><span class="tag green">Continuity</span><br>Favorites, want-to-go, visited, badges, recent views, and local reset support return use.</div></div>
+            <div class="lane"><div class="label">Pain solved</div><div class="cell">Replaces scattered messages with one focused campus entry.</div><div class="cell">Reduces language and accessibility barriers before walking.</div><div class="cell">Connects building names, visual recognition, and actions.</div><div class="cell">Turns broad navigation into task-based choices.</div><div class="cell">Reduces uncertainty by showing current journey position.</div><div class="cell">Adds safety and context a generic map does not provide.</div><div class="cell">Makes the visit reusable instead of one-time search.</div></div>
+            <div class="lane"><div class="label">Implemented features</div><div class="cell evidence"><span class="tag">PWA</span><span class="tag">No login</span><span class="tag">Home</span></div><div class="cell evidence"><span class="tag">Identity switch</span><span class="tag">EN/CN</span><span class="tag">Accessibility</span></div><div class="cell evidence"><span class="tag">POI map</span><span class="tag">Filters</span><span class="tag">Place detail</span></div><div class="cell evidence"><span class="tag">Route cards</span><span class="tag">Scenario routes</span><span class="tag">Cross-campus route</span></div><div class="cell evidence"><span class="tag">Current location</span><span class="tag">Route progress</span><span class="tag">Check-in</span></div><div class="cell evidence"><span class="tag">Emergency contacts</span><span class="tag">Weather</span><span class="tag">Voice guide</span></div><div class="cell evidence"><span class="tag">Favorites</span><span class="tag">Visited</span><span class="tag">Badges</span><span class="tag">Local reset</span></div></div>
+            <div class="lane"><div class="label">Emotion</div><div class="cell emotion"><div class="bar up"><span style="width:62%"></span></div><small>3/5 oriented</small></div><div class="cell emotion"><div class="bar up"><span style="width:70%"></span></div><small>4/5 included</small></div><div class="cell emotion"><div class="bar up"><span style="width:78%"></span></div><small>4/5 confident</small></div><div class="cell emotion"><div class="bar up"><span style="width:82%"></span></div><small>4/5 ready</small></div><div class="cell emotion"><div class="bar up"><span style="width:86%"></span></div><small>4/5 in control</small></div><div class="cell emotion"><div class="bar up"><span style="width:80%"></span></div><small>4/5 safer</small></div><div class="cell emotion"><div class="bar up"><span style="width:88%"></span></div><small>5/5 satisfied</small></div></div>
+          </div>
+          <div class="bottom">
+            <div class="note"><h4>Core demand covered</h4><p>Find key campus places and navigate with higher confidence.</p></div>
+            <div class="note"><h4>Scenario demand covered</h4><p>Route cards and POI actions turn goals into direct movement.</p></div>
+            <div class="note"><h4>Safety demand covered</h4><p>Emergency contacts, weather hints, and accessibility settings support high-risk moments.</p></div>
+            <div class="note"><h4>Experience demand covered</h4><p>Discover, check-ins, badges, and records make exploration easier to continue.</p></div>
+          </div>
+        </section>
       </div>
-      <h3>Validated Journey: First-time Campus Orientation in the Current PuPath MVP</h3>
-      <div class="table-wrap">
-        <table class="data-table">
-          <thead>
-            <tr>
-              <th>Step</th>
-              <th>User Action</th>
-              <th>MVP Value</th>
-              <th>Implemented Feature</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Step 1: Choose Language and Identity</td>
-              <td>Selects preferred language and user mode before exploring.</td>
-              <td>Reduces comprehension barriers and irrelevant content at entry.</td>
-              <td>Chinese/English switching and identity modes (student, visitor, staff).</td>
-            </tr>
-            <tr>
-              <td>Step 2: Open Home</td>
-              <td>Starts from the home panel and views recommended quick entries.</td>
-              <td>Gets clear first-step guidance with lower decision pressure.</td>
-              <td>Identity-aware home recommendations and quick action cards.</td>
-            </tr>
-            <tr>
-              <td>Step 3: Explore Map</td>
-              <td>Browses POIs, route overlays, and map details.</td>
-              <td>Understands where to go using structured context instead of raw labels.</td>
-              <td>Multi-route overlays, time/distance filters, and underground-passage-priority routing support.</td>
-            </tr>
-            <tr>
-              <td>Step 4: Start a Tour</td>
-              <td>Starts a core, themed, or custom route based on purpose.</td>
-              <td>Follows meaningful and scenario-based campus movement.</td>
-              <td>Core/theme tour modules and custom route composition.</td>
-            </tr>
-            <tr>
-              <td>Step 5: Check In</td>
-              <td>Completes route points and performs location-based daily check-ins.</td>
-              <td>Receives immediate playful feedback that sustains exploration motivation.</td>
-              <td>Daily check-in logic, collectible feedback, and badge auto-unlock triggers.</td>
-            </tr>
-            <tr>
-              <td>Step 6: Discover and View Details</td>
-              <td>Opens recommendation cards and place detail pages during exploration.</td>
-              <td>Understands why places matter, not only how to reach them.</td>
-              <td>Category recommendations, story-oriented content, and detailed place pages.</td>
-            </tr>
-            <tr>
-              <td>Step 7: Review Records and Accessibility</td>
-              <td>Checks My page records and adjusts accessibility preferences.</td>
-              <td>Maintains continuity across visits and improves individual usability.</td>
-              <td>Favorites, wishlist, visited/recent records, route history, and accessibility settings.</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      <h3 class="journey-copy-title">Design Implications</h3>
+      <p class="journey-copy-text">Comparing the two journey maps shows that PuPath should prioritize reliable wayfinding first, then add lightweight playful features to encourage continued exploration. The final design therefore combines practical navigation with playful exploration features such as check-ins, badges, visited records, and discoverable campus information.</p>
     </div>
   </section>
 
