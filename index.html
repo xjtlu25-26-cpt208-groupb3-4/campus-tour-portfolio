@@ -92,6 +92,13 @@
     .navbar a { color: #fff; text-decoration: none; padding: 14px 16px; font-size: 0.95rem; }
 
     .section-lead { max-width: 900px; margin: 0 auto 24px; }
+    #intro .section-lead,
+    #team-members .section-lead,
+    #motivation .section-lead {
+      max-width: 100%;
+      text-align: justify;
+      text-justify: inter-word;
+    }
     #ideation .section-lead {
       max-width: 100%;
       margin: 0 0 24px;
@@ -174,6 +181,309 @@
       background: rgba(53, 92, 125, 0.08);
     }
 
+    #prototype .prototype-shell {
+      display: grid;
+      gap: 24px;
+    }
+    #prototype .prototype-panel {
+      background: transparent;
+      border: 0;
+      box-shadow: none;
+      padding: 0;
+    }
+    #prototype .prototype-lead,
+    #prototype .prototype-panel-intro {
+      max-width: none;
+      color: var(--muted);
+      text-align: justify;
+      text-justify: inter-word;
+    }
+    #prototype .prototype-lead {
+      margin-bottom: 0;
+      font-size: 1.02rem;
+    }
+    #prototype .prototype-panel-header {
+      margin-bottom: 16px;
+    }
+    #prototype .prototype-link-box {
+      margin: 12px 0 16px;
+      padding: 13px 15px;
+      border: 1px solid rgba(74, 137, 220, 0.28);
+      border-radius: 14px;
+      background: rgba(74, 137, 220, 0.1);
+      color: var(--muted);
+    }
+    #prototype .prototype-link-box strong {
+      display: inline-block;
+      margin-right: 8px;
+      color: var(--deep-blue);
+    }
+    #prototype .prototype-link-box a {
+      color: var(--deep-blue);
+      font-weight: 800;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    #prototype .prototype-tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+    #prototype .prototype-tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(53, 92, 125, 0.1);
+      color: var(--deep-blue);
+      font-size: 0.78rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+    #prototype .tone-blue { background: rgba(74, 137, 220, 0.12); color: #1f5fbf; }
+    #prototype .tone-green { background: rgba(46, 139, 87, 0.12); color: #20734d; }
+    #prototype .tone-purple { background: rgba(115, 91, 191, 0.12); color: #5b4bb7; }
+    #prototype .tone-amber { background: rgba(214, 163, 40, 0.16); color: #9a6417; }
+    #prototype .prototype-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+    #prototype .prototype-card {
+      padding: 14px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.7);
+      box-shadow: var(--shadow);
+    }
+    #prototype .prototype-shot {
+      width: 100%;
+      aspect-ratio: 9 / 16;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      margin-bottom: 10px;
+      border: 1px solid rgba(53, 92, 125, 0.12);
+      border-radius: 18px;
+      background: #fff;
+    }
+    #prototype .prototype-shot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    #prototype .prototype-card p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    #prototype .caption-title {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--ink);
+      font-size: 0.86rem;
+      font-weight: 800;
+    }
+    #prototype .prototype-table-wrap {
+      overflow-x: auto;
+      margin: 0;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: var(--card-bg);
+      box-shadow: var(--shadow);
+    }
+    #prototype .prototype-table-wrap .data-table {
+      min-width: 820px;
+      box-shadow: none;
+      border-radius: 0;
+    }
+    @media (max-width: 980px) {
+      #prototype .prototype-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 620px) {
+      #prototype .prototype-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    #ai-reflection {
+      --reflection-bg: #f5f7fb;
+      --reflection-ink: #172033;
+      --reflection-muted: #536275;
+      --reflection-subtle: #f8fafc;
+      --reflection-line-soft: #edf1f6;
+      --reflection-blue: #1f5fbf;
+      --reflection-blue-soft: #e8f0ff;
+      --reflection-green: #20734d;
+      --reflection-green-soft: #e8f5ee;
+      --reflection-purple: #5b4bb7;
+      --reflection-purple-soft: #f0edff;
+      --reflection-amber: #b7791f;
+      --reflection-amber-soft: #fff3d8;
+      --reflection-radius-md: 14px;
+      background: transparent !important;
+      color: var(--reflection-ink);
+    }
+    #ai-reflection .reflection-shell {
+      display: grid;
+      gap: 24px;
+    }
+    #ai-reflection .panel {
+      background: transparent;
+      border: 0;
+      padding: 0;
+      box-shadow: none;
+    }
+    #ai-reflection h2,
+    #ai-reflection h3,
+    #ai-reflection h4,
+    #ai-reflection p {
+      margin-top: 0;
+    }
+    #ai-reflection h2 {
+      margin-bottom: 24px;
+      color: var(--deep-blue);
+      font-size: clamp(1.9rem, 3vw, 2.6rem);
+      line-height: 1.2;
+      letter-spacing: 0;
+      text-align: center;
+    }
+    #ai-reflection h3 {
+      margin-bottom: 10px;
+      color: var(--deep-blue);
+      font-size: 1.05rem;
+      line-height: 1.25;
+    }
+    #ai-reflection h4 {
+      margin: 16px 0 8px;
+      color: #35465d;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    #ai-reflection .lead,
+    #ai-reflection .panel-intro {
+      max-width: none;
+      margin-bottom: 0;
+      color: var(--reflection-muted);
+      font-size: 14px;
+      text-align: justify;
+      text-justify: inter-word;
+    }
+    #ai-reflection .lead {
+      font-size: 15px;
+    }
+    #ai-reflection .reflection-grid,
+    #ai-reflection .lesson-grid,
+    #ai-reflection .ai-grid {
+      display: grid;
+      gap: 16px;
+    }
+    #ai-reflection .reflection-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    #ai-reflection .lesson-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    #ai-reflection .ai-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    #ai-reflection .reflection-card,
+    #ai-reflection .lesson-card,
+    #ai-reflection .ai-card,
+    #ai-reflection .takeaway-card {
+      padding: 18px;
+      border: 1px solid var(--reflection-line-soft);
+      border-radius: var(--reflection-radius-md);
+      background: var(--reflection-subtle);
+    }
+    #ai-reflection .reflection-card,
+    #ai-reflection .ai-card {
+      position: relative;
+      overflow: hidden;
+    }
+    #ai-reflection .reflection-card::before,
+    #ai-reflection .ai-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 4px;
+      background: var(--reflection-blue);
+    }
+    #ai-reflection .reflection-card.ethics::before { background: var(--reflection-green); }
+    #ai-reflection .reflection-card.technical::before { background: var(--reflection-purple); }
+    #ai-reflection .reflection-card.ai-summary::before { background: var(--reflection-amber); }
+    #ai-reflection .ai-card.verify::before { background: var(--reflection-green); }
+    #ai-reflection .ai-card.ethical::before { background: var(--reflection-purple); }
+    #ai-reflection .ai-card.citation::before { background: var(--reflection-amber); }
+    #ai-reflection .reflection-card p,
+    #ai-reflection .lesson-card p,
+    #ai-reflection .ai-card p,
+    #ai-reflection .takeaway-card p,
+    #ai-reflection .reflection-card li,
+    #ai-reflection .ai-card li {
+      color: var(--reflection-muted);
+      font-size: 13px;
+    }
+    #ai-reflection .reflection-card p,
+    #ai-reflection .lesson-card p,
+    #ai-reflection .ai-card p,
+    #ai-reflection .takeaway-card p {
+      margin-bottom: 0;
+    }
+    #ai-reflection .reflection-card ul,
+    #ai-reflection .ai-card ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+    #ai-reflection .reflection-card li + li,
+    #ai-reflection .ai-card li + li {
+      margin-top: 5px;
+    }
+    #ai-reflection .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    #ai-reflection .tag {
+      display: inline-flex;
+      align-items: center;
+      margin-bottom: 0;
+      padding: 5px 8px;
+      border-radius: 999px;
+      background: #eef2f7;
+      color: #42526b;
+      font-size: 11px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+    #ai-reflection .tone-blue { background: var(--reflection-blue-soft); color: var(--reflection-blue); }
+    #ai-reflection .tone-green { background: var(--reflection-green-soft); color: var(--reflection-green); }
+    #ai-reflection .tone-purple { background: var(--reflection-purple-soft); color: var(--reflection-purple); }
+    #ai-reflection .tone-amber { background: var(--reflection-amber-soft); color: var(--reflection-amber); }
+    #ai-reflection .takeaway-card {
+      background: var(--reflection-blue-soft);
+      border-color: #cbdcff;
+    }
+    #ai-reflection .takeaway-card strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--reflection-blue);
+      font-size: 13px;
+    }
+    @media (max-width: 980px) {
+      #ai-reflection .reflection-grid,
+      #ai-reflection .lesson-grid,
+      #ai-reflection .ai-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
     .two-column-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; margin-top: 14px; }
     .placeholder { outline: 2px dashed rgba(53, 92, 125, 0.28); background: rgba(255, 255, 255, 0.62); }
 
@@ -234,6 +544,18 @@
     .detail-column-right .chart-container { flex: 1; }
 
     .journey-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 22px; }
+
+    #user-requirements .user-req-subtitle {
+      margin: 34px 0 18px;
+      color: var(--deep-blue);
+      font-size: 1.5rem;
+      line-height: 1.3;
+      font-weight: 700;
+      text-align: left;
+    }
+    #user-requirements #requirements.requirements-list {
+      width: 100%;
+    }
 
     #research .research-shell {
       display: grid;
@@ -386,6 +708,53 @@
       #research .implication-grid {
         grid-template-columns: 1fr;
       }
+    }
+
+    #evidence-life .section-lead {
+      max-width: 100%;
+      text-align: justify;
+      text-justify: inter-word;
+    }
+    .life-evidence-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+      margin-top: 24px;
+    }
+    .life-evidence-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+      padding: 18px;
+    }
+    .life-evidence-placeholder {
+      min-height: 180px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 12px;
+      border: 2px dashed rgba(53, 92, 125, 0.28);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.62);
+      color: #6f8294;
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-align: center;
+    }
+    .life-evidence-card img {
+      width: 100%;
+      min-height: 180px;
+      max-height: 260px;
+      object-fit: cover;
+      display: block;
+      margin-bottom: 12px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.62);
+      border: 2px dashed rgba(53, 92, 125, 0.28);
+    }
+    .life-evidence-card figcaption {
+      color: #4a6478;
+      font-size: 0.95rem;
     }
 
     #requirements.requirements-list {
@@ -1076,11 +1445,14 @@
 }
 #evaluation .eval-panel-header,
 #iteration .iteration-panel-header {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: 18px;
-  align-items: end;
+  display: block;
   margin-bottom: 18px;
+}
+#iteration .iteration-panel-intro {
+  max-width: none;
+  width: 100%;
+  text-align: justify;
+  text-justify: inter-word;
 }
 #evaluation .eval-chip-row,
 #iteration .iteration-chip-row,
@@ -1143,7 +1515,7 @@
 #evaluation .eval-method-grid,
 #evaluation .eval-finding-grid,
 #iteration .iteration-grid {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: 1fr;
 }
 #evaluation .eval-goal-card,
 #evaluation .eval-method-card,
@@ -1161,6 +1533,21 @@
 #iteration .iteration-card,
 #iteration .iteration-note-box {
   padding: 18px;
+}
+#iteration .iteration-card {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.85fr) minmax(0, 1.45fr);
+  gap: 16px 24px;
+  align-items: start;
+}
+#iteration .iteration-card > h3,
+#iteration .iteration-card > p,
+#iteration .iteration-card > .iteration-meta {
+  grid-column: 1;
+}
+#iteration .iteration-card > .iteration-before-after-grid {
+  grid-column: 2;
+  grid-row: 1 / span 3;
 }
 #evaluation .eval-goal-card h3,
 #evaluation .eval-method-card h3,
@@ -1233,15 +1620,16 @@
 }
 #iteration .iteration-before-after-grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 12px;
-  margin: 12px 0;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 0;
 }
 #iteration .iteration-screenshot-box {
-  min-height: 260px;
+  min-height: 420px;
   display: grid;
   place-items: center;
-  padding: 18px;
+  position: relative;
+  padding: 34px 12px 12px;
   border: 1px dashed #c4ccd8;
   border-radius: 12px;
   background: #ffffff;
@@ -1249,6 +1637,35 @@
   text-align: center;
   font-size: 12px;
   font-weight: 700;
+  overflow: hidden;
+}
+#iteration .iteration-screenshot-box::before {
+  content: attr(data-label);
+  position: absolute;
+  top: 10px;
+  left: 12px;
+  padding: 4px 9px;
+  border-radius: 999px;
+  background: #eef2f7;
+  color: #42526b;
+  font-size: 11px;
+  font-weight: 800;
+}
+#iteration .iteration-screenshot-box[data-label="Before"]::before {
+  background: #fdebea;
+  color: #b8453b;
+}
+#iteration .iteration-screenshot-box[data-label="After"]::before {
+  background: #e8f5ee;
+  color: #20734d;
+}
+#iteration .iteration-screenshot-box img {
+  width: 100%;
+  height: 100%;
+  max-height: 520px;
+  object-fit: contain;
+  display: block;
+  border-radius: 8px;
 }
 #iteration .iteration-meta {
   display: grid;
@@ -1300,10 +1717,28 @@
   #iteration .iteration-chip-row {
     justify-content: flex-start;
   }
+  #iteration .iteration-card {
+    grid-template-columns: 1fr;
+  }
+  #iteration .iteration-card > h3,
+  #iteration .iteration-card > p,
+  #iteration .iteration-card > .iteration-meta,
+  #iteration .iteration-card > .iteration-before-after-grid {
+    grid-column: 1;
+  }
+  #iteration .iteration-card > .iteration-before-after-grid {
+    grid-row: auto;
+  }
 }
 @media (max-width: 620px) {
   #evaluation .eval-metric-grid {
     grid-template-columns: 1fr;
+  }
+  #iteration .iteration-before-after-grid {
+    grid-template-columns: 1fr;
+  }
+  #iteration .iteration-screenshot-box {
+    min-height: 320px;
   }
 }
 
@@ -1364,9 +1799,9 @@
   <nav class="navbar">
     <div class="nav-container">
       <a href="#intro">Overview</a><a href="#team-members">Team</a><a href="#motivation">Motivation</a><a href="#research">Research</a>
-      <a href="#journey-map">Journey Map</a><a href="#requirements">Requirements</a>
+      <a href="#user-requirements">User Requirements</a>
       <a href="#ideation">Ideation</a><a href="#alternatives">Alternatives</a><a href="#prototype">Prototype</a><a href="#implementation">Implementation</a>
-      <a href="#evaluation">Evaluation</a><a href="#iteration">Iteration</a><a href="#ai-reflection">AI Reflection</a><a href="#references">References</a>
+      <a href="#evaluation">Evaluation</a><a href="#iteration">Iteration</a><a href="#ai-reflection">Reflection</a><a href="#references">References</a>
     </div>
   </nav>
 
@@ -1396,8 +1831,11 @@
         <article class="team-card"><img src="images/Zhanhao_Zhang.jpg" alt="Zhanhao Zhang"><h3>Zhanhao Zhang</h3><p><strong>ID:</strong> 2362498</p></article>
       </div>
       <div class="section-lead" style="margin-top: 20px;">
-        <p>The team worked across user research, interaction design, content planning, front-end implementation, testing, and presentation preparation. The detailed contribution table is provided in the Technical Implementation section.</p>
+        <p>The team worked across user research, interaction design, content planning, front-end implementation, testing, and presentation preparation.</p>
       </div>
+      <h3>Individual Contributions</h3>
+      <div class="table-wrap"><table class="data-table"><thead><tr><th>Member</th><th>Main Contributions</th><th>Contribution Percentage</th></tr></thead><tbody><tr><td>Linhua Dong</td><td>Project coding, project testing, and project content filling.</td><td>25%</td></tr><tr><td>Xi Han</td><td>UI design, requirement collection, and outcome presentation.</td><td>25%</td></tr><tr><td>Sihan Zhang</td><td>UI design, requirement collection, and outcome presentation.</td><td>25%</td></tr><tr><td>Zhanhao Zhang</td><td>Project coding, project testing, and project content filling.</td><td>25%</td></tr></tbody></table></div>
+      <p style="margin-top:10px; color:#4a6478; font-size:.95rem;">Note: Members are listed in alphabetical order by surname initial; this order does not indicate ranking or contribution priority.</p>
     </div>
   </section>
 
@@ -1745,9 +2183,10 @@
     </div>
   </section>
 
-  <section id="journey-map" class="reveal">
+  <section id="user-requirements" class="reveal">
     <div class="section-shell">
-      <h2>User Journey Map</h2>
+      <h2>User Requirements</h2>
+      <h3 class="user-req-subtitle">User Journey Map</h3>
       <h3 class="journey-copy-title">User Journey Map Comparison</h3>
       <p class="journey-copy-text">To understand how PuPath improves the campus navigation experience, we created two connected user journey maps. The first map describes the current journey without PuPath, where new students and visitors rely on scattered information, generic map tools, and help from others. The second map presents the improved journey with PuPath, showing how the same user can move from uncertainty to guided, safer, and more confident campus exploration.</p>
       <style>
@@ -1887,11 +2326,8 @@
       </div>
       <h3 class="journey-copy-title">Design Implications</h3>
       <p class="journey-copy-text">Comparing the two journey maps shows that PuPath should prioritize reliable wayfinding first, then add lightweight playful features to encourage continued exploration. The final design therefore combines practical navigation with playful exploration features such as check-ins, badges, visited records, and discoverable campus information.</p>
-    </div>
-  </section>
-
-  <section id="requirements" class="reveal requirements-list" aria-labelledby="requirements-title">
-    <h2 class="req-section-title" id="requirements-title">Requirements List</h2>
+  <div id="requirements" class="requirements-list" aria-labelledby="requirements-title">
+    <h3 class="req-section-title" id="requirements-title">Requirements List</h3>
     <div class="req-shell">
       <section class="req-hero" aria-label="Requirements overview">
         <div class="hero-grid">
@@ -2040,7 +2476,49 @@
         </div>
       </section>
     </div>
+  </div>
+
+  <div id="evidence-life" class="evidence-life-block">
+      <h3 class="user-req-subtitle">Evidence of Life</h3>
+      <div class="section-lead">
+        <p>This section is reserved for evidence showing the real project process, including field observation, user research, prototype discussion, testing, iteration, and teamwork. Replace the placeholders below with actual photos, screenshots, or process records before final submission.</p>
+      </div>
+      <div class="life-evidence-grid">
+        <figure class="life-evidence-card">
+          <!-- Replace with your on-site interview image, for example: images/evidence-onsite-interview.jpg -->
+          <img src="" alt="On-site interview evidence">
+          <figcaption>Evidence from an in-person campus interview with a target user or stakeholder.</figcaption>
+        </figure>
+        <figure class="life-evidence-card">
+          <!-- Replace with your online interview image, for example: images/evidence-online-interview.jpg -->
+          <img src="" alt="Online interview evidence">
+          <figcaption>Evidence from an online interview or remote communication with a participant.</figcaption>
+        </figure>
+        <figure class="life-evidence-card">
+          <!-- Replace with your questionnaire image, for example: images/evidence-questionnaire.jpg -->
+          <img src="" alt="Questionnaire evidence">
+          <figcaption>Evidence from the survey or questionnaire used to collect broader user feedback.</figcaption>
+        </figure>
+        <figure class="life-evidence-card">
+          <!-- Replace with your informed consent image, for example: images/evidence-informed-consent.jpg -->
+          <img src="" alt="Ethical informed consent evidence">
+          <figcaption>Evidence of the ethics or informed consent agreement used before collecting participant data.</figcaption>
+        </figure>
+        <figure class="life-evidence-card">
+          <!-- Replace with your map information image, for example: images/evidence-map-information.jpg -->
+          <img src="" alt="Map information evidence">
+          <figcaption>Evidence of campus map information, route references, or location data used during analysis.</figcaption>
+        </figure>
+        <figure class="life-evidence-card">
+          <!-- Replace with your campus field photo, for example: images/evidence-campus-field.jpg -->
+          <img src="" alt="Campus field photo evidence">
+          <figcaption>On-site campus photo showing the real environment, landmarks, routes, or navigation context.</figcaption>
+        </figure>
+      </div>
+    </div>
+    </div>
   </section>
+
     <section id="ideation" class="reveal">
     <div class="section-shell">
       <h2>Ideation &amp; Crazy Eights</h2>
@@ -2307,41 +2785,121 @@
   <section id="prototype" class="reveal">
     <div class="section-shell">
       <h2>Prototype</h2>
-      <h3>Low-Fi Prototype</h3>
-      <p>The low-fidelity prototype focused on page structure, navigation hierarchy, and whether users should start from a map, a route list, or a personalized home page.</p>
-      <p>Low-fi evaluation focused on information hierarchy, entry flow, and whether users understood the relationship between map, route, and personal progress.</p>
-      <p><a href="https://www.figma.com/make/oMC1PYgSyQ3NJO2UBSp8CN/Low-Fidelity-Campus-Tour-Prototype?p=f&t=CcBzSMy1zJVtsgG3-0&fullscreen=1" target="_blank" rel="noreferrer">Low-Fi Figma Prototype</a></p>
-      <div class="prototype-gallery">
-        <figure><img src="images/lowfi-1.jpg" alt="Low-Fi 1"><figcaption>Low-Fi 1</figcaption></figure>
-        <figure><img src="images/lowfi-2.jpg" alt="Low-Fi 2"><figcaption>Low-Fi 2</figcaption></figure>
-        <figure><img src="images/lowfi-3.jpg" alt="Low-Fi 3"><figcaption>Low-Fi 3</figcaption></figure>
-        <figure><img src="images/lowfi-4.jpg" alt="Low-Fi 4"><figcaption>Low-Fi 4</figcaption></figure>
-      </div>
-      <h3>High-Fi Prototype</h3>
-      <p><a href="https://xjtlu25-26-cpt208-groupb3-4.github.io/PuPath/" target="_blank" rel="noreferrer">Live Demo</a></p>
-      <p>The high-fi prototype demonstrates map navigation, cross-campus routing, themed/custom tours, place details, check-in and collectible feedback, badge auto-unlock, bilingual switching, weather-aware hints, and profile accessibility settings.</p>
-      <div class="prototype-gallery">
-        <figure><img src="images/hifi-home.jpg" alt="Home"><figcaption>Home: identity-aware recommendation and quick entry.</figcaption></figure>
-        <figure><img src="images/hifi-map.jpg" alt="Map"><figcaption>Map: POI browsing, cross-campus routing, and campus-specific details.</figcaption></figure>
-        <figure><img src="images/hifi-tour.jpg" alt="Tours"><figcaption>Tours: core/theme routes and custom tour flow.</figcaption></figure>
-        <figure><img src="images/hifi-checkin.jpg" alt="Check-in"><figcaption>Check-in: location-based progress and collectible feedback.</figcaption></figure>
-        <figure><img src="images/hifi-discover.jpg" alt="Discover"><figcaption>Discover: category recommendations and story-based place exploration.</figcaption></figure>
-        <figure><img src="images/hifi-explore-online.jpg" alt="Explore Online"><figcaption>Explore Online: online campus preview and remote exploration entry.</figcaption></figure>
-        <figure><img src="images/hifi-accessibility.jpg" alt="Accessibility Settings"><figcaption>Accessibility Settings: font size, high contrast, and screen-reader support options.</figcaption></figure>
-        <figure><img src="images/hifi-my.jpg" alt="My"><figcaption>My: badges, favorites, wishlist, visited, and recent records.</figcaption></figure>
-      </div>
-      <h3>Prototype Evolution</h3>
-      <div class="table-wrap prototype-evolution-table">
-        <table class="data-table">
-          <thead><tr><th>Before</th><th>After</th><th>Reason</th></tr></thead>
-          <tbody>
-            <tr><td>Map-only entry</td><td>Personalized home entry</td><td>Users needed clearer first-step guidance</td></tr>
-            <tr><td>Generic user mode</td><td>Four identity modes</td><td>Different user groups had different priorities</td></tr>
-            <tr><td>Passive browsing</td><td>Route-based exploration</td><td>Users needed structured movement</td></tr>
-            <tr><td>Static information</td><td>Check-ins, treasures, and badges</td><td>Exploration needed immediate playful feedback</td></tr>
-            <tr><td>Single-language interface</td><td>Chinese / English interface</td><td>XJTLU users include both Chinese and international users</td></tr>
-          </tbody>
-        </table>
+      <div class="prototype-shell">
+        <section class="prototype-panel" aria-labelledby="prototype-overview-title">
+          <h3 id="prototype-overview-title">Prototype Development</h3>
+          <p class="prototype-lead">After selecting the final design direction, we created both low-fidelity and high-fidelity prototypes. The low-fidelity prototype was used to test the main user flow and information structure, while the high-fidelity prototype refined the visual design, interaction details, and consistency with the final PuPath interface.</p>
+        </section>
+
+        <section class="prototype-panel" aria-labelledby="low-fi-title">
+          <div class="prototype-panel-header">
+            <h3 id="low-fi-title">Low-Fidelity Prototype</h3>
+            <p class="prototype-panel-intro">The low-fidelity prototype focused on page structure, navigation hierarchy, and whether users should start from a map, a route list, or a personalized home page. It also helped us test whether users understood the relationship between map, route, and personal progress.</p>
+          </div>
+
+          <div class="prototype-link-box">
+            <strong>Low-Fi Prototype Link:</strong>
+            <a href="https://www.figma.com/make/oMC1PYgSyQ3NJO2UBSp8CN/Low-Fidelity-Campus-Tour-Prototype?p=f&t=CcBzSMy1zJVtsgG3-0&fullscreen=1" target="_blank" rel="noreferrer">Low-Fi Figma Prototype</a>
+          </div>
+
+          <div class="prototype-tag-row">
+            <span class="prototype-tag tone-blue">Structure first</span>
+            <span class="prototype-tag tone-green">Core flow testing</span>
+          </div>
+
+          <div class="prototype-grid low-fi">
+            <article class="prototype-card">
+              <div class="prototype-shot"><img src="images/lowfi-1.jpg" alt="Low-fi prototype home page"></div>
+              <p><span class="caption-title">Low-Fi 1: Home entry</span>Tests whether users can understand the starting point and main navigation options.</p>
+            </article>
+            <article class="prototype-card">
+              <div class="prototype-shot"><img src="images/lowfi-2.jpg" alt="Low-fi prototype map page"></div>
+              <p><span class="caption-title">Low-Fi 2: Map structure</span>Explores basic POI placement, map controls, and route entry from the map.</p>
+            </article>
+            <article class="prototype-card">
+              <div class="prototype-shot"><img src="images/lowfi-3.jpg" alt="Low-fi prototype route page"></div>
+              <p><span class="caption-title">Low-Fi 3: Route flow</span>Tests route cards, station order, and whether users can compare tour options.</p>
+            </article>
+            <article class="prototype-card">
+              <div class="prototype-shot"><img src="images/lowfi-4.jpg" alt="Low-fi prototype my page"></div>
+              <p><span class="caption-title">Low-Fi 4: Personal records</span>Explores how favorites, progress, and visited records should be organized.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="prototype-panel" aria-labelledby="high-fi-title">
+          <div class="prototype-panel-header">
+            <h3 id="high-fi-title">High-Fidelity Prototype</h3>
+            <p class="prototype-panel-intro">The high-fidelity prototype demonstrates PuPath's map navigation, cross-campus routing, themed tour pages, place details, check-in and collectible feedback, badge and treasure systems, bilingual switching, weather-aware hints, and accessibility support.</p>
+          </div>
+
+          <div class="prototype-link-box">
+            <strong>High-Fi Prototype Link:</strong>
+            <a href="https://xjtlu25-26-cpt208-groupb3-4.github.io/PuPath/" target="_blank" rel="noreferrer">Live Demo</a>
+          </div>
+
+          <div class="prototype-tag-row">
+            <span class="prototype-tag tone-blue">Mobile-first UI</span>
+            <span class="prototype-tag tone-green">Route + map</span>
+            <span class="prototype-tag tone-purple">Playful feedback</span>
+            <span class="prototype-tag tone-amber">Accessibility</span>
+          </div>
+
+          <div class="prototype-grid high-fi">
+            <article class="prototype-card">
+              <div class="prototype-shot"><img src="images/hifi-home.jpg" alt="High-fi prototype home page"></div>
+              <p><span class="caption-title">Home</span>Identity-aware recommendation and quick entry.</p>
+            </article>
+            <article class="prototype-card">
+              <div class="prototype-shot"><img src="images/hifi-map.jpg" alt="High-fi prototype map page"></div>
+              <p><span class="caption-title">Map</span>POI browsing, cross-campus routing, and campus-specific details.</p>
+            </article>
+            <article class="prototype-card">
+              <div class="prototype-shot"><img src="images/hifi-tour.jpg" alt="High-fi prototype route list"></div>
+              <p><span class="caption-title">Tours</span>Core and themed routes for different campus scenarios.</p>
+            </article>
+            <article class="prototype-card">
+              <div class="prototype-shot"><img src="images/hifi-checkin.jpg" alt="High-fi prototype check-in page"></div>
+              <p><span class="caption-title">Check-in</span>Location-based progress and collectible feedback.</p>
+            </article>
+            <article class="prototype-card">
+              <div class="prototype-shot"><img src="images/hifi-discover.jpg" alt="High-fi prototype discover page"></div>
+              <p><span class="caption-title">Discover</span>Category recommendations and story-based place exploration.</p>
+            </article>
+            <article class="prototype-card">
+              <div class="prototype-shot"><img src="images/hifi-explore-online.jpg" alt="High-fi prototype online explore page"></div>
+              <p><span class="caption-title">Explore Online</span>Official online campus tour and remote exploration entry.</p>
+            </article>
+            <article class="prototype-card">
+              <div class="prototype-shot"><img src="images/hifi-accessibility.jpg" alt="High-fi prototype accessibility settings"></div>
+              <p><span class="caption-title">Accessibility Settings</span>Font size, high contrast, and screen-reader support options.</p>
+            </article>
+            <article class="prototype-card">
+              <div class="prototype-shot"><img src="images/hifi-my.jpg" alt="High-fi prototype my page"></div>
+              <p><span class="caption-title">My Page</span>Badges, favorites, visited places, and recent records.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="prototype-panel" aria-labelledby="evolution-title">
+          <div class="prototype-panel-header">
+            <h3 id="evolution-title">Prototype Evolution</h3>
+            <p class="prototype-panel-intro">The prototype evolved from simple structural exploration to a more complete campus tour experience. The main changes focused on route clarity, personalization, playful feedback, and bilingual accessibility.</p>
+          </div>
+
+          <div class="prototype-table-wrap">
+            <table class="data-table">
+              <thead><tr><th>Before</th><th>After</th><th>Reason</th></tr></thead>
+              <tbody>
+                <tr><td>Map-only entry</td><td>Personalized home entry</td><td>Users needed clearer first-step guidance and identity-based content.</td></tr>
+                <tr><td>Generic user mode</td><td>Four identity modes</td><td>Different user groups had different priorities, such as freshman routes, visitor landmarks, and staff support.</td></tr>
+                <tr><td>Passive browsing</td><td>Route-based exploration</td><td>Users needed structured movement instead of only browsing POIs.</td></tr>
+                <tr><td>Static information</td><td>Check-ins, treasures, and badges</td><td>Exploration needed immediate playful feedback and a sense of progress.</td></tr>
+                <tr><td>Single-language interface</td><td>Chinese / English interface</td><td>XJTLU users include both Chinese and international users.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
       </div>
     </div>
   </section>
@@ -2389,9 +2947,6 @@
         <div class="timeline-item"><div class="timeline-content"><h3>Phase 7: Internal Evaluation</h3><p><strong>Goal:</strong> Identify technical and usability issues before public testing.</p><p><strong>Output:</strong> Internal issue list and quick fixes.</p><p><strong>Evidence:</strong> Iterative refinement section.</p></div></div>
         <div class="timeline-item"><div class="timeline-content"><h3>Phase 8: Public Evaluation and Revision</h3><p><strong>Goal:</strong> Test the high-fi prototype with representative users.</p><p><strong>Output:</strong> Usability results and design changes.</p><p><strong>Evidence:</strong> Evaluation table and before/after iteration cards.</p></div></div>
       </div>
-      <h3>Individual Contributions</h3>
-      <div class="table-wrap"><table class="data-table"><thead><tr><th>Member</th><th>Main Contributions</th><th>Contribution Percentage</th></tr></thead><tbody><tr><td>Linhua Dong</td><td>Project coding, project testing, and project content filling.</td><td>25%</td></tr><tr><td>Xi Han</td><td>UI design, requirement collection, and outcome presentation.</td><td>25%</td></tr><tr><td>Sihan Zhang</td><td>UI design, requirement collection, and outcome presentation.</td><td>25%</td></tr><tr><td>Zhanhao Zhang</td><td>Project coding, project testing, and project content filling.</td><td>25%</td></tr></tbody></table></div>
-      <p style="margin-top:10px; color:#4a6478; font-size:.95rem;">Note: Members are listed in alphabetical order by surname initial; this order does not indicate ranking or contribution priority.</p>
     </div>
   </section>
 
@@ -2505,11 +3060,7 @@
         <section class="iteration-panel">
           <div class="iteration-panel-header">
             <div>
-              <p class="iteration-panel-intro">Based on the usability testing feedback, we identified several interface changes. The boxes below reserve space for final before-and-after screenshots from the Alpha and refined versions.</p>
-            </div>
-            <div class="iteration-chip-row">
-              <span class="iteration-chip tone-red">Before</span>
-              <span class="iteration-chip tone-green">After</span>
+              <p class="iteration-panel-intro">Based on the usability testing feedback, we identified several interface changes. Each refinement below pairs the design rationale with before-and-after interface screenshots from the Alpha and refined versions.</p>
             </div>
           </div>
           <div class="iteration-grid">
@@ -2517,8 +3068,8 @@
               <h3>Iteration 1: Reduce POI Density and Improve Map Readability</h3>
               <p>Users reported that POI points were too dense, making it inconvenient to find a specific destination. We refined the map display by emphasizing key POIs, improving category filtering, and reducing visual clutter when multiple points appear close together.</p>
               <div class="iteration-before-after-grid">
-                <div class="iteration-screenshot-box">Before screenshot: Map page with dense POI markers that make target places harder to identify</div>
-                <div class="iteration-screenshot-box">After screenshot: Map page with clearer POI hierarchy, filtering, or clustered display</div>
+                <div class="iteration-screenshot-box" data-label="Before"><img src="images/before-Map.jpg" alt="Before refinement: map page with dense POI markers"></div>
+                <div class="iteration-screenshot-box" data-label="After"><img src="images/after-Map.jpg" alt="After refinement: map page with clearer POI hierarchy"></div>
               </div>
               <div class="iteration-meta">
                 <div><strong>Feedback source</strong><span>T1 POI finding task</span></div>
@@ -2531,8 +3082,8 @@
               <h3>Iteration 2: Expand Scenario Route Diversity</h3>
               <p>Users felt that the existing routes were relatively single-purpose and did not cover enough campus scenarios. We refined the route system by adding or planning more route types for different user goals, such as quick class navigation, visitor landmarks, rainy-day walking, food discovery, and accessibility-friendly movement.</p>
               <div class="iteration-before-after-grid">
-                <div class="iteration-screenshot-box">Before screenshot: Route page with a relatively limited set of route options</div>
-                <div class="iteration-screenshot-box">After screenshot: Route page with more scenario-based route categories and clearer route purposes</div>
+                <div class="iteration-screenshot-box" data-label="Before"><img src="images/before-route.jpg" alt="Before refinement: route page with limited route options"></div>
+                <div class="iteration-screenshot-box" data-label="After"><img src="images/after-route.jpg" alt="After refinement: route page with more scenario-based route categories"></div>
               </div>
               <div class="iteration-meta">
                 <div><strong>Feedback source</strong><span>T3 route selection task</span></div>
@@ -2545,8 +3096,8 @@
               <h3>Iteration 3: Clarify Badge Unlocking Logic</h3>
               <p>Users saw badges as one form of exploration feedback, but the conditions for earning them were not clear. We refined the badge design by showing unlock conditions, current progress, and clearer reward feedback after check-ins or route completion.</p>
               <div class="iteration-before-after-grid">
-                <div class="iteration-screenshot-box">Before screenshot: Badge page or reward feedback without clear unlocking conditions</div>
-                <div class="iteration-screenshot-box">After screenshot: Badge page with visible unlock rules, progress, and completion feedback</div>
+                <div class="iteration-screenshot-box" data-label="Before"><img src="images/before-badge.jpg" alt="Before refinement: badge feedback without clear unlocking conditions"></div>
+                <div class="iteration-screenshot-box" data-label="After"><img src="images/after-badge.jpg" alt="After refinement: badge page with visible unlock rules and progress"></div>
               </div>
               <div class="iteration-meta">
                 <div><strong>Feedback source</strong><span>T4 check-in / badge feedback task</span></div>
@@ -2555,10 +3106,6 @@
               </div>
             </article>
           </div>
-          <div class="iteration-note-box">
-            <strong>Screenshot replacement note</strong>
-            <p>Replace each placeholder box with the corresponding before-and-after interface screenshot once the final test evidence is ready.</p>
-          </div>
         </section>
       </div>
     </div>
@@ -2566,33 +3113,147 @@
 
   <section id="ai-reflection" class="reveal">
     <div class="section-shell">
-      <h2>Final Reflection &amp; AI Technical Reflection</h2>
-      <h3>Final Reflection</h3>
-      <p>The key lesson was that campus navigation is not only a spatial problem, but also an orientation, confidence, and engagement problem. PuPath shifted from a map-first idea to a guided playful exploration experience after research and testing.</p>
-      <p>The system should support different levels of campus familiarity and language background. It should avoid excluding users who do not want to install an app or create an account. The MVP therefore uses a browser-based approach and avoids collecting sensitive personal information.</p>
-      <p>Future work includes real campus POI validation, improved route accuracy, richer online preview content, accessibility testing, and more polished onboarding.</p>
-      <h3>AI Tools Used</h3>
-      <div class="table-wrap"><table class="data-table"><thead><tr><th>Tool</th><th>Use</th><th>Boundary</th></tr></thead><tbody><tr><td>OpenAI Codex / ChatGPT</td><td>Coding assistance, debugging, wording refinement, and documentation structuring.</td><td>AI was used for support, not for defining the core research findings, project motivation, or human-centric design logic.</td></tr><tr><td>Cursor</td><td>[If used] Assisted coding and debugging.</td><td>Core design decisions remained group-owned.</td></tr><tr><td>Gemini / Image Generation Tool</td><td>[If used] Visual asset generation.</td><td>AI-generated images should be acknowledged and cited.</td></tr><tr><td>CapCut / AI Voice Tool</td><td>[If used] Video editing or audio cleanup.</td><td>Final claims remain team-reviewed and accurate.</td></tr></tbody></table></div>
-      <h3>Prompt Logs</h3>
-      <p>Primary prompts used for generating or debugging core components are stored in the <code>/ai-logs</code> folder in the GitHub repository.</p>
-      <pre>/ai-logs
-  01-portfolio-structure.md
-  02-map-component-debugging.md
-  03-i18n-implementation.md
-  04-badge-checkin-logic.md</pre>
-      <p>If the <code>/ai-logs</code> folder is not yet present in the repository, it should be created before final submission.</p>
-      <h3>Verification of AI-generated Code</h3>
-      <ul>
-        <li>comparing implemented features against the requirements table;</li>
-        <li>checking whether each feature matched the requirements list;</li>
-        <li>manually testing the mobile browser flow;</li>
-        <li>testing identity switching, route browsing, check-ins, badges, and saved records;</li>
-        <li>reviewing Chinese / English interface text;</li>
-        <li>checking visual readability, contrast, and mobile layout;</li>
-        <li>checking that AI-generated code did not introduce inaccessible UI or misleading content.</li>
-      </ul>
-      <h3>Ethical Considerations</h3>
-      <p>We considered accessibility, bias, privacy, and academic integrity. Since PuPath is designed for freshmen and visitors, we avoided assuming that all users are familiar with campus names or technical map tools. The MVP does not collect sensitive personal data. AI use is disclosed and documented, and AI-generated content is reviewed by the team before submission. Any AI-generated visual asset should be acknowledged near the image and cited in the References section.</p>
+      <h2>Reflection</h2>
+      <div class="reflection-shell">
+        <div class="panel" aria-label="Reflection overview">
+          <p class="lead">This reflection summarizes what we learned from designing, implementing, and evaluating PuPath. The main lesson is that playful interaction is valuable only when it supports real campus wayfinding, user confidence, and inclusive access. Therefore, PuPath should not be treated as either a pure map tool or a pure gamified experience, but as a practical campus guide enhanced by lightweight playful exploration.</p>
+        </div>
+
+        <div class="panel" aria-labelledby="reflection-detail-title">
+          <h3 id="reflection-detail-title">Project Reflection</h3>
+          <p class="panel-intro">The following reflections connect our design decisions, technical choices, ethical considerations, and AI-assisted development process.</p>
+        </div>
+
+        <div class="reflection-grid" aria-label="Main project reflection cards">
+          <article class="reflection-card design">
+            <div class="tag-row"><span class="tag tone-blue">Design reflection</span></div>
+            <h3>Navigation First, Playfulness as Support</h3>
+            <p>The project showed that PuPath should not be designed as a purely playful application. Users first needed reliable wayfinding, clear POI information, and understandable route choices. Playful features such as check-ins, badges, and personal records became meaningful only when they supported real campus movement.</p>
+            <h4>What this means for PuPath</h4>
+            <ul>
+              <li>Map navigation and scenario routes should remain the foundation.</li>
+              <li>Playful feedback should help users understand progress, not distract from the task.</li>
+              <li>Badges and records need clear logic so users know why they receive feedback.</li>
+            </ul>
+          </article>
+
+          <article class="reflection-card ethics">
+            <div class="tag-row"><span class="tag tone-green">Social and ethical reflection</span></div>
+            <h3>Inclusion, Independence, and Privacy</h3>
+            <p>PuPath may improve campus inclusion by helping new students, visitors, international users, and staff-led guests explore the campus with less uncertainty. It can reduce the need to repeatedly ask others for directions and give users more independence.</p>
+            <h4>Ethical considerations</h4>
+            <ul>
+              <li>Location, visited places, and exploration records should be treated as sensitive user data.</li>
+              <li>The current no-login and local-record approach reduces unnecessary data collection.</li>
+              <li>Future sharing or account features should provide clear consent, visibility control, and data deletion options.</li>
+            </ul>
+          </article>
+
+          <article class="reflection-card technical">
+            <div class="tag-row"><span class="tag tone-purple">Technical reflection</span></div>
+            <h3>Prototype Architecture and Its Limits</h3>
+            <p>The PWA architecture made PuPath lightweight and easy to access without installation or mandatory login. Local data and browser storage were suitable for the prototype stage because they allowed us to implement POIs, routes, records, badges, and preferences with low deployment complexity.</p>
+            <h4>Limitations</h4>
+            <ul>
+              <li>Real campus navigation would require more accurate and maintained route data.</li>
+              <li>POI and accessibility information need continuous verification.</li>
+              <li>A production version may need a backend for content management, moderation, and updates.</li>
+            </ul>
+          </article>
+
+          <article class="reflection-card ai-summary">
+            <div class="tag-row"><span class="tag tone-amber">AI use summary</span></div>
+            <h3>Permitted AI Use in the Project</h3>
+            <p>The AI-assisted tools used in this project included Figma, ChatGPT, and Codex. They were used within the permitted scope for prototype design support, vibe coding, assisted scripting, debugging, layout refinement, and writing support. The core design logic, human-centric justification, research interpretation, and final decisions remained our own work.</p>
+            <h4>Boundary</h4>
+            <ul>
+              <li>AI supported implementation and presentation, not the replacement of user research.</li>
+              <li>AI-generated suggestions were reviewed against our own requirements and evaluation evidence.</li>
+              <li>Every AI tool used should be documented in the portfolio reference list.</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="panel" aria-labelledby="ai-development-title">
+          <h3 id="ai-development-title">Technical Reflection: AI-assisted Development</h3>
+          <p class="panel-intro">Because the project used AI-assisted coding and writing support, this section explains what prompts were used, how the generated code was verified against user requirements, and what ethical considerations were considered for AI-generated work.</p>
+        </div>
+
+        <div class="ai-grid" aria-label="AI-assisted development reflection details">
+          <article class="ai-card prompt">
+            <div class="tag-row"><span class="tag tone-blue">Prompt usage</span></div>
+            <h3>1. Actual Prompt Groups Used</h3>
+            <p>The AI prompts were organized as staged coding logs rather than one-off questions. They covered the main implementation modules of PuPath:</p>
+            <ul>
+              <li><strong>Project bootstrap:</strong> Ask AI to read PRD / UI / development documents, create a 0-to-1 Vite development plan, split it into an executable task board, and guide GitHub Pages deployment.</li>
+              <li><strong>Map and navigation:</strong> Ask AI to connect Home / Tours with Map navigation, separate route navigation from point-to-point navigation, implement progress / next stop / manual check-in states, switch to AMap, and improve cross-campus routing and mobile map controls.</li>
+              <li><strong>POI and recommendation data:</strong> Ask AI to expand and normalize real campus POI data, add categories such as food, photography, cats, museums, and flowers, connect recommendation cards to real POI detail pages, and replace placeholder visuals.</li>
+              <li><strong>Check-in and treasure system:</strong> Ask AI to upgrade check-in from a mock result to location-based validation, add daily limits and failure states, implement Captain Bird / XJTLU Bear collectibles, and connect check-in progress with badge logic.</li>
+              <li><strong>Accessibility and settings:</strong> Ask AI to create a persistent accessibility settings page with font size, high contrast, screen-reader assist, mobile-stable scaling, install guidance, and local-record reset.</li>
+              <li><strong>Story cards and content:</strong> Ask AI to remove generic placeholders, improve bilingual tone and readability, add local campus context, and refine route detail copy.</li>
+            </ul>
+          </article>
+
+          <article class="ai-card verify">
+            <div class="tag-row"><span class="tag tone-green">Verification</span></div>
+            <h3>2. How We Verified AI-generated Code</h3>
+            <ul>
+              <li>Checked whether generated features matched the original prompt constraints, such as Vite implementation, GitHub Pages deployment, P0-first development, AMap routing, POI overlay, and bilingual UI consistency.</li>
+              <li>Manually tested the main user flows: entering from Home / Tours, jumping to Map, route navigation, point-to-point navigation, progress update, next stop display, manual check-in, and ending navigation.</li>
+              <li>Compared generated POI and recommendation logic with our campus data requirements, including category completeness, ID-name consistency, real POI detail links, and image-asset mapping.</li>
+              <li>Tested check-in and reward behaviour against the required states: inside / outside campus, already checked in, location unavailable, daily limit, collectible result, and badge unlock condition.</li>
+              <li>Reviewed accessibility settings across pages to ensure font scaling, high contrast, screen-reader assist, and local data reset remained stable on mobile.</li>
+              <li>Revised AI outputs when they included placeholder content, unsupported assumptions, broken layout, inconsistent bilingual copy, or functions that did not match the user requirements.</li>
+            </ul>
+          </article>
+
+          <article class="ai-card ethical">
+            <div class="tag-row"><span class="tag tone-purple">Ethical considerations</span></div>
+            <h3>3. Ethical Considerations</h3>
+            <ul>
+              <li>AI-generated code was treated as a draft that needed human review, not as final proof that the system met user needs.</li>
+              <li>AI was not used to create fake user research, fake evaluation data, or unsupported human-centric justification.</li>
+              <li>Location-related features were reviewed carefully because check-ins, visited records, and navigation history may involve sensitive user behaviour.</li>
+              <li>Accessibility-related AI suggestions were verified manually so that font scaling, high contrast, and screen-reader support were not only described but also reflected in the interface.</li>
+              <li>Content generated or refined by AI was checked for bilingual clarity, campus relevance, and avoidance of misleading route or weather-dependent claims.</li>
+              <li>All AI-assisted coding prompts were saved as AI logs so that the development process remained transparent.</li>
+            </ul>
+          </article>
+
+          <article class="ai-card citation">
+            <div class="tag-row"><span class="tag tone-amber">Mandatory citation</span></div>
+            <h3>4. AI Tool Documentation</h3>
+            <ul>
+              <li><strong>Figma:</strong> Used for interface prototyping, visual layout exploration, and low-fi / high-fi prototype preparation.</li>
+              <li><strong>ChatGPT:</strong> Used for portfolio writing support, requirement organization, image generation, HTML/CSS layout suggestions, and debugging explanations.</li>
+              <li><strong>Codex:</strong> Used for code generation, code editing, implementation assistance, and debugging support.</li>
+            </ul>
+            <h4>Mandatory citation note</h4>
+            <p>Figma, ChatGPT, and Codex should be documented in the portfolio reference or acknowledgement section, including what each tool was used for. This keeps AI-assisted work transparent and within the permitted scope of the project requirements.</p>
+          </article>
+        </div>
+
+        <div class="panel" aria-labelledby="lessons-title">
+          <h3 id="lessons-title">Key Lessons Learned</h3>
+          <p class="panel-intro">The project helped us understand how to balance practical usefulness, playful engagement, inclusive access, and technical feasibility.</p>
+        </div>
+
+        <div class="lesson-grid" aria-label="Key lessons">
+          <article class="lesson-card">
+            <h3>1. Playfulness needs a purpose</h3>
+            <p>Check-ins, badges, and treasures should support campus understanding and route progress rather than becoming isolated decorative features.</p>
+          </article>
+          <article class="lesson-card">
+            <h3>2. Campus context matters</h3>
+            <p>Generic maps are useful, but campus users need building meanings, service points, route purposes, and identity-based guidance.</p>
+          </article>
+          <article class="lesson-card">
+            <h3>3. Trust depends on clarity</h3>
+            <p>Users need to understand where information comes from, how records are stored, and what actions such as check-ins or badges mean.</p>
+          </article>
+        </div>
+
+      </div>
     </div>
   </section>
 
