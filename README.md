@@ -9,7 +9,7 @@ The portfolio is a static single-page website:
 - Main file: `index.html`
 - Supporting images: `images/`
 - Supporting documents: `docs/`
-- Optional legacy stylesheet: `style.css`
+- Main stylesheet: `style.css`
 
 Open `index.html` directly in a browser, or view the deployed portfolio if available:
 
@@ -33,7 +33,7 @@ The website currently includes:
 - Ideation and Crazy Eights sketches
 - Design Alternatives and final design direction
 - Prototype section with low-fidelity and high-fidelity screenshots
-- Technical Implementation, system architecture placeholder, stack, data handling, and roadmap
+- Technical Implementation, system architecture diagram, stack, data handling, and roadmap
 - Evaluation and Iterative Refinement with before-and-after screenshots
 - Reflection and AI-assisted development disclosure
 - Academic, commercial product, technical, and AI tool references
@@ -81,7 +81,7 @@ When updating the portfolio:
 The portfolio discloses use of:
 
 - Figma for prototype and visual layout work
-- ChatGPT for writing support, requirement organization, image generation, layout suggestions, and debugging explanations
+- ChatGPT for writing support, requirement organization, placeholder text, layout suggestions, and debugging explanations
 - OpenAI Codex for code editing, implementation support, debugging, and portfolio refinement
 
-AI-assisted outputs should be checked by the team against project requirements, evaluation evidence, and academic integrity expectations before submission.
+Actual images, POI information, campus details, story card messages, route content, and evidence materials are supplied and checked by the team. AI-assisted outputs are treated as draft structure, placeholder material, or implementation support, and should be checked against project requirements, evaluation evidence, and academic integrity expectations before submission.
