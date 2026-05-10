@@ -5,1782 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PuPath - CPT208 Process Portfolio</title>
-  <style>
-    :root {
-      --deep-blue: #355c7d;
-      --mid-blue: #5f7f95;
-      --soft-blue: #dce9f1;
-      --soft-green: #dceade;
-      --text: #2f3d46;
-      --card-bg: rgba(255, 255, 255, 0.82);
-      --border: rgba(95, 127, 149, 0.16);
-      --shadow: 0 14px 34px rgba(70, 90, 110, 0.12);
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: "Trebuchet MS", "Segoe UI", Arial, sans-serif;
-      color: var(--text);
-      line-height: 1.7;
-      overflow-x: hidden;
-      background:
-        radial-gradient(circle at top left, rgba(242, 227, 234, 0.8), transparent 25%),
-        radial-gradient(circle at top right, rgba(220, 234, 222, 0.8), transparent 28%),
-        linear-gradient(180deg, #f8f6f2 0%, #edf4f7 42%, #f4efe8 100%);
-    }
-
-    a { color: var(--deep-blue); overflow-wrap: anywhere; }
-    section { padding: 80px 20px; }
-    section:nth-of-type(odd) { background: rgba(255, 255, 255, 0.18); }
-    .section-shell { max-width: 1120px; margin: 0 auto; }
-
-    h2 {
-      font-size: clamp(1.9rem, 3vw, 2.6rem);
-      color: var(--deep-blue);
-      text-align: center;
-      margin-bottom: 24px;
-    }
-    h3, h4 { color: var(--deep-blue); margin-bottom: 12px; }
-
-    .main-header {
-      min-height: 36vh;
-      padding: 58px 20px 40px;
-      text-align: center;
-      color: #fff;
-      background:
-        linear-gradient(rgba(47, 74, 96, 0.66), rgba(72, 102, 121, 0.48)),
-        url("images/Title_Background.jpg") center center / cover no-repeat;
-    }
-    .hero-shell { max-width: 980px; margin: 0 auto; }
-    .main-header h1 { font-size: clamp(2.3rem, 5vw, 4rem); margin-bottom: 8px; }
-    .hero-subtitle { font-size: clamp(0.95rem, 1.5vw, 1.1rem); margin-bottom: 18px; font-weight: 600; }
-    .hero-meta,
-    .hero-links {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      column-gap: 16px;
-      row-gap: 12px;
-    }
-    .hero-meta { margin-bottom: 12px; }
-    .hero-meta a, .hero-links a {
-      display: inline-block;
-      padding: 10px 20px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.14);
-      border: 1px solid rgba(255, 255, 255, 0.28);
-      color: #fff;
-      text-decoration: none;
-    }
-
-    .navbar {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(63, 93, 113, 0.88);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.22);
-      overflow-x: auto;
-    }
-    .nav-container {
-      max-width: 1360px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: center;
-      flex-wrap: nowrap;
-      min-width: max-content;
-      padding: 0 10px;
-    }
-    .navbar a { color: #fff; text-decoration: none; padding: 14px 11px; font-size: 0.9rem; white-space: nowrap; }
-
-    .section-lead { max-width: 900px; margin: 0 auto 24px; }
-    #intro .section-lead,
-    #team-members .section-lead,
-    #motivation .section-lead {
-      max-width: 100%;
-      text-align: justify;
-      text-justify: inter-word;
-    }
-    #ideation .section-lead {
-      max-width: 100%;
-      margin: 0 0 24px;
-    }
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 22px;
-    }
-    .card,
-    .team-card,
-    .journey-step,
-    .research-card,
-    .before-after-card,
-    .pillar-card,
-    .persona-detail-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 22px;
-      box-shadow: var(--shadow);
-    }
-    .card, .journey-step, .research-card, .before-after-card, .pillar-card { padding: 22px; }
-    .tag {
-      display: inline-block;
-      margin-bottom: 12px;
-      padding: 6px 12px;
-      border-radius: 999px;
-      background: rgba(53, 92, 125, 0.1);
-      color: var(--deep-blue);
-      font-size: 0.85rem;
-      font-weight: 700;
-    }
-
-    .table-wrap { overflow-x: auto; margin: 24px 0; }
-    .data-table {
-      width: 100%;
-      border-collapse: collapse;
-      background: var(--card-bg);
-      border-radius: 18px;
-      overflow: hidden;
-      box-shadow: var(--shadow);
-    }
-    .data-table th,
-    .data-table td {
-      padding: 14px 16px;
-      border-bottom: 1px solid var(--border);
-      text-align: left;
-      vertical-align: top;
-    }
-    .data-table th { background: rgba(53, 92, 125, 0.12); color: var(--deep-blue); }
-
-    .evidence-grid,
-    .prototype-gallery,
-    .before-after-grid,
-    .pillar-grid,
-    .problem-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 22px;
-      margin-top: 24px;
-    }
-    .evidence-grid figure,
-    .prototype-gallery figure,
-    .research-card,
-    .before-after-card,
-    .pillar-card,
-    .problem-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 22px;
-      box-shadow: var(--shadow);
-      padding: 18px;
-    }
-    .evidence-grid img,
-    .prototype-gallery img {
-      width: 100%;
-      min-height: 160px;
-      object-fit: cover;
-      border-radius: 16px;
-      background: rgba(53, 92, 125, 0.08);
-    }
-
-    #prototype .prototype-shell {
-      display: grid;
-      gap: 24px;
-    }
-    #prototype .prototype-panel {
-      background: transparent;
-      border: 0;
-      box-shadow: none;
-      padding: 0;
-    }
-    #prototype .prototype-lead,
-    #prototype .prototype-panel-intro {
-      max-width: none;
-      color: var(--muted);
-      text-align: justify;
-      text-justify: inter-word;
-    }
-    #prototype .prototype-lead {
-      margin-bottom: 0;
-      font-size: 1.02rem;
-    }
-    #prototype .prototype-panel-header {
-      margin-bottom: 16px;
-    }
-    #prototype .prototype-link-box {
-      margin: 12px 0 16px;
-      padding: 13px 15px;
-      border: 1px solid rgba(74, 137, 220, 0.28);
-      border-radius: 14px;
-      background: rgba(74, 137, 220, 0.1);
-      color: var(--muted);
-    }
-    #prototype .prototype-link-box strong {
-      display: inline-block;
-      margin-right: 8px;
-      color: var(--deep-blue);
-    }
-    #prototype .prototype-link-box a {
-      color: var(--deep-blue);
-      font-weight: 800;
-      text-decoration: underline;
-      text-underline-offset: 3px;
-    }
-    #prototype .prototype-tag-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 14px;
-    }
-    #prototype .prototype-tag {
-      display: inline-flex;
-      align-items: center;
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: rgba(53, 92, 125, 0.1);
-      color: var(--deep-blue);
-      font-size: 0.78rem;
-      font-weight: 800;
-      white-space: nowrap;
-    }
-    #prototype .tone-blue { background: rgba(74, 137, 220, 0.12); color: #1f5fbf; }
-    #prototype .tone-green { background: rgba(46, 139, 87, 0.12); color: #20734d; }
-    #prototype .tone-purple { background: rgba(115, 91, 191, 0.12); color: #5b4bb7; }
-    #prototype .tone-amber { background: rgba(214, 163, 40, 0.16); color: #9a6417; }
-    #prototype .prototype-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 16px;
-    }
-    #prototype .prototype-card {
-      padding: 14px;
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      background: rgba(255, 255, 255, 0.7);
-      box-shadow: var(--shadow);
-    }
-    #prototype .prototype-shot {
-      width: 100%;
-      aspect-ratio: 9 / 16;
-      display: grid;
-      place-items: center;
-      overflow: hidden;
-      margin-bottom: 10px;
-      border: 1px solid rgba(53, 92, 125, 0.12);
-      border-radius: 18px;
-      background: #fff;
-    }
-    #prototype .prototype-shot img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-    #prototype .prototype-card p {
-      margin-bottom: 0;
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-    #prototype .caption-title {
-      display: block;
-      margin-bottom: 4px;
-      color: var(--ink);
-      font-size: 0.86rem;
-      font-weight: 800;
-    }
-    #prototype .prototype-table-wrap {
-      overflow-x: auto;
-      margin: 0;
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      background: var(--card-bg);
-      box-shadow: var(--shadow);
-    }
-    #prototype .prototype-table-wrap .data-table {
-      min-width: 820px;
-      box-shadow: none;
-      border-radius: 0;
-    }
-    @media (max-width: 980px) {
-      #prototype .prototype-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-    @media (max-width: 620px) {
-      #prototype .prototype-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    #ai-reflection {
-      --reflection-bg: #f5f7fb;
-      --reflection-ink: #172033;
-      --reflection-muted: #536275;
-      --reflection-subtle: #f8fafc;
-      --reflection-line-soft: #edf1f6;
-      --reflection-blue: #1f5fbf;
-      --reflection-blue-soft: #e8f0ff;
-      --reflection-green: #20734d;
-      --reflection-green-soft: #e8f5ee;
-      --reflection-purple: #5b4bb7;
-      --reflection-purple-soft: #f0edff;
-      --reflection-amber: #b7791f;
-      --reflection-amber-soft: #fff3d8;
-      --reflection-radius-md: 14px;
-      background: transparent !important;
-      color: var(--reflection-ink);
-    }
-    #ai-reflection .reflection-shell {
-      display: grid;
-      gap: 24px;
-    }
-    #ai-reflection .panel {
-      background: transparent;
-      border: 0;
-      padding: 0;
-      box-shadow: none;
-    }
-    #ai-reflection h2,
-    #ai-reflection h3,
-    #ai-reflection h4,
-    #ai-reflection p {
-      margin-top: 0;
-    }
-    #ai-reflection h2 {
-      margin-bottom: 24px;
-      color: var(--deep-blue);
-      font-size: clamp(1.9rem, 3vw, 2.6rem);
-      line-height: 1.2;
-      letter-spacing: 0;
-      text-align: center;
-    }
-    #ai-reflection h3 {
-      margin-bottom: 10px;
-      color: var(--deep-blue);
-      font-size: 1.05rem;
-      line-height: 1.25;
-    }
-    #ai-reflection h4 {
-      margin: 16px 0 8px;
-      color: #35465d;
-      font-size: 11px;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
-    #ai-reflection .lead,
-    #ai-reflection .panel-intro {
-      max-width: none;
-      margin-bottom: 0;
-      color: var(--reflection-muted);
-      font-size: 14px;
-      text-align: justify;
-      text-justify: inter-word;
-    }
-    #ai-reflection .lead {
-      font-size: 15px;
-    }
-    #ai-reflection .reflection-grid,
-    #ai-reflection .lesson-grid,
-    #ai-reflection .ai-grid {
-      display: grid;
-      gap: 16px;
-    }
-    #ai-reflection .reflection-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-    #ai-reflection .lesson-grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-    #ai-reflection .ai-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-    #ai-reflection .reflection-card,
-    #ai-reflection .lesson-card,
-    #ai-reflection .ai-card,
-    #ai-reflection .takeaway-card {
-      padding: 18px;
-      border: 1px solid var(--reflection-line-soft);
-      border-radius: var(--reflection-radius-md);
-      background: var(--reflection-subtle);
-    }
-    #ai-reflection .reflection-card,
-    #ai-reflection .ai-card {
-      position: relative;
-      overflow: hidden;
-    }
-    #ai-reflection .reflection-card::before,
-    #ai-reflection .ai-card::before {
-      content: "";
-      position: absolute;
-      inset: 0 0 auto;
-      height: 4px;
-      background: var(--reflection-blue);
-    }
-    #ai-reflection .reflection-card.ethics::before { background: var(--reflection-green); }
-    #ai-reflection .reflection-card.technical::before { background: var(--reflection-purple); }
-    #ai-reflection .reflection-card.ai-summary::before { background: var(--reflection-amber); }
-    #ai-reflection .ai-card.verify::before { background: var(--reflection-green); }
-    #ai-reflection .ai-card.ethical::before { background: var(--reflection-purple); }
-    #ai-reflection .ai-card.citation::before { background: var(--reflection-amber); }
-    #ai-reflection .reflection-card p,
-    #ai-reflection .lesson-card p,
-    #ai-reflection .ai-card p,
-    #ai-reflection .takeaway-card p,
-    #ai-reflection .reflection-card li,
-    #ai-reflection .ai-card li {
-      color: var(--reflection-muted);
-      font-size: 13px;
-    }
-    #ai-reflection .reflection-card p,
-    #ai-reflection .lesson-card p,
-    #ai-reflection .ai-card p,
-    #ai-reflection .takeaway-card p {
-      margin-bottom: 0;
-    }
-    #ai-reflection .reflection-card ul,
-    #ai-reflection .ai-card ul {
-      margin: 0;
-      padding-left: 18px;
-    }
-    #ai-reflection .reflection-card li + li,
-    #ai-reflection .ai-card li + li {
-      margin-top: 5px;
-    }
-    #ai-reflection .tag-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 12px;
-    }
-    #ai-reflection .tag {
-      display: inline-flex;
-      align-items: center;
-      margin-bottom: 0;
-      padding: 5px 8px;
-      border-radius: 999px;
-      background: #eef2f7;
-      color: #42526b;
-      font-size: 11px;
-      font-weight: 800;
-      white-space: nowrap;
-    }
-    #ai-reflection .tone-blue { background: var(--reflection-blue-soft); color: var(--reflection-blue); }
-    #ai-reflection .tone-green { background: var(--reflection-green-soft); color: var(--reflection-green); }
-    #ai-reflection .tone-purple { background: var(--reflection-purple-soft); color: var(--reflection-purple); }
-    #ai-reflection .tone-amber { background: var(--reflection-amber-soft); color: var(--reflection-amber); }
-    #ai-reflection .takeaway-card {
-      background: var(--reflection-blue-soft);
-      border-color: #cbdcff;
-    }
-    #ai-reflection .takeaway-card strong {
-      display: block;
-      margin-bottom: 6px;
-      color: var(--reflection-blue);
-      font-size: 13px;
-    }
-    @media (max-width: 980px) {
-      #ai-reflection .reflection-grid,
-      #ai-reflection .lesson-grid,
-      #ai-reflection .ai-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .two-column-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; margin-top: 14px; }
-    .placeholder { outline: 2px dashed rgba(53, 92, 125, 0.28); background: rgba(255, 255, 255, 0.62); }
-
-    .section-checkpoint {
-      max-width: 900px;
-      margin: 0 auto 24px;
-      padding: 16px 18px;
-      border-radius: 18px;
-      background: rgba(255, 255, 255, 0.64);
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow);
-    }
-    .issue-id {
-      display: inline-block;
-      padding: 4px 9px;
-      border-radius: 999px;
-      background: rgba(53, 92, 125, 0.12);
-      color: var(--deep-blue);
-      font-weight: 700;
-      font-size: 0.85rem;
-    }
-
-    .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 22px; }
-    .team-card { padding: 24px 20px; text-align: center; }
-    .team-card img { width: 112px; height: 112px; object-fit: cover; border-radius: 50%; margin-bottom: 14px; }
-
-    .persona-top-title {
-      text-align: center;
-      font-size: 1.5rem;
-      color: var(--deep-blue);
-      margin: 0 auto 20px;
-      font-weight: 700;
-      border-bottom: 2px solid rgba(95, 127, 149, 0.26);
-      padding-bottom: 10px;
-      max-width: 900px;
-    }
-    .persona-detail-card { max-width: 1100px; margin: 0 auto 36px; overflow: hidden; }
-    .persona-detail-layout { display: flex; gap: 20px; padding: 22px; }
-    .detail-column-left { flex: 0 0 240px; background: rgba(255, 255, 255, 0.7); border-radius: 18px; padding: 16px; text-align: center; }
-    .detail-column-center { flex: 1; min-width: 320px; }
-    .detail-column-right { flex: 0 0 220px; display: flex; flex-direction: column; gap: 16px; }
-    .persona-photo img { width: 112px; height: 112px; border-radius: 50%; object-fit: cover; margin-bottom: 12px; }
-        .user-tagline { margin-bottom: 16px; padding: 10px; border-radius: 12px; background: rgba(255, 255, 255, 0.78); border: 1px solid rgba(95, 127, 149, 0.12); font-style: italic; }
-    .basic-info-card, .chart-container, .mtbi-visual { background: rgba(255, 255, 255, 0.84); border: 1px solid rgba(95, 127, 149, 0.12); border-radius: 14px; padding: 10px 12px; }
-    .basic-info-card { margin-bottom: 20px !important; }
-    .mtbi-visual { margin-top: 0; }
-    .detail-item ul { list-style: none; padding-left: 0; }
-    .detail-item li { position: relative; padding: 6px 0 6px 18px; border-bottom: 1px solid rgba(95, 127, 149, 0.08); }
-    .detail-item li::before { content: ""; position: absolute; left: 0; top: 14px; width: 6px; height: 6px; border-radius: 50%; background: var(--mid-blue); }
-    .persona-bio-text { padding: 14px; border-radius: 12px; background: rgba(255, 255, 255, 0.7); border-left: 4px solid rgba(184, 173, 214, 0.85); }
-    .chart-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
-    .chart-row span { flex: 0 0 68px; font-size: 0.85rem; }
-    .chart-bar-outer, .mtbi-bar-container { width: 100%; height: 6px; background: #e8edf1; border-radius: 999px; overflow: hidden; }
-    .chart-bar-inner, .mtbi-bar { height: 100%; border-radius: 999px; background: linear-gradient(90deg, #8fb7c9, #5f7f95); }
-.mtbi-row { display: grid; grid-template-columns: 1fr 1fr; column-gap: 10px; align-items: center; font-size: 0.74rem; line-height: 1.1; margin-bottom: 4px; }
-.mtbi-row span:first-child { text-align: left; display: block; white-space: nowrap; }
-.mtbi-row span:last-child { text-align: right; display: block; white-space: nowrap; }
-    .detail-column-right .chart-container { flex: 1; }
-
-    .journey-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 22px; }
-
-    #user-requirements .user-req-subtitle {
-      margin: 34px 0 18px;
-      color: var(--deep-blue);
-      font-size: 1.5rem;
-      line-height: 1.3;
-      font-weight: 700;
-      text-align: left;
-    }
-    #user-requirements #requirements.requirements-list {
-      width: 100%;
-    }
-
-    #research .research-shell {
-      display: grid;
-      gap: 18px;
-    }
-    #research .research-panel {
-      background: transparent;
-      border: 0;
-      padding: 0;
-    }
-    #research .research-lead,
-    #research .research-panel-intro {
-      max-width: none;
-      margin-bottom: 0;
-      color: #536275;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 14px;
-      line-height: 1.48;
-      text-align: justify;
-      text-justify: inter-word;
-    }
-    #research .research-lead {
-      font-size: 15px;
-    }
-    #research .research-panel-header {
-      margin-bottom: 18px;
-    }
-    #research .research-grid,
-    #research .stakeholder-grid,
-    #research .implication-grid {
-      display: grid;
-      gap: 14px;
-    }
-    #research .research-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-    #research .stakeholder-grid {
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-    }
-    #research .implication-grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-    #research .research-review-card,
-    #research .stakeholder-card,
-    #research .implication-card,
-    #research .research-note-box {
-      padding: 18px;
-      background: #f8fafc;
-      border: 1px solid #edf1f6;
-      border-radius: 14px;
-      box-shadow: none;
-    }
-    #research .research-review-card {
-      position: relative;
-      overflow: hidden;
-    }
-    #research .research-review-card::before {
-      content: "";
-      position: absolute;
-      inset: 0 0 auto;
-      height: 4px;
-      background: #1f5fbf;
-    }
-    #research .research-review-card.product::before {
-      background: #20734d;
-    }
-    #research .research-review-card h4 {
-      margin: 16px 0 8px;
-      color: #35465d;
-      font-size: 11px;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
-    #research .research-review-card p,
-    #research .stakeholder-card p,
-    #research .implication-card p,
-    #research .research-note-box p,
-    #research .research-review-card li {
-      color: #536275;
-      font-size: 13px;
-    }
-    #research .stakeholder-card p,
-    #research .implication-card p,
-    #research .research-note-box p {
-      margin-bottom: 0;
-    }
-    #research .research-review-card ul {
-      margin: 0;
-      padding-left: 18px;
-    }
-    #research .research-review-card li + li {
-      margin-top: 5px;
-    }
-    #research .research-tag-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 12px;
-    }
-    #research .research-tag {
-      display: inline-flex;
-      align-items: center;
-      padding: 5px 8px;
-      border-radius: 999px;
-      background: #eef2f7;
-      color: #42526b;
-      font-size: 11px;
-      font-weight: 800;
-      white-space: nowrap;
-    }
-    #research .tone-blue { background: #e8f0ff; color: #1f5fbf; }
-    #research .tone-green { background: #e8f5ee; color: #20734d; }
-    #research .tone-purple { background: #f0edff; color: #5b4bb7; }
-    #research .tone-amber { background: #fff3d8; color: #b7791f; }
-    #research .research-note-box {
-      margin-top: 18px;
-      background: #e8f0ff;
-      border-color: #cbdcff;
-    }
-    #research .research-note-box strong {
-      display: block;
-      margin-bottom: 6px;
-      color: #1f5fbf;
-      font-size: 13px;
-    }
-    #research .research-personas {
-      margin-top: 10px;
-      display: grid;
-      gap: 26px;
-    }
-    #research .research-subsection-title {
-      margin: 8px 0 0;
-      color: var(--deep-blue);
-      font-size: 1.5rem;
-      line-height: 1.3;
-    }
-    #research .research-personas .persona-top-title {
-      width: 100%;
-      max-width: 100%;
-      margin: 0 auto 16px;
-    }
-    #research .research-personas .persona-detail-card {
-      width: 100%;
-      max-width: 100%;
-      margin: 0;
-    }
-    @media (max-width: 980px) {
-      #research .research-grid,
-      #research .stakeholder-grid,
-      #research .implication-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    #evidence-life .section-lead {
-      max-width: 100%;
-      text-align: justify;
-      text-justify: inter-word;
-    }
-    .life-evidence-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 22px;
-      margin-top: 24px;
-    }
-    .life-evidence-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 22px;
-      box-shadow: var(--shadow);
-      padding: 18px;
-    }
-    .life-evidence-placeholder {
-      min-height: 180px;
-      display: grid;
-      place-items: center;
-      margin-bottom: 12px;
-      border: 2px dashed rgba(53, 92, 125, 0.28);
-      border-radius: 16px;
-      background: rgba(255, 255, 255, 0.62);
-      color: #6f8294;
-      font-size: 0.9rem;
-      font-weight: 700;
-      text-align: center;
-    }
-    .life-evidence-card img {
-      width: 100%;
-      min-height: 180px;
-      max-height: 260px;
-      object-fit: cover;
-      display: block;
-      margin-bottom: 12px;
-      border-radius: 16px;
-      background: rgba(255, 255, 255, 0.62);
-      border: 2px dashed rgba(53, 92, 125, 0.28);
-    }
-    .life-evidence-card figcaption {
-      color: #4a6478;
-      font-size: 0.95rem;
-    }
-
-    #requirements.requirements-list {
-      width: min(1180px, calc(100% - 32px));
-      margin: 0 auto;
-      padding: 42px 0 56px;
-      background: transparent;
-    }
-    #requirements .req-section-title {
-      margin-bottom: 24px;
-      color: var(--deep-blue);
-      text-align: center;
-      font-family: "Trebuchet MS", "Segoe UI", Arial, sans-serif;
-      font-size: clamp(1.9rem, 3vw, 2.6rem);
-      line-height: 1.7;
-      letter-spacing: 0;
-      position: relative;
-      padding-bottom: 15px;
-    }
-    #requirements .req-section-title::after {
-      display: none;
-    }
-    #requirements .req-shell { display: grid; gap: 18px; }
-    #requirements .req-hero,
-    #requirements .req-panel {
-      background: transparent;
-      border: 0;
-      border-radius: 0;
-      padding: 28px 0;
-      box-shadow: none;
-    }
-    #requirements .hero-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.35fr) minmax(320px, 0.8fr);
-      gap: 28px;
-      align-items: end;
-    }
-    #requirements .req-eyebrow,
-    #requirements .section-kicker {
-      margin: 0 0 8px;
-      color: #1f5fbf;
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-    #requirements h1 {
-      margin-bottom: 12px;
-      color: #172033;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: clamp(34px, 4vw, 52px);
-      line-height: 1.05;
-      letter-spacing: -0.04em;
-    }
-    #requirements h2 {
-      margin-bottom: 6px;
-      color: #172033;
-      text-align: left;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 24px;
-      line-height: 1.16;
-      letter-spacing: -0.02em;
-    }
-    #requirements h2::after { display: none; }
-    #requirements h3 {
-      color: #172033;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 16px;
-      line-height: 1.22;
-    }
-    #requirements .lead,
-    #requirements .panel-intro {
-      margin-bottom: 0;
-      color: #536275;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 14px;
-      line-height: 1.48;
-      text-align: justify;
-      text-justify: inter-word;
-    }
-    #requirements .lead {
-      max-width: 880px;
-      font-size: 15px;
-    }
-    #requirements .panel-intro {
-      width: 100%;
-      max-width: none;
-    }
-    #requirements .metric-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 10px;
-    }
-    #requirements .metric-card {
-      min-height: 96px;
-      padding: 16px;
-      background: #f8fafc;
-      border: 1px solid #edf1f6;
-      border-radius: 14px;
-    }
-    #requirements .metric-card strong {
-      display: block;
-      margin-bottom: 5px;
-      color: #1f5fbf;
-      font-size: 28px;
-      line-height: 1;
-    }
-    #requirements .metric-card span {
-      display: block;
-      color: #667085;
-      font-size: 12px;
-      font-weight: 700;
-    }
-    #requirements .panel-header {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
-      gap: 18px;
-      align-items: end;
-      margin-bottom: 18px;
-    }
-    #requirements .chip-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      justify-content: flex-end;
-    }
-    #requirements .chip,
-    #requirements .req-tag,
-    #requirements .priority {
-      display: inline-flex;
-      align-items: center;
-      border-radius: 999px;
-      font-size: 11px;
-      font-weight: 800;
-      white-space: nowrap;
-    }
-    #requirements .chip {
-      padding: 7px 10px;
-      background: #eef2f7;
-      color: #40516a;
-    }
-    #requirements .req-tag {
-      padding: 5px 8px;
-      background: #eef2f7;
-      color: #42526b;
-    }
-    #requirements .priority {
-      min-width: 42px;
-      justify-content: center;
-      padding: 4px 8px;
-      font-weight: 900;
-    }
-    #requirements .tone-p0 { background: #fae8e5; color: #8c3b32; }
-    #requirements .tone-p1 { background: #e8f0ff; color: #234b8f; }
-    #requirements .tone-p2 { background: #e8f5ee; color: #245f3b; }
-    #requirements .tone-core { background: #e8f0ff; color: #1f5fbf; }
-    #requirements .tone-playful { background: #f0edff; color: #5b4bb7; }
-    #requirements .source-grid,
-    #requirements .req-card-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-    }
-    #requirements .info-card,
-    #requirements .requirement-card {
-      background: #f8fafc;
-      border: 1px solid #edf1f6;
-      border-radius: 14px;
-      box-shadow: none;
-    }
-    #requirements .info-card { padding: 18px; }
-    #requirements .info-card h3 { margin-bottom: 8px; }
-    #requirements .info-card p {
-      margin-bottom: 0;
-      color: #536275;
-      font-size: 13px;
-    }
-    #requirements .req-table-wrap {
-      overflow-x: auto;
-      border: 1px solid #d9e0ea;
-      border-radius: 14px;
-      background: #ffffff;
-    }
-    #requirements table {
-      width: 100%;
-      min-width: 1080px;
-      border-collapse: collapse;
-      box-shadow: none;
-    }
-    #requirements th,
-    #requirements td {
-      padding: 13px 14px;
-      border-bottom: 1px solid #edf1f6;
-      text-align: left;
-      vertical-align: top;
-      color: #172033;
-      font-size: 12.5px;
-      line-height: 1.48;
-    }
-    #requirements th {
-      position: sticky;
-      top: 0;
-      z-index: 1;
-      background: #f2f5f9;
-      color: #44536a;
-      font-size: 11px;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-    #requirements tr:last-child td { border-bottom: 0; }
-    #requirements .req-id {
-      width: 72px;
-      color: #667085;
-      font-weight: 800;
-    }
-    #requirements .source-text {
-      color: #31445c;
-      font-weight: 800;
-    }
-    #requirements .requirement-card {
-      position: relative;
-      min-height: 340px;
-      padding: 20px;
-      overflow: hidden;
-    }
-    #requirements .requirement-card::before {
-      content: "";
-      position: absolute;
-      inset: 0 0 auto;
-      height: 4px;
-      background: #1f5fbf;
-    }
-    #requirements .requirement-card.playful::before { background: #5b4bb7; }
-    #requirements .card-label { margin: 6px 0 10px; }
-    #requirements .requirement-card h3 {
-      margin-bottom: 10px;
-      color: #172033;
-      font-size: 18px;
-    }
-    #requirements .requirement-card p {
-      margin-bottom: 12px;
-      color: #4f5f73;
-      font-size: 13px;
-    }
-    #requirements .requirement-card h4 {
-      margin: 16px 0 8px;
-      color: #35465d;
-      font-size: 11px;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
-    #requirements .tag-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-    #requirements .bridge-note {
-      margin-top: 18px;
-      padding: 18px;
-      background: #f7f5ff;
-      border: 1px solid #ddd6ff;
-      border-radius: 14px;
-    }
-    #requirements .bridge-note h3 {
-      margin-bottom: 8px;
-      color: #5b4bb7;
-    }
-    #requirements .bridge-note p {
-      margin-bottom: 0;
-      color: #4f5f73;
-      font-size: 13.5px;
-    }
-    @media (max-width: 980px) {
-      #requirements .hero-grid,
-      #requirements .panel-header,
-      #requirements .source-grid,
-      #requirements .req-card-grid {
-        grid-template-columns: 1fr;
-      }
-      #requirements .chip-row { justify-content: flex-start; }
-    }
-    @media (max-width: 620px) {
-      #requirements.requirements-list {
-        width: min(100% - 20px, 1180px);
-        padding: 22px 0 36px;
-      }
-      #requirements .req-hero,
-      #requirements .req-panel {
-        padding: 20px;
-        border-radius: 14px;
-      }
-      #requirements .metric-grid { grid-template-columns: 1fr; }
-    }
-
-    #alternatives.design-alternatives {
-      width: min(1180px, calc(100% - 32px));
-      margin: 0 auto;
-      padding: 42px 0 56px;
-      background: transparent;
-    }
-    #alternatives .alt-shell {
-      display: grid;
-      gap: 18px;
-    }
-    #alternatives .alt-panel {
-      background: transparent;
-      border: 0;
-      border-radius: 0;
-      padding: 28px 0;
-      box-shadow: none;
-    }
-    #alternatives .alt-panel.no-frame {
-      background: transparent;
-      border: 0;
-      border-radius: 0;
-      padding: 0;
-    }
-    #alternatives .alt-section-title {
-      margin-bottom: 18px;
-      color: var(--deep-blue);
-      text-align: center;
-    }
-    #alternatives .section-kicker {
-      margin: 0 0 8px;
-      color: #1f5fbf;
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-    #alternatives .panel-header {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
-      gap: 18px;
-      align-items: end;
-      margin-bottom: 18px;
-    }
-    #alternatives h2.alt-heading {
-      margin-bottom: 6px;
-      color: #172033;
-      text-align: left;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 24px;
-      line-height: 1.16;
-      letter-spacing: -0.02em;
-    }
-    #alternatives h2.alt-heading::after { display: none; }
-    #alternatives h3 {
-      margin-bottom: 10px;
-      color: #172033;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 18px;
-      line-height: 1.2;
-    }
-    #alternatives .lead,
-    #alternatives .panel-intro {
-      margin-bottom: 0;
-      color: #536275;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 14px;
-      line-height: 1.48;
-      text-align: justify;
-      text-justify: inter-word;
-    }
-    #alternatives .lead {
-      max-width: none;
-      padding: 0 2px;
-      font-size: 15px;
-    }
-    #alternatives .panel-intro {
-      width: 100%;
-      max-width: none;
-    }
-    #alternatives .chip-row,
-    #alternatives .tag-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-    #alternatives .chip-row { justify-content: flex-end; }
-    #alternatives .chip,
-    #alternatives .alt-tag,
-    #alternatives .rating {
-      display: inline-flex;
-      align-items: center;
-      border-radius: 999px;
-      font-size: 11px;
-      font-weight: 800;
-      white-space: nowrap;
-    }
-    #alternatives .chip {
-      padding: 7px 10px;
-      background: #eef2f7;
-      color: #40516a;
-    }
-    #alternatives .alt-tag {
-      padding: 5px 8px;
-      background: #eef2f7;
-      color: #42526b;
-    }
-    #alternatives .tone-blue { background: #e8f0ff; color: #1f5fbf; }
-    #alternatives .tone-green { background: #e8f5ee; color: #20734d; }
-    #alternatives .tone-purple { background: #f0edff; color: #5b4bb7; }
-    #alternatives .tone-amber { background: #fff3d8; color: #b7791f; }
-    #alternatives .tone-red { background: #fae8e5; color: #b44438; }
-    #alternatives .logic-grid,
-    #alternatives .alternative-grid,
-    #alternatives .trace-grid {
-      display: grid;
-      gap: 14px;
-    }
-    #alternatives .logic-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-    #alternatives .alternative-grid,
-    #alternatives .trace-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    #alternatives .logic-card,
-    #alternatives .alt-card,
-    #alternatives .trace-card,
-    #alternatives .quote-box {
-      background: #f8fafc;
-      border: 1px solid #edf1f6;
-      border-radius: 14px;
-      box-shadow: none;
-    }
-    #alternatives .logic-card,
-    #alternatives .trace-card,
-    #alternatives .quote-box {
-      padding: 18px;
-    }
-    #alternatives .logic-card h3,
-    #alternatives .trace-card h3 {
-      margin-bottom: 8px;
-      font-size: 15px;
-    }
-    #alternatives .logic-card p,
-    #alternatives .trace-card li,
-    #alternatives .alt-card p,
-    #alternatives .quote-box p {
-      color: #536275;
-      font-size: 13px;
-    }
-    #alternatives .logic-card p,
-    #alternatives .quote-box p {
-      margin-bottom: 0;
-    }
-    #alternatives .alt-card {
-      position: relative;
-      min-height: 470px;
-      padding: 20px;
-      overflow: hidden;
-    }
-    #alternatives .alt-card::before {
-      content: "";
-      position: absolute;
-      inset: 0 0 auto;
-      height: 4px;
-      background: #1f5fbf;
-    }
-    #alternatives .alt-card.alt-two::before { background: #20734d; }
-    #alternatives .alt-card.alt-three::before { background: #5b4bb7; }
-    #alternatives .alt-card h4 {
-      margin: 16px 0 8px;
-      color: #35465d;
-      font-size: 11px;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
-    #alternatives .alt-card ul,
-    #alternatives .trace-card ul {
-      margin: 0;
-      padding-left: 18px;
-    }
-    #alternatives .alt-card li,
-    #alternatives .trace-card li {
-      color: #536275;
-      font-size: 13px;
-    }
-    #alternatives .alt-card li + li,
-    #alternatives .trace-card li + li { margin-top: 5px; }
-    #alternatives .alt-table-wrap {
-      overflow-x: auto;
-      border: 1px solid #d9e0ea;
-      border-radius: 14px;
-      background: #ffffff;
-    }
-    #alternatives table {
-      width: 100%;
-      min-width: 980px;
-      border-collapse: collapse;
-      box-shadow: none;
-    }
-    #alternatives th,
-    #alternatives td {
-      padding: 13px 14px;
-      border-bottom: 1px solid #edf1f6;
-      text-align: left;
-      vertical-align: top;
-      color: #172033;
-      font-size: 12.5px;
-      line-height: 1.48;
-    }
-    #alternatives th {
-      position: sticky;
-      top: 0;
-      z-index: 1;
-      background: #f2f5f9;
-      color: #44536a;
-      font-size: 11px;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-    #alternatives tr:last-child td { border-bottom: 0; }
-    #alternatives .rating {
-      min-width: 76px;
-      justify-content: center;
-      padding: 4px 8px;
-    }
-    #alternatives .selected-panel {
-      padding: 22px;
-      background: #f7f5ff;
-      border: 1px solid #ddd6ff;
-      border-radius: 14px;
-    }
-    #alternatives .selected-panel h3 { color: #5b4bb7; }
-    #alternatives .selected-panel p {
-      margin-bottom: 12px;
-      color: #4f5f73;
-      font-size: 13.5px;
-    }
-    #alternatives .quote-box {
-      margin-top: 18px;
-      border-color: #cbdcff;
-      background: #e8f0ff;
-    }
-    #alternatives .quote-box strong {
-      display: block;
-      margin-bottom: 6px;
-      color: #1f5fbf;
-      font-size: 13px;
-    }
-    @media (max-width: 980px) {
-      #alternatives .panel-header,
-      #alternatives .logic-grid,
-      #alternatives .alternative-grid,
-      #alternatives .trace-grid {
-        grid-template-columns: 1fr;
-      }
-      #alternatives .chip-row { justify-content: flex-start; }
-    }
-    @media (max-width: 620px) {
-      #alternatives.design-alternatives {
-        width: min(100% - 20px, 1180px);
-        padding: 22px 0 36px;
-      }
-      #alternatives .alt-panel {
-        padding: 20px 0;
-        border-radius: 0;
-      }
-    }
-
-        .architecture-flow {
-  max-width: 980px;
-  margin: 28px auto;
-  display: grid;
-  gap: 14px;
-}
-.arch-layer {
-  background: rgba(255,255,255,.62);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 12px;
-}
-.arch-layer-title {
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  color: var(--mid-blue);
-  margin-bottom: 8px;
-}
-.arch-row {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0,1fr));
-  gap: 10px;
-}
-.arch-row.single { grid-template-columns: 1fr; }
-.architecture-node {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  box-shadow: var(--shadow);
-  padding: 10px 12px;
-  font-weight: 700;
-  color: var(--deep-blue);
-  text-align: center;
-  font-size: .94rem;
-  min-height: 54px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.architecture-arrow {
-  text-align: center;
-  color: var(--mid-blue);
-  font-size: 1.05rem;
-  font-weight: 700;
-  margin: 0;
-}
-.arch-link {
-  text-align: center;
-  color: var(--mid-blue);
-  font-size: .9rem;
-  margin: 0;
-}
-.system-architecture-placeholder {
-  width: 100%;
-  max-width: 100%;
-  min-height: 360px;
-  margin: 24px auto 30px;
-  border: 2px dashed rgba(53, 92, 125, 0.32);
-  border-radius: 18px;
-  background: rgba(255, 255, 255, 0.58);
-  overflow: hidden;
-}
-.system-architecture-placeholder img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-.system-architecture-placeholder:has(img:not([src=""])) {
-  min-height: 0;
-}
-#evaluation .eval-shell,
-#iteration .iteration-shell {
-  display: grid;
-  gap: 18px;
-}
-#evaluation .eval-panel,
-#iteration .iteration-panel {
-  background: transparent;
-  border: 0;
-  border-radius: 0;
-  padding: 0;
-}
-#evaluation .eval-hero-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1.35fr) minmax(320px, 0.8fr);
-  gap: 28px;
-  align-items: end;
-}
-#evaluation .eval-lead,
-#evaluation .eval-panel-intro,
-#iteration .iteration-panel-intro {
-  max-width: none;
-  margin-bottom: 0;
-  color: #536275;
-  font-size: 14px;
-  line-height: 1.48;
-  text-align: justify;
-  text-justify: inter-word;
-}
-#evaluation .eval-lead {
-  font-size: 15px;
-}
-#evaluation .eval-metric-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 10px;
-}
-#evaluation .eval-metric-card {
-  min-height: 96px;
-  padding: 16px;
-  background: #f8fafc;
-  border: 1px solid #edf1f6;
-  border-radius: 14px;
-}
-#evaluation .eval-metric-card strong {
-  display: block;
-  margin-bottom: 5px;
-  color: #1f5fbf;
-  font-size: 28px;
-  line-height: 1;
-}
-#evaluation .eval-metric-card span {
-  display: block;
-  color: #667085;
-  font-size: 12px;
-  font-weight: 700;
-}
-#evaluation .eval-panel-header,
-#iteration .iteration-panel-header {
-  display: block;
-  margin-bottom: 18px;
-}
-#iteration .iteration-panel-intro {
-  max-width: none;
-  width: 100%;
-  text-align: justify;
-  text-justify: inter-word;
-}
-#evaluation .eval-chip-row,
-#iteration .iteration-chip-row,
-#iteration .iteration-tag-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-#evaluation .eval-chip-row,
-#iteration .iteration-chip-row {
-  justify-content: flex-end;
-}
-#evaluation .eval-chip,
-#iteration .iteration-chip,
-#iteration .iteration-tag,
-#evaluation .eval-status {
-  display: inline-flex;
-  align-items: center;
-  border-radius: 999px;
-  font-size: 11px;
-  font-weight: 800;
-  white-space: nowrap;
-}
-#evaluation .eval-chip,
-#iteration .iteration-chip {
-  padding: 7px 10px;
-  background: #eef2f7;
-  color: #40516a;
-}
-#iteration .iteration-tag {
-  padding: 5px 8px;
-  background: #eef2f7;
-  color: #42526b;
-}
-#evaluation .eval-status {
-  min-width: 80px;
-  justify-content: center;
-  padding: 4px 8px;
-}
-#evaluation .tone-blue,
-#iteration .tone-blue { background: #e8f0ff; color: #1f5fbf; }
-#evaluation .tone-green,
-#iteration .tone-green { background: #e8f5ee; color: #20734d; }
-#evaluation .tone-purple,
-#iteration .tone-purple { background: #f0edff; color: #5b4bb7; }
-#evaluation .tone-amber,
-#iteration .tone-amber { background: #fff3d8; color: #b7791f; }
-#evaluation .tone-red,
-#iteration .tone-red { background: #fae8e5; color: #b44438; }
-#evaluation .eval-goal-grid,
-#evaluation .eval-method-grid,
-#evaluation .eval-finding-grid,
-#iteration .iteration-grid {
-  display: grid;
-  gap: 14px;
-}
-#evaluation .eval-goal-grid {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-}
-#evaluation .eval-method-grid,
-#evaluation .eval-finding-grid,
-#iteration .iteration-grid {
-  grid-template-columns: 1fr;
-}
-#evaluation .eval-goal-card,
-#evaluation .eval-method-card,
-#evaluation .eval-finding-card,
-#iteration .iteration-card,
-#iteration .iteration-note-box {
-  background: #f8fafc;
-  border: 1px solid #edf1f6;
-  border-radius: 14px;
-  box-shadow: none;
-}
-#evaluation .eval-goal-card,
-#evaluation .eval-method-card,
-#evaluation .eval-finding-card,
-#iteration .iteration-card,
-#iteration .iteration-note-box {
-  padding: 18px;
-}
-#iteration .iteration-card {
-  display: grid;
-  grid-template-columns: minmax(260px, 0.85fr) minmax(0, 1.45fr);
-  gap: 16px 24px;
-  align-items: start;
-}
-#iteration .iteration-card > h3,
-#iteration .iteration-card > p,
-#iteration .iteration-card > .iteration-meta {
-  grid-column: 1;
-}
-#iteration .iteration-card > .iteration-before-after-grid {
-  grid-column: 2;
-  grid-row: 1 / span 3;
-}
-#evaluation .eval-goal-card h3,
-#evaluation .eval-method-card h3,
-#evaluation .eval-finding-card h3 {
-  margin-bottom: 8px;
-  font-size: 15px;
-}
-#iteration .iteration-card h3 {
-  margin-bottom: 10px;
-  font-size: 16px;
-  line-height: 1.25;
-}
-#evaluation .eval-goal-card p,
-#evaluation .eval-method-card p,
-#evaluation .eval-finding-card p,
-#iteration .iteration-card p,
-#iteration .iteration-note-box p,
-#evaluation .eval-task-list li {
-  color: #536275;
-  font-size: 13px;
-}
-#evaluation .eval-goal-card p,
-#evaluation .eval-method-card p,
-#evaluation .eval-finding-card p {
-  margin-bottom: 0;
-}
-#evaluation .eval-table-wrap {
-  overflow-x: auto;
-  border: 1px solid #d9e0ea;
-  border-radius: 14px;
-  background: #ffffff;
-}
-#evaluation .eval-table-wrap table {
-  width: 100%;
-  min-width: 980px;
-  border-collapse: collapse;
-  box-shadow: none;
-}
-#evaluation .eval-table-wrap th,
-#evaluation .eval-table-wrap td {
-  padding: 13px 14px;
-  border-bottom: 1px solid #edf1f6;
-  text-align: left;
-  vertical-align: top;
-  color: #172033;
-  font-size: 12.5px;
-  line-height: 1.48;
-}
-#evaluation .eval-table-wrap th {
-  position: sticky;
-  top: 0;
-  z-index: 1;
-  background: #f2f5f9;
-  color: #44536a;
-  font-size: 11px;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-#evaluation .eval-table-wrap tr:last-child td {
-  border-bottom: 0;
-}
-#evaluation .eval-task-list {
-  display: grid;
-  gap: 10px;
-  margin: 0;
-  padding-left: 20px;
-}
-#evaluation .eval-task-list strong {
-  color: #172033;
-}
-#iteration .iteration-before-after-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
-  margin: 0;
-}
-#iteration .iteration-screenshot-box {
-  min-height: 420px;
-  display: grid;
-  place-items: center;
-  position: relative;
-  padding: 34px 12px 12px;
-  border: 1px dashed #c4ccd8;
-  border-radius: 12px;
-  background: #ffffff;
-  color: #7a8798;
-  text-align: center;
-  font-size: 12px;
-  font-weight: 700;
-  overflow: hidden;
-}
-#iteration .iteration-screenshot-box::before {
-  content: attr(data-label);
-  position: absolute;
-  top: 10px;
-  left: 12px;
-  padding: 4px 9px;
-  border-radius: 999px;
-  background: #eef2f7;
-  color: #42526b;
-  font-size: 11px;
-  font-weight: 800;
-}
-#iteration .iteration-screenshot-box[data-label="Before"]::before {
-  background: #fdebea;
-  color: #b8453b;
-}
-#iteration .iteration-screenshot-box[data-label="After"]::before {
-  background: #e8f5ee;
-  color: #20734d;
-}
-#iteration .iteration-screenshot-box img {
-  width: 100%;
-  height: 100%;
-  max-height: 520px;
-  object-fit: contain;
-  display: block;
-  border-radius: 8px;
-}
-#iteration .iteration-meta {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 10px;
-  margin-top: 12px;
-}
-#iteration .iteration-meta div {
-  padding: 10px;
-  background: #ffffff;
-  border: 1px solid #edf1f6;
-  border-radius: 12px;
-}
-#iteration .iteration-meta strong {
-  display: block;
-  margin-bottom: 4px;
-  color: #172033;
-  font-size: 12px;
-}
-#iteration .iteration-meta span {
-  color: #536275;
-  font-size: 11.5px;
-}
-#iteration .iteration-note-box {
-  margin-top: 18px;
-  background: #e8f0ff;
-  border-color: #cbdcff;
-}
-#iteration .iteration-note-box strong {
-  display: block;
-  margin-bottom: 6px;
-  color: #1f5fbf;
-  font-size: 13px;
-}
-@media (max-width: 900px) {
-  .arch-row { grid-template-columns: 1fr; }
-}
-@media (max-width: 980px) {
-  #evaluation .eval-hero-grid,
-  #evaluation .eval-panel-header,
-  #iteration .iteration-panel-header,
-  #evaluation .eval-goal-grid,
-  #evaluation .eval-method-grid,
-  #evaluation .eval-finding-grid,
-  #iteration .iteration-grid {
-    grid-template-columns: 1fr;
-  }
-  #evaluation .eval-chip-row,
-  #iteration .iteration-chip-row {
-    justify-content: flex-start;
-  }
-  #iteration .iteration-card {
-    grid-template-columns: 1fr;
-  }
-  #iteration .iteration-card > h3,
-  #iteration .iteration-card > p,
-  #iteration .iteration-card > .iteration-meta,
-  #iteration .iteration-card > .iteration-before-after-grid {
-    grid-column: 1;
-  }
-  #iteration .iteration-card > .iteration-before-after-grid {
-    grid-row: auto;
-  }
-}
-@media (max-width: 620px) {
-  #evaluation .eval-metric-grid {
-    grid-template-columns: 1fr;
-  }
-  #iteration .iteration-before-after-grid {
-    grid-template-columns: 1fr;
-  }
-  #iteration .iteration-screenshot-box {
-    min-height: 320px;
-  }
-}
-
-    .timeline { position: relative; max-width: 1000px; margin: 0 auto; padding: 8px 0; }
-    .timeline::after { content: ""; position: absolute; width: 3px; background: rgba(95, 127, 149, 0.22); top: 0; bottom: 0; left: 50%; transform: translateX(-50%); }
-    .timeline-item { position: relative; width: 50%; padding: 10px 40px; }
-    .timeline-item::after { content: ""; position: absolute; width: 16px; height: 16px; border-radius: 50%; background: #fff; border: 3px solid var(--mid-blue); top: 28px; z-index: 2; }
-    .timeline-item:nth-child(odd) { left: 0; text-align: right; }
-    .timeline-item:nth-child(odd)::after { right: -11px; }
-    .timeline-item:nth-child(even) { left: 50%; text-align: left; }
-    .timeline-item:nth-child(even)::after { left: -11px; }
-    .timeline-content { padding: 20px; background: var(--card-bg); border: 1px solid var(--border); border-radius: 18px; box-shadow: var(--shadow); }
-
-    blockquote { margin: 18px 0; padding: 16px 20px; border-left: 5px solid rgba(53, 92, 125, 0.35); background: rgba(255, 255, 255, 0.7); border-radius: 12px; font-style: italic; }
-
-    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.8s ease, transform 0.8s ease; }
-    .reveal.active { opacity: 1; transform: translateY(0); }
-
-    @media (max-width: 900px) {
-      .timeline::after { left: 28px; transform: none; }
-      .timeline-item,
-      .timeline-item:nth-child(even) { left: 0; width: 100%; text-align: left; padding: 10px 20px 10px 68px; }
-      .timeline-item::after,
-      .timeline-item:nth-child(odd)::after,
-      .timeline-item:nth-child(even)::after { left: 20px; right: auto; }
-      .persona-detail-layout { flex-direction: column; }
-      .detail-column-left,
-      .detail-column-center,
-      .detail-column-right { flex: 1 1 auto; min-width: 0; }
-    }
-
-    @media (max-width: 768px) {
-      .nav-container { justify-content: flex-start; width: max-content; min-width: 100%; padding: 0 8px; }
-      .navbar a { flex: 0 0 auto; white-space: nowrap; padding: 12px; font-size: 0.9rem; }
-      section { padding: 60px 14px; }
-      .data-table th, .data-table td { padding: 12px; font-size: 0.9rem; }
-      .evidence-grid, .prototype-gallery, .before-after-grid, .journey-grid, .team-grid, .card-grid, .pillar-grid, .problem-grid { grid-template-columns: 1fr; }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header class="main-header reveal" id="home">
@@ -1832,12 +57,12 @@
         <article class="team-card"><img src="images/Sihan_Zhang.jpg" alt="Sihan Zhang"><h3>Sihan Zhang</h3><p><strong>ID:</strong> 2363969</p></article>
         <article class="team-card"><img src="images/Zhanhao_Zhang.jpg" alt="Zhanhao Zhang"><h3>Zhanhao Zhang</h3><p><strong>ID:</strong> 2362498</p></article>
       </div>
-      <div class="section-lead" style="margin-top: 20px;">
+      <div class="section-lead team-summary">
         <p>The team worked across user research, interaction design, content planning, front-end implementation, testing, and presentation preparation.</p>
       </div>
       <h3>Individual Contributions</h3>
       <div class="table-wrap"><table class="data-table"><thead><tr><th>Member</th><th>Main Contributions</th><th>Contribution Percentage</th></tr></thead><tbody><tr><td>Linhua Dong</td><td>Project coding, project testing, and project content filling.</td><td>25%</td></tr><tr><td>Xi Han</td><td>UI design, requirement collection, and outcome presentation.</td><td>25%</td></tr><tr><td>Sihan Zhang</td><td>UI design, requirement collection, and outcome presentation.</td><td>25%</td></tr><tr><td>Zhanhao Zhang</td><td>Project coding, project testing, and project content filling.</td><td>25%</td></tr></tbody></table></div>
-      <p style="margin-top:10px; color:#4a6478; font-size:.95rem;">Note: Members are listed in alphabetical order by surname initial; this order does not indicate ranking or contribution priority.</p>
+      <p class="team-note">Note: Members are listed in alphabetical order by surname initial; this order does not indicate ranking or contribution priority.</p>
     </div>
   </section>
 
@@ -2136,7 +361,7 @@
           <div class="detail-column-center">
             <div class="detail-item"><h3>Goals</h3><ul><li>Find essential campus places during the first week.</li><li>Understand which route is useful for new students.</li><li>Build confidence in moving around campus independently.</li><li>Reach classrooms quickly between classes.</li></ul></div>
             <div class="detail-item"><h3>Frustrations</h3><ul><li>Generic maps show locations but do not explain what matters first.</li><li>Campus signs and websites are fragmented.</li><li>Getting lost may make him late or anxious.</li></ul></div>
-            <div class="detail-item"><h3>Bio</h3><p class="persona-bio-text">Li Hua arrives at XJTLU during orientation week. She needs to find classrooms, canteens, the library, and student service locations, but he does not know which places should be explored first. He relies on mobile navigation and prefers clear, beginner-friendly route suggestions with campus-specific context.</p></div>
+            <div class="detail-item"><h3>Bio</h3><p class="persona-bio-text">Li Hua arrives at XJTLU during orientation week. He needs to find classrooms, canteens, the library, and student service locations, but he does not know which places should be explored first. He relies on mobile navigation and prefers clear, beginner-friendly route suggestions with campus-specific context.</p></div>
           </div>
           <div class="detail-column-right">
             <div class="chart-container"><h3>Motivation</h3><div class="chart-row"><span>Efficiency</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width:90%;"></div></div></div><div class="chart-row"><span>Social</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width:72%;"></div></div></div><div class="chart-row"><span>Safety</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width:80%;"></div></div></div></div>
@@ -2189,56 +414,8 @@
     <div class="section-shell">
       <h2>User Requirements</h2>
       <h3 class="user-req-subtitle">User Journey Map</h3>
-      <h3 class="journey-copy-title">User Journey Map Comparison</h3>
       <p class="journey-copy-text">To understand how PuPath improves the campus navigation experience, we created two connected user journey maps. The first map describes the current journey without PuPath, where new students and visitors rely on scattered information, generic map tools, and help from others. The second map presents the improved journey with PuPath, showing how the same user can move from uncertainty to guided, safer, and more confident campus exploration.</p>
-      <style>
-        .journey-compare { --bg:#eef2f6; --paper:#fff; --ink:#172033; --muted:#667085; --line:#d7dde7; --blue:#1f5fbf; --blue-2:#e8f0ff; --green:#20734d; --green-2:#e8f5ee; --red:#b44438; --red-2:#fae8e5; }
-        .journey-compare .journey-copy-title {
-          margin: 0 0 8px;
-          color: var(--deep-blue);
-          font-size: 1.5rem;
-          line-height: 1.3;
-          font-weight: 700;
-        }
-        .journey-compare .journey-copy-text { margin: 0 0 18px; font-size: 1rem; }
-        .journey-compare .journey { margin:0 0 22px; padding:24px; background:var(--paper); border:1px solid var(--line); border-radius:12px; }
-        .journey-compare .top { display:grid; grid-template-columns:1.4fr .9fr .8fr; gap:16px; margin-bottom:18px; }
-        .journey-compare .eyebrow { margin:0 0 8px; color:var(--blue); font-size:12px; font-weight:700; text-transform:uppercase; }
-        .journey-compare h3 { margin:0 0 8px; font-size:1.9rem; color:var(--ink); }
-        .journey-compare .intro { margin:0; color:#475467; font-size:14px; }
-        .journey-compare .meta { padding:14px; background:#f3f6fa; border:1px solid var(--line); border-radius:8px; }
-        .journey-compare .meta h4 { margin:0 0 8px; color:var(--ink); }
-        .journey-compare .meta-row { display:grid; grid-template-columns:72px 1fr; gap:8px; margin-top:7px; font-size:12px; }
-        .journey-compare .meta-row strong { color:var(--muted); }
-        .journey-compare .scorecard { display:grid; gap:8px; }
-        .journey-compare .score { padding:10px 12px; border:1px solid var(--line); border-radius:8px; background:#fbfcfe; font-size:12px; }
-        .journey-compare .score strong { display:block; font-size:16px; }
-        .journey-compare .without .eyebrow { color:var(--red); } .journey-compare .without .score strong { color:var(--red); }
-        .journey-compare .with .eyebrow { color:var(--green); } .journey-compare .with .score strong { color:var(--green); }
-        .journey-compare .stages { display:grid; grid-template-columns:110px repeat(7,1fr); border:1px solid var(--line); border-bottom:0; }
-        .journey-compare .corner,.journey-compare .stage { min-height:96px; padding:12px; border-right:1px solid var(--line); border-bottom:1px solid var(--line); background:#fbfcfe; }
-        .journey-compare .stage:last-child,.journey-compare .cell:last-child { border-right:0; }
-        .journey-compare .index { display:inline-flex; align-items:center; justify-content:center; width:24px; height:24px; margin-bottom:8px; border-radius:999px; color:#fff; font-size:12px; font-weight:700; }
-        .journey-compare .without .index { background:var(--red); } .journey-compare .with .index { background:var(--green); }
-        .journey-compare .stage h4 { margin:0 0 6px; color:var(--ink); font-size:14px; } .journey-compare .stage p { margin:0; color:var(--muted); font-size:11.5px; }
-        .journey-compare .lane { display:grid; grid-template-columns:110px repeat(7,1fr); border-left:1px solid var(--line); border-right:1px solid var(--line); }
-        .journey-compare .label,.journey-compare .cell { min-height:86px; padding:12px; border-right:1px solid var(--line); border-bottom:1px solid var(--line); font-size:12px; }
-        .journey-compare .label { background:#f7f9fc; color:#52677f; font-weight:700; }
-        .journey-compare .pain { background:var(--red-2); color:#6f2c26; } .journey-compare .solution { background:var(--green-2); color:#1f4f39; } .journey-compare .evidence { background:var(--blue-2); color:#234b8f; }
-        .journey-compare .quote { font-style:italic; color:#35465d; }
-        .journey-compare .tag { display:inline-block; margin:0 5px 6px 0; padding:4px 7px; border-radius:999px; background:#eef2f7; color:#42526b; font-size:10.5px; font-weight:700; }
-        .journey-compare .tag.red { background:#f6d7d3; color:#88372e; } .journey-compare .tag.green { background:#d8efdf; color:#255f3a; }
-        .journey-compare .emotion .bar { width:100%; height:12px; margin-top:6px; overflow:hidden; border-radius:999px; background:#dfe6ef; }
-        .journey-compare .emotion .bar span { display:block; height:100%; border-radius:inherit; }
-        .journey-compare .emotion .down span { background:linear-gradient(90deg,#dca647,#cf6c50,#a64135); } .journey-compare .emotion .up span { background:linear-gradient(90deg,#dca647,#4389d4,#277a51); }
-        .journey-compare .emotion small { display:block; margin-top:8px; color:var(--muted); font-weight:700; }
-        .journey-compare .bottom { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-top:16px; }
-        .journey-compare .note { min-height:116px; padding:14px; border:1px solid var(--line); border-radius:8px; background:#fbfcfe; }
-        .journey-compare .note h4 { margin:0 0 8px; color:var(--ink); } .journey-compare .note p { margin:0; color:#4c5d73; font-size:12px; }
-        @media (max-width: 1100px) { .journey-compare .top { grid-template-columns: 1fr; } .journey-compare .stages, .journey-compare .lane { min-width: 980px; } .journey-compare .scroll { overflow-x:auto; } .journey-compare .bottom { grid-template-columns:1fr 1fr; } }
-        @media (max-width: 700px) { .journey-compare .bottom { grid-template-columns:1fr; } }
-      </style>
-      <div class="journey-compare">
+    <div class="journey-compare">
         <section class="journey without">
           <div class="top">
             <div>
@@ -2482,38 +659,29 @@
 
   <div id="evidence-life" class="evidence-life-block">
       <h3 class="user-req-subtitle">Evidence of Life</h3>
-      <div class="section-lead">
-        <p>This section is reserved for evidence showing the real project process, including field observation, user research, prototype discussion, testing, iteration, and teamwork. Replace the placeholders below with actual photos, screenshots, or process records before final submission.</p>
-      </div>
       <div class="life-evidence-grid">
         <figure class="life-evidence-card">
-          <!-- Replace with your on-site interview image, for example: images/evidence-onsite-interview.jpg -->
-          <img src="" alt="On-site interview evidence">
+          <img src="images/onsite-interview.jpg" alt="On-site interview evidence">
           <figcaption>Evidence from an in-person campus interview with a target user or stakeholder.</figcaption>
         </figure>
         <figure class="life-evidence-card">
-          <!-- Replace with your online interview image, for example: images/evidence-online-interview.jpg -->
-          <img src="" alt="Online interview evidence">
+          <img src="images/online-interview.jpg" alt="Online interview evidence">
           <figcaption>Evidence from an online interview or remote communication with a participant.</figcaption>
         </figure>
         <figure class="life-evidence-card">
-          <!-- Replace with your questionnaire image, for example: images/evidence-questionnaire.jpg -->
-          <img src="" alt="Questionnaire evidence">
+          <img src="images/questionnaire.jpg" alt="Questionnaire evidence">
           <figcaption>Evidence from the survey or questionnaire used to collect broader user feedback.</figcaption>
         </figure>
         <figure class="life-evidence-card">
-          <!-- Replace with your informed consent image, for example: images/evidence-informed-consent.jpg -->
-          <img src="" alt="Ethical informed consent evidence">
+          <img src="images/informed-consent.jpg" alt="Ethical informed consent evidence">
           <figcaption>Evidence of the ethics or informed consent agreement used before collecting participant data.</figcaption>
         </figure>
         <figure class="life-evidence-card">
-          <!-- Replace with your map information image, for example: images/evidence-map-information.jpg -->
-          <img src="" alt="Map information evidence">
+          <img src="images/map-information.jpg" alt="Map information evidence">
           <figcaption>Evidence of campus map information, route references, or location data used during analysis.</figcaption>
         </figure>
         <figure class="life-evidence-card">
-          <!-- Replace with your campus field photo, for example: images/evidence-campus-field.jpg -->
-          <img src="" alt="Campus field photo evidence">
+          <img src="images/campus-field.jpg" alt="Campus field photo evidence">
           <figcaption>On-site campus photo showing the real environment, landmarks, routes, or navigation context.</figcaption>
         </figure>
       </div>
@@ -2531,11 +699,11 @@
         <figure><img src="images/crazy-eight-map-1.jpg" alt="Map page 1"><figcaption>Map Page 1: Custom route map with multi-route display (favorites/recent/recommended) and time-distance filters.</figcaption></figure>
         <figure><img src="images/crazy-eight-map-2.jpg" alt="Map page 2"><figcaption>Map Page 2: Multi-path campus map showing route overlays between buildings, with route-type differentiation on one map canvas.</figcaption></figure>
         <figure><img src="images/crazy-eight-my-1.jpg" alt="My page"><figcaption>My Page: Personal center with language and identity switchers, plus favorites, my routes, and planning modules.</figcaption></figure>
-        <figure><img src="images/crazy-eight-recommend-1.jpg" alt="Recommend page 1"><figcaption>Recommend Page 1: Category-based recommendation page (food, parking, museum, sink area) with place cards and quick actions.</figcaption></figure>
+        <figure><img src="images/crazy-eight-recommend-1.jpg" alt="Recommend page 1"><figcaption>Recommend Page 1: Category-based recommendation page with food, parking, museum, place cards, and quick actions.</figcaption></figure>
         <figure><img src="images/crazy-eight-recommend-2.jpg" alt="Recommend page 2"><figcaption>Recommend Page 2: Daily recommendation list with highlighted items, route hints, and collectible-oriented exploration prompts.</figcaption></figure>
         <figure><img src="images/crazy-eight-detail-1.jpg" alt="Detail page"><figcaption>Detail Page: Place detail layout with hero image, opening time, access/admission notes, and extended description content.</figcaption></figure>
       </div>
-      <p style="margin-top:18px;">The final direction combined a clear mobile hierarchy, map-driven wayfinding, and modular content blocks so that Home, Map, Recommendation, Detail, and My pages work as one coherent user flow.</p>
+      <p class="ideation-summary">The final direction combined a clear mobile hierarchy, map-driven wayfinding, and modular content blocks so that Home, Map, Recommendation, Detail, and My pages work as one coherent user flow.</p>
     </div>
   </section>
 
@@ -2917,7 +1085,7 @@
       </figure>
       <h3>Engineering Pillars</h3>
       <div class="pillar-grid">
-        <article class="pillar-card"><h3>Mobile-first Static Deployment</h3><p><strong>How:</strong> GitHub Pages hosts the static PWA and allows public access through URL or QR code.</p><p><strong>Benefit:</strong> Users and markers can open the prototype quickly without installation.</p></article>
+        <article class="pillar-card"><h3>Mobile-first Static Deployment</h3><p><strong>How:</strong> GitHub Pages hosts the static PWA and allows public access through URL or QR code.</p><p><strong>Benefit:</strong> Users and assessors can open the prototype quickly without installation.</p></article>
         <article class="pillar-card"><h3>Local Interaction State</h3><p><strong>How:</strong> Saved places, check-ins, badges, and route progress are handled as local browser states in the MVP.</p><p><strong>Benefit:</strong> Demonstrates meaningful interaction without requiring a backend database.</p></article>
         <article class="pillar-card"><h3>Structured Campus Data</h3><p><strong>How:</strong> POIs, route content, badge rules, and bilingual labels are organized as structured local data.</p><p><strong>Benefit:</strong> Separates content from interface components and remains easier to update and test.</p></article>
       </div>
@@ -2937,11 +1105,11 @@
       </tbody></table></div>
       <h3>Data Handling</h3><p>PuPath uses structured local datasets for POIs, routes, recommendations, story cards, badges, treasures, and contact/school profile content. Route progress, favorites, wishlist, visited records, recent views, and check-in outcomes are handled as local interaction state in the MVP. Check-ins are constrained by local daily logic to avoid repeated same-day claims. No sensitive personal information is collected or transmitted in the MVP. Future account-based synchronization would require explicit consent, privacy notice, and secure storage.</p>
       <h3>Future Production Roadmap</h3>
-      <div class="table-wrap roadmap-table"><table class="data-table"><thead><tr><th>Layer</th><th>Current MVP</th><th>Future Version</th></tr></thead><tbody><tr><td>Hosting</td><td>GitHub Pages static deployment</td><td>Vercel or server-backed deployment</td></tr><tr><td>Data</td><td>Local JSON / mock data</td><td>Validated campus POI database</td></tr><tr><td>User State</td><td>Local browser state</td><td>Optional account-based sync with consent</td></tr><tr><td>Map</td><td>MapLibre and static POI data</td><td>Validated coordinates and real routing support</td></tr><tr><td>Evaluation</td><td>Small task-based usability test</td><td>Larger campus field test</td></tr><tr><td>Content</td><td>Basic POI and route content</td><td>Richer campus stories and accessibility metadata</td></tr></tbody></table></div>
+      <div class="table-wrap roadmap-table"><table class="data-table"><thead><tr><th>Layer</th><th>Current MVP</th><th>Future Version</th></tr></thead><tbody><tr><td>Hosting</td><td>GitHub Pages static deployment</td><td>Vercel or server-backed deployment</td></tr><tr><td>Data</td><td>Local JSON / mock data</td><td>Validated campus POI database</td></tr><tr><td>User State</td><td>Local browser state</td><td>Optional account-based sync with consent</td></tr><tr><td>Map</td><td>AMap / MapLibre fallback with local POI data</td><td>Validated coordinates and real routing support</td></tr><tr><td>Evaluation</td><td>Small task-based usability test</td><td>Larger campus field test</td></tr><tr><td>Content</td><td>Basic POI and route content</td><td>Richer campus stories and accessibility metadata</td></tr></tbody></table></div>
       <h3>Development Timeline</h3>
       <div class="timeline">
         <div class="timeline-item"><div class="timeline-content"><h3>Phase 1: Topic and Problem Framing</h3><p><strong>Goal:</strong> Define the B3 campus tour problem and project boundary.</p><p><strong>Output:</strong> Project direction and initial problem statement.</p><p><strong>Evidence:</strong> Portfolio overview and motivation.</p></div></div>
-        <div class="timeline-item"><div class="timeline-content"><h3>Phase 2: Research and User Definition</h3><p><strong>Goal:</strong> Understand target users and orientation pain points.</p><p><strong>Output:</strong> User evidence, personas, and journey map.</p><p><strong>Evidence:</strong> Research evidence gallery and findings table.</p></div></div>
+        <div class="timeline-item"><div class="timeline-content"><h3>Phase 2: Research and User Definition</h3><p><strong>Goal:</strong> Understand target users and orientation pain points.</p><p><strong>Output:</strong> Academic review, commercial product review, stakeholder definition, personas, and journey map.</p><p><strong>Evidence:</strong> Research section, stakeholder map, personas, and User Requirements journey map.</p></div></div>
         <div class="timeline-item"><div class="timeline-content"><h3>Phase 3: PRD and Design Documentation</h3><p><strong>Goal:</strong> Translate research into product scope.</p><p><strong>Output:</strong> Functional requirements, playful requirements, and documentation.</p><p><strong>Evidence:</strong> Requirements section and design alternatives.</p></div></div>
         <div class="timeline-item"><div class="timeline-content"><h3>Phase 4: Low-Fi Prototype</h3><p><strong>Goal:</strong> Test page hierarchy and entry flow.</p><p><strong>Output:</strong> Low-fi sketches and Figma prototype.</p><p><strong>Evidence:</strong> Low-fi screenshots and Crazy Eights photos.</p></div></div>
         <div class="timeline-item"><div class="timeline-content"><h3>Phase 5: High-Fi Design</h3><p><strong>Goal:</strong> Refine the visual interface and interaction flow.</p><p><strong>Output:</strong> Home, Map, Tours, Check-in, and My page designs.</p><p><strong>Evidence:</strong> High-fi prototype screenshots.</p></div></div>
@@ -3162,46 +1330,48 @@
           <article class="reflection-card ai-summary">
             <div class="tag-row"><span class="tag tone-amber">AI use summary</span></div>
             <h3>Permitted AI Use in the Project</h3>
-            <p>The AI-assisted tools used in this project included Figma, ChatGPT, and Codex. They were used within the permitted scope for prototype design support, vibe coding, assisted scripting, debugging, layout refinement, and writing support. The core design logic, human-centric justification, research interpretation, and final decisions remained our own work.</p>
+            <p>The AI-assisted tools used in this project included Figma, ChatGPT, and Codex. They were used within the permitted scope for prototype design support, assisted scripting, debugging, layout refinement, writing support, and placeholder generation. The core design logic, human-centric justification, research interpretation, final decisions, and all real project content remained our own work.</p>
             <h4>Boundary</h4>
             <ul>
               <li>AI supported implementation and presentation, not the replacement of user research.</li>
+              <li>Actual images, POI information, campus details, story card messages, route content, and evidence materials were collected, selected, filled, and checked by the team.</li>
+              <li>AI-created text or data was treated only as draft structure or placeholder material before the team replaced it with verified project content.</li>
               <li>AI-generated suggestions were reviewed against our own requirements and evaluation evidence.</li>
-              <li>Every AI tool used should be documented in the portfolio reference list.</li>
+              <li>Every AI tool used is documented in the portfolio reference list.</li>
             </ul>
           </article>
         </div>
 
         <div class="panel" aria-labelledby="ai-development-title">
           <h3 id="ai-development-title">Technical Reflection: AI-assisted Development</h3>
-          <p class="panel-intro">Because the project used AI-assisted coding and writing support, this section explains what prompts were used, how the generated code was verified against user requirements, and what ethical considerations were considered for AI-generated work.</p>
+          <p class="panel-intro">Because the project used AI-assisted coding, layout, and placeholder-writing support, this section explains what prompts were used, how AI-assisted outputs were verified against user requirements, and what ethical considerations were considered for AI-supported work.</p>
         </div>
 
         <div class="ai-grid" aria-label="AI-assisted development reflection details">
           <article class="ai-card prompt">
             <div class="tag-row"><span class="tag tone-blue">Prompt usage</span></div>
             <h3>1. Actual Prompt Groups Used</h3>
-            <p>The AI prompts were organized as staged coding logs rather than one-off questions. They covered the main implementation modules of PuPath:</p>
+            <p>The AI prompts were organized as staged coding logs rather than one-off questions. They supported the structure and implementation of the main PuPath modules, while the team supplied the real campus content:</p>
             <ul>
               <li><strong>Project bootstrap:</strong> Ask AI to read PRD / UI / development documents, create a 0-to-1 Vite development plan, split it into an executable task board, and guide GitHub Pages deployment.</li>
               <li><strong>Map and navigation:</strong> Ask AI to connect Home / Tours with Map navigation, separate route navigation from point-to-point navigation, implement progress / next stop / manual check-in states, switch to AMap, and improve cross-campus routing and mobile map controls.</li>
-              <li><strong>POI and recommendation data:</strong> Ask AI to expand and normalize real campus POI data, add categories such as food, photography, cats, museums, and flowers, connect recommendation cards to real POI detail pages, and replace placeholder visuals.</li>
-              <li><strong>Check-in and treasure system:</strong> Ask AI to upgrade check-in from a mock result to location-based validation, add daily limits and failure states, implement Captain Bird / XJTLU Bear collectibles, and connect check-in progress with badge logic.</li>
+              <li><strong>POI and recommendation structure:</strong> Ask AI to create data schemas, placeholder entries, category structures, card templates, and linking logic. The actual POI names, images, campus details, and recommendation content were filled and checked by the team.</li>
+              <li><strong>Check-in and treasure system:</strong> Ask AI to help refine the check-in flow, local validation logic, daily limits, failure states, Captain Bird / XJTLU Bear collectibles, and the connection between check-in progress and badge logic.</li>
               <li><strong>Accessibility and settings:</strong> Ask AI to create a persistent accessibility settings page with font size, high contrast, screen-reader assist, mobile-stable scaling, install guidance, and local-record reset.</li>
-              <li><strong>Story cards and content:</strong> Ask AI to remove generic placeholders, improve bilingual tone and readability, add local campus context, and refine route detail copy.</li>
+              <li><strong>Story card placeholders and copy structure:</strong> Ask AI to provide placeholder card formats, bilingual wording patterns, and readability suggestions. The actual story card messages and campus-specific content were written, selected, and verified by the team.</li>
             </ul>
           </article>
 
           <article class="ai-card verify">
             <div class="tag-row"><span class="tag tone-green">Verification</span></div>
-            <h3>2. How We Verified AI-generated Code</h3>
+            <h3>2. How We Verified AI-assisted Outputs</h3>
             <ul>
               <li>Checked whether generated features matched the original prompt constraints, such as Vite implementation, GitHub Pages deployment, P0-first development, AMap routing, POI overlay, and bilingual UI consistency.</li>
               <li>Manually tested the main user flows: entering from Home / Tours, jumping to Map, route navigation, point-to-point navigation, progress update, next stop display, manual check-in, and ending navigation.</li>
-              <li>Compared generated POI and recommendation logic with our campus data requirements, including category completeness, ID-name consistency, real POI detail links, and image-asset mapping.</li>
-              <li>Tested check-in and reward behaviour against the required states: inside / outside campus, already checked in, location unavailable, daily limit, collectible result, and badge unlock condition.</li>
+              <li>Compared AI-assisted POI and recommendation structures with our own campus data, including category completeness, ID-name consistency, real POI detail links, and image-asset mapping.</li>
+              <li>Conducted field testing for check-in and reward behaviour against the required states: inside / outside campus, already checked in, location unavailable, daily limit, collectible result, and badge unlock condition.</li>
               <li>Reviewed accessibility settings across pages to ensure font scaling, high contrast, screen-reader assist, and local data reset remained stable on mobile.</li>
-              <li>Revised AI outputs when they included placeholder content, unsupported assumptions, broken layout, inconsistent bilingual copy, or functions that did not match the user requirements.</li>
+              <li>Replaced AI placeholder content with team-filled project content and revised outputs when they included unsupported assumptions, broken layout, inconsistent bilingual copy, or functions that did not match the user requirements.</li>
             </ul>
           </article>
 
@@ -3209,12 +1379,12 @@
             <div class="tag-row"><span class="tag tone-purple">Ethical considerations</span></div>
             <h3>3. Ethical Considerations</h3>
             <ul>
-              <li>AI-generated code was treated as a draft that needed human review, not as final proof that the system met user needs.</li>
+              <li>AI-generated code and placeholder content were treated as drafts that needed human review, not as final proof that the system met user needs.</li>
               <li>AI was not used to create fake user research, fake evaluation data, or unsupported human-centric justification.</li>
               <li>Location-related features were reviewed carefully because check-ins, visited records, and navigation history may involve sensitive user behaviour.</li>
               <li>Accessibility-related AI suggestions were verified manually so that font scaling, high contrast, and screen-reader support were not only described but also reflected in the interface.</li>
-              <li>Content generated or refined by AI was checked for bilingual clarity, campus relevance, and avoidance of misleading route or weather-dependent claims.</li>
-              <li>All AI-assisted coding prompts were saved as AI logs so that the development process remained transparent.</li>
+              <li>AI placeholder content was checked for bilingual clarity and then replaced or revised with team-filled campus content to avoid misleading route, POI, or weather-dependent claims.</li>
+              <li>AI-assisted coding prompts were saved in the main PuPath project repository's AI logs folder; this portfolio references that record rather than duplicating the full logs.</li>
             </ul>
           </article>
 
@@ -3223,11 +1393,11 @@
             <h3>4. AI Tool Documentation</h3>
             <ul>
               <li><strong>Figma:</strong> Used for interface prototyping, visual layout exploration, and low-fi / high-fi prototype preparation.</li>
-              <li><strong>ChatGPT:</strong> Used for portfolio writing support, requirement organization, image generation, HTML/CSS layout suggestions, and debugging explanations.</li>
+              <li><strong>ChatGPT:</strong> Used for portfolio writing support, requirement organization, placeholder text, HTML/CSS layout suggestions, and debugging explanations.</li>
               <li><strong>Codex:</strong> Used for code generation, code editing, implementation assistance, and debugging support.</li>
             </ul>
             <h4>Mandatory citation note</h4>
-            <p>Figma, ChatGPT, and Codex should be documented in the portfolio reference or acknowledgement section, including what each tool was used for. This keeps AI-assisted work transparent and within the permitted scope of the project requirements.</p>
+            <p>Figma, ChatGPT, and Codex are documented in the portfolio reference section, including what each tool was used for.</p>
           </article>
         </div>
 
@@ -3270,28 +1440,34 @@
         <li>J. Kim and D. M. Castelli, "Effects of Gamification on Behavioral Change in Education: A Meta-Analysis," <em>International Journal of Environmental Research and Public Health</em>, vol. 18, no. 7, p. 3550, 2021.</li>
         <li>C. Prandi, V. Nisi, P. Salomoni, and N. J. Nunes, "Accessible wayfinding and navigation: a systematic mapping study," <em>Universal Access in the Information Society</em>, vol. 22, pp. 185-212, 2023.</li>
       </ol>
-      <h3>Commercial / Product References</h3>
+      <h3>Commercial Product References</h3>
       <ol>
-        <li>Google Maps. Used as a comparison point for generic map navigation.</li>
-        <li>Gaode Maps. Used as a comparison point for local map services and route planning.</li>
-        <li>XJTLU official website / campus information pages. Used as a comparison point for official campus information.</li>
-        <li>Rednote. Used as a comparison point for discovery-oriented content flow.</li>
+        <li>Google Maps. Used as a comparison point for generic map navigation and POI search.</li>
+        <li>Gaode Maps / AMap. Used as a comparison point for local Chinese map services and route planning.</li>
+        <li>XJTLU official website / campus map. Used as a comparison point for official campus information that is useful but not route-oriented.</li>
+        <li>Rednote / Xiaohongshu. Used as a comparison point for discovery-oriented content flow and informal place recommendations.</li>
       </ol>
       <h3>Technical References</h3>
       <ol>
-        <li><a href="https://lbs.amap.com/" target="_blank" rel="noreferrer">Gaode Maps Documentation</a></li>
-        <li><a href="https://open-meteo.com/en/docs" target="_blank" rel="noreferrer">Open-Meteo API Documentation</a></li>
-        <li><a href="https://maplibre.org/maplibre-gl-js/docs/" target="_blank" rel="noreferrer">MapLibre GL JS Documentation</a></li>
-        <li><a href="https://react.dev/" target="_blank" rel="noreferrer">React Documentation</a></li>
-        <li><a href="https://www.i18next.com/" target="_blank" rel="noreferrer">i18next Documentation</a></li>
-        <li><a href="https://www.w3.org/TR/appmanifest/" target="_blank" rel="noreferrer">W3C Web App Manifest</a></li>
+        <li><a href="https://react.dev/" target="_blank" rel="noreferrer">React documentation</a>. Referenced for component-based UI implementation.</li>
+        <li><a href="https://www.typescriptlang.org/docs/" target="_blank" rel="noreferrer">TypeScript documentation</a>. Referenced for type-safe front-end development.</li>
+        <li><a href="https://vite.dev/" target="_blank" rel="noreferrer">Vite documentation</a>. Referenced for local development and production bundling.</li>
+        <li><a href="https://reactrouter.com/" target="_blank" rel="noreferrer">React Router documentation</a>. Referenced for client-side routing.</li>
+        <li><a href="https://zustand-demo.pmnd.rs/" target="_blank" rel="noreferrer">Zustand documentation</a>. Referenced for lightweight local state management.</li>
+        <li><a href="https://www.i18next.com/" target="_blank" rel="noreferrer">i18next documentation</a>. Referenced for Chinese / English interface support.</li>
+        <li><a href="https://lbs.amap.com/" target="_blank" rel="noreferrer">AMap JS API documentation</a>. Referenced for primary map and navigation capability.</li>
+        <li><a href="https://maplibre.org/maplibre-gl-js/docs/" target="_blank" rel="noreferrer">MapLibre GL JS documentation</a>. Referenced for fallback map rendering.</li>
+        <li><a href="https://tailwindcss.com/docs" target="_blank" rel="noreferrer">Tailwind CSS documentation</a>. Referenced for utility-first styling support.</li>
+        <li><a href="https://vite-pwa-org.netlify.app/" target="_blank" rel="noreferrer">Vite PWA documentation</a>. Referenced for installable PWA behavior and caching support.</li>
+        <li><a href="https://docs.github.com/en/pages" target="_blank" rel="noreferrer">GitHub Pages documentation</a>. Referenced for public static deployment.</li>
+        <li><a href="https://www.w3.org/TR/appmanifest/" target="_blank" rel="noreferrer">W3C Web App Manifest specification</a>. Referenced for PWA manifest behavior.</li>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API" target="_blank" rel="noreferrer">MDN Web Storage API documentation</a>. Referenced for local records, preferences, and no-login prototype storage.</li>
       </ol>
       <h3>AI Tools Disclosure</h3>
       <ol>
-        <li><a href="https://openai.com/codex" target="_blank" rel="noreferrer">OpenAI Codex</a></li>
-        <li><a href="https://chatgpt.com" target="_blank" rel="noreferrer">ChatGPT</a></li>
-        <li><a href="https://cursor.com" target="_blank" rel="noreferrer">Cursor</a></li>
-        <li><a href="https://www.figma.com/" target="_blank" rel="noreferrer">Figma</a></li>
+        <li><a href="https://www.figma.com/" target="_blank" rel="noreferrer">Figma</a>. Used for low-fidelity and high-fidelity prototype preparation, visual layout exploration, and interface design support.</li>
+        <li><a href="https://chatgpt.com" target="_blank" rel="noreferrer">ChatGPT</a>. Used for writing support, requirement organization, placeholder text, HTML / CSS layout suggestions, and debugging explanations. Actual images, POI information, and story card content were supplied by the team.</li>
+        <li><a href="https://openai.com/codex" target="_blank" rel="noreferrer">OpenAI Codex</a>. Used for code generation, code editing, implementation assistance, debugging support, and portfolio HTML refinement.</li>
       </ol>
     </div>
   </section>
