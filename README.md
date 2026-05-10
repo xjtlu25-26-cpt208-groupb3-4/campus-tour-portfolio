@@ -8,7 +8,6 @@ The portfolio is a static single-page website:
 
 - Main file: `index.html`
 - Supporting images: `images/`
-- Supporting documents: `docs/`
 - Main stylesheet: `style.css`
 
 Open `index.html` directly in a browser, or view the deployed portfolio if available:
